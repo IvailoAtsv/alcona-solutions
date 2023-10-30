@@ -1,8 +1,13 @@
-export const Color = ({ name, updateFields, display }) => {
+import black from '../colors/Black.png'
+
+
+export const Color = ({ name, updateFields, display, pic }) => {
     return (
-        <div className="flex flex-col justify-center items-center">
+        <div onClick={e => updateFields({ color: e.target.value })} className="flex flex-col justify-center items-center">
             <p>{display}</p>
-            <button onClick={e => updateFields({ color: e.target.value })} value={name} className={`w-24 h-24 rounded-md bg-wood${name}`} />
+            <button value={name} >
+                <img className='w-24 h-24 rounded-md' src={pic} />
+            </button>
         </div>
     )
 }

@@ -8,7 +8,7 @@ const INITIAL_DATA = {
     color: "",
     width: 210,
     height: 180,
-    panelCount: '',
+    panelCount: 1,
     email: "",
     password: "",
 }
@@ -35,7 +35,7 @@ export function MainForm() {
     }
 
     return (
-        <div className="bg-white text-sm shadow-lg my-4 rounded-md min-h-[45vh] relative w-[90%]">
+        <div className="bg-white text-sm shadow-lg py-4 rounded-md h-auto relative max-w-[1400px] w-[90%]">
             <form onSubmit={onSubmit}>
                 <div className="absolute top-3 right-10">
                     {currentStepIndex + 1} / {steps.length}

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { FormWrapper } from "./FormWrapper"
 import './dimentions.css'
 import fence from '../images/fence.png'
@@ -7,17 +7,22 @@ import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
 export function DimentionsForm({ color, updateFields, }) {
     const [height, setHeight] = useState(180)
     const [width, setWidth] = useState(210)
-    const [count, setCount] = useState(1)
+    const [panelCount, setPanelCount] = useState(1)
+
+
+
 
     const increment = (e) => {
         e.preventDefault()
-        setCount(count => count + 1)
-        updateFields({ panelCount: count })
+        setPanelCount(count => count + 1)
     }
     const decrement = (e) => {
-        setCount(count => count - 1)
         e.preventDefault()
+        setPanelCount(count => count - 1)
     }
+    useEffect(() => {
+        updateFields({ panelCount: panelCount })
+    }, [panelCount])
 
     return (
         <>
@@ -45,10 +50,13 @@ export function DimentionsForm({ color, updateFields, }) {
                             }
                             } min="80" step="20" max="180" />
                         </div>
-                        <div className="flex justify-center items-center pt-4 gap-3">
-                            <button onClick={(e) => increment(e)} className="px-6 py-2 bg-orange-300 rounded-md hover:bg-orange-400"><AiOutlinePlus size={24} /></button>
-                            <p className="text-center text-xl">{count}</p>
-                            <button onClick={(e) => decrement(e)} className="px-6 py-2 bg-orange-300 rounded-md hover:bg-orange-400"><AiOutlineMinus size={24} /></button>
+                        <div className="flex flex-col justify-center items-center w-11/12 h-11/12">
+                            <label className="text-lg font-semibold">Брой:</label>
+                            <div className="flex w-full items-center justify-center gap-4">
+                                <button onClick={e => decrement(e)}><AiOutlineMinus size={24} /></button>
+                                <input type="number" value={panelCount} onChange={(e) => setPanelCount(prev => prev = e.target.value)} required className="w-[50px] h-[30px] bg-gray-200 text-xl text-center rounded-md px-2 py-1" />
+                                <button onClick={e => increment(e)}><AiOutlinePlus size={24} /></button>
+                            </div>
                         </div>
 
                     </div>

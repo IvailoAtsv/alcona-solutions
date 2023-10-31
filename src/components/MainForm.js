@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { AccountForm } from "./AccountForm"
+import { CapsForm } from "./CapsForm"
 import { DimentionsForm } from "./DimentionsForm"
 import { useMultistepForm } from "../useMultistepForm"
 import { ColorsForm } from "./ColorsForm"
@@ -9,12 +9,15 @@ const INITIAL_DATA = {
     width: 210,
     height: 180,
     panelCount: 1,
-    email: "",
-    password: "",
+    ledCaps: 0,
+    solarCaps: 0,
+    plasticCaps: 0,
+
 }
 
 export function MainForm() {
     const [data, setData] = useState(INITIAL_DATA)
+    const [isValid, setIsValid] = useState(true)
 
     function updateFields(fields) {
         setData(prev => {
@@ -23,9 +26,9 @@ export function MainForm() {
     }
     const { steps, currentStepIndex, step, isFirstStep, isLastStep, back, next } =
         useMultistepForm([
-            <ColorsForm {...data} updateFields={updateFields} />,
-            <DimentionsForm {...data} updateFields={updateFields} />,
-            <AccountForm {...data} updateFields={updateFields} />,
+            <ColorsForm isValid={isValid} setIsValid={setIsValid} {...data} updateFields={updateFields} />,
+            <DimentionsForm isValid={isValid} setIsValid={setIsValid} {...data} updateFields={updateFields} />,
+            <CapsForm isValid={isValid} setIsValid={setIsValid} {...data} updateFields={updateFields} />,
         ])
 
     function onSubmit(e) {
@@ -43,11 +46,11 @@ export function MainForm() {
                 {step}
                 <div className="flex w-11/12 h-12 items-center justify-end mt-9 mr-9">
                     {!isFirstStep && (
-                        <button className="py-2 px-6 ml-4 font-semibold bg-orange-400 rounded-md" type="button" onClick={back}>
+                        <button disabled={!isValid} className="py-2 px-6 ml-4 font-semibold bg-orange-400 rounded-md" type="button" onClick={back}>
                             Back
                         </button>
                     )}
-                    <button className="py-2 px-6 ml-4 font-semibold bg-orange-400 rounded-md" type="submit">{isLastStep ? "Finish" : "Next"}</button>
+                    <button disabled={!isValid} className="py-2 px-6 ml-4 font-semibold bg-orange-400 rounded-md" type="submit">{isLastStep ? "Finish" : "Next"}</button>
                 </div>
             </form>
         </div>

@@ -54,7 +54,7 @@ export function DimentionsForm({ color, updateFields, }) {
                             <label className="text-lg font-semibold">Брой:</label>
                             <div className="flex w-full items-center justify-center gap-4">
                                 <button onClick={e => decrement(e)}><AiOutlineMinus size={24} /></button>
-                                <input type="number" value={panelCount} onChange={(e) => setPanelCount(prev => prev = e.target.value)} required className="w-[50px] h-[30px] bg-gray-200 text-xl text-center rounded-md px-2 py-1" />
+                                <input type="number" value={panelCount} onChange={(e) => setPanelCount(prev => prev = e.target.value)} required className="w-[150px] h-[30px] bg-gray-200 text-xl text-center rounded-md px-2 py-1" />
                                 <button onClick={e => increment(e)}><AiOutlinePlus size={24} /></button>
                             </div>
                         </div>

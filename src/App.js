@@ -4,7 +4,7 @@ import { MainForm } from "./components/MainForm";
 import { Cart } from "./components/Cart";
 
 function App() {
-  const [cartOpen, setCartOpen] = useState(true)
+  const [cartOpen, setCartOpen] = useState(false)
   return (
 
     <div className="bg-background w-full overflow-x-hidden min-h-screen flex flex-col gap-3 justify-center items-center">

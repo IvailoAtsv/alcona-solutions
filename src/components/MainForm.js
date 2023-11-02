@@ -1,8 +1,9 @@
 import { useState } from "react"
-import { CapsForm } from "./CapsForm"
+// import { CapsForm } from "./CapsForm"
 import { DimentionsForm } from "./DimentionsForm"
 import { useMultistepForm } from "../useMultistepForm"
 import { ColorsForm } from "./ColorsForm"
+import { UserForm } from "./UserForm"
 
 const INITIAL_DATA = {
     color: "",
@@ -12,10 +13,9 @@ const INITIAL_DATA = {
     ledCaps: 0,
     solarCaps: 0,
     plasticCaps: 0,
-
 }
 
-export function MainForm() {
+export function MainForm({ cartItems, setCartItems }) {
     const [data, setData] = useState(INITIAL_DATA)
     const [isValid, setIsValid] = useState(true)
 
@@ -28,7 +28,8 @@ export function MainForm() {
         useMultistepForm([
             <ColorsForm isValid={isValid} setIsValid={setIsValid} {...data} updateFields={updateFields} />,
             <DimentionsForm isValid={isValid} setIsValid={setIsValid} {...data} updateFields={updateFields} />,
-            <CapsForm isValid={isValid} setIsValid={setIsValid} {...data} updateFields={updateFields} />,
+            <UserForm isValid={isValid} setIsValid={setIsValid} {...data} updateFields={updateFields} />
+            // <CapsForm isValid={isValid} setIsValid={setIsValid} {...data} updateFields={updateFields} />,
         ])
 
     function onSubmit(e) {
@@ -36,11 +37,14 @@ export function MainForm() {
         if (!isLastStep) return next()
         console.log(data);
     }
+    function addToCart(e) {
+        setCartItems(prev => [...prev, data])
+    }
 
     return (
-        <div className="bg-white text-sm shadow-lg py-4 rounded-md h-auto relative max-w-[1400px] w-[90%]">
+        <div className="bg-white text-sm shadow-lg my-4 rounded-md h-auto relative max-w-[1400px] w-[90%]">
             <form onSubmit={onSubmit}>
-                <div className="absolute top-3 right-10">
+                <div className="absolute top-1 text-center font-semibold text-lg right-10">
                     {currentStepIndex + 1} / {steps.length}
                 </div>
                 {step}
@@ -50,7 +54,10 @@ export function MainForm() {
                             Back
                         </button>
                     )}
-                    <button disabled={!isValid} className="py-2 px-6 ml-4 font-semibold bg-orange-400 rounded-md" type="submit">{isLastStep ? "Finish" : "Next"}</button>
+                    {isLastStep
+                        ? <button onClick={(e) => addToCart(e)} className="py-2 px-6 ml-4 font-semibold bg-orange-400 rounded-md">Add to Cart</button>
+                        : <button disabled={!isValid} className={isFirstStep ? 'hidden' : "py-2 px-6 ml-4 font-semibold bg-orange-400 rounded-md"} type="submit">Next </button>
+                    }
                 </div>
             </form>
         </div>

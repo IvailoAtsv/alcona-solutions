@@ -10,12 +10,15 @@ import ReddishBrown from '../colors/ReddishBrown.png'
 import Rosewood from '../colors/Rosewood.png'
 import SandyBrown from '../colors/SandyBrown.png'
 import Teak from '../colors/Teak.png'
+import { useEffect } from "react"
 
 
 export function ColorsForm({
-    color,
     updateFields,
 }) {
+
+
+
     return (
         <FormWrapper title="Изберете цвят">
             <div className="flex flex-wrap gap-2 justify-center items-center">

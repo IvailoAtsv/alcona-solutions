@@ -4,13 +4,10 @@ import './dimentions.css'
 import fence from '../images/fence.png'
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
 
-export function DimentionsForm({ color, updateFields, }) {
+export function DimentionsForm({ color, updateFields, isValid, setIsValid }) {
     const [height, setHeight] = useState(180)
     const [width, setWidth] = useState(210)
     const [panelCount, setPanelCount] = useState(1)
-
-
-
 
     const increment = (e) => {
         e.preventDefault()
@@ -21,6 +18,11 @@ export function DimentionsForm({ color, updateFields, }) {
         setPanelCount(count => count - 1)
     }
     useEffect(() => {
+        if (panelCount <= 0) {
+            setIsValid(false)
+        } else {
+            setIsValid(true)
+        }
         updateFields({ panelCount: panelCount })
     }, [panelCount])
 
@@ -58,6 +60,7 @@ export function DimentionsForm({ color, updateFields, }) {
                                 <button onClick={e => increment(e)}><AiOutlinePlus size={24} /></button>
                             </div>
                         </div>
+                        <p className="text-2xl text-center mt-4 text-red-600 font-bold">{!isValid ? 'Броят на панелите трябва да бъде по-голям от 0!' : ''}</p>
 
                     </div>
                 </div>

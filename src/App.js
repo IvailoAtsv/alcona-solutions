@@ -5,12 +5,13 @@ import { Cart } from "./components/Cart";
 
 function App() {
   const [cartOpen, setCartOpen] = useState(false)
+  const [cartItems, setCartItems] = useState([])
   return (
 
     <div className="bg-background w-full overflow-x-hidden min-h-screen flex flex-col gap-3 justify-center items-center">
       <Hero />
-      <Cart cartOpen={cartOpen} setCartOpen={setCartOpen} />
-      <MainForm />
+      <Cart cartOpen={cartOpen} setCartOpen={setCartOpen} cartItems={cartItems} setCartItems={setCartItems} />
+      <MainForm cartItems={cartItems} setCartItems={setCartItems} />
     </div>
   );
 }

@@ -11,18 +11,16 @@ import pic3 from "./images/kol-slice.jpg";
 import pic4 from "./images/kol.jpg";
 import pic5 from "./images/plank.jpg";
 import pic6 from "./images/top.jpg";
+import pic7 from "./images/fence2.png";
 
 const IMAGES = [
-  { url: pic4, alt: "pic Four", description: "Кол (по 1 на всеки панел + 1)" },
-  { url: pic3, alt: "pic Three", description: "сечение на кол" },
-  { url: pic1, alt: "pic One", description: "WPC шапка (по 1 на кол)" },
-  { url: pic2, alt: "pic Two", description: "долна алуминиева лайсна" },
-  { url: pic6, alt: "pic Five", description: "горна алуминиева лайсна" },
-  {
-    url: pic5,
-    alt: "pic Five",
-    description: "Дъска (панела се състои от разлизен брой дъски)",
-  },
+  { url: pic7, alt: "pic Five" },
+  { url: pic4, alt: "pic Four" },
+  { url: pic3, alt: "pic Three" },
+  { url: pic1, alt: "pic One" },
+  { url: pic2, alt: "pic Two" },
+  { url: pic6, alt: "pic Five" },
+  { url: pic5, alt: "pic Five" },
 ];
 
 function App() {

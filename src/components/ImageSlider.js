@@ -1,13 +1,35 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import "./image-slider.css";
-import { BsCircle } from "react-icons/bs";
+import {
+  BsCircle,
+  BsFillArrowLeftCircleFill,
+  BsFillArrowRightCircleFill,
+} from "react-icons/bs";
 import { FaRegDotCircle } from "react-icons/fa";
 
+// { url: pic4, alt: "pic Four", description: "Кол (по 1 на всеки панел + 1)" },
+//   { url: pic3, alt: "pic Three", description: "сечение на кол" },
+//   { url: pic1, alt: "pic One", description: "WPC шапка (по 1 на кол)" },
+//   { url: pic2, alt: "pic Two", description: "долна алуминиева лайсна" },
+//   { url: pic6, alt: "pic Five", description: "горна алуминиева лайсна" },
+//   {
+//     url: pic5,
+//     alt: "pic Five",
+//     description: "Дъска (панела се състои от разлизен брой дъски)",
+// },
 export function ImageSlider({ images }) {
   const [imageIndex, setImageIndex] = useState(0);
 
-  const descriptions = ["Кол (по 1 на всеки панел + 1)"];
+  const descriptions = [
+    "Панел",
+    "Кол (по 1 на всеки панел + 1)",
+    "сечение на кол",
+    "WPC шапка (по 1 на кол)",
+    "долна алуминиева лайсна",
+    "горна алуминиева лайсна",
+    "Дъска (панела се състои от разлизен брой дъски)",
+  ];
 
   function showNextImage() {
     setImageIndex((index) => {
@@ -23,6 +45,8 @@ export function ImageSlider({ images }) {
     });
   }
 
+  useEffect(() => {}, [imageIndex]);
+
   return (
     <>
       <h1 className="text-3xl text-center font-semibold">
@@ -30,16 +54,19 @@ export function ImageSlider({ images }) {
       </h1>
       <section
         aria-label="Image Slider"
-        className="w-[96%] h-[50vh] sm:max-w-[700px] relative"
+        className="w-[96%] h-[60vh] sm:max-w-[60vh] relative"
       >
         <div className="w-full h-full flex overflow-hidden">
-          {images.map(({ url, alt, description }, index) => (
+          {images.map((item, index) => (
             <div className="w-full h-full shrink-0 grow-0">
-              <p className="text-center text-2xl font-medium">{description}</p>
+              <p className="text-center text-2xl font-medium">
+                {descriptions[imageIndex]}
+              </p>
               <img
-                key={url}
-                src={url}
-                alt={alt}
+                loading="lazy"
+                key={item.url}
+                src={item.url}
+                alt={item.alt}
                 aria-hidden={imageIndex !== index}
                 className="img-slider-img"
                 style={{ translate: `${-100 * imageIndex}%` }}
@@ -49,19 +76,23 @@ export function ImageSlider({ images }) {
         </div>
         <button
           onClick={showPrevImage}
-          className="img-slider-btn"
+          className="img-slider-btn text-white"
           style={{ left: 0 }}
           aria-label="View Previous Image"
         >
-          <AiOutlineArrowLeft aria-hidden />
+          <AiOutlineArrowLeft
+            className="bg-cardBg rounded-full"
+            size={28}
+            aria-hidden
+          />
         </button>
         <button
           onClick={showNextImage}
           className="img-slider-btn"
-          style={{ right: 0 }}
+          style={{ right: 0, color: "white" }}
           aria-label="View Next Image"
         >
-          <AiOutlineArrowRight aria-hidden />
+          <AiOutlineArrowRight className="bg-cardBg rounded-full" aria-hidden />
         </button>
         <div
           style={{
@@ -83,7 +114,7 @@ export function ImageSlider({ images }) {
               {index === imageIndex ? (
                 <FaRegDotCircle aria-hidden />
               ) : (
-                <BsCircle aria-hidden />
+                <BsCircle className="text-white" aria-hidden />
               )}
             </button>
           ))}

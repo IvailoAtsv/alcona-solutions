@@ -13,12 +13,10 @@
     "react-select": "^5.7.7",
     "web-vitals": "^2.1.4"
   },
-  "prettier":{
-    
-      "editor.defaultFormatter": "esbenp.prettier-vscode",
-      "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-      
+  "prettier": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
   },
   "scripts": {

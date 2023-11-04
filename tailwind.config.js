@@ -25,6 +25,7 @@ module.exports = {
       colors: {
         cardBg: "rgba(255,255,255,0.7)",
         cardBg2: "rgba(0,0,0,0.7)",
+        cardBg3: "rgba(0,0,0,0.55)",
         bgShape: "linear-gradient(45deg,pink,puple)",
         background: "#35414c",
         background2: "#13294B",

@@ -37,7 +37,7 @@ export const UserForm = ({ isValid, setIsValid, updateFields }) => {
   return (
     <FormWrapper title="Данни за поръчка">
       <div className="flex flex-col w- full h-full justify-evenly items-center">
-        <p>До адрес (доплащане)</p>
+        <p>До адрес (доплащане )</p>
         <label className={labelStyle}></label>
         <input
           name="name"

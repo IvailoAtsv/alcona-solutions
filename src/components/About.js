@@ -42,7 +42,7 @@ export const About = () => {
 
 const Card = ({ img, title, text }) => {
   return (
-    <div className="backdrop-blur-md sm:w-[30%] w-[90%] flex flex-col justify-between min-h-[580px] rounded-md bg-cardBg2 text-white">
+    <div className="backdrop-blur-md sm:w-[30%] w-full flex flex-col justify-between min-h-[580px] rounded-md bg-cardBg2 text-white">
       <img
         loading="lazy"
         src={img}

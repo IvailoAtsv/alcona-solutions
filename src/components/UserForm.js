@@ -3,7 +3,7 @@ import { FormWrapper } from "./FormWrapper";
 
 export const UserForm = ({ isValid, setIsValid, updateFields }) => {
   const inputStyle =
-    "border-2 px-9 py-2 w-[40%] rounded-md text-black foucs:border-orange-300 focus:ring-0 focus:outline-orange-300";
+    "border-2 px-9 py-2 sm:w-[40%] w-[90%] rounded-md text-black foucs:border-orange-300 focus:ring-0 focus:outline-orange-300";
 
   const labelStyle = "text-xl text-center mt-4 text-red-600 font-bold";
 
@@ -36,8 +36,8 @@ export const UserForm = ({ isValid, setIsValid, updateFields }) => {
 
   return (
     <FormWrapper title="Данни за поръчка">
-      <div className="flex flex-col w- full h-full justify-evenly items-center">
-        <p>До адрес (доплащане )</p>
+      <div className="flex flex-col w-full h-full justify-evenly items-center">
+        <p>Доставка до адрес (доплащане )</p>
         <label className={labelStyle}></label>
         <input
           name="name"

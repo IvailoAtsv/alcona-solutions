@@ -3,7 +3,6 @@ import Hero from "./components/Hero";
 import { MainForm } from "./components/MainForm";
 import { About } from "./components/About";
 import { Cart } from "./components/Cart";
-import { ImageSlider } from "./components/Carosel/ImageSlider";
 import { FooterWithSitemap } from "./components/Footer";
 
 import pic1 from "./images/plastic.jpg";

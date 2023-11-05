@@ -1,4 +1,3 @@
-import { ImageSlider } from "./ImageSlider";
 import pic1 from "../../images/plastic.jpg";
 import pic2 from "../../images/bottom.jpg";
 import pic3 from "../../images/kol-slice.jpg";
@@ -8,6 +7,8 @@ import pic6 from "../../images/top.jpg";
 import pic7 from "../../images/fence2.png";
 import { useEffect, useState } from "react";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
+import "./image-slider.css";
+
 import {
   BsCircle,
   BsFillArrowLeftCircleFill,
@@ -45,7 +46,7 @@ const IMAGES = [
   { url: pic5, alt: "pic Five" },
 ];
 
-export const Carosel = ({ description }) => {
+export const Carosel = () => {
   const [imageIndex, setImageIndex] = useState(0);
 
   function showNextImage() {

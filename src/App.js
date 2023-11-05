@@ -3,7 +3,7 @@ import Hero from "./components/Hero";
 import { MainForm } from "./components/MainForm";
 import { About } from "./components/About";
 import { Cart } from "./components/Cart";
-import { ImageSlider } from "./components/ImageSlider";
+import { ImageSlider } from "./components/Carosel/ImageSlider";
 import { FooterWithSitemap } from "./components/Footer";
 
 import pic1 from "./images/plastic.jpg";
@@ -15,6 +15,7 @@ import pic6 from "./images/top.jpg";
 import pic7 from "./images/fence2.png";
 import Navigation from "./components/Nav/Navigation";
 import { Popup } from "./components/Popup";
+import { Carosel } from "./components/Carosel/Carosel";
 
 const IMAGES = [
   { url: pic7, alt: "pic Five" },
@@ -47,19 +48,19 @@ function App() {
         setCartOpen={setCartOpen}
       />
       <Hero />
+      <MainForm
+        setIsPopupOpen={setIsPopupOpen}
+        cartItems={cartItems}
+        setCartItems={setCartItems}
+      />
       <Cart
         cartOpen={cartOpen}
         setCartOpen={setCartOpen}
         cartItems={cartItems}
         setCartItems={setCartItems}
       />
-      <ImageSlider images={IMAGES} />
+      <Carosel />
       <About />
-      <MainForm
-        setIsPopupOpen={setIsPopupOpen}
-        cartItems={cartItems}
-        setCartItems={setCartItems}
-      />
       <FooterWithSitemap />
     </div>
   );

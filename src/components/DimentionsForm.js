@@ -40,13 +40,13 @@ export function DimentionsForm({ color, updateFields, isValid, setIsValid }) {
               onClick={() => setType((prev) => (prev = "default"))}
               className={buttonStyle}
             >
-              Oбикновен Размер
+              Стандартно пано
             </button>
             <button
               onClick={() => setType((prev) => (prev = "custom"))}
               className={buttonStyle}
             >
-              Различен Размер
+              Пано по ваш избор
             </button>
             <button
               onClick={() => setType((prev) => (prev = "project"))}

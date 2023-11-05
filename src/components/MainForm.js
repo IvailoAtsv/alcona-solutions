@@ -48,13 +48,13 @@ export function MainForm({ cartItems, setCartItems, setIsPopupOpen }) {
     <ColorsForm
       isValid={isValid}
       setIsValid={setIsValid}
-      {...data}
+      color={data.color}
       updateFields={updateFields}
     />,
     <DimentionsForm
       isValid={isValid}
       setIsValid={setIsValid}
-      {...data}
+      color={data.color}
       updateFields={updateFields}
     />,
     // <UserForm

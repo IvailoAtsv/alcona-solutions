@@ -18,6 +18,7 @@ export function DimentionsForm({ color, updateFields, isValid, setIsValid }) {
             updateFields={updateFields}
             isValid={isValid}
             setIsValid={setIsValid}
+            color={color}
           />
         )}
         {type === "custom" && (
@@ -25,6 +26,7 @@ export function DimentionsForm({ color, updateFields, isValid, setIsValid }) {
             updateFields={updateFields}
             isValid={isValid}
             setIsValid={setIsValid}
+            color={color}
           />
         )}
         {type === "project" && (
@@ -32,6 +34,7 @@ export function DimentionsForm({ color, updateFields, isValid, setIsValid }) {
             updateFields={updateFields}
             isValid={isValid}
             setIsValid={setIsValid}
+            color={color}
           />
         )}
         {type === "" && (

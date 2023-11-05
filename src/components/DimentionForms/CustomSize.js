@@ -1,9 +1,32 @@
 import { useEffect, useState } from "react";
 import "../dimentions.css";
-import fence from "../../images/fence.png";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 
-export const CustomSize = ({ updateFields, isValid, setIsValid }) => {
+import black from "../Colors/black.png";
+import darkCoffee from "../Colors/darkCoffee.png";
+import green from "../Colors/green.png";
+import lightCoffee from "../Colors/lightCoffee.png";
+import lightGrey from "../Colors/lightGrey.png";
+import maple from "../Colors/maple.png";
+import sandyBrown from "../Colors/sandyBrown.png";
+import teak from "../Colors/teak.png";
+import rosewood from "../Colors/rosewood.png";
+import reddishBrown from "../Colors/reddishBrown.png";
+
+const colors = {
+  black: black,
+  darkCoffee: darkCoffee,
+  green: green,
+  lightCoffee: lightCoffee,
+  lightGrey: lightGrey,
+  maple: maple,
+  sandyBrown: sandyBrown,
+  teak: teak,
+  rosewood: rosewood,
+  reddishBrown: reddishBrown,
+};
+
+export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
   const [height, setHeight] = useState(210);
   const [width, setWidth] = useState(180);
   const [panelCount, setPanelCount] = useState(1);
@@ -30,7 +53,7 @@ export const CustomSize = ({ updateFields, isValid, setIsValid }) => {
   return (
     <div className="flex items-center flex-col justify-between w-full">
       <img
-        src={fence}
+        src={colors[color]}
         style={{ width: `${width * 2}px`, height: `${height * 1.5}px` }}
       ></img>
 

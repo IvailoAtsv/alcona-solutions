@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { FormWrapper } from "./FormWrapper";
 
-export const UserForm = ({ isValid, setIsValid, updateFields }) => {
+export const UserForm = ({ isValid, setIsValid, updateFields, addToCart }) => {
   const inputStyle =
     "border-2 px-9 py-2 sm:w-[40%] w-[90%] rounded-md text-black foucs:border-orange-300 focus:ring-0 focus:outline-orange-300";
 
   const labelStyle = "text-xl text-center mt-4 text-red-600 font-bold";
 
   const [isEmailValid, setIsEmailValid] = useState(true);
-  const [isNameValid, setIsNameValid] = useState(true);
   const [isPhoneValid, setIsPhoneValid] = useState(true);
 
   const validatePhone = (e) => {
@@ -30,8 +29,9 @@ export const UserForm = ({ isValid, setIsValid, updateFields }) => {
     }
   };
 
-  const pickUp = (e) => {
+  const handlePickup = (e) => {
     updateFields({ pickUp: true });
+    addToCart();
   };
 
   return (
@@ -90,10 +90,10 @@ export const UserForm = ({ isValid, setIsValid, updateFields }) => {
         <button
           name="pickUp"
           type="submit"
-          onClick={() => updateFields({ pickUp: true })}
+          onClick={handlePickup}
           className="py-2 px-2 w-[40%] font-bold mt-5 hover:bg-orange-300 bg-orange-400 rounded-md"
         >
-          Взимане от място
+          Взимане от склад
         </button>
       </div>
     </FormWrapper>

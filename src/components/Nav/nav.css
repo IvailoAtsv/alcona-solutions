@@ -4,7 +4,7 @@
     left: 0;
     width: 100%;
     padding: 0.5rem 0;
-    background: linear-gradient(90deg, transparent, rgb(146, 146, 146), transparent);
+    background: linear-gradient(90deg,#35414c , rgb(146, 146, 146), #35414c);
     backdrop-filter: blur(8px);
     display: flex;
     flex-wrap: wrap;
@@ -20,6 +20,11 @@
     text-decoration: none;
     font-weight: 700;
     align-self: start;
+}
+.navbar{
+    display: flex;
+    justify-items: center;
+    align-items: center;
 }
 
 .navbar button {

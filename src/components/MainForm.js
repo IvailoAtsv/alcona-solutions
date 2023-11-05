@@ -7,8 +7,8 @@ import { UserForm } from "./UserForm";
 
 const INITIAL_DATA = {
   color: "",
-  width: 180,
-  height: 210,
+  width: 0,
+  height: 0,
   panelCount: 1,
   ledCaps: 0,
   solarCaps: 0,
@@ -18,6 +18,8 @@ const INITIAL_DATA = {
   city: "",
   area: "",
   pickUp: false,
+  isProject: "",
+  perimeter: "",
 };
 
 export function MainForm({ cartItems, setCartItems }) {
@@ -29,37 +31,47 @@ export function MainForm({ cartItems, setCartItems }) {
       return { ...prev, ...fields };
     });
   }
-  const { steps, currentStepIndex, step, isFirstStep, isLastStep, back, next } =
-    useMultistepForm([
-      <ColorsForm
-        isValid={isValid}
-        setIsValid={setIsValid}
-        {...data}
-        updateFields={updateFields}
-      />,
-      <DimentionsForm
-        isValid={isValid}
-        setIsValid={setIsValid}
-        {...data}
-        updateFields={updateFields}
-      />,
-      <UserForm
-        addToCart={addToCart}
-        isValid={isValid}
-        setIsValid={setIsValid}
-        {...data}
-        updateFields={updateFields}
-      />,
-      // <CapsForm isValid={isValid} setIsValid={setIsValid} {...data} updateFields={updateFields} />,
-    ]);
+  function addToCart(e) {
+    setCartItems((prev) => [...prev, data]);
+  }
+  const {
+    steps,
+    goTo,
+    currentStepIndex,
+    step,
+    isFirstStep,
+    isLastStep,
+    back,
+    reset,
+    next,
+  } = useMultistepForm([
+    <ColorsForm
+      isValid={isValid}
+      setIsValid={setIsValid}
+      {...data}
+      updateFields={updateFields}
+    />,
+    <DimentionsForm
+      isValid={isValid}
+      setIsValid={setIsValid}
+      {...data}
+      updateFields={updateFields}
+    />,
+    // <UserForm
+    //   cartItems={cartItems}
+    //   addToCart={addToCart}
+    //   isValid={isValid}
+    //   setIsValid={setIsValid}
+    //   {...data}
+    //   updateFields={updateFields}
+    // />,
+    // <CapsForm isValid={isValid} setIsValid={setIsValid} {...data} updateFields={updateFields} />,
+  ]);
 
   function onSubmit(e) {
     e.preventDefault();
     if (!isLastStep) return next();
-    console.log(data);
-  }
-  function addToCart(e) {
-    setCartItems((prev) => [...prev, data]);
+    return goTo(0);
   }
 
   return (
@@ -97,7 +109,7 @@ export function MainForm({ cartItems, setCartItems }) {
               }
               type="submit"
             >
-              Next{" "}
+              Next
             </button>
           )}
         </div>

@@ -7,14 +7,14 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems }) => {
   return (
     <>
       {cartOpen ? (
-        <div className="w-[450px] z-10 sm:h-[660px] h-screen bg-white fixed top-0 right-0 flex justify-between flex-col items-center shadow-lg rounded-l-md">
+        <div className="w-full z-10 mt-10 h-screen bg-white fixed top-0 right-0 flex justify-between flex-col items-center shadow-lg rounded-l-md">
           <button
             className="fixed right-4 top-2"
-            onClick={() => setCartOpen((prev) => false)}
+            onClick={() => setCartOpen((prev) => (prev = false))}
           >
             <AiOutlineClose size={32} />
           </button>
-          <h1 className="text-3xl font-semibold pt-3">Количка</h1>
+          <h1 className="text-3xl  font-semibold pt-3">Количка</h1>
           {/* cart */}
           <div className="flex flex-col justify-evenly items-center w-full h-full">
             {cartItems.map((item, i) => {

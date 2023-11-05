@@ -25,17 +25,18 @@ const IMAGES = [
   { url: pic5, alt: "pic Five" },
 ];
 
-
-
-
 function App() {
-
   const [cartOpen, setCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
 
   return (
     <div className="bg-white w-full overflow-x-hidden min-h-screen flex flex-col gap-4 justify-center items-center">
-      <Navigation />
+      <Navigation
+        cartOpen={cartOpen}
+        setCartOpen={setCartOpen}
+        cartItems={cartItems}
+        setCartItems={setCartItems}
+      />
       <Hero />
       <Cart
         cartOpen={cartOpen}

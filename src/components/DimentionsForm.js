@@ -1,70 +1,62 @@
-import { useEffect, useState } from "react"
-import { FormWrapper } from "./FormWrapper"
-import './dimentions.css'
-import fence from '../images/fence.png'
-import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
+import { useEffect, useState } from "react";
+import { CustomSize } from "./DimentionForms/CustomSize";
+import { FormWrapper } from "./FormWrapper";
+import { DefaultSize } from "./DimentionForms/DefaultSize";
+import { Project } from "./DimentionForms/Project";
 
 export function DimentionsForm({ color, updateFields, isValid, setIsValid }) {
-    const [height, setHeight] = useState(180)
-    const [width, setWidth] = useState(210)
-    const [panelCount, setPanelCount] = useState(1)
+  const [type, setType] = useState("");
 
-    const increment = (e) => {
-        e.preventDefault()
-        setPanelCount(count => count + 1)
-    }
-    const decrement = (e) => {
-        e.preventDefault()
-        setPanelCount(count => count - 1)
-    }
-    useEffect(() => {
-        if (panelCount <= 0) {
-            setIsValid(false)
-        } else {
-            setIsValid(true)
-        }
-        updateFields({ panelCount: panelCount })
-    }, [panelCount])
+  const buttonStyle =
+    "py-6 px-2 sm:h-[15vw] sm:w-[30%] w-[80%] font-bold mt-5 hover:bg-orange-300 bg-orange-400 rounded-md";
 
-    return (
-        <>
-            <FormWrapper title="Размери">
-                <div className="flex items-center flex-col justify-between w-full">
-
-                    <img src={fence} style={{ width: `${width * 2}px`, height: `${height * 1.5}px`, }}>
-                    </img>
-
-                    <div className="w-full flex flex-col justify-center items-center">
-
-                        <div className="flex flex-col justify-center items-center w-11/12 h-11/12">
-                            <label className="text-lg font-semibold">Ширина: {width} cm</label>
-                            <input className="slider" defaultValue={180} required type="range" onChange={(e) => {
-                                updateFields({ width: e.target.value })
-                                setWidth(e.target.value)
-                            }
-                            } min="80" step="20" max="180" />
-                        </div>
-                        <div className="flex flex-col justify-center items-center w-11/12 h-11/12">
-                            <label className="text-lg font-semibold">Височина: {height} cm</label>
-                            <input className="slider" required type="range" defaultValue={210} onChange={(e) => {
-                                updateFields({ height: e.target.value })
-                                setHeight(e.target.value)
-                            }
-                            } min="60" step="30" max="210" />
-                        </div>
-                        <div className="flex flex-col justify-center items-center w-11/12 h-11/12">
-                            <label className="text-lg font-semibold">Брой:</label>
-                            <div className="flex w-full items-center justify-center gap-4">
-                                <button onClick={e => decrement(e)}><AiOutlineMinus size={24} /></button>
-                                <input type="number" value={panelCount} onChange={(e) => setPanelCount(prev => prev = e.target.value)} required className="w-[150px] h-[30px] bg-gray-200 text-xl text-center rounded-md px-2 py-1" />
-                                <button onClick={e => increment(e)}><AiOutlinePlus size={24} /></button>
-                            </div>
-                        </div>
-                        <p className="text-2xl text-center mt-4 text-red-600 font-bold">{!isValid ? 'Броят на панелите трябва да бъде по-голям от 0!' : ''}</p>
-
-                    </div>
-                </div>
-            </FormWrapper>
-        </>
-    )
+  return (
+    <>
+      <FormWrapper title="Изберете размер и брой">
+        {type === "default" && (
+          <DefaultSize
+            updateFields={updateFields}
+            isValid={isValid}
+            setIsValid={setIsValid}
+          />
+        )}
+        {type === "custom" && (
+          <CustomSize
+            updateFields={updateFields}
+            isValid={isValid}
+            setIsValid={setIsValid}
+          />
+        )}
+        {type === "project" && (
+          <Project
+            updateFields={updateFields}
+            isValid={isValid}
+            setIsValid={setIsValid}
+          />
+        )}
+        {type === "" && (
+          <div className="flex justify-center flex-col sm:flex-row items-center w-full gap-4">
+            <button
+              onClick={() => setType((prev) => (prev = "default"))}
+              className={buttonStyle}
+            >
+              Oбикновен Размер
+            </button>
+            <button
+              onClick={() => setType((prev) => (prev = "custom"))}
+              className={buttonStyle}
+            >
+              Различен Размер
+            </button>
+            <button
+              onClick={() => setType((prev) => (prev = "project"))}
+              className={buttonStyle}
+            >
+              Проект от нас
+            </button>
+          </div>
+        )}
+      </FormWrapper>
+    </>
+  );
 }

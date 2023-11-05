@@ -28,7 +28,7 @@ module.exports = {
         popupBg: "rgba(0,0,0,0.2)",
         cardBg3: "rgba(0,0,0,0.55)",
         bgShape: "linear-gradient(45deg,pink,puple)",
-        background: "#35414c",
+        background: "#202A44",
         background2: "#13294B",
       },
     },

@@ -32,7 +32,7 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
 
   return (
-    <div className="bg-white w-full overflow-x-hidden min-h-screen flex flex-col gap-4 justify-center items-center">
+    <div className="bg-white w-full overflow-x-hidden min-h-screen flex flex-col justify-center items-center">
       <Navigation
         cartOpen={cartOpen}
         setCartOpen={setCartOpen}

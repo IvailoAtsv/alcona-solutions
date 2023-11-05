@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { forwardRef, useRef, useState } from "react";
 import Hero from "./components/Hero";
 import { MainForm } from "./components/MainForm";
 import { About } from "./components/About";
 import { Cart } from "./components/Cart";
 import { ImageSlider } from "./components/ImageSlider";
+import { FooterWithSitemap } from "./components/Footer";
 
 import pic1 from "./images/plastic.jpg";
 import pic2 from "./images/bottom.jpg";
@@ -12,6 +13,7 @@ import pic4 from "./images/kol.jpg";
 import pic5 from "./images/plank.jpg";
 import pic6 from "./images/top.jpg";
 import pic7 from "./images/fence2.png";
+import Navigation from "./components/Nav/Navigation";
 
 const IMAGES = [
   { url: pic7, alt: "pic Five" },
@@ -23,11 +25,17 @@ const IMAGES = [
   { url: pic5, alt: "pic Five" },
 ];
 
+
+
+
 function App() {
+
   const [cartOpen, setCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
+
   return (
-    <div className="bg-white w-full mb-4 overflow-x-hidden min-h-screen flex flex-col gap-4 justify-center items-center">
+    <div className="bg-white w-full overflow-x-hidden min-h-screen flex flex-col gap-4 justify-center items-center">
+      <Navigation />
       <Hero />
       <Cart
         cartOpen={cartOpen}
@@ -38,6 +46,7 @@ function App() {
       <ImageSlider images={IMAGES} />
       <About />
       <MainForm cartItems={cartItems} setCartItems={setCartItems} />
+      <FooterWithSitemap />
     </div>
   );
 }

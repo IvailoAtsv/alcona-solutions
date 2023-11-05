@@ -31,26 +31,26 @@ export function DimentionsForm({ color, updateFields, isValid, setIsValid }) {
             <FormWrapper title="Размери">
                 <div className="flex items-center flex-col justify-between w-full">
 
-                    <img src={fence} style={{ width: `${width * 1.5}px`, height: `${height * 1.5}px`, }}>
+                    <img src={fence} style={{ width: `${width * 2}px`, height: `${height * 1.5}px`, }}>
                     </img>
 
                     <div className="w-full flex flex-col justify-center items-center">
 
                         <div className="flex flex-col justify-center items-center w-11/12 h-11/12">
                             <label className="text-lg font-semibold">Ширина: {width} cm</label>
-                            <input className="slider" defaultValue={210} required type="range" onChange={(e) => {
+                            <input className="slider" defaultValue={180} required type="range" onChange={(e) => {
                                 updateFields({ width: e.target.value })
                                 setWidth(e.target.value)
                             }
-                            } min="60" step="30" max="210" />
+                            } min="80" step="20" max="180" />
                         </div>
                         <div className="flex flex-col justify-center items-center w-11/12 h-11/12">
                             <label className="text-lg font-semibold">Височина: {height} cm</label>
-                            <input className="slider" required type="range" defaultValue={180} onChange={(e) => {
+                            <input className="slider" required type="range" defaultValue={210} onChange={(e) => {
                                 updateFields({ height: e.target.value })
                                 setHeight(e.target.value)
                             }
-                            } min="80" step="20" max="180" />
+                            } min="60" step="30" max="210" />
                         </div>
                         <div className="flex flex-col justify-center items-center w-11/12 h-11/12">
                             <label className="text-lg font-semibold">Брой:</label>

@@ -4,8 +4,8 @@ import quality from "../images/quality.jpg";
 
 export const About = () => {
   return (
-    <div className="min-h-[75vh] w-full p-4 bg-no-repeat bg-fixed bg-cover  bg-bottom bg-aboutBg flex flex-col justify-evenly items-center group py-4">
-      <div className="flex max-w-[1400px] backdrop-blur-md w-full bg-cardBg3 text-white gap-3 flex-col justify-evenly rounded-md p-4 items-center">
+    <div id="about" className="min-h-[75vh] w-full p-4 bg-no-repeat bg-fixed bg-cover  bg-bottom bg-aboutBg flex flex-col justify-evenly items-center group py-4">
+      <div className="flex max-w-[1400px] backdrop-blur-md w-full bg-cardBg3 my-4 text-white gap-3 flex-col justify-evenly rounded-md p-4 items-center">
         <h1 className="text-5xl font-bold">За нас</h1>
         <p className="z-10 text-lg sm:text-2xl text-start font-semibold p-3 rounded-md">
           Вашият надежден партньор за уникални огради от WPC. Нашата

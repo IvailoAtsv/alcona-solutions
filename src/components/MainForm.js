@@ -7,8 +7,8 @@ import { UserForm } from "./UserForm";
 
 const INITIAL_DATA = {
   color: "",
-  width: 210,
-  height: 180,
+  width: 180,
+  height: 210,
   panelCount: 1,
   ledCaps: 0,
   solarCaps: 0,
@@ -63,7 +63,7 @@ export function MainForm({ cartItems, setCartItems }) {
   }
 
   return (
-    <div className="border-2 rounded-xl text-sm shadow-lg py-7 min-h-min relative max-w-[1400px] w-[90%]">
+    <div className="border-2 rounded-xl text-sm shadow-lg pb-7 pt-12 min-h-min relative max-w-[1400px] w-[90%]">
       <form onSubmit={onSubmit}>
         <div className="absolute top-1 text-center font-semibold text-lg right-10">
           {currentStepIndex + 1} / {steps.length}

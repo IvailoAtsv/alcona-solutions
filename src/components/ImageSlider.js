@@ -45,16 +45,17 @@ export function ImageSlider({ images }) {
     });
   }
 
-  useEffect(() => {}, [imageIndex]);
+  useEffect(() => { }, [imageIndex]);
 
   return (
     <>
-      <h1 className="text-3xl text-center font-semibold">
+      <a id="products"></a>
+      <h1 className="text-3xl mt-8 text-center font-semibold">
         Какво се съдържа в комплекта
       </h1>
       <section
         aria-label="Image Slider"
-        className="w-[96%] h-[60vh] sm:max-w-[60vh] relative"
+        className="w-[96%] h-[60vh]  sm:max-w-[60vh] relative"
       >
         <div className="w-full h-full flex overflow-hidden">
           {images.map((item, index) => (

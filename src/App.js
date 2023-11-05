@@ -14,6 +14,7 @@ import pic5 from "./images/plank.jpg";
 import pic6 from "./images/top.jpg";
 import pic7 from "./images/fence2.png";
 import Navigation from "./components/Nav/Navigation";
+import { Popup } from "./components/Popup";
 
 const IMAGES = [
   { url: pic7, alt: "pic Five" },
@@ -26,6 +27,7 @@ const IMAGES = [
 ];
 
 function App() {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
 
@@ -37,6 +39,13 @@ function App() {
         cartItems={cartItems}
         setCartItems={setCartItems}
       />
+      <Popup
+        setIsPopupOpen={setIsPopupOpen}
+        isPopupOpen={isPopupOpen}
+        trigger={isPopupOpen}
+        cartOpen={cartOpen}
+        setCartOpen={setCartOpen}
+      />
       <Hero />
       <Cart
         cartOpen={cartOpen}
@@ -46,7 +55,11 @@ function App() {
       />
       <ImageSlider images={IMAGES} />
       <About />
-      <MainForm cartItems={cartItems} setCartItems={setCartItems} />
+      <MainForm
+        setIsPopupOpen={setIsPopupOpen}
+        cartItems={cartItems}
+        setCartItems={setCartItems}
+      />
       <FooterWithSitemap />
     </div>
   );

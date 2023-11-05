@@ -7,7 +7,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems }) => {
   return (
     <>
       {cartOpen ? (
-        <div className="w-full z-10 mt-10 h-screen bg-white fixed top-0 right-0 flex justify-between flex-col items-center shadow-lg rounded-l-md">
+        <div className="w-full z-50 h-screen bg-white fixed top-0 right-0 flex justify-between flex-col items-center shadow-lg rounded-l-md">
           <button
             className="fixed right-4 top-2"
             onClick={() => setCartOpen((prev) => (prev = false))}

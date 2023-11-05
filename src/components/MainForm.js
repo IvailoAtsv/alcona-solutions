@@ -22,7 +22,7 @@ const INITIAL_DATA = {
   perimeter: "",
 };
 
-export function MainForm({ cartItems, setCartItems }) {
+export function MainForm({ cartItems, setCartItems, setIsPopupOpen }) {
   const [data, setData] = useState(INITIAL_DATA);
   const [isValid, setIsValid] = useState(true);
 
@@ -71,6 +71,7 @@ export function MainForm({ cartItems, setCartItems }) {
   function onSubmit(e) {
     e.preventDefault();
     if (!isLastStep) return next();
+    setIsPopupOpen(true);
     return goTo(0);
   }
 

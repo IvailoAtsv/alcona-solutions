@@ -76,17 +76,17 @@ export function MainForm({ cartItems, setCartItems, setIsPopupOpen }) {
   }
 
   return (
-    <div className="border-2 rounded-xl text-sm shadow-lg pb-7 pt-12 min-h-min relative max-w-[1400px] w-[90%]">
+    <div className="border-2 rounded-xl mt-4 text-sm shadow-lg pb-7 pt-12 min-h-min relative max-w-[1400px] w-[90%]">
       <form onSubmit={onSubmit}>
         <div className="absolute top-1 text-center font-semibold text-lg right-10">
           {currentStepIndex + 1} / {steps.length}
         </div>
         {step}
-        <div className="flex w-11/12 h-12 items-center justify-end mt-9 mr-9">
+        <div className="flex w-11/12 h-12 items-center gap-3 justify-end mt-9 mr-9">
           {!isFirstStep && (
             <button
               disabled={!isValid}
-              className="py-2 px-6 ml-4 hover:bg-orange-300 font-semibold bg-orange-400 rounded-md"
+              className="rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
               type="button"
               onClick={back}
             >
@@ -96,7 +96,7 @@ export function MainForm({ cartItems, setCartItems, setIsPopupOpen }) {
           {isLastStep ? (
             <button
               onClick={(e) => addToCart(e)}
-              className="py-2 px-6 ml-4 hover:bg-orange-300 font-semibold bg-orange-400 rounded-md"
+              className="rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
             >
               Add to Cart
             </button>

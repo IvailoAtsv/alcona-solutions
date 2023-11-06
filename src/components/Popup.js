@@ -1,6 +1,6 @@
 export const Popup = ({ trigger, children, setIsPopupOpen, setCartOpen }) => {
   const btnStyle =
-    "py-2 px-2 font-semibold mt-5 hover:bg-orange-300 bg-orange-400 rounded-md";
+    "rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white";
 
   const handleClick = () => {
     setCartOpen(true);
@@ -16,7 +16,7 @@ export const Popup = ({ trigger, children, setIsPopupOpen, setCartOpen }) => {
         </div>
         <div className="flex gap-3">
           <button className={btnStyle} onClick={handleClick}>
-            Отидете към Количка
+            Количка
           </button>
           <button className={btnStyle} onClick={() => setIsPopupOpen(false)}>
             Затваряне

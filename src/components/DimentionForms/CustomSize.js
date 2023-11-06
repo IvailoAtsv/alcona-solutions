@@ -51,10 +51,10 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
   }, [panelCount]);
 
   return (
-    <div className="flex items-center flex-col justify-between w-full">
+    <div className="flex items-center w-full min-h-min flex-col justify-between ">
       <img
         src={colors[color]}
-        style={{ width: `${width * 2}px`, height: `${height * 1.5}px` }}
+        style={{ width: `${width * 2}px`, height: `${height * 1.2}px` }}
       ></img>
 
       <div className="w-full flex flex-col justify-center items-center">

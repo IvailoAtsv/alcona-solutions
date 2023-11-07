@@ -6,6 +6,7 @@ import pic5 from "../../images/plank.jpg";
 import pic6 from "../../images/top.jpg";
 import pic7 from "../../images/fence2.png";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
+import uniqid from "uniqid";
 
 import { useEffect, useState } from "react";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
@@ -51,7 +52,7 @@ const IMAGES = [
 ];
 
 export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
-  const [imageIndex, setImageIndex] = useState(0);
+  const [imageIndex, setImageIndex] = useState(1);
 
   function showNextImage() {
     setImageIndex((index) => {
@@ -70,6 +71,7 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
   useEffect(() => {}, [imageIndex]);
 
   const [count, setCount] = useState(0);
+  const [invalid, setInvalid] = useState(false);
 
   const increment = (e) => {
     e.preventDefault();
@@ -87,11 +89,20 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
       count: count,
       itemType: "element",
       src: images[imageIndex],
+      id: uniqid(),
     };
     setCartItems((prev) => [...prev, item]);
-    setCount((prev) => (prev = 0));
+    setCount((prev) => (prev = 1));
     setIsPopupOpen(true);
   };
+
+  useEffect(() => {
+    if (count > 0) {
+      setInvalid(false);
+    } else {
+      setInvalid(true);
+    }
+  }, [count]);
 
   return (
     <div
@@ -155,7 +166,13 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
         <p className="text-md">{descriptions[imageIndex]}</p>
 
         <div className="flex flex-col justify-center items-center w-11/12 h-11/12">
-          <label className="text-lg font-semibold">Брой:</label>
+          {invalid ? (
+            <label className="text-red-500 text-lg font-semibold">
+              Изберете число по-голямо от 0
+            </label>
+          ) : (
+            <label className="text-lg font-semibold">Брой:</label>
+          )}
           <div className="flex w-full items-center justify-center gap-4">
             <button onClick={(e) => decrement(e)}>
               <AiOutlineMinus size={24} />
@@ -163,7 +180,7 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
             <input
               name={titles[imageIndex]}
               value={count}
-              onChange={(e) => setCount((prev) => (prev = e.target.value))}
+              onChange={(e) => setCount(e.target.value)}
               required
               className="min-w-[50px] w-[60px] h-[30px] bg-gray-200 text-xl text-center rounded-md px-2 py-1"
             />
@@ -172,7 +189,9 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
             </button>
           </div>
         </div>
+
         <button
+          disabled={invalid}
           onClick={handleSubmit}
           className="rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
         >

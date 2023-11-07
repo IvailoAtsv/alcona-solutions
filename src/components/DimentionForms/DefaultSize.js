@@ -81,7 +81,7 @@ export const DefaultSize = ({ color, updateFields, isValid, setIsValid }) => {
             <input
               type="number"
               value={panelCount}
-              onChange={(e) => setPanelCount((prev) => (prev = e.target.value))}
+              onChange={(e) => setPanelCount(e.target.value)}
               required
               className="w-[150px] h-[30px] bg-gray-200 text-xl text-center rounded-md px-2 py-1"
             />

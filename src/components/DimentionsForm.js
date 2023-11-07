@@ -50,22 +50,13 @@ export function DimentionsForm({ color, updateFields, isValid, setIsValid }) {
         )}
         {type === "" && (
           <div className="flex justify-center flex-col sm:flex-row items-center w-full gap-4">
-            <button
-              onClick={() => setType((prev) => (prev = "default"))}
-              className={buttonStyle}
-            >
+            <button onClick={() => setType("default")} className={buttonStyle}>
               Стандартно пано
             </button>
-            <button
-              onClick={() => setType((prev) => (prev = "custom"))}
-              className={buttonStyle}
-            >
+            <button onClick={() => setType("custom")} className={buttonStyle}>
               Пано по ваш избор
             </button>
-            <button
-              onClick={() => setType((prev) => (prev = "project"))}
-              className={buttonStyle}
-            >
+            <button onClick={() => setType("project")} className={buttonStyle}>
               Проект от нас
             </button>
           </div>

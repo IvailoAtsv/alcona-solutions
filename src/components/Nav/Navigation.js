@@ -5,7 +5,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose, AiOutlineShoppingCart } from "react-icons/ai";
 import { forwardRef } from "react";
 
-const Navigation = ({ cartOpen, setCartOpen }) => {
+const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
   const handleAboutScroll = () => {
     const element = document.getElementById("about");
     if (element) {
@@ -52,7 +52,16 @@ const Navigation = ({ cartOpen, setCartOpen }) => {
         <button onClick={() => handleOrderScroll()}>Order</button>
         <button onClick={() => handleFooterScroll()}>Contacts</button>
         <button onClick={() => setCartOpen((prev) => (prev = !prev))}>
-          <AiOutlineShoppingCart size={24} className="" />
+          <div className="flex w-full">
+            <AiOutlineShoppingCart size={32} />
+            {cartItems?.length ? (
+              <div className="bg-red-500 w-[25px] self-end h-[25px] rounded-full">
+                {cartItems.length}
+              </div>
+            ) : (
+              ""
+            )}
+          </div>
         </button>
       </nav>
     </header>

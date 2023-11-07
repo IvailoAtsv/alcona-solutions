@@ -45,11 +45,6 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
   }, [cartItems]);
 
   const handleDelete = (id) => {
-    console.log("id ", id);
-    console.log(
-      "find",
-      cartItems.find((item) => item.id === id),
-    );
     setCartItems((currentItems) => {
       if (currentItems.find((item) => item.id !== id)) {
         return currentItems.filter((item) => item.id !== id);
@@ -61,10 +56,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
       {cartOpen ? (
         <div className="w-full z-50 overflow-y-auto h-[90vh] bg-transparent fixed top-0 right-0 flex justify-between flex-col items-end  rounded-xl">
           <div className="sm:w-[60%] bg-gray-100 w-full h-auto shadow-lg rounded-md flex justify-evenly flex-col p-4 items-center">
-            <button
-              className="self-end"
-              onClick={() => setCartOpen((prev) => (prev = false))}
-            >
+            <button className="self-end" onClick={() => setCartOpen(false)}>
               <AiOutlineClose className="pt-2" size={32} />
             </button>
             <h1 className="text-3xl mb-auto font-semibold ">Количка</h1>
@@ -91,6 +83,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
                 } else {
                   return (
                     <CartElement
+                      onRemove={handleDelete}
                       src={item.src}
                       id={item.id}
                       itemName={item.itemName}
@@ -162,12 +155,17 @@ const CartItem = ({
   );
 };
 
-const CartElement = ({ count, itemName, src }) => {
+const CartElement = ({ count, itemName, src, onRemove, id }) => {
   return (
     <div className="shadow-md p-4 bg-white w-[90%] h-[100px] rounded-md flex justify-center items-center">
-      <img className="w-16" src={src} />
-      <p className="pl-4 w-[60%]"> {itemName}</p>
-      <p className="ml-auto">x {count}</p>
+      <div className="flex justify-center items-center">
+        <img className="w-16" src={src} />
+        <p className="pl-4 w-[60%]"> {itemName}</p>
+        <p className="ml-auto">x {count}</p>
+      </div>
+      <button className="self-start" onClick={() => onRemove(id)}>
+        <FiTrash />
+      </button>
     </div>
   );
 };

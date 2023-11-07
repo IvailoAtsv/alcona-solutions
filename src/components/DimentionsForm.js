@@ -10,6 +10,17 @@ export function DimentionsForm({ color, updateFields, isValid, setIsValid }) {
   const buttonStyle =
     " sm:h-[15vw] sm:w-[30%] w-[80%] rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white";
 
+  useEffect(() => {
+    if (type === "") {
+      setIsValid(false);
+    }
+  }, []);
+  useEffect(() => {
+    if (type !== "") {
+      setIsValid(true);
+    }
+  }, [type]);
+
   return (
     <>
       <FormWrapper title="Изберете размер и брой">

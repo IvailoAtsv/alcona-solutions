@@ -1,5 +1,5 @@
 import { AiOutlineClose } from "react-icons/ai";
-
+import { FiTrash } from "react-icons/fi";
 import black from "../components/Colors/black.png";
 import darkCoffee from "../components/Colors/darkCoffee.png";
 import green from "../components/Colors/green.png";
@@ -10,6 +10,7 @@ import sandyBrown from "../components/Colors/sandyBrown.png";
 import teak from "../components/Colors/teak.png";
 import rosewood from "../components/Colors/rosewood.png";
 import reddishBrown from "../components/Colors/reddishBrown.png";
+import { useEffect } from "react";
 
 const colors = {
   black: black,
@@ -36,13 +37,30 @@ const colorNames = {
   reddishBrown: "Reddish Brown",
 };
 
-export const Cart = ({ cartOpen, setCartOpen, cartItems }) => {
-  console.log(cartItems);
+export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
+  useEffect(() => {
+    if (!cartItems) {
+      setCartOpen(false);
+    }
+  }, [cartItems]);
+
+  const handleDelete = (id) => {
+    console.log("id ", id);
+    console.log(
+      "find",
+      cartItems.find((item) => item.id === id),
+    );
+    setCartItems((currentItems) => {
+      if (currentItems.find((item) => item.id !== id)) {
+        return currentItems.filter((item) => item.id !== id);
+      }
+    });
+  };
   return (
     <>
       {cartOpen ? (
-        <div className="w-full z-50 h-screen bg-transparent fixed top-0 right-0 flex justify-between flex-col items-end shadow-lg rounded-l-md">
-          <div className="sm:w-[60%] bg-gray-100 w-full sm:h-[100%] min-h-screen shadow-lg rounded-md flex justify-evenly overflow-y-scroll flex-col p-4 items-center">
+        <div className="w-full z-50 overflow-y-auto h-[90vh] bg-transparent fixed top-0 right-0 flex justify-between flex-col items-end  rounded-xl">
+          <div className="sm:w-[60%] bg-gray-100 w-full h-auto shadow-lg rounded-md flex justify-evenly flex-col p-4 items-center">
             <button
               className="self-end"
               onClick={() => setCartOpen((prev) => (prev = false))}
@@ -51,12 +69,16 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems }) => {
             </button>
             <h1 className="text-3xl mb-auto font-semibold ">Количка</h1>
             {/* cart */}
-            <div className="flex flex-col overflow-y-scroll h-full justify-around gap-2 items-center w-full">
-              {cartItems.map((item, i) => {
+            <div className="flex flex-col overflow-y-scroll justify-around gap-2 items-center w-full">
+              {cartItems?.map((item, i) => {
                 if (item.itemType === "default") {
                   return (
                     <CartItem
+                      onRemove={handleDelete}
+                      setCartItems={setCartItems}
+                      cartItems={cartItems}
                       key={i}
+                      id={item.id}
                       panelCount={item.panelCount}
                       color={item.color}
                       width={item.width}
@@ -70,6 +92,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems }) => {
                   return (
                     <CartElement
                       src={item.src}
+                      id={item.id}
                       itemName={item.itemName}
                       count={item.count}
                     />
@@ -99,10 +122,15 @@ const CartItem = ({
   isProject,
   perimeter,
   itemType,
+  setCartItems,
+  id,
+  onRemove,
 }) => {
-  console.log(isProject);
   return (
     <div className="shadow-md p-4 bg-white w-[90%] h-auto flex-col rounded-md flex justify-center items-center">
+      <button className="self-end" onClick={() => onRemove(id)}>
+        <FiTrash />
+      </button>
       <div className="flex items-center justify-between w-full">
         <img className="w-16" src={colors[color]} />
         <div className="flex pl-4 flex-col items-center">

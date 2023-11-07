@@ -13,30 +13,32 @@ export const Popup = ({
     setIsPopupOpen(false);
   };
   const handleClose = () => {
-    setStay(false);
+    setStay((prev) => (prev = false));
     setIsPopupOpen(false);
   };
   const handleStay = () => {
-    setStay(true);
+    setStay((prev) => (prev = true));
     setIsPopupOpen(false);
   };
 
   return trigger ? (
     <div className="w-full h-screen fixed top-0 left-0 z-50 flex justify-center items-center bg-cardBg2">
-      <div className="sm:min-w-[40%] w-auto  text-lg font-semibold min-w-[90%] rounded-xl p-4 flex flex-col justify-evenly items-center h-[20vh] bg-white">
+      <div className="sm:min-w-[40%] w-auto h-auto min-h-[20vh] text-lg font-semibold min-w-[90%] rounded-xl p-4 flex flex-col justify-evenly items-center bg-white">
         <div className="felx flex-col">
           <p>{children}</p>
-          <p>Успешно добавено в количка</p>
+          <p className="text-3xl text-center pb-5">
+            Успешно добавено в количка
+          </p>
         </div>
-        <div className="flex gap-3">
+        <div className="flex flex-col sm:flex-row gap-3">
           <button className={btnStyle} onClick={handleClick}>
             Количка
           </button>
-          <button className={btnStyle} onClick={handleStay}>
-            Продължете
-          </button>
+          {/* <button className={btnStyle} onClick={handleStay}>
+            Продължете със същия цвят
+          </button> */}
           <button className={btnStyle} onClick={handleClose}>
-            Затваряне
+            Обратно
           </button>
         </div>
       </div>

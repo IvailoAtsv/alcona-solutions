@@ -17,7 +17,12 @@ export const Project = ({ updateFields, isValid, setIsValid }) => {
   useEffect(() => {
     if (p === "") {
       setIsValid(false);
-    } else if (p !== "" && p > 0) {
+      setPInvalid(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (p !== "" && p > 0) {
       setPInvalid(false);
       setIsValid(true);
     } else {
@@ -36,7 +41,6 @@ export const Project = ({ updateFields, isValid, setIsValid }) => {
     >
       {pInvalid ? (
         <label className="text-xl text-center mt-4 text-red-600 font-bold">
-          {" "}
           "Въведете валиден периметър"
         </label>
       ) : (

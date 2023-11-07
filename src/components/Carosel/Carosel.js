@@ -94,7 +94,10 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
   };
 
   return (
-    <div className="flex w-[90%] min-h-[60vh] py-4 flex-col md:flex-row justify-between items-center max-w-[1400px]">
+    <div
+      id="products"
+      className="flex w-[90%] min-h-[60vh] py-4 flex-col md:flex-row justify-between items-center max-w-[1400px]"
+    >
       <section
         aria-label="Image Slider"
         className="w-full h-[50vh]  sm:max-w-[50vh] relative"

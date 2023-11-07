@@ -12,6 +12,11 @@
         position: relative;
     }
 
+    #cart{
+        top:5%;
+        display:block;
+    }
+
     #check:checked~.icons #menu-open {
         display: none;
     }

@@ -59,7 +59,14 @@ function App() {
         cartItems={cartItems}
         setCartItems={setCartItems}
       />
-      <Carosel />
+      <Carosel
+        cartOpen={cartOpen}
+        setCartOpen={setCartOpen}
+        cartItems={cartItems}
+        setCartItems={setCartItems}
+        setIsPopupOpen={setIsPopupOpen}
+        isPopupOpen={isPopupOpen}
+      />
       <About />
       <Contact />
       <FooterWithSitemap />

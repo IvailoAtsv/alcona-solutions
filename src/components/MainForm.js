@@ -20,6 +20,7 @@ const INITIAL_DATA = {
   pickUp: false,
   isProject: false,
   perimeter: "",
+  itemType: "default",
 };
 
 export function MainForm({ cartItems, setCartItems, setIsPopupOpen }) {

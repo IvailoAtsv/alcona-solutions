@@ -31,6 +31,7 @@ function App() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
+  const [stay, setStay] = useState(false);
 
   return (
     <div className="bg-white w-full overflow-x-hidden min-h-screen flex flex-col justify-center items-center">
@@ -41,6 +42,8 @@ function App() {
         setCartItems={setCartItems}
       />
       <Popup
+        stay={stay}
+        setStay={setStay}
         setIsPopupOpen={setIsPopupOpen}
         isPopupOpen={isPopupOpen}
         trigger={isPopupOpen}
@@ -49,6 +52,8 @@ function App() {
       />
       <Hero />
       <MainForm
+        stay={stay}
+        setStay={setStay}
         setIsPopupOpen={setIsPopupOpen}
         cartItems={cartItems}
         setCartItems={setCartItems}

@@ -52,7 +52,7 @@ const Navigation = ({ cartOpen, setCartOpen }) => {
         <button onClick={() => handleOrderScroll()}>Order</button>
         <button onClick={() => handleFooterScroll()}>Contacts</button>
         <button id="cart" onClick={() => setCartOpen((prev) => (prev = !prev))}>
-          <AiOutlineShoppingCart size={24} className="pt-1 self-end" />
+          <AiOutlineShoppingCart size={24} className="" />
         </button>
       </nav>
     </header>

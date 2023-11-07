@@ -143,22 +143,7 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
             display: "flex",
             gap: ".25rem",
           }}
-        >
-          {IMAGES.map((_, index) => (
-            <button
-              key={index}
-              className="img-slider-dot-btn"
-              aria-label={`View Image ${index + 1}`}
-              onClick={() => setImageIndex(index)}
-            >
-              {index === imageIndex ? (
-                <FaRegDotCircle aria-hidden />
-              ) : (
-                <BsCircle className="text-white" aria-hidden />
-              )}
-            </button>
-          ))}
-        </div>
+        ></div>
         <div id="after-image-slider-controls" />
       </section>
 

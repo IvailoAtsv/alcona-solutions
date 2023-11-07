@@ -8,7 +8,7 @@ const Hero = () => {
         id="hero"
         className="w-full max-w-[1400px] sm:w-[90%] h-full sm:h-11/12 sm:flex-row flex flex-col-reverse md:justify-between justify-evenly items-center gap-4"
       >
-        <div className="flex backdrop-blur-md min-w-[250px] text-start sm:w-[30%] w-[90%] sm:max-w-[450px] h-[60%] rounded-xl items-start p-2 bg-cardBg flex-col justify-evenly">
+        <div className="flex backdrop-blur-md min-w-[250px] text-start sm:w-[30%] w-[90%] sm:max-w-[450px] h-auto min-h-[60%] rounded-xl items-start p-2 bg-cardBg flex-col justify-evenly">
           <img className="w-24 ml-4" src={logo} />
           <h1 className="text-2xl ml-4 font-bold">
             Вдъхновяващи решения за вашия дом и градина

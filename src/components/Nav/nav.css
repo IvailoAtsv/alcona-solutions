@@ -29,7 +29,9 @@
 
 #cart{
     align-self: flex-end;
-    padding-left: 10rem;
+    position: absolute;
+    top: 30%;
+    left: 90%;
 }
 
 .navbar button {

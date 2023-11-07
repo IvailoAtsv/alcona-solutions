@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import { CapsForm } from "./CapsForm"
 import { DimentionsForm } from "./DimentionsForm";
 import { useMultistepForm } from "../useMultistepForm";
@@ -23,7 +23,13 @@ const INITIAL_DATA = {
   itemType: "default",
 };
 
-export function MainForm({ cartItems, setCartItems, setIsPopupOpen }) {
+export function MainForm({
+  cartItems,
+  setCartItems,
+  setIsPopupOpen,
+  stay,
+  setStay,
+}) {
   const [data, setData] = useState(INITIAL_DATA);
   const [isValid, setIsValid] = useState(true);
 
@@ -74,9 +80,13 @@ export function MainForm({ cartItems, setCartItems, setIsPopupOpen }) {
     e.preventDefault();
     if (!isLastStep) return next();
     setIsPopupOpen(true);
-    return goTo(0);
   }
 
+  useEffect(() => {
+    if (!stay) {
+      return goTo(0);
+    }
+  }, [stay]);
   return (
     <div className="border-2 rounded-xl mt-4 text-sm shadow-lg pb-7 pt-12 min-h-min relative max-w-[1400px] w-[90%]">
       <form onSubmit={onSubmit}>

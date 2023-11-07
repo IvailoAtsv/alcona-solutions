@@ -15,6 +15,7 @@ import pic7 from "./images/fence2.png";
 import Navigation from "./components/Nav/Navigation";
 import { Popup } from "./components/Popup";
 import { Carosel } from "./components/Carosel/Carosel";
+import { Contact } from "./components/Contact";
 
 const IMAGES = [
   { url: pic7, alt: "pic Five" },
@@ -60,6 +61,7 @@ function App() {
       />
       <Carosel />
       <About />
+      <Contact />
       <FooterWithSitemap />
     </div>
   );

@@ -3,7 +3,7 @@ import logoFull from "../images/fullLogo.png";
 
 const Hero = () => {
   return (
-    <div className="w-full text-center flex bg-no-repeat bg-right-bottom sm:mt-0 mt-10 bg-fixed bg-cover justify-center items-center bg-hero3 h-[85vh]">
+    <div className="w-full text-center flex bg-no-repeat bg-right-bottom sm:mt-0 mt-10 bg-fixed bg-cover justify-center items-center bg-hero3 h-[80vh]">
       <div
         id="hero"
         className="w-full max-w-[1400px] sm:w-[90%] h-full sm:h-11/12 sm:flex-row flex flex-col-reverse md:justify-between justify-evenly items-center gap-4"
@@ -18,7 +18,7 @@ const Hero = () => {
             парапети и огради от луксозен материал. Подобрете вашия екстериор с
             нашата премиум колекция.
           </p>
-          <button className=" rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white">
+          <button className="rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white">
             Contact us
           </button>
         </div>

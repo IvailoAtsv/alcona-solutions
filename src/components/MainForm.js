@@ -18,7 +18,7 @@ const INITIAL_DATA = {
   city: "",
   area: "",
   pickUp: false,
-  isProject: "",
+  isProject: false,
   perimeter: "",
 };
 
@@ -33,6 +33,7 @@ export function MainForm({ cartItems, setCartItems, setIsPopupOpen }) {
   }
   function addToCart(e) {
     setCartItems((prev) => [...prev, data]);
+    console.log(data);
   }
   const {
     steps,
@@ -106,7 +107,7 @@ export function MainForm({ cartItems, setCartItems, setIsPopupOpen }) {
               className={
                 isFirstStep
                   ? "hidden"
-                  : "py-2 px-6 ml-4 font-semibold hover:bg-orange-300 bg-orange-400 rounded-md"
+                  : "rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
               }
               type="submit"
             >

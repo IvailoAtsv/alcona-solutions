@@ -4,7 +4,7 @@ export const Contact = () => {
 
   return (
     <div className="w-full overflow-hidden h-[80vh] flex-col flex justify-center items-center">
-      <div className="w-[80%] rounded-t-md h-[20%] flex justify-center items-center bg-background">
+      <div className="w-[80%] rounded-t-md h-[20%] p-6 flex justify-center items-center bg-background">
         <h1 className="text-2xl text-white font-semibold">
           Имате запитване? Свържете се с нас!
         </h1>

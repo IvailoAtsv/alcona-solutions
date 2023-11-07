@@ -67,7 +67,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems }) => {
             >
               <AiOutlineClose size={32} />
             </button>
-            <h1 className="text-3xl  font-semibold pt-3">Количка</h1>
+            <h1 className="text-3xl mb-2 font-semibold pt-3">Количка</h1>
             {/* cart */}
             <div className="flex flex-col min-h-min justify-evenly gap-2 items-center w-full h-full">
               {cartItems.map((item, i) => {
@@ -95,7 +95,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems }) => {
                 }
               })}
             </div>
-            <button className="self-end mr-4 mt-2 rounded-lg py-1 px-6 border-2 font-bold duration-500 bg-white border-black hover:bg-black hover:text-white">
+            <button className="self-end mr-4 my-6 rounded-lg py-1 px-6 border-2 font-bold duration-500 bg-white border-black hover:bg-black hover:text-white">
               Към Поръчка
             </button>
           </div>
@@ -118,19 +118,34 @@ const CartItem = ({
 }) => {
   console.log(isProject);
   return (
-    <div className="shadow-md p-4 bg-white w-[90%] h-[100px] rounded-md flex justify-center items-center">
-      <img className="w-16" src={colors[color]} />
-      <div className="flex pl-4 flex-col items-center">
-        <p className="text-lg">цвят {colorNames[color]}</p>
-        {perimeter ? (
-          <p className="text-md self-start">Проект: {perimeter} м.</p>
-        ) : (
-          <p className="text-md self-start">
-            {width} x {height}
-          </p>
-        )}
+    <div className="shadow-md p-4 bg-white w-[90%] h-auto flex-col rounded-t-md flex justify-center items-center">
+      <div className="flex items-center justify-between w-full">
+        <img className="w-16" src={colors[color]} />
+        <div className="flex pl-4 flex-col items-center">
+          <p className="text-lg">цвят {colorNames[color]}</p>
+          {perimeter ? (
+            <p className="text-md self-start">Проект: {perimeter} м.</p>
+          ) : (
+            <p className="text-md self-start">
+              {width} x {height}
+            </p>
+          )}
+        </div>
+        <p className="ml-auto ">x {panelCount}</p>
       </div>
-      <p className="ml-auto ">x {panelCount}</p>
+      <div className="mt-1 w-full flex flex-col justify-start items-center">
+        <p className="w-full border-b">WPC стълб х {panelCount + 1}</p>
+        <p className="w-full border-b">WPC капачка х {panelCount + 1}</p>
+        <p className="w-full border-b">iron fastener х {panelCount + 1}</p>
+        <p className="w-full border-b">анкерен болт х {(panelCount + 1) * 4}</p>
+        <p className="w-full border-b">
+          долна алуминиева лайсна х {panelCount}
+        </p>
+        <p className="w-full border-b">
+          горна алуминиева лайсна х {panelCount}
+        </p>
+        <p className="ml-auto">price $</p>
+      </div>
     </div>
   );
 };

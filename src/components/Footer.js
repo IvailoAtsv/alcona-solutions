@@ -19,7 +19,7 @@ const currentYear = new Date().getFullYear();
 
 export function FooterWithSitemap() {
   return (
-    <footer className="relative bg-background text-white w-full">
+    <footer className="relative bg-footer text-white w-full">
       <div id="footer" className="mx-auto w-full max-w-7xl px-8">
         <div className="mx-auto grid w-full grid-cols-1 gap-8 py-12 md:grid-cols-2 lg:grid-cols-4">
           {SITEMAP.map(({ title, links }, key) => (
@@ -50,7 +50,6 @@ export function FooterWithSitemap() {
             </div>
           ))}
         </div>
-
       </div>
     </footer>
   );

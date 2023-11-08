@@ -2,7 +2,11 @@ import "./nav.css";
 import "./queries.css";
 
 import { GiHamburgerMenu } from "react-icons/gi";
-import { AiOutlineClose, AiOutlineShoppingCart } from "react-icons/ai";
+import {
+  AiFillPhone,
+  AiOutlineClose,
+  AiOutlineShoppingCart,
+} from "react-icons/ai";
 import { forwardRef } from "react";
 
 const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
@@ -39,12 +43,16 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
 
   return (
     <header className="header">
+      <p className="flex self-center gap-1 w-auto mr-auto">
+        <AiFillPhone size={20} />
+        <p className="text-sm">087985645</p>
+      </p>
       <input type="checkbox" id="check" />
       <label htmlFor="check" className="icons">
         <GiHamburgerMenu className="bx bx-menu" id="menu-open" />
         <AiOutlineClose className="bx bx-x" id="menu-close" />
       </label>
-
+      <div className="flex justify-baseline items-start"></div>
       <nav className="navbar">
         <button onClick={() => handleHeroScroll()}>Home</button>
         <button onClick={() => handleProductsScroll()}>Products</button>
@@ -52,12 +60,10 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
         <button onClick={() => handleOrderScroll()}>Order</button>
         <button onClick={() => handleFooterScroll()}>Contacts</button>
         <button onClick={() => setCartOpen((prev) => (prev = !prev))}>
-          <div className="flex w-full">
+          <div className="flex w-full pr-4">
             <AiOutlineShoppingCart size={32} />
             {cartItems?.length ? (
-              <div className="bg-red-500 w-[25px] self-end h-[25px] rounded-full">
-                {cartItems.length}
-              </div>
+              <div className="bg-red-500 w-[5px] self-end h-[5px] animate-ping rounded-full"></div>
             ) : (
               ""
             )}

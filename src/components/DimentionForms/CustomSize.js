@@ -77,14 +77,20 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
   return (
     <div className="flex items-center w-full min-h-min flex-col justify-between ">
       <div className="flex h-full items-end">
-        <div className="flex flex-col mb-5 items-center">
-          <img src={colorSquares[color]} className="w-20 h-20  rounded-md" />
-          <p>{color}</p>
+        <div className="flex w-full h-full items-center justify-center">
+          <div className="flex flex-col w-[20%] mb-5 self-end items-center">
+            <img src={colorSquares[color]} className="w-20 h-20  rounded-md" />
+            <p>{color}</p>
+          </div>
+          <img
+            src={colors[color]}
+            style={{ width: `${width * 2}px`, height: `${height * 1.5}px` }}
+          />
+          <p className="text-[12px] self-end text-left mb-5 w-[20%]">
+            Показаният цвят на оградата е с илюстративна цел. За реалният такъв,
+            моля придържайте се към цветната карта
+          </p>
         </div>
-        <img
-          src={colors[color]}
-          style={{ width: `${width * 2}px`, height: `${height * 1.5}px` }}
-        />
       </div>
 
       <div className="w-full flex  flex-col justify-center items-center">

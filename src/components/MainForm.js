@@ -88,7 +88,7 @@ export function MainForm({
   }
   return (
     <>
-      <div id="order"></div>
+      <div id="order" className="mb-12"></div>
       <div className="border-2 rounded-xl mt-4 text-sm shadow-lg pb-7 pt-12 min-h-min relative max-w-[1400px] w-[90%]">
         <form onSubmit={onSubmit}>
           <div className="absolute top-1 text-center font-semibold text-lg right-10">

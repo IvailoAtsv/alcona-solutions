@@ -11,12 +11,14 @@ import Rosewood from "../colors/Rosewood.png";
 import SandyBrown from "../colors/SandyBrown.png";
 import Teak from "../colors/Teak.png";
 import { useEffect } from "react";
+const premium = ["teak", "lightGrey", "green", "rosewood"];
 
 export function ColorsForm({ updateFields }) {
   return (
     <FormWrapper title="Изберете цвят">
       <div className="flex flex-wrap gap-2 justify-center items-center">
         <Color
+          premium={true}
           name="rosewood"
           display="Rosewood"
           pic={Rosewood}
@@ -36,6 +38,7 @@ export function ColorsForm({ updateFields }) {
         />
         <Color
           name="teak"
+          premium={true}
           display="Teak"
           pic={Teak}
           updateFields={updateFields}
@@ -59,6 +62,7 @@ export function ColorsForm({ updateFields }) {
           updateFields={updateFields}
         />
         <Color
+          premium={true}
           name="lightGrey"
           display="Light Grey"
           pic={LightGrey}
@@ -72,6 +76,7 @@ export function ColorsForm({ updateFields }) {
         />
         <Color
           name="green"
+          premium={true}
           display="Green"
           pic={Green}
           updateFields={updateFields}

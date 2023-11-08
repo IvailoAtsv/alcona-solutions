@@ -1,3 +1,5 @@
+import { AiOutlineArrowLeft } from "react-icons/ai";
+
 export const Popup = ({
   trigger,
   children,

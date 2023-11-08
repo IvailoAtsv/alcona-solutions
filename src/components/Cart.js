@@ -12,6 +12,7 @@ import rosewood from "../components/Colors/rosewood.png";
 import reddishBrown from "../components/Colors/reddishBrown.png";
 import { useEffect, useState } from "react";
 import { UserForm } from "./UserForm";
+import { BiCrown } from "react-icons/bi";
 
 const colors = {
   black: black,
@@ -67,8 +68,8 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
   return (
     <>
       {cartOpen ? (
-        <div className="w-full z-50 overflow-y-auto min-h-[95vh] bg-transparent fixed top-0 right-0 flex justify-between flex-col items-end  rounded-xl">
-          <div className="sm:w-[60%] bg-gray-200 w-full min-h-[95vh] h-auto shadow-lg rounded-md flex justify-evenly flex-col p-4 items-center">
+        <div className="w-full z-50 overflow-y-scroll h-[100vh] bg-transparent fixed top-0 right-0 flex justify-between flex-col items-end  rounded-xl">
+          <div className="sm:w-[60%] bg-gray-200 w-full h-auto shadow-lg rounded-md flex justify-evenly flex-col p-4 items-center">
             <button className="self-end" onClick={() => setCartOpen(false)}>
               <AiOutlineClose className="pt-2" size={32} />
             </button>
@@ -169,15 +170,30 @@ const CartItem = ({
   id,
   onRemove,
 }) => {
+  const premium = ["teak", "lightGrey", "green", "rosewood"];
+
+  const cardStyle =
+    "shadow-md p-4 bg-white w-[90%] h-auto flex-col rounded-md flex justify-center items-center";
+
+  const premiumStyle =
+    "shadow-md p-4 bg-gold w-[90%] h-auto flex-col rounded-md flex justify-center items-center";
   return (
-    <div className="shadow-md p-4 bg-white w-[90%] h-auto flex-col rounded-md flex justify-center items-center">
+    <div className={cardStyle}>
       <button className="self-end" onClick={() => onRemove(id)}>
         <FiTrash />
       </button>
       <div className="flex items-center justify-between w-full">
         <img className="w-16" src={colors[color]} />
         <div className="flex pl-4 w-[80%] flex-col items-center">
-          <p className="text-lg">цвят {colorNames[color]}</p>
+          {premium.includes(color) && (
+            <BiCrown
+              size={28}
+              className="self-start"
+              fill="#ffda9e"
+              color="black"
+            />
+          )}
+          <p className="text-lg self-start">цвят {colorNames[color]}</p>
           {perimeter ? (
             <p className="text-md self-start">
               Проект:
@@ -194,7 +210,7 @@ const CartItem = ({
         </div>
         <p className="ml-auto">x {panelCount}</p>
       </div>
-      <div className=" w-full flex flex-col justify-start items-center">
+      <div className="pt-2 w-full flex flex-col justify-start items-center">
         <p className="w-full border-b">WPC стълб х {panelCount + 1}</p>
         <p className="w-full border-b">WPC капачка х {panelCount + 1}</p>
         <p className="w-full border-b">iron fastener х {panelCount + 1}</p>

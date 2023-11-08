@@ -68,7 +68,7 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
     });
   }
 
-  useEffect(() => { }, [imageIndex]);
+  useEffect(() => {}, [imageIndex]);
 
   const [count, setCount] = useState(1);
   const [invalid, setInvalid] = useState(false);
@@ -109,7 +109,7 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
   return (
     <div
       id="products"
-      className="flex w-[90%] min-h-[60vh] py-4 flex-col md:flex-row justify-between items-center max-w-[1400px]"
+      className="flex w-[90%] min-h-[70vh] py-4 flex-col md:flex-row justify-between items-center max-w-[1400px]"
     >
       <section
         aria-label="Image Slider"
@@ -120,7 +120,6 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
             <div key={uniqid()} className="w-full h-full shrink-0 grow-0">
               <img
                 loading="lazy"
-
                 src={item.url}
                 alt={item.alt}
                 aria-hidden={imageIndex !== index}
@@ -136,11 +135,7 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
           style={{ left: 0 }}
           aria-label="View Previous Image"
         >
-          <AiOutlineArrowLeft
-            className="bg-cardBg rounded-full"
-            size={28}
-            aria-hidden
-          />
+          <AiOutlineArrowLeft size={32} aria-hidden />
         </button>
         <button
           onClick={showNextImage}
@@ -148,7 +143,7 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
           style={{ right: 0, color: "white" }}
           aria-label="View Next Image"
         >
-          <AiOutlineArrowRight className="bg-cardBg rounded-full" aria-hidden />
+          <AiOutlineArrowRight aria-hidden size={32} />
         </button>
         <div
           style={{
@@ -163,7 +158,7 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
         <div id="after-image-slider-controls" />
       </section>
 
-      <form className="md:w-[30%] text-center min-h-[50vh] w-[80%] flex flex-col justify-evenly items-center">
+      <form className="md:w-[30%] text-center min-h-[70vh] w-[80%] flex flex-col justify-evenly items-center">
         <h1 className="text-2xl font-semibold">{titles[imageIndex]}</h1>
         <p className="text-md">{descriptions[imageIndex]}</p>
 
@@ -192,6 +187,7 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
           </div>
         </div>
 
+        <h1 className="text-2xl font-semibold">000.00BGN</h1>
         <button
           disabled={invalid}
           onClick={handleSubmit}

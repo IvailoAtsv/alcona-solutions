@@ -45,7 +45,7 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
     <header className="header">
       <p className="flex self-center gap-1 w-auto mr-auto">
         <AiFillPhone size={20} />
-        <p className="text-sm">087985645</p>
+        <p className="text-sm">0893993129</p>
       </p>
       <input type="checkbox" id="check" />
       <label htmlFor="check" className="icons">

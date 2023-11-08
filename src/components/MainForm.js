@@ -43,7 +43,6 @@ export function MainForm({
   function addToCart(e) {
     const newList = cartItems;
     setCartItems([...newList, data]);
-    console.log(data);
   }
   const {
     steps,

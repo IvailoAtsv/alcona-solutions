@@ -45,12 +45,20 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
   }, [cartItems]);
 
   const handleDelete = (id) => {
-    setCartItems((currentItems) => {
-      if (currentItems.find((item) => item.id !== id)) {
-        return currentItems.filter((item) => item.id !== id);
-      }
-    });
+    if (cartItems.length > 1) {
+
+      setCartItems((currentItems) => {
+        if (currentItems.find((item) => item.id !== id)) {
+          return currentItems.filter((item) => item.id !== id);
+        }
+      });
+    }
   };
+
+  const empty = () => {
+    setCartItems([])
+  }
+
   return (
     <>
       {cartOpen ? (
@@ -83,6 +91,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
                 } else {
                   return (
                     <CartElement
+                      cartItems={cartItems}
                       onRemove={handleDelete}
                       src={item.src}
                       id={item.id}
@@ -93,7 +102,10 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
                 }
               })}
             </div>
-            <div className="w-[90%] flex justify-end">
+            <div className="w-[90%] flex justify-between">
+              <button onClick={empty} className="self-end mt-6 rounded-lg py-1 px-6 border-2 font-bold duration-500 bg-white border-black hover:bg-black hover:text-white">
+                Изтрий всички
+              </button>
               <button className="self-end mt-6 rounded-lg py-1 px-6 border-2 font-bold duration-500 bg-white border-black hover:bg-black hover:text-white">
                 Към Поръчка
               </button>
@@ -114,8 +126,7 @@ const CartItem = ({
   height,
   isProject,
   perimeter,
-  itemType,
-  setCartItems,
+  cartItems,
   id,
   onRemove,
 }) => {
@@ -126,7 +137,7 @@ const CartItem = ({
       </button>
       <div className="flex items-center justify-between w-full">
         <img className="w-16" src={colors[color]} />
-        <div className="flex pl-4 w-full flex-col items-center">
+        <div className="flex pl-4 w-[80%] flex-col items-center">
           <p className="text-lg">цвят {colorNames[color]}</p>
           {perimeter ? (
             <p className="text-md self-start">
@@ -142,7 +153,7 @@ const CartItem = ({
             </p>
           )}
         </div>
-        <p className="ml-auto ">x {panelCount}</p>
+        <p className="ml-auto">x {panelCount}</p>
       </div>
       <div className=" w-full flex flex-col justify-start items-center">
         <p className="w-full border-b">WPC стълб х {panelCount + 1}</p>
@@ -164,7 +175,7 @@ const CartItem = ({
 const CartElement = ({ count, itemName, src, onRemove, id }) => {
   return (
     <div className="shadow-md p-4 bg-white w-[90%] h-[100px] rounded-md flex justify-center items-center">
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center w-full items-center">
         <img className="w-16" src={src} />
         <p className="pl-4 w-[60%]"> {itemName}</p>
         <p className="ml-auto">x {count}</p>

@@ -68,7 +68,7 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
     });
   }
 
-  useEffect(() => {}, [imageIndex]);
+  useEffect(() => { }, [imageIndex]);
 
   const [count, setCount] = useState(0);
   const [invalid, setInvalid] = useState(false);
@@ -91,6 +91,7 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
       src: images[imageIndex],
       id: uniqid(),
     };
+    console.log(cartItems);
     const newList = [...cartItems];
     setCartItems([...newList, item]);
     setCount(1);

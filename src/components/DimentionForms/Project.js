@@ -6,7 +6,7 @@ import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 export const Project = ({ updateFields, isValid, setIsValid }) => {
   const [p, setP] = useState("");
   const [pInvalid, setPInvalid] = useState(false);
-  const [height, setHeight] = useState(180);
+  const [height, setHeight] = useState(210);
 
   const handlePerimeter = (e) => {
     setP(e.target.value);

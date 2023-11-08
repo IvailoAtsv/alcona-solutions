@@ -1,11 +1,20 @@
 import { useEffect, useState } from "react";
 import { FormWrapper } from "./FormWrapper";
 
-export const UserForm = ({ isValid, setIsValid, cartItems, orderStatus, setOrderStatus, userData, setUserData }) => {
+export const UserForm = ({
+  isValid,
+  setIsValid,
+  cartItems,
+  orderStatus,
+  setOrderStatus,
+  userData,
+  setUserData,
+}) => {
   const inputStyle =
-    "border-2 px-9 py-2 sm:w-[40%] w-[90%] rounded-md text-black foucs:border-background focus:ring-0 focus:outline-background";
+    "border-2 px-9 py-2 sm:w-[80%] max-w-[400px] w-[90%] rounded-md text-black foucs:border-background focus:ring-0 focus:outline-background";
 
-  const labelStyle = "text-xl text-center mt-4 text-red-600 font-bold";
+  const labelErrorStyle = "text-xl text-center mt-4 text-red-600 font-bold";
+  const labelStyle = "text-xl text-center mt-4 font-semibold";
 
   // const initial = {
   //   name: '',
@@ -15,13 +24,18 @@ export const UserForm = ({ isValid, setIsValid, cartItems, orderStatus, setOrder
   //   area: '',
   //   pickUp: false,
   // }
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [city, setCity] = useState("");
+  const [email, setEmail] = useState("");
+  const [area, setArea] = useState("");
 
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [isPhoneValid, setIsPhoneValid] = useState(true);
   const [isNameValid, setIsNameValid] = useState(true);
   const [isCityValid, setIsCityValid] = useState(true);
   const [isAreaValid, setIsAreaValid] = useState(true);
-  const [clickable, setClickable] = useState(false)
+  const [clickable, setClickable] = useState(false);
 
   function updateFields(fields) {
     setUserData((prev) => {
@@ -30,7 +44,8 @@ export const UserForm = ({ isValid, setIsValid, cartItems, orderStatus, setOrder
   }
 
   const validatePhone = (e) => {
-    if (e.target.value && e.target.value.length !== 10) {
+    setPhone(e.target.value);
+    if (e.target.value && e.target.value.length < 10) {
       setIsPhoneValid(false);
     } else {
       setIsPhoneValid(true);
@@ -40,6 +55,7 @@ export const UserForm = ({ isValid, setIsValid, cartItems, orderStatus, setOrder
 
   const regEx = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
   const validateEmail = (e) => {
+    setEmail(e.target.value);
     if (regEx.test(e.target.value)) {
       setIsEmailValid(true);
       updateFields({ email: e.target.value });
@@ -49,134 +65,146 @@ export const UserForm = ({ isValid, setIsValid, cartItems, orderStatus, setOrder
   };
 
   const validateName = (e) => {
-    if (e.target.value.length < 4) {
-      setIsNameValid(false)
+    setName(e.target.value);
+    if (e.target.value.length < 3) {
+      setIsNameValid(false);
     } else {
-      setIsNameValid(true)
-      updateFields({ name: e.target.value })
+      setIsNameValid(true);
+      updateFields({ name: e.target.value });
     }
-  }
+  };
   const validateCity = (e) => {
+    setCity(e.target.value);
     if (e.target.value.length < 4) {
-      setIsCityValid(false)
+      setIsCityValid(false);
     } else {
-      setIsCityValid(true)
-      updateFields({ city: e.target.value })
+      setIsCityValid(true);
+      updateFields({ city: e.target.value });
     }
-  }
+  };
   const validateArea = (e) => {
+    setArea(e.target.area);
     if (e.target.value.length < 4) {
-      setIsAreaValid(false)
+      setIsAreaValid(false);
     } else {
-      setIsAreaValid(true)
-      updateFields({ area: e.target.value })
+      setIsAreaValid(true);
+      updateFields({ area: e.target.value });
     }
-  }
+  };
 
   const handlePickup = (e) => {
     if (isNameValid && isPhoneValid && userData.name && userData.phone) {
-      updateFields({ pickUp: true, });
+      updateFields({ pickUp: true });
       console.log(cartItems);
       console.log(userData);
     } else {
-      setIsNameValid(false)
-      setIsPhoneValid(false)
+      setIsNameValid(false);
+      setIsPhoneValid(false);
     }
   };
 
   const handleDelivery = () => {
-    if (userData.name &&
+    if (
+      userData.name &&
       userData.phone &&
       userData.email &&
       userData.city &&
-      userData.area) {
+      userData.area
+    ) {
+      updateFields({ pickUp: false });
       console.log(userData);
       console.log(cartItems);
     }
-
-  }
+  };
 
   useEffect(() => {
-    if (isEmailValid && isPhoneValid && isNameValid && isCityValid && isAreaValid) {
-      setClickable(true)
+    if (
+      isEmailValid &&
+      isPhoneValid &&
+      isNameValid &&
+      isCityValid &&
+      isAreaValid
+    ) {
+      setClickable(true);
     } else {
-      setClickable(false)
+      setClickable(false);
     }
-  }, [userData])
+  }, [userData]);
   return (
     <div className="flex flex-col w-full py-0 sm:min-h-[450px] h-11/12 justify-around  items-center">
-      <h1 className="text-3xl mb-10 font-semibold border-b-4 pb-1 px-4 border-background">Данни за Поръчка</h1>
+      <h1 className="text-3xl mb-10 font-semibold border-b-4 pb-1 px-4 border-background">
+        Данни за Поръчка
+      </h1>
       <div className="flex flex-col w-full h-full justify-evenly items-center">
-
         {/* <p>Доставка до адрес (доплащане )</p> */}
-        <label className={labelStyle}>{!isNameValid ? "Въведете име" : ""}</label>
+        <label className={isNameValid ? labelStyle : labelErrorStyle}>
+          {!isNameValid ? "Въведете валидно име" : "Име: "}
+        </label>
         <input
-          value={userData.name}
+          value={name}
           name="name"
           onChange={(e) => validateName(e)}
           className={inputStyle}
-          placeholder="Име и Фамилия"
         />
 
-        <label className={labelStyle}>
-          {!isPhoneValid ? "Въведете валиден телефонен номер" : ""}
+        <label className={isPhoneValid ? labelStyle : labelErrorStyle}>
+          {!isPhoneValid ? "Въведете валиден телефон" : "Телефон: "}
         </label>
         <input
           name="phone"
-          value={userData.phone}
+          value={phone}
           onChange={(e) => validatePhone(e)}
           className={inputStyle}
-          placeholder="Телефон"
         />
 
         <button
           name="pickUp"
           type="submit"
           onClick={handlePickup}
-          className="rounded-lg py-2 my-4 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white w-[90%] sm:w-[40%]"
+          className="rounded-lg py-2 my-4 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white w-[90%] max-w-[400px] sm:w-[80%]"
         >
           Взимане от склад
         </button>
         <p>Или</p>
 
-        <label className={labelStyle}>
-          {!isEmailValid ? "Въведете валиден е-мейл" : ""}
+        <label className={isEmailValid ? labelStyle : labelErrorStyle}>
+          {!isEmailValid ? "Въведете валиден e-mail" : "e-mail: "}
         </label>
         <input
-          value={userData.email}
+          value={email}
           name="email"
           onChange={(e) => validateEmail(e)}
           className={inputStyle}
-          placeholder="e-mail"
         />
 
-        <label className={labelStyle}>{!isCityValid ? "Въведете валиден Град" : ""}</label>
+        <label className={isCityValid ? labelStyle : labelErrorStyle}>
+          {!isCityValid ? "Въведете валиден град" : "Град: "}
+        </label>
         <input
           name="city"
-          value={userData.city}
+          value={city}
           onChange={(e) => validateCity(e)}
           className={inputStyle}
-          placeholder="Град"
         />
 
-        <label className={labelStyle}>{!isAreaValid ? "Въведете валиден окръг" : ""}</label>
+        <label className={isAreaValid ? labelStyle : labelErrorStyle}>
+          {!isAreaValid ? "Въведете валиден окръг" : "Окръг: "}
+        </label>
         <input
-          value={userData.area}
-          onChange={e => validateArea(e)}
+          value={area}
+          onChange={(e) => validateArea(e)}
           name="area"
           className={inputStyle}
-          placeholder="Област"
         />
         <button
           name="pickUp"
           disabled={!clickable}
           type="submit"
           onClick={handleDelivery}
-          className="rounded-lg py-2 px-6 my-5 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white w-[90%] sm:w-[40%]"
+          className="rounded-lg py-2 px-6 my-5 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white w-[90%] max-w-[400px] sm:w-[80%]"
         >
           Доставка на адрес
         </button>
-
       </div>
     </div>
   );

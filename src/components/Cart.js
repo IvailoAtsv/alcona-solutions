@@ -39,9 +39,8 @@ const colorNames = {
 };
 
 export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
-
-  const [orderStatus, setOrderStatus] = useState('cart')
-  const [userData, setUserData] = useState({})
+  const [orderStatus, setOrderStatus] = useState("cart");
+  const [userData, setUserData] = useState({});
 
   useEffect(() => {
     if (!cartItems) {
@@ -51,85 +50,112 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
 
   const handleDelete = (id) => {
     if (cartItems.length > 1) {
-
       setCartItems((currentItems) => {
         if (currentItems.find((item) => item.id !== id)) {
           return currentItems.filter((item) => item.id !== id);
         }
       });
     } else {
-      empty()
+      empty();
     }
   };
 
   const empty = () => {
-    setCartItems([])
-  }
-
+    setCartItems([]);
+  };
 
   return (
     <>
       {cartOpen ? (
-        <div className="w-full z-50 overflow-y-auto h-[90vh] bg-transparent fixed top-0 right-0 flex justify-between flex-col items-end  rounded-xl">
-          <div className="sm:w-[60%] bg-gray-100 w-full h-auto shadow-lg rounded-md flex justify-evenly flex-col p-4 items-center">
+        <div className="w-full z-50 overflow-y-auto min-h-[95vh] bg-transparent fixed top-0 right-0 flex justify-between flex-col items-end  rounded-xl">
+          <div className="sm:w-[60%] bg-gray-100 w-full min-h-[95vh] h-auto shadow-lg rounded-md flex justify-evenly flex-col p-4 items-center">
             <button className="self-end" onClick={() => setCartOpen(false)}>
               <AiOutlineClose className="pt-2" size={32} />
             </button>
-            {orderStatus === 'cart' && <h1 className="text-3xl mb-auto font-semibold ">Количка</h1>}
+            {orderStatus === "cart" && (
+              <h1 className="text-3xl mb-auto font-semibold ">Количка</h1>
+            )}
 
             {/* cart */}
-            {orderStatus === 'cart' ? <div className="flex flex-col overflow-y-scroll justify-around gap-2 items-center w-full">
-              {cartItems?.map((item, i) => {
-                if (item.itemType === "default") {
-                  return (
-                    <CartItem
-                      onRemove={handleDelete}
-                      setCartItems={setCartItems}
-                      cartItems={cartItems}
-                      key={i}
-                      id={item.id}
-                      panelCount={item.panelCount}
-                      color={item.color}
-                      width={item.width}
-                      height={item.height}
-                      perimeter={item.perimeter}
-                      isProject={item.isProject}
-                      itemType={item.itemType}
-                    />
-                  );
-                } else {
-                  return (
-                    <CartElement
-                      cartItems={cartItems}
-                      onRemove={handleDelete}
-                      src={item.src}
-                      id={item.id}
-                      itemName={item.itemName}
-                      count={item.count}
-                    />
-                  );
-                }
-              })}
-            </div>
-              : <UserForm userData={userData} setUserData={setUserData} cartItems={cartItems} orderStatus={orderStatus} setOrderStatus={setOrderStatus} />}
+            {orderStatus === "cart" ? (
+              <div className="flex flex-col overflow-y-scroll justify-around gap-2 items-center w-full">
+                {cartItems?.map((item, i) => {
+                  if (item.itemType === "default") {
+                    return (
+                      <CartItem
+                        onRemove={handleDelete}
+                        setCartItems={setCartItems}
+                        cartItems={cartItems}
+                        key={i}
+                        id={item.id}
+                        panelCount={item.panelCount}
+                        color={item.color}
+                        width={item.width}
+                        height={item.height}
+                        perimeter={item.perimeter}
+                        isProject={item.isProject}
+                        itemType={item.itemType}
+                      />
+                    );
+                  } else {
+                    return (
+                      <CartElement
+                        cartItems={cartItems}
+                        onRemove={handleDelete}
+                        src={item.src}
+                        id={item.id}
+                        itemName={item.itemName}
+                        count={item.count}
+                      />
+                    );
+                  }
+                })}
+              </div>
+            ) : (
+              <UserForm
+                userData={userData}
+                setUserData={setUserData}
+                cartItems={cartItems}
+                orderStatus={orderStatus}
+                setOrderStatus={setOrderStatus}
+              />
+            )}
 
-            {orderStatus === 'cart' ? <div className="w-[90%] flex justify-between">
-              <button onClick={empty} className="self-end mt-6 rounded-lg py-1 px-6 border-2 font-bold duration-500 bg-white border-black hover:bg-black hover:text-white">
-                Изтрий всички
+            {orderStatus === "cart" ? (
+              <div className="w-[90%] flex justify-between">
+                {cartItems.length !== 0 && (
+                  <button
+                    onClick={empty}
+                    className="self-end mt-6 rounded-lg py-1 px-6 border-2 font-bold duration-500 bg-white border-black hover:bg-black hover:text-white"
+                  >
+                    Изтрий всички
+                  </button>
+                )}
+
+                {cartItems.length !== 0 && (
+                  <button
+                    onClick={() => setOrderStatus("order")}
+                    className="self-end mt-6 rounded-lg py-1 px-6 border-2 font-bold duration-500 bg-white border-black hover:bg-black hover:text-white"
+                  >
+                    Към Поръчка
+                  </button>
+                )}
+              </div>
+            ) : (
+              <button
+                onClick={() => setOrderStatus("cart")}
+                className="self-start mt-6 rounded-lg py-1 px-6 border-2 font-bold duration-500 bg-white border-black hover:bg-black hover:text-white"
+              >
+                Обратно
               </button>
-              <button onClick={() => setOrderStatus('order')} className="self-end mt-6 rounded-lg py-1 px-6 border-2 font-bold duration-500 bg-white border-black hover:bg-black hover:text-white">
-                Към Поръчка
-              </button>
-            </div>
-              : <button onClick={() => setOrderStatus('cart')} className="self-start mt-6 rounded-lg py-1 px-6 border-2 font-bold duration-500 bg-white border-black hover:bg-black hover:text-white">Обратно</button>}
+            )}
           </div>
         </div>
       ) : (
         ""
       )}
     </>
-  )
-
+  );
 };
 
 const CartItem = ({

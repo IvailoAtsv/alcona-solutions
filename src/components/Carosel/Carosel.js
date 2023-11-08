@@ -117,10 +117,10 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
       >
         <div className="w-full h-full flex overflow-hidden">
           {IMAGES.map((item, index) => (
-            <div className="w-full h-full shrink-0 grow-0">
+            <div key={uniqid()} className="w-full h-full shrink-0 grow-0">
               <img
                 loading="lazy"
-                key={images[imageIndex + 1]}
+
                 src={item.url}
                 alt={item.alt}
                 aria-hidden={imageIndex !== index}

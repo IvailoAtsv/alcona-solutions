@@ -86,13 +86,6 @@ export function MainForm({
     updateFields({ isProject: false });
     return goTo(0);
   }
-
-  // useEffect(() => {
-  //   if (!stay) {
-  //     return goTo(0);
-  //   }
-  //   alert("stay changed");
-  // }, [stay]);
   return (
     <>
       <div id="order"></div>
@@ -105,7 +98,6 @@ export function MainForm({
           <div className="flex w-11/12 h-12 items-center gap-3 justify-end mt-9 mr-9">
             {!isFirstStep && (
               <button
-                disabled={!isValid}
                 className="rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
                 type="button"
                 onClick={back}

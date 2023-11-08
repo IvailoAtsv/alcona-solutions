@@ -74,13 +74,26 @@ export const UserForm = ({ isValid, setIsValid, cartItems, orderStatus, setOrder
   }
 
   const handlePickup = (e) => {
-    updateFields({ pickUp: true });
-    console.log(cartItems);
+    if (isNameValid && isPhoneValid && userData.name && userData.phone) {
+      updateFields({ pickUp: true, });
+      console.log(cartItems);
+      console.log(userData);
+    } else {
+      setIsNameValid(false)
+      setIsPhoneValid(false)
+    }
   };
 
   const handleDelivery = () => {
-    console.log(userData);
-    console.log(cartItems);
+    if (userData.name &&
+      userData.phone &&
+      userData.email &&
+      userData.city &&
+      userData.area) {
+      console.log(userData);
+      console.log(cartItems);
+    }
+
   }
 
   useEffect(() => {
@@ -94,15 +107,7 @@ export const UserForm = ({ isValid, setIsValid, cartItems, orderStatus, setOrder
     <div className="flex flex-col w-full py-0 sm:min-h-[450px] h-11/12 justify-around  items-center">
       <h1 className="text-3xl mb-10 font-semibold border-b-4 pb-1 px-4 border-background">Данни за Поръчка</h1>
       <div className="flex flex-col w-full h-full justify-evenly items-center">
-        <button
-          name="pickUp"
-          type="submit"
-          onClick={handlePickup}
-          className="rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white w-[90%] sm:w-[40%]"
-        >
-          Взимане от склад
-        </button>
-        <p className="pt-2">Или</p>
+
         {/* <p>Доставка до адрес (доплащане )</p> */}
         <label className={labelStyle}>{!isNameValid ? "Въведете име" : ""}</label>
         <input
@@ -111,19 +116,6 @@ export const UserForm = ({ isValid, setIsValid, cartItems, orderStatus, setOrder
           onChange={(e) => validateName(e)}
           className={inputStyle}
           placeholder="Име и Фамилия"
-          required
-        />
-
-        <label className={labelStyle}>
-          {!isEmailValid ? "Въведете валиден е-мейл" : ""}
-        </label>
-        <input
-          value={userData.email}
-          name="email"
-          onChange={(e) => validateEmail(e)}
-          className={inputStyle}
-          placeholder="e-mail"
-          required
         />
 
         <label className={labelStyle}>
@@ -135,12 +127,31 @@ export const UserForm = ({ isValid, setIsValid, cartItems, orderStatus, setOrder
           onChange={(e) => validatePhone(e)}
           className={inputStyle}
           placeholder="Телефон"
-          required
+        />
+
+        <button
+          name="pickUp"
+          type="submit"
+          onClick={handlePickup}
+          className="rounded-lg py-2 my-4 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white w-[90%] sm:w-[40%]"
+        >
+          Взимане от склад
+        </button>
+        <p>Или</p>
+
+        <label className={labelStyle}>
+          {!isEmailValid ? "Въведете валиден е-мейл" : ""}
+        </label>
+        <input
+          value={userData.email}
+          name="email"
+          onChange={(e) => validateEmail(e)}
+          className={inputStyle}
+          placeholder="e-mail"
         />
 
         <label className={labelStyle}>{!isCityValid ? "Въведете валиден Град" : ""}</label>
         <input
-          required
           name="city"
           value={userData.city}
           onChange={(e) => validateCity(e)}
@@ -150,7 +161,6 @@ export const UserForm = ({ isValid, setIsValid, cartItems, orderStatus, setOrder
 
         <label className={labelStyle}>{!isAreaValid ? "Въведете валиден окръг" : ""}</label>
         <input
-          required
           value={userData.area}
           onChange={e => validateArea(e)}
           name="area"

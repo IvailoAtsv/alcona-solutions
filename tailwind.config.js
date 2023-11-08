@@ -3,6 +3,7 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      display: ["group-hover"],
       textShadow: {
         sm: "0 1px 2px",
         md: "0 2px 4px",

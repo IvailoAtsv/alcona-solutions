@@ -50,6 +50,7 @@ export function FooterWithSitemap() {
             </div>
           ))}
         </div>
+
       </div>
     </footer>
   );

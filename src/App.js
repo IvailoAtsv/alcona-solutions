@@ -14,6 +14,8 @@ function App() {
   const [cartOpen, setCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [stay, setStay] = useState(false);
+  const [fancy, setFancy] = useState(false)
+
 
   return (
     <div className="bg-white w-full overflow-x-hidden min-h-screen flex flex-col justify-center items-center">
@@ -56,7 +58,7 @@ function App() {
       />
       <About />
       <Contact />
-      <FooterWithSitemap />
+      <FooterWithSitemap fancy={fancy} setFancy={setFancy} />
     </div>
   );
 }

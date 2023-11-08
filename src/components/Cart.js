@@ -10,7 +10,8 @@ import sandyBrown from "../components/Colors/sandyBrown.png";
 import teak from "../components/Colors/teak.png";
 import rosewood from "../components/Colors/rosewood.png";
 import reddishBrown from "../components/Colors/reddishBrown.png";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { UserForm } from "./UserForm";
 
 const colors = {
   black: black,
@@ -38,6 +39,10 @@ const colorNames = {
 };
 
 export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
+
+  const [orderStatus, setOrderStatus] = useState('cart')
+  const [userData, setUserData] = useState({})
+
   useEffect(() => {
     if (!cartItems) {
       setCartOpen(false);
@@ -52,12 +57,15 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
           return currentItems.filter((item) => item.id !== id);
         }
       });
+    } else {
+      empty()
     }
   };
 
   const empty = () => {
     setCartItems([])
   }
+
 
   return (
     <>
@@ -67,9 +75,10 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
             <button className="self-end" onClick={() => setCartOpen(false)}>
               <AiOutlineClose className="pt-2" size={32} />
             </button>
-            <h1 className="text-3xl mb-auto font-semibold ">Количка</h1>
+            {orderStatus === 'cart' && <h1 className="text-3xl mb-auto font-semibold ">Количка</h1>}
+
             {/* cart */}
-            <div className="flex flex-col overflow-y-scroll justify-around gap-2 items-center w-full">
+            {orderStatus === 'cart' ? <div className="flex flex-col overflow-y-scroll justify-around gap-2 items-center w-full">
               {cartItems?.map((item, i) => {
                 if (item.itemType === "default") {
                   return (
@@ -102,21 +111,25 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
                 }
               })}
             </div>
-            <div className="w-[90%] flex justify-between">
+              : <UserForm userData={userData} setUserData={setUserData} cartItems={cartItems} orderStatus={orderStatus} setOrderStatus={setOrderStatus} />}
+
+            {orderStatus === 'cart' ? <div className="w-[90%] flex justify-between">
               <button onClick={empty} className="self-end mt-6 rounded-lg py-1 px-6 border-2 font-bold duration-500 bg-white border-black hover:bg-black hover:text-white">
                 Изтрий всички
               </button>
-              <button className="self-end mt-6 rounded-lg py-1 px-6 border-2 font-bold duration-500 bg-white border-black hover:bg-black hover:text-white">
+              <button onClick={() => setOrderStatus('order')} className="self-end mt-6 rounded-lg py-1 px-6 border-2 font-bold duration-500 bg-white border-black hover:bg-black hover:text-white">
                 Към Поръчка
               </button>
             </div>
+              : <button onClick={() => setOrderStatus('cart')} className="self-start mt-6 rounded-lg py-1 px-6 border-2 font-bold duration-500 bg-white border-black hover:bg-black hover:text-white">Обратно</button>}
           </div>
         </div>
       ) : (
         ""
       )}
     </>
-  );
+  )
+
 };
 
 const CartItem = ({

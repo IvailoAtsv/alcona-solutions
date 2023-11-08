@@ -2,6 +2,12 @@ import logo from "../images/logo.png";
 import logoFull from "../images/fullLogo.png";
 
 const Hero = () => {
+  const handleContactScroll = () => {
+    const element = document.getElementById("contact");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <div className="w-full text-center flex bg-no-repeat bg-right-bottom sm:mt-0 mt-10 bg-fixed bg-cover justify-center items-center bg-hero3 h-[80vh]">
       <div
@@ -18,13 +24,13 @@ const Hero = () => {
             парапети и огради от луксозен материал. Подобрете вашия екстериор с
             нашата премиум колекция.
           </p>
-          <button className="rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white">
+          <button onClick={handleContactScroll} className="rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white">
             Contact us
           </button>
         </div>
         <img
           src={logoFull}
-          className="sm:w-[50%] w-[90%] mt-12 sm:mt-0 sm:pb-0 sm:pr-0 md:max-w-[450px] max-h-[250px]"
+          className="sm:w-[50%] w-[90%] sm:mb-36 sm:mt-0 sm:pb-0 sm:pr-0 md:max-w-[450px] max-h-[250px]"
           alt="logo"
         />
       </div>

@@ -95,7 +95,7 @@ export function MainForm({
             {currentStepIndex + 1} / {steps.length}
           </div>
           {step}
-          <div className="flex w-11/12 h-12 items-center gap-3 justify-end mt-9 mr-9">
+          <div className="flex  w-11/12 h-12 items-center gap-3 justify-end mt-12 ml-9">
             {!isFirstStep && (
               <button
                 className="rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"

@@ -68,7 +68,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
     <>
       {cartOpen ? (
         <div className="w-full z-50 overflow-y-auto min-h-[95vh] bg-transparent fixed top-0 right-0 flex justify-between flex-col items-end  rounded-xl">
-          <div className="sm:w-[60%] bg-gray-100 w-full min-h-[95vh] h-auto shadow-lg rounded-md flex justify-evenly flex-col p-4 items-center">
+          <div className="sm:w-[60%] bg-gray-200 w-full min-h-[95vh] h-auto shadow-lg rounded-md flex justify-evenly flex-col p-4 items-center">
             <button className="self-end" onClick={() => setCartOpen(false)}>
               <AiOutlineClose className="pt-2" size={32} />
             </button>

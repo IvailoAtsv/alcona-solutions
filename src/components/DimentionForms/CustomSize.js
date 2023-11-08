@@ -13,16 +13,16 @@ import teak from "../Colors/teak.png";
 import rosewood from "../Colors/rosewood.png";
 import reddishBrown from "../Colors/reddishBrown.png";
 
-import BlackSquare from '../../colors/Black.png'
-import DarkCoffeeSquare from '../../colors/DarkCoffee.png'
-import GreenSquare from '../../colors/Green.png'
-import LightCoffeeSquare from '../../colors/LightCoffee.png'
-import LightGreySquare from '../../colors/LightGrey.png'
-import MapleSquare from '../../colors/Maple.png'
-import ReddishBrownSquare from '../../colors/ReddishBrown.png'
-import RosewoodSquare from '../../colors/Rosewood.png'
-import SandyBrownSquare from '../../colors/SandyBrown.png'
-import TeakSquare from '../../colors/Teak.png'
+import BlackSquare from "../../colors/Black.png";
+import DarkCoffeeSquare from "../../colors/DarkCoffee.png";
+import GreenSquare from "../../colors/Green.png";
+import LightCoffeeSquare from "../../colors/LightCoffee.png";
+import LightGreySquare from "../../colors/LightGrey.png";
+import MapleSquare from "../../colors/Maple.png";
+import ReddishBrownSquare from "../../colors/ReddishBrown.png";
+import RosewoodSquare from "../../colors/Rosewood.png";
+import SandyBrownSquare from "../../colors/SandyBrown.png";
+import TeakSquare from "../../colors/Teak.png";
 
 const colorSquares = {
   black: BlackSquare,
@@ -77,7 +77,7 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
   return (
     <div className="flex items-center w-full min-h-min flex-col justify-between ">
       <div className="flex h-full items-end">
-        <div className="flex flex-col  mb-5 items-center">
+        <div className="flex flex-col mb-5 items-center">
           <img src={colorSquares[color]} className="w-20 h-20  rounded-md" />
           <p>{color}</p>
         </div>
@@ -87,7 +87,7 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
         />
       </div>
 
-      <div className="w-full flex flex-col justify-center items-center">
+      <div className="w-full flex  flex-col justify-center items-center">
         <div className="flex flex-col justify-center items-center w-11/12 h-11/12">
           <label className="text-lg font-semibold">Ширина: {width} cm</label>
           <input

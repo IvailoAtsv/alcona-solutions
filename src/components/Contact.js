@@ -1,25 +1,115 @@
+import { useEffect, useState } from "react";
+
 export const Contact = () => {
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [question, setQuestion] = useState("");
+  const [data, setData] = useState({});
+  const [isValid, setIsValid] = useState(false);
+  const [isEmailValid, setIsEmailValid] = useState(true);
+  const [isNameValid, setIsNameValid] = useState(true);
+  const [isQuestionValid, setIsQuestionValid] = useState(true);
+
   const inputStyle =
     "border-2 px-9 py-2 sm:w-[60%] w-[90%] rounded-md text-black foucs:border-background focus:ring-0 focus:outline-background";
 
+  const regEx = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+  const labelErrorStyle = "text-xl text-center mt-4 text-red-600 font-bold";
+  const labelStyle = "text-xl text-center mt-4 font-semibold";
+
+  function updateFields(fields) {
+    setData((prev) => {
+      return { ...prev, ...fields };
+    });
+  }
+
+  const validateEmail = (e) => {
+    setEmail(e.target.value);
+    if (regEx.test(e.target.value)) {
+      setIsEmailValid(true);
+      updateFields({ email: e.target.value });
+    } else {
+      setIsEmailValid(false);
+    }
+  };
+
+  const validateQuesiton = (e) => {
+    setQuestion(e.target.value);
+    if (e.target.value.length > 10) {
+      setIsQuestionValid(true);
+      updateFields({ question: e.target.value });
+    } else {
+      setIsQuestionValid(false);
+    }
+  };
+
+  const validateName = (e) => {
+    setName(e.target.value);
+    if (e.target.value.length < 3) {
+      setIsNameValid(false);
+    } else {
+      setIsNameValid(true);
+      updateFields({ name: e.target.value });
+    }
+  };
+
+  useEffect(() => {
+    if (email !== "" && name !== "" && question !== "") {
+      setIsValid(true);
+    } else {
+      setIsValid(false);
+    }
+  }, [data]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(data);
+  };
   return (
-    <div id="contact" className="w-[95%] overflow-hidden h-[80vh] max-w-[1400px]  flex-col flex justify-center items-center">
+    <div
+      id="contact"
+      className="w-[95%] overflow-hidden h-[80vh] max-w-[1400px]  flex-col flex justify-center items-center"
+    >
       <div className="w-[100%] rounded-t-md h-[20%] p-6 flex justify-center items-center bg-background">
         <h1 className="text-2xl text-white font-semibold">
           Имате запитване? Свържете се с нас!
         </h1>
       </div>
-      <form className=" w-[100%] border-b-4 border-r-4 border-l-4 border-background bg-white rounded-b-md backdrop-blur-md justify-center items-center flex flex-col h-[60%]">
-        <label>Име и Фамилия: </label>
-        <input className={inputStyle} required name="name" />
-        <label>e-mail за връзка: </label>
-        <input className={inputStyle} required name="name" />
-        <label>Въпрос: </label>
-        <textarea className="border-2 px-9 py-2 h-[30%] sm:w-[60%] w-[90%] rounded-md text-black foucs:border-background focus:ring-0 focus:outline-background"></textarea>
+      <form className="w-[100%] border-b-4 border-r-4 border-l-4 border-background bg-white rounded-b-md backdrop-blur-md justify-center items-center flex flex-col h-[60%]">
+        <label className={isNameValid ? labelStyle : labelErrorStyle}>
+          * Име и Фамилия:{" "}
+        </label>
         <input
-          className="rounded-lg py-1 mt-4 px-6 border-2 self-center font-bold duration-500 border-background hover:bg-background hover:text-white"
-          type="submit"
-        ></input>
+          onChange={(e) => validateName(e)}
+          className={inputStyle}
+          required
+          name="name"
+        />
+        <label className={isEmailValid ? labelStyle : labelErrorStyle}>
+          * e-mail за връзка:{" "}
+        </label>
+        <input
+          onChange={(e) => validateEmail(e)}
+          className={inputStyle}
+          required
+          name="email"
+        />
+        <label className={isQuestionValid ? labelStyle : labelErrorStyle}>
+          * Въпрос:
+        </label>
+        <textarea
+          className="border-2 px-9 py-2 h-[30%] sm:w-[60%] w-[90%] rounded-md text-black foucs:border-background focus:ring-0 focus:outline-background"
+          required
+          name="question"
+          onChange={(e) => validateQuesiton(e)}
+        ></textarea>
+        <button
+          onClick={handleSubmit}
+          disabled={!isValid}
+          className="w-[60%] rounded-lg py-2 my-4 px-6 border-2 self-center font-bold duration-500 border-background hover:bg-background hover:text-white"
+        >
+          Изпращане
+        </button>
       </form>
     </div>
   );

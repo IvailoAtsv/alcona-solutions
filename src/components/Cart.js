@@ -126,10 +126,16 @@ const CartItem = ({
       </button>
       <div className="flex items-center justify-between w-full">
         <img className="w-16" src={colors[color]} />
-        <div className="flex pl-4 flex-col items-center">
+        <div className="flex pl-4 w-full flex-col items-center">
           <p className="text-lg">цвят {colorNames[color]}</p>
           {perimeter ? (
-            <p className="text-md self-start">Проект: {perimeter} м.</p>
+            <p className="text-md self-start">
+              Проект:
+              <br />
+              Ширина: {perimeter} м.
+              <br />
+              Височина {height} см.
+            </p>
           ) : (
             <p className="text-md self-start">
               {width} x {height}

@@ -4,28 +4,10 @@ import { MainForm } from "./components/MainForm";
 import { About } from "./components/About";
 import { Cart } from "./components/Cart";
 import { FooterWithSitemap } from "./components/Footer";
-
-import pic1 from "./images/plastic.jpg";
-import pic2 from "./images/bottom.jpg";
-import pic3 from "./images/kol-slice.jpg";
-import pic4 from "./images/kol.jpg";
-import pic5 from "./images/plank.jpg";
-import pic6 from "./images/top.jpg";
-import pic7 from "./images/fence2.png";
 import Navigation from "./components/Nav/Navigation";
 import { Popup } from "./components/Popup";
 import { Carosel } from "./components/Carosel/Carosel";
 import { Contact } from "./components/Contact";
-
-const IMAGES = [
-  { url: pic7, alt: "pic Five" },
-  { url: pic4, alt: "pic Four" },
-  { url: pic3, alt: "pic Three" },
-  { url: pic1, alt: "pic One" },
-  { url: pic2, alt: "pic Two" },
-  { url: pic6, alt: "pic Five" },
-  { url: pic5, alt: "pic Five" },
-];
 
 function App() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);

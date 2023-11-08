@@ -41,7 +41,8 @@ export function MainForm({
     });
   }
   function addToCart(e) {
-    setCartItems((prev) => [...prev, data]);
+    const newList = cartItems;
+    setCartItems([...newList, data]);
     console.log(data);
   }
   const {

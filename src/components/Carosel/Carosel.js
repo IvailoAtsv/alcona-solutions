@@ -91,8 +91,9 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
       src: images[imageIndex],
       id: uniqid(),
     };
-    setCartItems((prev) => [...prev, item]);
-    setCount((prev) => (prev = 1));
+    const newList = [...cartItems];
+    setCartItems([...newList, item]);
+    setCount(1);
     setIsPopupOpen(true);
   };
 

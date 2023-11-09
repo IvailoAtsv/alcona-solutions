@@ -69,14 +69,14 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
     <>
       {cartOpen ? (
         <div className="w-full z-50 overflow-y-scroll h-[100vh] bg-transparent fixed top-0 right-0 flex justify-between flex-col items-end  rounded-xl">
-          <div className="sm:w-[60%] bg-gray-200 w-full h-auto shadow-lg rounded-md flex justify-evenly flex-col p-4 items-center">
+          <div className="sm:w-[60%] bg-gray-200 w-full h-auto shadow-lg rounded-md flex justify-center flex-col p-4 items-center">
+            <p>{cartItems.reduce((total, item) => total + item.price, 0)}lv</p>
             <button className="self-end" onClick={() => setCartOpen(false)}>
               <AiOutlineClose className="pt-2" size={32} />
             </button>
             {orderStatus === "cart" && (
               <h1 className="text-3xl mb-auto font-semibold ">Количка</h1>
             )}
-
             {/* cart */}
             {orderStatus === "cart" ? (
               <div className="flex flex-col justify-around gap-2 items-center w-full">
@@ -141,8 +141,13 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
               />
             )}
 
+            <div className="mt-6 self-center text-end w-[90%]">
+              <p className="bg-white self-end rounded-md shadow-lg p-2">
+                Oбщо: {cartItems.reduce((total, item) => total + item.price, 0)}
+              </p>
+            </div>
             {orderStatus === "cart" ? (
-              <div className="w-[90%] flex justify-between">
+              <div className="w-[90%] flex items-center justify-between">
                 {cartItems.length !== 0 && (
                   <button
                     onClick={empty}
@@ -151,7 +156,9 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
                     Изтрий всички
                   </button>
                 )}
-
+                {/* <p className="">
+                  {cartItems.reduce((total, item) => total + item.price, 0)}
+                </p> */}
                 {cartItems.length !== 0 && (
                   <button
                     onClick={() => setOrderStatus("order")}

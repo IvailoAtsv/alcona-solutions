@@ -79,7 +79,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
 
             {/* cart */}
             {orderStatus === "cart" ? (
-              <div className="flex flex-col overflow-y-scroll justify-around gap-2 items-center w-full">
+              <div className="flex flex-col justify-around gap-2 items-center w-full">
                 {cartItems?.map((item, i) => {
                   if (item.itemType === "default") {
                     return (

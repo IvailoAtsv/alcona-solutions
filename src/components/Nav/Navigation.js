@@ -1,6 +1,6 @@
 import "./nav.css";
 import "./queries.css";
-
+import { FiPhoneCall } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import {
   AiFillPhone,
@@ -43,9 +43,9 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
 
   return (
     <header className="header">
-      <p className="flex self-center gap-1 w-auto mr-auto">
-        <AiFillPhone size={20} />
-        <p className="text-sm">0893993129</p>
+      <p className="flex self-center gap-1 ml-5 w-auto mr-auto">
+        <FiPhoneCall size={20} />
+        <p className="text-md font-bold">0893993129</p>
       </p>
       <input type="checkbox" id="check" />
       <label htmlFor="check" className="icons">

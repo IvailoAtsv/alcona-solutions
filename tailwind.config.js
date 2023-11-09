@@ -26,9 +26,9 @@ module.exports = {
       colors: {
         gold: "#ffda9e",
         cardBg: "rgba(255,255,255,0.7)",
-        cardBg2: "rgba(0,0,0,0.7)",
+        cardBg2: "rgba(0,0,0,0.4)",
         popupBg: "rgba(0,0,0,0.2)",
-        cardBg3: "rgba(0,0,0,0.55)",
+        cardBg3: "rgba(0,0,0,0.4)",
         bgShape: "linear-gradient(45deg,pink,puple)",
         background: "#202A44",
         footer: "#6F4E37",

@@ -10,7 +10,7 @@ export const About = () => {
     >
       <div className="flex max-w-[1400px] backdrop-blur-md w-full bg-cardBg3 my-4 text-white gap-3 flex-col justify-evenly rounded-md p-4 items-center">
         <h1 className="text-5xl font-bold">За нас</h1>
-        <p className="z-10 text-lg sm:text-2xl text-start font-semibold p-3 rounded-md">
+        <p className="z-10 text-md sm:text-2xl text-start font-semibold p-3 rounded-md">
           Вашият надежден партньор за уникални огради от WPC. Нашата
           специализирана компания предлага пълни решения, включително
           проектиране, доставка и монтаж на висококачествени оградни системи от
@@ -51,9 +51,9 @@ const Card = ({ img, title, text }) => {
         src={img}
         className="w-full h-[200px] rounded-t-md object-cover object-center"
       />
-      <div className="flex h-full flex-col justify-evenly gap-5 items-center p-6">
-        <h1 className="text-center text-3xl font-semibold ">{title}</h1>
-        <p className="text-lg text-start h-full">{text}</p>
+      <div className="flex h-auto flex-col justify-evenly gap-5 items-center p-6">
+        <h1 className="text-center mb-auto text-3xl font-semibold ">{title}</h1>
+        <p className="text-md text-start h-full">{text}</p>
       </div>
     </div>
   );

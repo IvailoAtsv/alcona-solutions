@@ -80,8 +80,8 @@ export const DefaultSize = ({ color, updateFields, isValid, setIsValid }) => {
   return (
     <div className="flex items-center flex-col justify-between w-full">
       <div className="w-full flex flex-col justify-evenly gap-3 items-center">
-        <div className="flex w-full h-full items-center justify-center">
-          <div className="flex flex-col w-[20%] mb-5 self-end items-center">
+        <div className="flex w-full flex-col justify-evenly sm:flex-row h-full items-center sm:justify-center">
+          <div className="flex flex-col w-[20%] mb-5 sm:self-end items-center">
             <img src={colorSquares[color]} className="w-20 h-20  rounded-md" />
             <p>{color}</p>
           </div>
@@ -89,7 +89,7 @@ export const DefaultSize = ({ color, updateFields, isValid, setIsValid }) => {
             src={colors[color]}
             style={{ width: `${width * 2}px`, height: `${height * 1.5}px` }}
           />
-          <p className="text-[12px] self-end text-left mb-5 w-[20%]">
+          <p className="text-[12px] sm:self-end text-left mb-5 w-[65%] sm:w-[20%]">
             Показаният цвят на оградата е с илюстративна цел. За реалният такъв,
             моля придържайте се към цветната карта
           </p>
@@ -98,13 +98,13 @@ export const DefaultSize = ({ color, updateFields, isValid, setIsValid }) => {
         <input
           name="width"
           className={inputStyle}
-          placeholder="180 CM"
+          placeholder="180 см Ширина"
           readOnly
         />
         <input
           name="height"
           className={inputStyle}
-          placeholder="180CM"
+          placeholder="180 см Височина"
           readOnly
         />
         <div className="flex flex-col justify-center items-center w-11/12 h-11/12">

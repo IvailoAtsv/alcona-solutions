@@ -64,7 +64,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
   const empty = () => {
     setCartItems([]);
   };
-
+  console.log(cartItems);
   return (
     <>
       {cartOpen ? (
@@ -80,6 +80,24 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
             {/* cart */}
             {orderStatus === "cart" ? (
               <div className="flex flex-col justify-around gap-2 items-center w-full">
+                {cartItems.length > 0 ? (
+                  <div className="bg-white w-[90%] rounded-md p-4">
+                    <h1 className="text-center font-semibold text-lg">
+                      Допълнителни елементи
+                    </h1>
+                    <div className="flex border-b-2 w-full justify-between">
+                      <p>кол</p> <p className="text-end">x1</p>
+                    </div>
+                    <div className="flex border-b-2 w-full justify-between">
+                      <p>метална основа</p> <p className="text-end">x1</p>
+                    </div>
+                    <div className="flex border-b-2 w-full justify-between">
+                      <p>WPX шапка</p> <p className="text-end">x1</p>
+                    </div>
+                  </div>
+                ) : (
+                  <h1 className="py-20">Количката е празна</h1>
+                )}
                 {cartItems?.map((item, i) => {
                   if (item.itemType === "default") {
                     return (
@@ -87,6 +105,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
                         onRemove={handleDelete}
                         setCartItems={setCartItems}
                         cartItems={cartItems}
+                        price={item.price}
                         key={i}
                         id={item.id}
                         panelCount={item.panelCount}
@@ -166,7 +185,7 @@ const CartItem = ({
   height,
   isProject,
   perimeter,
-  cartItems,
+  price,
   id,
   onRemove,
 }) => {
@@ -219,7 +238,7 @@ const CartItem = ({
         {!perimeter && (
           <>
             <p className="w-full border-b">
-              WPC съставна дъска Alcona х {height / 15}
+              WPC съставна дъска Alcona х {(height / 15) * panelCount}
             </p>{" "}
             <p className="w-full border-b">WPC стълб х {panelCount}</p>
             <p className="w-full border-b">Крепежни ъгли х {panelCount * 4}</p>
@@ -237,7 +256,7 @@ const CartItem = ({
             </p>
           </>
         )}
-        <p className="ml-auto pt-2">000.00</p>
+        <p className="ml-auto pt-2">{price} лв.</p>
       </div>
     </div>
   );

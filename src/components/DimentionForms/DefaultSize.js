@@ -72,6 +72,14 @@ export const DefaultSize = ({ color, updateFields, isValid, setIsValid }) => {
     } else {
       setIsValid(true);
     }
+    let price;
+    if (premium.includes(color)) {
+      price = 660;
+    } else {
+      price = 460;
+    }
+    const total = price * panelCount;
+    updateFields({ price: total });
     updateFields({ panelCount: panelCount });
     updateFields({ height: height });
     updateFields({ width: width });

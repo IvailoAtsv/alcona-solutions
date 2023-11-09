@@ -47,8 +47,8 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
   };
 
   return (
-    <header className="header ">
-      <div className="flex max-w-[1400px] w-full items-center">
+    <header className="header">
+      <div className="flex max-w-[1400px] gap-5 lg:gap-0 w-full items-center">
         <div className="lg:ml-4 flex w-auto flex-col lg:gap-3 lg:flex-row h-auto items-start">
           <div className="flex items-center justify-center gap-1  w-auto">
             <FiPhoneCall size={16} />
@@ -67,7 +67,6 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
             <GiHamburgerMenu className="bx bx-menu" id="menu-open" />
             <AiOutlineClose className="bx bx-x" id="menu-close" />
           </label>
-          <div className="flex justify-baseline items-start"></div>
           <nav className="navbar ml-auto">
             <button
               className="hover:font-bold"

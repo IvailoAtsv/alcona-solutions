@@ -3,11 +3,10 @@ import "./queries.css";
 import { FiPhoneCall } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import {
-  AiFillPhone,
+  AiOutlineMail,
   AiOutlineClose,
   AiOutlineShoppingCart,
 } from "react-icons/ai";
-import { forwardRef } from "react";
 
 const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
   const handleAboutScroll = () => {
@@ -42,34 +41,74 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
   };
 
   return (
-    <header className="header">
-      <p className="flex self-center gap-1 ml-5 w-auto mr-auto">
-        <FiPhoneCall size={20} />
-        <p className="text-md font-bold">0893993129</p>
-      </p>
-      <input type="checkbox" id="check" />
-      <label htmlFor="check" className="icons">
-        <GiHamburgerMenu className="bx bx-menu" id="menu-open" />
-        <AiOutlineClose className="bx bx-x" id="menu-close" />
-      </label>
-      <div className="flex justify-baseline items-start"></div>
-      <nav className="navbar">
-        <button onClick={() => handleHeroScroll()}>Home</button>
-        <button onClick={() => handleProductsScroll()}>Products</button>
-        <button onClick={() => handleAboutScroll()}>About us</button>
-        <button onClick={() => handleOrderScroll()}>Order</button>
-        <button onClick={() => handleFooterScroll()}>Contacts</button>
-        <button onClick={() => setCartOpen((prev) => (prev = !prev))}>
-          <div className="flex w-full pr-4">
-            <AiOutlineShoppingCart size={32} />
-            {cartItems?.length ? (
-              <div className="bg-red-500 w-[5px] self-end h-[5px] animate-ping rounded-full"></div>
-            ) : (
-              ""
-            )}
+    <header className="header ">
+      <div className="flex max-w-[1400px] w-full items-center">
+        <div className="lg:ml-4 flex w-auto flex-col lg:gap-3 lg:flex-row h-auto items-start">
+          <div className="flex items-center justify-center gap-1  w-auto">
+            <FiPhoneCall size={16} />
+            <a href="tel:0893993129" className="text-sm font-bold">
+              0893993129
+            </a>
           </div>
-        </button>
-      </nav>
+          <div className="flex items-center justify-center gap-1 w-auto">
+            <AiOutlineMail size={16} />
+            <p className="text-sm font-bold">office@alconasolutions.com</p>
+          </div>
+        </div>
+        <div className="flex justify-end ml-auto">
+          <input type="checkbox" id="check" />
+          <label htmlFor="check" className="icons">
+            <GiHamburgerMenu className="bx bx-menu" id="menu-open" />
+            <AiOutlineClose className="bx bx-x" id="menu-close" />
+          </label>
+          <div className="flex justify-baseline items-start"></div>
+          <nav className="navbar ml-auto">
+            <button
+              className="hover:font-bold"
+              onClick={() => handleHeroScroll()}
+            >
+              Home
+            </button>
+            <button
+              className="hover:font-bold"
+              onClick={() => handleProductsScroll()}
+            >
+              Products
+            </button>
+            <button
+              className="hover:font-bold"
+              onClick={() => handleAboutScroll()}
+            >
+              About us
+            </button>
+            <button
+              className="hover:font-bold"
+              onClick={() => handleOrderScroll()}
+            >
+              Order
+            </button>
+            <button
+              className="hover:font-bold"
+              onClick={() => handleFooterScroll()}
+            >
+              Contacts
+            </button>
+            <button
+              className="hover:font-bold"
+              onClick={() => setCartOpen((prev) => (prev = !prev))}
+            >
+              <div className="flex w-full pr-4">
+                <AiOutlineShoppingCart size={32} />
+                {cartItems?.length ? (
+                  <div className="bg-red-500 w-[5px] self-end h-[5px] animate-ping rounded-full"></div>
+                ) : (
+                  ""
+                )}
+              </div>
+            </button>
+          </nav>
+        </div>
+      </div>
     </header>
   );
 };

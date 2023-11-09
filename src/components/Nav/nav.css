@@ -23,7 +23,8 @@
 }
 .navbar{
     display: flex;
-    justify-items: center;
+    justify-items: evenly;
+    gap: 1rem;
     align-items: center;
 }
 
@@ -36,14 +37,13 @@
 
 .navbar button {
     cursor: pointer;
+    min-width: 60px;
     font-size: 12px;
     color: #202A44;
     text-decoration: none;
-    font-weight: 500;
-    margin-left: 2.5rem;
-    :hover{
-        font-weight: bold;
-    }
+    font-weight:400;
+   
+    
 }
 
 #check {

@@ -9,6 +9,7 @@ import { Popup } from "./components/Popup";
 import { Carosel } from "./components/Carosel/Carosel";
 import { Contact } from "./components/Contact";
 import { Gallery } from "./components/Gallery";
+import { Technical } from "./components/Technical";
 
 function App() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -58,6 +59,7 @@ function App() {
       />
       <About />
       <Contact />
+      <Technical />
       <Gallery />
       <FooterWithSitemap fancy={fancy} setFancy={setFancy} />
     </div>

@@ -193,7 +193,12 @@ const CartItem = ({
               color="black"
             />
           )}
-          <p className="text-lg self-start">цвят {colorNames[color]}</p>
+          <p className="text-lg self-start">
+            {premium.includes(color) ? "Премиум " : "Обикновен "}
+            цвят
+            <br />
+            {colorNames[color]}
+          </p>
           {perimeter ? (
             <p className="text-md self-start">
               Проект:
@@ -211,10 +216,13 @@ const CartItem = ({
         <p className="ml-auto">x {panelCount}</p>
       </div>
       <div className="pt-2 w-full flex flex-col justify-start items-center">
-        <p className="w-full border-b">WPC стълб х {panelCount + 1}</p>
-        <p className="w-full border-b">WPC капачка х {panelCount + 1}</p>
-        <p className="w-full border-b">iron fastener х {panelCount + 1}</p>
-        <p className="w-full border-b">анкерен болт х {(panelCount + 1) * 4}</p>
+        <p className="w-full border-b">
+          WPC съставна дъска Alcona х {height / 30}
+        </p>
+        <p className="w-full border-b">WPC стълб х {panelCount}</p>
+        <p className="w-full border-b">WPC капачка х {panelCount}</p>
+        <p className="w-full border-b">метална основа {panelCount}</p>
+        <p className="w-full border-b">анкерен болт х {panelCount * 4}</p>
         <p className="w-full border-b">
           долна алуминиева лайсна х {panelCount}
         </p>

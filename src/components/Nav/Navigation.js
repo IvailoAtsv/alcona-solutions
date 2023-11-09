@@ -96,17 +96,16 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
             <button
               className="hover:font-bold"
               onClick={() => setCartOpen((prev) => (prev = !prev))}
-            >
-              <div className="flex w-full pr-4">
-                <AiOutlineShoppingCart size={32} />
-                {cartItems?.length ? (
-                  <div className="bg-red-500 w-[5px] self-end h-[5px] animate-ping rounded-full"></div>
-                ) : (
-                  ""
-                )}
-              </div>
-            </button>
+            ></button>
           </nav>
+          <div className="flex w-full self-center px-4">
+            <AiOutlineShoppingCart size={24} />
+            {cartItems?.length ? (
+              <div className="bg-red-500 w-[5px] self-end h-[5px] animate-ping rounded-full"></div>
+            ) : (
+              ""
+            )}
+          </div>
         </div>
       </div>
     </header>

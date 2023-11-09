@@ -37,6 +37,8 @@ const colorSquares = {
   reddishBrown: ReddishBrownSquare,
 };
 
+const premium = ["teak", "lightGrey", "green", "rosewood"];
+
 const colors = {
   black: black,
   darkCoffee: darkCoffee,
@@ -82,6 +84,8 @@ export const DefaultSize = ({ color, updateFields, isValid, setIsValid }) => {
       <div className="w-full flex flex-col justify-evenly gap-3 items-center">
         <div className="flex w-full flex-col justify-evenly sm:flex-row h-full items-center sm:justify-center">
           <div className="flex flex-col w-[20%] mb-5 sm:self-end items-center">
+            {premium.includes(color) && <p className="font-bold">Premium</p>}
+
             <img src={colorSquares[color]} className="w-20 h-20  rounded-md" />
             <p>{color}</p>
           </div>
@@ -114,7 +118,6 @@ export const DefaultSize = ({ color, updateFields, isValid, setIsValid }) => {
               <AiOutlineMinus size={24} />
             </button>
             <input
-              type="number"
               value={panelCount}
               onChange={(e) => setPanelCount(e.target.value)}
               required
@@ -124,6 +127,9 @@ export const DefaultSize = ({ color, updateFields, isValid, setIsValid }) => {
               <AiOutlinePlus size={24} />
             </button>
           </div>
+          <p className="text-center text-lg py-2">
+            {premium.includes(color) ? "660.00" : "460.00"}
+          </p>
         </div>
         <p className="text-2xl text-center mt-4 text-red-600 font-bold">
           {!isValid ? "Броят на панелите трябва да бъде по-голям от 0!" : ""}

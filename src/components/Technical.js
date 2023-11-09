@@ -45,8 +45,8 @@ export const Technical = () => {
 const InfoPair = ({ main, description }) => {
   return (
     <div className="flex bg-cardBg22 my-2 p-2 rounded-lg text-white font-semibold">
-      <p className="mr-auto">{main}</p>
-      <p className="ml-auto">{description}</p>
+      <p className="mr-auto max-w-[40%]">{main}</p>
+      <p className="ml-auto max-w-[55%]">{description}</p>
     </div>
   );
 };

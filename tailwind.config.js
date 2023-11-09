@@ -34,7 +34,7 @@ module.exports = {
         cardBg4: "rgba(0,0,0,0.7)",
         bgShape: "linear-gradient(45deg,pink,puple)",
         background: "#202A44",
-        footer: "#6F4E37",
+        footer: "#342E37",
         background2: "#FFE4C4",
       },
     },

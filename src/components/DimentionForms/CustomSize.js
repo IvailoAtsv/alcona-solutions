@@ -81,7 +81,9 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
       <div className="flex h-full items-end">
         <div className="flex w-full flex-col justify-evenly sm:flex-row h-full items-center sm:justify-center">
           <div className="flex flex-col w-[20%] mb-5 sm:self-end items-center">
-            {premium.includes(color) && <p className="font-bold">Premium</p>}
+            <p className="font-bold">
+              {premium.includes(color) ? "Premium" : "Standard"}
+            </p>
             <img src={colorSquares[color]} className="w-20 h-20  rounded-md" />
             <p>{color}</p>
           </div>
@@ -147,7 +149,7 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
             </button>
           </div>
           <p className="text-center text-lg py-2">
-            {premium.includes(color) ? "660.00" : "460.00"}
+            {premium.includes(color) ? 660 * panelCount : 460 * panelCount} лв.
           </p>
         </div>
         <p className="text-2xl text-center mt-4 text-red-600 font-bold">

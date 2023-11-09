@@ -1,6 +1,9 @@
 export const Technical = () => {
   return (
-    <div className="w-full min-h-[80vh] my-3 flex-col flex gap-3 justify-center bg-center bg-fixed items-center bg-pen bg-no-repeat bg-cover">
+    <div
+      id="technical"
+      className="w-full min-h-[80vh] my-3 flex-col flex gap-3 justify-center bg-center bg-fixed items-center bg-pen bg-no-repeat bg-cover"
+    >
       <h1 className="bg-cardBg4 my-3 text-white p-4 backdrop-blur-md rounded-lg font-bold text-3xl">
         Teхнически характеристики
       </h1>

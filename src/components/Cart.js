@@ -213,23 +213,31 @@ const CartItem = ({
             </p>
           )}
         </div>
-        <p className="ml-auto">x {panelCount}</p>
+        {!perimeter && <p className="ml-auto">x {panelCount}</p>}
       </div>
       <div className="pt-2 w-full flex flex-col justify-start items-center">
-        <p className="w-full border-b">
-          WPC съставна дъска Alcona х {height / 30}
-        </p>
-        <p className="w-full border-b">WPC стълб х {panelCount}</p>
-        <p className="w-full border-b">WPC капачка х {panelCount}</p>
-        <p className="w-full border-b">метална основа {panelCount}</p>
-        <p className="w-full border-b">анкерен болт х {panelCount * 4}</p>
-        <p className="w-full border-b">
-          долна алуминиева лайсна х {panelCount}
-        </p>
-        <p className="w-full border-b">
-          горна алуминиева лайсна х {panelCount}
-        </p>
-        <p className="ml-auto pt-2">price $</p>
+        {!perimeter && (
+          <>
+            <p className="w-full border-b">
+              WPC съставна дъска Alcona х {height / 15}
+            </p>{" "}
+            <p className="w-full border-b">WPC стълб х {panelCount}</p>
+            <p className="w-full border-b">Крепежни ъгли х {panelCount * 4}</p>
+            <p className="w-full border-b">
+              Крепежни винтове х {panelCount * 8}
+            </p>
+            <p className="w-full border-b">WPC капачка х {panelCount}</p>
+            <p className="w-full border-b">метална основа {panelCount}</p>
+            <p className="w-full border-b">анкерен болт х {panelCount * 4}</p>
+            <p className="w-full border-b">
+              долна алуминиева лайсна х {panelCount}
+            </p>
+            <p className="w-full border-b">
+              горна алуминиева лайсна х {panelCount}
+            </p>
+          </>
+        )}
+        <p className="ml-auto pt-2">000.00</p>
       </div>
     </div>
   );

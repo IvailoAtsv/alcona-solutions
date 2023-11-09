@@ -21,6 +21,12 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+  const handleTechnicalScroll = () => {
+    const element = document.getElementById("technical");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   const handleFooterScroll = () => {
     const element = document.getElementById("footer");
     if (element) {
@@ -71,9 +77,27 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
             </button>
             <button
               className="hover:font-bold"
+              onClick={() => handleOrderScroll()}
+            >
+              Order
+            </button>
+            <button
+              className="hover:font-bold"
               onClick={() => handleProductsScroll()}
             >
               Products
+            </button>
+            <button
+              className="hover:font-bold"
+              onClick={() => handleTechnicalScroll()}
+            >
+              Technical
+            </button>
+            <button
+              className="hover:font-bold"
+              onClick={() => handleTechnicalScroll()}
+            >
+              Montage
             </button>
             <button
               className="hover:font-bold"
@@ -81,31 +105,27 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
             >
               About us
             </button>
-            <button
-              className="hover:font-bold"
-              onClick={() => handleOrderScroll()}
-            >
-              Order
-            </button>
+
             <button
               className="hover:font-bold"
               onClick={() => handleFooterScroll()}
             >
               Contacts
             </button>
-            <button
-              className="hover:font-bold"
-              onClick={() => setCartOpen((prev) => (prev = !prev))}
-            ></button>
           </nav>
-          <div className="flex w-full self-center px-4">
-            <AiOutlineShoppingCart size={24} />
-            {cartItems?.length ? (
-              <div className="bg-red-500 w-[5px] self-end h-[5px] animate-ping rounded-full"></div>
-            ) : (
-              ""
-            )}
-          </div>
+          <button
+            className="hover:font-bold"
+            onClick={() => setCartOpen((prev) => (prev = !prev))}
+          >
+            <div className="flex w-full px-4">
+              <AiOutlineShoppingCart size={24} />
+              {cartItems?.length ? (
+                <div className="bg-red-500 w-[5px] self-end h-[5px] animate-ping rounded-full"></div>
+              ) : (
+                ""
+              )}
+            </div>
+          </button>
         </div>
       </div>
     </header>

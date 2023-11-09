@@ -107,95 +107,98 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
   }, [count]);
 
   return (
-    <div
-      id="products"
-      className="flex w-[90%] min-h-[70vh] py-4 flex-col md:flex-row justify-between items-center max-w-[1400px]"
-    >
-      <section
-        aria-label="Image Slider"
-        className="w-full h-[50vh]  sm:max-w-[50vh] relative"
+    <>
+      <h1 className="text-3xl font-semibold mt-4">Продукти</h1>
+      <div
+        id="products"
+        className="flex w-[90%] min-h-[70vh] py-4 flex-col md:flex-row justify-between items-center max-w-[1400px]"
       >
-        <div className="w-full h-full flex overflow-hidden">
-          {IMAGES.map((item, index) => (
-            <div key={uniqid()} className="w-full h-full shrink-0 grow-0">
-              <img
-                loading="lazy"
-                src={item.url}
-                alt={item.alt}
-                aria-hidden={imageIndex !== index}
-                className="img-slider-img rounded-xl"
-                style={{ translate: `${-100 * imageIndex}%` }}
-              />
-            </div>
-          ))}
-        </div>
-        <button
-          onClick={showPrevImage}
-          className="img-slider-btn text-white"
-          style={{ left: 0 }}
-          aria-label="View Previous Image"
+        <section
+          aria-label="Image Slider"
+          className="w-full h-[50vh]  sm:max-w-[50vh] relative"
         >
-          <AiOutlineArrowLeft size={32} aria-hidden />
-        </button>
-        <button
-          onClick={showNextImage}
-          className="img-slider-btn"
-          style={{ right: 0, color: "white" }}
-          aria-label="View Next Image"
-        >
-          <AiOutlineArrowRight aria-hidden size={32} />
-        </button>
-        <div
-          style={{
-            position: "absolute",
-            bottom: ".5rem",
-            left: "50%",
-            translate: "-50%",
-            display: "flex",
-            gap: ".25rem",
-          }}
-        ></div>
-        <div id="after-image-slider-controls" />
-      </section>
-
-      <form className="md:w-[30%] text-center min-h-[70vh] w-[80%] flex flex-col justify-evenly items-center">
-        <h1 className="text-2xl font-semibold">{titles[imageIndex]}</h1>
-        <p className="text-md">{descriptions[imageIndex]}</p>
-
-        <div className="flex flex-col justify-center items-center w-11/12 h-11/12">
-          {invalid ? (
-            <label className="text-red-500 text-lg font-semibold">
-              Изберете число по-голямо от 0
-            </label>
-          ) : (
-            <label className="text-lg font-semibold">Брой:</label>
-          )}
-          <div className="flex w-full items-center justify-center gap-4">
-            <button onClick={(e) => decrement(e)}>
-              <AiOutlineMinus size={24} />
-            </button>
-            <input
-              name={titles[imageIndex]}
-              value={count}
-              onChange={(e) => setCount(e.target.value)}
-              required
-              className="min-w-[50px] w-[60px] h-[30px] bg-gray-200 text-xl text-center rounded-md px-2 py-1"
-            />
-            <button onClick={(e) => increment(e)}>
-              <AiOutlinePlus size={24} />
-            </button>
+          <div className="w-full h-full flex overflow-hidden">
+            {IMAGES.map((item, index) => (
+              <div key={uniqid()} className="w-full h-full shrink-0 grow-0">
+                <img
+                  loading="lazy"
+                  src={item.url}
+                  alt={item.alt}
+                  aria-hidden={imageIndex !== index}
+                  className="img-slider-img rounded-xl"
+                  style={{ translate: `${-100 * imageIndex}%` }}
+                />
+              </div>
+            ))}
           </div>
-        </div>
+          <button
+            onClick={showPrevImage}
+            className="img-slider-btn text-white"
+            style={{ left: 0 }}
+            aria-label="View Previous Image"
+          >
+            <AiOutlineArrowLeft size={32} aria-hidden />
+          </button>
+          <button
+            onClick={showNextImage}
+            className="img-slider-btn"
+            style={{ right: 0, color: "white" }}
+            aria-label="View Next Image"
+          >
+            <AiOutlineArrowRight aria-hidden size={32} />
+          </button>
+          <div
+            style={{
+              position: "absolute",
+              bottom: ".5rem",
+              left: "50%",
+              translate: "-50%",
+              display: "flex",
+              gap: ".25rem",
+            }}
+          ></div>
+          <div id="after-image-slider-controls" />
+        </section>
 
-        <h1 className="text-2xl font-semibold">000.00BGN</h1>
-        <button
-          disabled={invalid}
-          onClick={handleSubmit}
-          className="rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
-        >
-          Добави в количка
-        </button>
-      </form>
-    </div>
+        <form className="md:w-[30%] text-center min-h-[70vh] w-[80%] flex flex-col justify-evenly items-center">
+          <h1 className="text-2xl font-semibold">{titles[imageIndex]}</h1>
+          <p className="text-md">{descriptions[imageIndex]}</p>
+
+          <div className="flex flex-col justify-center items-center w-11/12 h-11/12">
+            {invalid ? (
+              <label className="text-red-500 text-lg font-semibold">
+                Изберете число по-голямо от 0
+              </label>
+            ) : (
+              <label className="text-lg font-semibold">Брой:</label>
+            )}
+            <div className="flex w-full items-center justify-center gap-4">
+              <button onClick={(e) => decrement(e)}>
+                <AiOutlineMinus size={24} />
+              </button>
+              <input
+                name={titles[imageIndex]}
+                value={count}
+                onChange={(e) => setCount(e.target.value)}
+                required
+                className="min-w-[50px] w-[60px] h-[30px] bg-gray-200 text-xl text-center rounded-md px-2 py-1"
+              />
+              <button onClick={(e) => increment(e)}>
+                <AiOutlinePlus size={24} />
+              </button>
+            </div>
+          </div>
+
+          <h1 className="text-2xl font-semibold">000.00BGN</h1>
+          <button
+            disabled={invalid}
+            onClick={handleSubmit}
+            className="rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
+          >
+            Добави в количка
+          </button>
+        </form>
+      </div>
+    </>
   );
 };

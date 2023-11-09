@@ -23,6 +23,7 @@ const INITIAL_DATA = {
   perimeter: "",
   itemType: "default",
   id: uniqid(),
+  price: 0,
 };
 
 export function MainForm({

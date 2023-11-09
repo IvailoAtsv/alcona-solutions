@@ -70,7 +70,6 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
       {cartOpen ? (
         <div className="w-full z-50 overflow-y-scroll h-[100vh] bg-transparent fixed top-0 right-0 flex justify-between flex-col items-end  rounded-xl">
           <div className="sm:w-[60%] bg-gray-200 w-full h-auto shadow-lg rounded-md flex justify-center flex-col p-4 items-center">
-            <p>{cartItems.reduce((total, item) => total + item.price, 0)}lv</p>
             <button className="self-end" onClick={() => setCartOpen(false)}>
               <AiOutlineClose className="pt-2" size={32} />
             </button>

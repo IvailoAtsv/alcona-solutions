@@ -133,6 +133,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
             ) : (
               <UserForm
                 userData={userData}
+                price={cartItems.reduce((total, item) => total + item.price, 0)}
                 setUserData={setUserData}
                 cartItems={cartItems}
                 orderStatus={orderStatus}
@@ -140,11 +141,14 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
               />
             )}
 
-            <div className="mt-6 self-center text-end w-[90%]">
-              <p className="bg-white self-end rounded-md shadow-lg p-2">
-                Oбщо: {cartItems.reduce((total, item) => total + item.price, 0)}
-              </p>
-            </div>
+            {orderStatus === "cart" && (
+              <div className="mt-6 self-center text-end w-[90%]">
+                <p className="bg-white self-end rounded-md shadow-lg px-4 py-2">
+                  Oбщо:{" "}
+                  {cartItems.reduce((total, item) => total + item.price, 0)} лв.
+                </p>
+              </div>
+            )}
             {orderStatus === "cart" ? (
               <div className="w-[90%] flex items-center justify-between">
                 {cartItems.length !== 0 && (
@@ -168,12 +172,14 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
                 )}
               </div>
             ) : (
-              <button
-                onClick={() => setOrderStatus("cart")}
-                className="self-start mt-6 rounded-lg py-1 px-6 border-2 font-bold duration-500 bg-white border-black hover:bg-black hover:text-white"
-              >
-                Обратно
-              </button>
+              <div className="w-[90%] flex">
+                <button
+                  onClick={() => setOrderStatus("cart")}
+                  className="self-start mt-6 rounded-lg py-1 px-6 border-2 font-bold duration-500 bg-white border-black hover:bg-black hover:text-white"
+                >
+                  Обратно
+                </button>
+              </div>
             )}
           </div>
         </div>

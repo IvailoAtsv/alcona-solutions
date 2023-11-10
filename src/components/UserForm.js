@@ -137,7 +137,7 @@ export const UserForm = ({
       </h1>
       <div className="flex flex-col w-full h-full justify-evenly items-center">
         {/* <p>Доставка до адрес (доплащане )</p> */}
-        <div className="flex flex-col w-full justify-evenly max-w-[500px] rounded-md bg-gray-100 items-center">
+        <div className="flex flex-col w-[90%] justify-evenly max-w-[500px] rounded-md bg-gray-100 items-center">
           <label className={isNameValid ? labelStyle : labelErrorStyle}>
             {!isNameValid ? "Въведете валидно име" : "* Име: "}
           </label>
@@ -168,7 +168,7 @@ export const UserForm = ({
           </button>
         </div>
         <p className="py-2">Или</p>
-        <div className="flex rounded-md max-w-[500px] bg-gray-100 flex-col w-full justify-evenly items-center">
+        <div className="flex rounded-md max-w-[500px] bg-gray-100 flex-col w-[90%] justify-evenly items-center">
           <label className={isEmailValid ? labelStyle : labelErrorStyle}>
             {!isEmailValid ? "Въведете валиден e-mail" : "* e-mail: "}
           </label>

@@ -15,12 +15,12 @@ export const Technical = () => {
         <InfoPair main="Височина:" description="Между 0.60 и 2.00 метра" />
         <InfoPair
           main="Основна дължина:"
-          description="1.80 метра / Реална дължина: 1.86
+          description="1.86 метра / Реална дължина: 1.86
           метра"
         />
         <InfoPair
           main="Сечение на хоризонталните елементи:"
-          description="156 x 20 мм, правоъгълно"
+          description="160 x 20 мм, правоъгълно"
         />
         <InfoPair
           main="Сечение на стълбовете:"

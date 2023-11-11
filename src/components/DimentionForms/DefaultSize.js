@@ -53,8 +53,8 @@ const colors = {
 };
 
 export const DefaultSize = ({ color, updateFields, isValid, setIsValid }) => {
-  const [height, setHeight] = useState(180);
-  const [width, setWidth] = useState(180);
+  const [height, setHeight] = useState(186);
+  const [width, setWidth] = useState(186);
   const [panelCount, setPanelCount] = useState(1);
   const [price, setPrice] = useState(0);
 
@@ -113,13 +113,13 @@ export const DefaultSize = ({ color, updateFields, isValid, setIsValid }) => {
         <input
           name="width"
           className={inputStyle}
-          placeholder="180 см Ширина"
+          placeholder="186 см Ширина"
           readOnly
         />
         <input
           name="height"
           className={inputStyle}
-          placeholder="180 см Височина"
+          placeholder="186 см Височина"
           readOnly
         />
         <div className="flex flex-col justify-center items-center w-11/12 h-11/12">

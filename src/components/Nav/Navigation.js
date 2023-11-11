@@ -72,7 +72,7 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
           </div>
         </div>
         <div className="flex justify-end ml-auto">
-          <input type="checkbox" id="check" checked={isOpen} />
+          <input type="checkbox" id="check" checked={isOpen} readOnly />
           <label htmlFor="check" className="icons">
             <GiHamburgerMenu className="bx bx-menu" id="menu-open" onClick={() => setIsOpen(true)} />
             <AiOutlineClose className="bx bx-x" id="menu-close" onClick={() => setIsOpen(false)} />

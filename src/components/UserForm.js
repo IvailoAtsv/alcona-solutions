@@ -29,7 +29,11 @@ export const UserForm = ({ cartItems, userData, setUserData }) => {
   const [isAreaValid, setIsAreaValid] = useState(true);
   const [clickable, setClickable] = useState(false);
 
-  const [status, setStatus] = useState("info");
+  const [status, setStatus] = useState("");
+
+  const buttonStyle =
+    " sm:h-[15vw] sm:w-[30%] w-[80%] h-[60px] rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white";
+
 
   function updateFields(fields) {
     setUserData((prev) => {
@@ -128,8 +132,37 @@ export const UserForm = ({ cartItems, userData, setUserData }) => {
       setClickable(false);
     }
   }, [userData]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setStatus('info')
+  }
+
+  const [eik, setEik] = useState('')
+  const [mol, setMol] = useState('')
+  const [adress, setAdress] = useState('')
+
+  const validateEik = (e) => {
+    if (1 > 0) {
+
+    }
+  }
+
   return (
-    <div className="flex flex-col w-full py-0 sm:min-h-[450px] h-11/12 justify-around  items-center">
+    <div className="flex flex-col w-full py-0 min-h-[550px] h-11/12 justify-around  items-center">
+      <>
+        {status === "" &&
+
+          <div className="flex justify-center flex-col gap-4 sm:flex-row items-center w-full">
+            <button onClick={() => setStatus("firm")} className={buttonStyle}>
+              Юридическо лице
+            </button>
+            <button onClick={() => setStatus("info")} className={buttonStyle}>
+              Физическо лице
+            </button>
+          </div>
+        }
+      </>
       {status === "info" ? (
         <>
           <h1 className="text-3xl mb-10 font-semibold border-b-4 pb-1 px-4 border-background">
@@ -210,9 +243,45 @@ export const UserForm = ({ cartItems, userData, setUserData }) => {
             </div>
           </div>
         </>
-      ) : (
-        ""
+      ) : (''
       )}
+      {status == 'firm' &&
+
+        <form>
+          <h1 className="text-3xl font-semibold border-b-4 pb-1 mb-5 px-4 border-background">
+            Данни за Юридическо лице
+          </h1>
+
+          <div className="flex flex-col h-auto w-[90%] justify-evenly max-w-[500px] pt-4 pb-6 rounded-md bg-gray-100 items-center">
+            <label className={isEmailValid ? labelStyle : labelErrorStyle}>
+              ЕИК (ПИК)
+            </label>
+            <input
+              value={email}
+              name="email"
+              onChange={(e) => validateEmail(e)}
+              className={inputStyle}
+            /><label className={isEmailValid ? labelStyle : labelErrorStyle}>
+              МОЛ
+            </label>
+            <input
+              value={email}
+              name="email"
+              onChange={(e) => validateEmail(e)}
+              className={inputStyle}
+            /><label className={isEmailValid ? labelStyle : labelErrorStyle}>
+              Адрес
+            </label>
+            <input
+              value={email}
+              name="email"
+              onChange={(e) => validateEmail(e)}
+              className={inputStyle}
+            />
+            <button type="submit" className="sm:h-[50px] w-[80%] mt-8 h-[10px] rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white" onClick={(e) => handleSubmit(e)}>Напред</button>
+          </div>
+        </form>
+      }
     </div>
   );
 };

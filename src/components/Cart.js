@@ -65,6 +65,21 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
     setCartItems([]);
   };
   console.log(cartItems);
+
+  const getSum = (cartItems) => {
+    const toSum = cartItems.filter(item => item.price)
+    return toSum.reduce((total, item) => total + item.price, 0)
+  }
+
+  const addAdditional = (cartItems) => {
+    const viable = cartItems.filter(item => item.perimeter == '' && item.width)
+    if (viable.length !== 0) {
+      return true
+    } else {
+      return false
+    }
+  }
+
   return (
     <>
       {cartOpen ? (
@@ -79,24 +94,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
             {/* cart */}
             {orderStatus === "cart" ? (
               <div className="flex flex-col justify-around gap-2 items-center w-full">
-                {cartItems.length > 0 ? (
-                  <div className="bg-white w-[90%] rounded-md p-4">
-                    <h1 className="text-center font-semibold text-lg">
-                      Допълнителни елементи
-                    </h1>
-                    <div className="flex border-b-2 w-full justify-between">
-                      <p>кол</p> <p className="text-end">x1</p>
-                    </div>
-                    <div className="flex border-b-2 w-full justify-between">
-                      <p>метална основа</p> <p className="text-end">x1</p>
-                    </div>
-                    <div className="flex border-b-2 w-full justify-between">
-                      <p>WPX шапка</p> <p className="text-end">x1</p>
-                    </div>
-                  </div>
-                ) : (
-                  <h1 className="py-20">Количката е празна</h1>
-                )}
+
                 {cartItems?.map((item, i) => {
                   if (item.itemType === "default") {
                     return (
@@ -129,11 +127,32 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
                     );
                   }
                 })}
+                {addAdditional(cartItems) ? (
+                  <div className="bg-white w-[90%] rounded-md p-4">
+                    <h1 className="text-center font-semibold text-lg">
+                      Допълнителни елементи
+                    </h1>
+                    <div className="flex border-b-2 w-full justify-between">
+                      <p>WPC Стълб</p> <p className="text-end">x1</p>
+                    </div>
+                    <div className="flex border-b-2 w-full justify-between">
+                      <p>Метална основа</p> <p className="text-end">x1</p>
+                    </div>
+                    <div className="flex border-b-2 w-full justify-between">
+                      <p>WPX капачка</p> <p className="text-end">x1</p>
+                    </div>
+                    <div className="flex border-b-2 w-full justify-between">
+                      <p>Анкерен болт</p> <p className="text-end">x1</p>
+                    </div>
+                  </div>
+                ) : (
+                  <h1 className="py-20">Количката е празна</h1>
+                )}
               </div>
             ) : (
               <UserForm
                 userData={userData}
-                price={cartItems.reduce((total, item) => total + item.price, 0)}
+                price={getSum(cartItems)}
                 setUserData={setUserData}
                 cartItems={cartItems}
                 orderStatus={orderStatus}
@@ -146,7 +165,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
                 <div className="mt-6 self-center text-end w-[90%]">
                   <p className="bg-white self-end rounded-md shadow-lg px-4 py-2">
                     Oбщо:{" "}
-                    {cartItems.reduce((total, item) => total + item.price, 0)} лв.
+                    {getSum(cartItems)} лв.
                   </p>
                 </div>
 
@@ -252,7 +271,7 @@ const CartItem = ({
         {!perimeter && (
           <>
             <p className="w-full border-b">
-              WPC съставна дъска Alcona х {(height / 15) * panelCount}
+              WPC съставна дъска Alcona х {(height / 15.5) * panelCount}
             </p>{" "}
             <p className="w-full border-b">WPC стълб х {panelCount}</p>
             <p className="w-full border-b">Крепежни ъгли х {panelCount * 4}</p>
@@ -270,7 +289,7 @@ const CartItem = ({
             </p>
           </>
         )}
-        <p className="ml-auto pt-2">{price} лв.</p>
+        {!perimeter && <p className="ml-auto pt-2">{price} лв.</p>}
       </div>
     </div>
   );

@@ -6,12 +6,14 @@ import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 export const Project = ({ updateFields, isValid, setIsValid }) => {
   const [p, setP] = useState("");
   const [pInvalid, setPInvalid] = useState(false);
-  const [height, setHeight] = useState(199.5);
+  const [height, setHeight] = useState(201.5);
 
   const handlePerimeter = (e) => {
     setP(e.target.value);
+    console.log(p);
   };
   const handleSubmit = (e) => {
+    e.preventDefault()
     updateFields({ isProject: true, perimeter: p });
   };
 
@@ -36,11 +38,10 @@ export const Project = ({ updateFields, isValid, setIsValid }) => {
     "border-2 px-9 py-2 sm:w-[40%] w-[90%] rounded-md text-black foucs:border-orange-300 focus:ring-0 focus:outline-orange-300";
   return (
     <form
-      onSubmit={(e) => handleSubmit(e)}
       className="flex items-center flex-col justify-between w-full"
     >
       <label className="text-xl text-center mt-4 pb-2 font-bold">
-        Въведете валиден периметър
+        * Въведете валиден периметър
       </label>
 
       <input
@@ -50,12 +51,12 @@ export const Project = ({ updateFields, isValid, setIsValid }) => {
         className={inputStyle}
       />
       <div className="flex flex-col justify-center items-center w-11/12 h-11/12">
-        <label className="text-lg font-semibold">Височина: {height} cm</label>
+        <label className="text-lg font-semibold">* Височина: {height} cm</label>
         <input
           className="slider"
           required
           type="range"
-          defaultValue={199.5}
+          defaultValue={201.5}
           onChange={(e) => {
             updateFields({ height: e.target.value });
             setHeight(e.target.value);

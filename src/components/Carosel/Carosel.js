@@ -163,34 +163,35 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
         <form className="md:w-[30%] text-center min-h-[70vh] w-[80%] flex flex-col justify-evenly items-center">
           <h1 className="text-2xl font-semibold">{titles[imageIndex]}</h1>
           <p className="text-md">{descriptions[imageIndex]}</p>
+          {imageIndex !== 0 ?
+            <>
+              <div className="flex flex-col justify-center items-center w-11/12 h-11/12">
+                {invalid ? (
+                  <label className="text-red-500 text-lg font-semibold">
+                    Изберете число по-голямо от 0
+                  </label>
+                ) : (
+                  <label className="text-lg font-semibold">Брой:</label>
+                )}
+                <div className="flex w-full items-center justify-center gap-4">
+                  <button onClick={(e) => decrement(e)}>
+                    <AiOutlineMinus size={24} />
+                  </button>
+                  <input
+                    name={titles[imageIndex]}
+                    value={count}
+                    onChange={(e) => setCount(e.target.value)}
+                    required
+                    className="min-w-[50px] w-[60px] h-[30px] bg-gray-200 text-xl text-center rounded-md px-2 py-1"
+                  />
+                  <button onClick={(e) => increment(e)}>
+                    <AiOutlinePlus size={24} />
+                  </button>
+                </div>
+              </div>
 
-          <div className="flex flex-col justify-center items-center w-11/12 h-11/12">
-            {invalid ? (
-              <label className="text-red-500 text-lg font-semibold">
-                Изберете число по-голямо от 0
-              </label>
-            ) : (
-              <label className="text-lg font-semibold">Брой:</label>
-            )}
-            <div className="flex w-full items-center justify-center gap-4">
-              <button onClick={(e) => decrement(e)}>
-                <AiOutlineMinus size={24} />
-              </button>
-              <input
-                name={titles[imageIndex]}
-                value={count}
-                onChange={(e) => setCount(e.target.value)}
-                required
-                className="min-w-[50px] w-[60px] h-[30px] bg-gray-200 text-xl text-center rounded-md px-2 py-1"
-              />
-              <button onClick={(e) => increment(e)}>
-                <AiOutlinePlus size={24} />
-              </button>
-            </div>
-          </div>
 
-          {imageIndex !== 0 &&
-            <> <h1 className="text-2xl font-semibold">000.00BGN</h1>
+              <h1 className="text-2xl font-semibold">000.00BGN</h1>
               <button
                 disabled={invalid}
                 onClick={handleSubmit}
@@ -198,7 +199,8 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
               >
                 Добави в количка
               </button>
-            </>}
+            </> :
+            <p className="texl-3xl font-bold ">Цени от 133лв./кв.м.</p>}
         </form>
       </div>
     </>

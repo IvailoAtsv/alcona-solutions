@@ -70,7 +70,7 @@ export const Contact = () => {
       id="contact"
       className="w-[95%] overflow-hidden h-[90vh] max-w-[1400px]  flex-col flex justify-center items-center"
     >
-      <div className="w-[100%] rounded-t-md h-[15%] p-6 flex justify-center items-center bg-black">
+      <div className="w-[100%] rounded-t-md h-[15%] p-6 flex justify-center items-center bg-footer">
         <h1 className="text-2xl text-white font-semibold">
           Имате запитване? Свържете се с нас!
         </h1>
@@ -106,7 +106,7 @@ export const Contact = () => {
         <button
           onClick={handleSubmit}
           disabled={!isValid}
-          className="w-[60%] rounded-lg py-2 my-4 px-6 border-2 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
+          className="w-[60%] rounded-lg py-2 my-4 px-6 border-2 self-center font-bold duration-500 border-black hover:bg-footer hover:text-white"
         >
           Изпращане
         </button>

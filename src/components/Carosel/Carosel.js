@@ -52,7 +52,7 @@ const IMAGES = [
 ];
 
 export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
-  const [imageIndex, setImageIndex] = useState(1);
+  const [imageIndex, setImageIndex] = useState(0);
 
   function showNextImage() {
     setImageIndex((index) => {
@@ -68,7 +68,7 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
     });
   }
 
-  useEffect(() => {}, [imageIndex]);
+  useEffect(() => { }, [imageIndex]);
 
   const [count, setCount] = useState(1);
   const [invalid, setInvalid] = useState(false);
@@ -164,7 +164,7 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
           <h1 className="text-2xl font-semibold">{titles[imageIndex]}</h1>
           <p className="text-md">{descriptions[imageIndex]}</p>
 
-          <div className="flex flex-col justify-center items-center w-11/12 h-11/12">
+          {/* <div className="flex flex-col justify-center items-center w-11/12 h-11/12">
             {invalid ? (
               <label className="text-red-500 text-lg font-semibold">
                 Изберете число по-голямо от 0
@@ -187,7 +187,7 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
                 <AiOutlinePlus size={24} />
               </button>
             </div>
-          </div>
+          </div> */}
 
           <h1 className="text-2xl font-semibold">000.00BGN</h1>
           <button

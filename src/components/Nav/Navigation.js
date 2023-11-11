@@ -7,44 +7,54 @@ import {
   AiOutlineClose,
   AiOutlineShoppingCart,
 } from "react-icons/ai";
+import { useSelect } from "@material-tailwind/react";
+import { useState } from "react";
 
 const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
   const handleAboutScroll = () => {
     const element = document.getElementById("about");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+      setIsOpen(false)
     }
   };
   const handleHeroScroll = () => {
     const element = document.getElementById("hero");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+      setIsOpen(false)
     }
   };
   const handleTechnicalScroll = () => {
     const element = document.getElementById("technical");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+      setIsOpen(false)
     }
   };
   const handleFooterScroll = () => {
     const element = document.getElementById("footer");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+      setIsOpen(false)
     }
   };
   const handleProductsScroll = () => {
     const element = document.getElementById("products");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+      setIsOpen(false)
     }
   };
   const handleOrderScroll = () => {
     const element = document.getElementById("order");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+      setIsOpen(false)
     }
   };
+
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <header className="header shadow-lg">
@@ -62,10 +72,10 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
           </div>
         </div>
         <div className="flex justify-end ml-auto">
-          <input type="checkbox" id="check" />
+          <input type="checkbox" id="check" checked={isOpen} />
           <label htmlFor="check" className="icons">
-            <GiHamburgerMenu className="bx bx-menu" id="menu-open" />
-            <AiOutlineClose className="bx bx-x" id="menu-close" />
+            <GiHamburgerMenu className="bx bx-menu" id="menu-open" onClick={() => setIsOpen(true)} />
+            <AiOutlineClose className="bx bx-x" id="menu-close" onClick={() => setIsOpen(false)} />
           </label>
           <nav className="navbar ml-auto">
             <button

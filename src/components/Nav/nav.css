@@ -21,7 +21,8 @@
     font-weight: 700;
     align-self: start;
 }
-.navbar{
+
+.navbar {
     display: flex;
     justify-items: evenly;
     gap: 1rem;
@@ -29,7 +30,7 @@
     align-items: center;
 }
 
-#cart{
+#cart {
     align-self: flex-end;
     position: absolute;
     top: 30%;
@@ -38,13 +39,13 @@
 
 .navbar button {
     cursor: pointer;
-    min-width: 60px;
-    font-size: 12px;
+    min-width: 70px;
+    font-size: 16px;
     color: #202A44;
     text-decoration: none;
-    font-weight:400;
-   
-    
+    font-weight: 400;
+
+
 }
 
 #check {

@@ -2,7 +2,7 @@ export const Technical = () => {
   return (
     <div
       id="technical"
-      className="w-full min-h-[80vh] my-3 flex-col flex gap-3 justify-center bg-center bg-fixed items-center bg-pen bg-no-repeat bg-cover"
+      className="w-full min-h-[80vh] my-3 flex-col flex gap-3 justify-evenly bg-left bg-fixed items-center bg-pen bg-no-repeat bg-cover"
     >
       <h1 className="bg-cardBg4 my-3 text-white p-4 backdrop-blur-md rounded-lg font-bold text-3xl">
         Teхнически характеристики
@@ -47,7 +47,7 @@ export const Technical = () => {
 
 const InfoPair = ({ main, description }) => {
   return (
-    <div className="flex bg-cardBg22 my-2 p-2 rounded-lg text-white font-semibold">
+    <div className="flex bg-cardBg22 my-3 px-2 py-3 rounded-lg text-white font-semibold">
       <p className="mr-auto max-w-[40%]">{main}</p>
       <p className="ml-auto max-w-[55%]">{description}</p>
     </div>

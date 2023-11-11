@@ -141,14 +141,16 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
               />
             )}
 
-            {orderStatus === "cart" && (
-              <div className="mt-6 self-center text-end w-[90%]">
-                <p className="bg-white self-end rounded-md shadow-lg px-4 py-2">
-                  Oбщо:{" "}
-                  {cartItems.reduce((total, item) => total + item.price, 0)} лв.
-                </p>
-              </div>
-            )}
+            {(orderStatus === "cart" && cartItems.length > 1) &&
+              (
+                <div className="mt-6 self-center text-end w-[90%]">
+                  <p className="bg-white self-end rounded-md shadow-lg px-4 py-2">
+                    Oбщо:{" "}
+                    {cartItems.reduce((total, item) => total + item.price, 0)} лв.
+                  </p>
+                </div>
+
+              )}
             {orderStatus === "cart" ? (
               <div className="w-[90%] flex items-center justify-between">
                 {cartItems.length !== 0 && (

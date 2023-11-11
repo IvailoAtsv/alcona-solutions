@@ -46,12 +46,14 @@ export const About = () => {
 const Card = ({ img, title, text }) => {
   return (
     <div className="backdrop-blur-md sm:w-[30%] w-full flex flex-col justify-between min-h-[580px] rounded-md bg-cardBg2 text-white">
-      <img
-        loading="lazy"
-        src={img}
-        className="w-full h-[200px] rounded-t-md object-cover object-center"
-      />
-      <div className="flex h-auto flex-col justify-evenly gap-5 items-center p-6">
+      <div className="h-[30%] max-h-[200px] w-full">
+        <img
+          loading="lazy"
+          src={img}
+          className="w-full h-[200px] rounded-t-md object-cover object-center"
+        />
+      </div>
+      <div className="flex h-full min-h-[350px] flex-col justify-between gap-5 items-center p-6">
         <h1 className="text-center mb-auto text-3xl font-semibold ">{title}</h1>
         <p className="text-md text-start h-full">{text}</p>
       </div>

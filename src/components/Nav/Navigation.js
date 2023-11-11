@@ -47,7 +47,7 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
   };
 
   return (
-    <header className="header">
+    <header className="header shadow-lg">
       <div className="flex max-w-[1400px] gap-5 lg:gap-0 w-full items-center">
         <div className="lg:ml-4 flex w-auto flex-col lg:gap-3 lg:flex-row h-auto items-start">
           <div className="flex items-center justify-center gap-1  w-auto">

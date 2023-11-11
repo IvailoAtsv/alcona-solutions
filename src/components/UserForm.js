@@ -89,8 +89,6 @@ export const UserForm = ({ cartItems, userData, setUserData }) => {
   const handlePickup = (e) => {
     if (isNameValid && isPhoneValid && userData.name && userData.phone) {
       updateFields({ pickUp: true });
-      console.log(cartItems);
-      console.log(userData);
     } else {
       setIsNameValid(false);
       setIsPhoneValid(false);
@@ -108,6 +106,12 @@ export const UserForm = ({ cartItems, userData, setUserData }) => {
       updateFields({ pickUp: false });
       console.log(userData);
       console.log(cartItems);
+    } else {
+      setIsNameValid(false);
+      setIsPhoneValid(false);
+      setIsEmailValid(false)
+      setIsCityValid(false)
+      setIsAreaValid(false)
     }
   };
 

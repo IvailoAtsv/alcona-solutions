@@ -11,7 +11,7 @@ const Hero = () => {
   return (
     <div
       id="hero"
-      className="w-full text-center flex bg-no-repeat bg-right-bottom sm:mt-0 mt-10 bg-fixed bg-cover justify-center items-center bg-hero3 h-[80vh]"
+      className="w-full text-center flex bg-no-repeat bg-right-bottom sm:mt-0 my-10 bg-fixed bg-cover justify-center items-center bg-hero3 h-[80vh]"
     >
       <div className="w-full max-w-[1400px] sm:w-[90%] h-full sm:h-11/12 sm:flex-row flex flex-col-reverse md:justify-between justify-evenly items-center gap-4">
         <div className="flex backdrop-blur-md min-w-[250px] text-start sm:w-[30%] w-[90%] sm:max-w-[450px] h-auto min-h-[60%] gap-2 rounded-xl items-start p-4 bg-cardBg flex-col justify-evenly">

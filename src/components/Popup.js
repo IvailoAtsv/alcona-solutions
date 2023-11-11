@@ -40,7 +40,7 @@ export const Popup = ({
             Продължете със същия цвят
           </button> */}
           <button className={btnStyle} onClick={handleClose}>
-            Обратно
+            Продължете пазаруванто
           </button>
         </div>
       </div>

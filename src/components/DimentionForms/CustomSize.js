@@ -55,8 +55,8 @@ let price;
 const premium = ["teak", "lightGrey", "green", "rosewood"];
 
 export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
-  const [height, setHeight] = useState(199.5);
-  const [width, setWidth] = useState(180);
+  const [height, setHeight] = useState(201.5);
+  const [width, setWidth] = useState(186);
   const [panelCount, setPanelCount] = useState(1);
 
   const increment = (e) => {
@@ -112,7 +112,7 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
         <div className="flex flex-col justify-center items-center w-11/12 h-11/12">
           <label className="text-lg font-semibold">Ширина: {width} cm</label>
           <input
-            className="slider"
+            className="slider w-[80%]"
             defaultValue={180}
             required
             type="range"
@@ -136,9 +136,9 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
               updateFields({ height: e.target.value });
               setHeight(e.target.value);
             }}
-            min="60"
+            min="62"
             step="15.5"
-            max="200"
+            max="201.5"
           />
         </div>
         <div className="flex flex-col justify-center items-center w-11/12 h-11/12">

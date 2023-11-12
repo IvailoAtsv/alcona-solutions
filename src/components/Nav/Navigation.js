@@ -14,7 +14,7 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
   const handleAboutScroll = () => {
     const element = document.getElementById("about");
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: "smooth", block: 'center' });
       setIsOpen(false)
     }
   };
@@ -28,28 +28,28 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
   const handleTechnicalScroll = () => {
     const element = document.getElementById("technical");
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: "smooth", block: 'center' });
       setIsOpen(false)
     }
   };
   const handleFooterScroll = () => {
     const element = document.getElementById("footer");
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: "smooth", block: 'center' });
       setIsOpen(false)
     }
   };
   const handleProductsScroll = () => {
     const element = document.getElementById("products");
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: "smooth", block: 'center' });
       setIsOpen(false)
     }
   };
   const handleOrderScroll = () => {
     const element = document.getElementById("order");
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: "smooth", block: 'center' });
       setIsOpen(false)
     }
   };

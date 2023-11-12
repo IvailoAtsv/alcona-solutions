@@ -2,9 +2,9 @@ export const Technical = () => {
   return (
     <div
       id="technical"
-      className="w-full min-h-[80vh] my-3 flex-col flex gap-3 justify-evenly bg-left bg-fixed items-center bg-pen bg-no-repeat bg-cover"
+      className="w-full min-h-[80vh] my-3 flex-col flex gap-3 p-1 justify-evenly bg-left bg-fixed items-center bg-pen bg-no-repeat bg-cover"
     >
-      <h1 className="bg-cardBg4 my-3 text-white p-4 backdrop-blur-md rounded-lg font-bold text-3xl">
+      <h1 className="bg-cardBg4 my-3 w-[90%] max-w-[1400px] text-center text-white p-4 backdrop-blur-md rounded-lg font-bold text-3xl">
         Teхнически характеристики
       </h1>
       <div className="w-[90%] bg-cardBg4 px-4 py-2 backdrop-blur-md rounded-md h-full max-w-[1400px] justify-center items-center gap-2">
@@ -47,9 +47,9 @@ export const Technical = () => {
 
 const InfoPair = ({ main, description }) => {
   return (
-    <div className="flex bg-cardBg22 my-3 px-2 py-3 rounded-lg text-white font-semibold">
-      <p className="mr-auto max-w-[40%]">{main}</p>
-      <p className="ml-auto max-w-[55%]">{description}</p>
+    <div className="flex bg-cardBg22 my-3 px-2 py-3 flex-col sm:flex-row rounded-lg text-white font-semibold">
+      <p className="mr-auto sm:max-w-[40%]">{main}</p>
+      <p className="ml-auto sm:max-w-[55%]">{description}</p>
     </div>
   );
 };

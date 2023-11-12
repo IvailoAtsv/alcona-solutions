@@ -93,14 +93,14 @@ export function MainForm({
   }
   return (
     <>
-      <div id="order" className="mb-12"></div>
-      <div className="rounded-xl mt-4 text-sm shadow-lg pb-7 pt-12 min-h-min relative max-w-[1400px] w-[90%]">
+      <h1 className="mb-12 text-3xl font-semibold border-b-4 border-footer">Направете Поръчка</h1>
+      <div id="order" className="rounded-xl mt-4 text-sm shadow-lg pb-7 pt-12 min-h-min relative max-w-[1400px] w-[90%]">
         <form onSubmit={onSubmit}>
           <div className="absolute top-1 text-center font-semibold text-lg right-10">
             {currentStepIndex + 1} / {steps.length}
           </div>
           {step}
-          <div className="flex  w-11/12 min-h-12 items-center gap-3 p-3 justify-end mt-12 ml-9">
+          <div className="flex w-11/12 min-h-12 items-center gap-3 px-3 pt-6 justify-end ml-9">
             {!isFirstStep && (
               <button
                 className="rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"

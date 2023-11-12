@@ -6,7 +6,7 @@ export function FooterWithSitemap() {
   return (
 
 
-    <footer class="bg-white dark:bg-footer w-full">
+    <footer id='footer' class="bg-white dark:bg-footer w-full">
       <div class="mx-auto w-full max-w-[1400px] p-4 py-6 lg:py-8">
         <div class="md:flex md:justify-between">
           <div class="mb-6 md:mb-0">

@@ -8,7 +8,7 @@ export const Popup = ({
   setStay,
 }) => {
   const btnStyle =
-    "rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white";
+    "rounded-lg py-2 px-2 sm:px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white";
 
   const handleClick = () => {
     setCartOpen(true);
@@ -32,7 +32,7 @@ export const Popup = ({
             Успешно добавено в количка
           </p>
         </div>
-        <div className="flex flex-col sm:flex-row gap-3">
+        <div className="flex gap-3">
           <button className={btnStyle} onClick={handleClick}>
             Количка
           </button>

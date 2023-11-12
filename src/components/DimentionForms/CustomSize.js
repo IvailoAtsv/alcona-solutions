@@ -90,18 +90,25 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
     <div className="flex items-center w-full min-h-min flex-col justify-between ">
       <div className="flex h-full items-end">
         <div className="flex w-full flex-col justify-evenly sm:flex-row h-full items-center sm:justify-center">
-          <div className="flex flex-col w-[20%] mb-5 sm:self-end items-center">
-            <p className="font-bold">
-              {premium.includes(color) ? "Premium" : "Standard"}
+          <div className="sm:order-1 order-2 flex sm:flex-col flex-row sm:h-full sm:w-[20%] w-full justify-end sm:self-end gap-3 items-start">
+            <div>
+              <p className="font-bold">
+                {premium.includes(color) ? "Premium" : "Standard"}
+              </p>
+              <img src={colorSquares[color]} className="w-20 h-20 rounded-md" />
+              <p>{color}</p>
+            </div>
+            <p className="order-3 text-[12px] sm:self-start self-end text-left mb-5 w-[100%]">
+              Показаният цвят на оградата е с илюстративна цел. За реалният такъв,
+              моля придържайте се към цветната карта
             </p>
-            <img src={colorSquares[color]} className="w-20 h-20  rounded-md" />
-            <p>{color}</p>
           </div>
           <img
             src={colors[color]}
             style={{ width: `${width * 2}px`, height: `${height * 1.5}px` }}
+            className="sm:order-2 order-1"
           />
-          <p className="text-[12px] sm:self-end text-left mb-5 w-[65%] sm:w-[20%]">
+          <p className="order-3 hidden sm:block sm:opacity-0 w-[100%] text-[12px] sm:self-end text-left mb-5 sm:w-[20%]">
             Показаният цвят на оградата е с илюстративна цел. За реалният такъв,
             моля придържайте се към цветната карта
           </p>

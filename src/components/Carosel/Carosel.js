@@ -107,8 +107,8 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
   }, [count]);
 
   return (
-    <>
-      <h1 className="text-3xl font-semibold mt-4">Продукти</h1>
+    <div className="w-full max-w-[1400px] my-4 flex justify-center flex-col items-center">
+      <h1 className="text-3xl w-min mt-8 text-center font-semibold border-b-4 px-4 border-footer">Отделни продукти</h1>
       <div
         id="products"
         className="flex w-[90%] min-h-[70vh] py-4 flex-col md:flex-row justify-between items-center max-w-[1400px]"
@@ -203,6 +203,6 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
             <h1 className="text-3xl font-bold border-b-4 border-footer px-3">Цени от 133лв./кв.м.</h1>}
         </form>
       </div>
-    </>
+    </div>
   );
 };

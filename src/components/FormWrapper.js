@@ -6,7 +6,7 @@ export function FormWrapper({ title, children }) {
       <h2 className="text-2xl my-6 text-center border-b-4 pb-1 px-4 border-background font-semibold">
         {title}
       </h2>
-      <div className="justify-center w-[80%] items-center">{children}</div>
+      <div className="justify-center w-[80%] min-h-[450px] items-center">{children}</div>
     </div>
   );
 }

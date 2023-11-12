@@ -1,14 +1,22 @@
-import service from "../images/service.jpg";
+import installation from "../files/installation.pdf"
 import price from "../images/price.jpg";
-import quality from "../images/quality.jpg";
+import quality from "../images/certificate.png";
+import tools from '../images/tools.jpg'
+import { useState } from "react";
+import { AiOutlineClose } from "react-icons/ai";
+
+import { saveAs } from "file-saver";
 
 export const About = () => {
+  const [expanded, setExpanded] = useState(false)
   return (
     <div
       id="about"
-      className="min-h-[75vh] w-full p-4 bg-no-repeat bg-fixed bg-cover  bg-bottom bg-aboutBg flex flex-col justify-evenly items-center group py-4"
+      className="min-h-[75vh] w-full p-4 bg-no-repeat bg-fixed bg-cover bg-bottom bg-aboutBg flex flex-col justify-evenly items-center group py-4"
     >
+
       <div className="flex max-w-[1400px] backdrop-blur-md w-full bg-cardBg3 my-4 text-white gap-3 flex-col justify-evenly rounded-md p-4 items-center">
+
         <h1 className="text-5xl font-bold">За нас</h1>
         <p className="z-10 text-md sm:text-2xl text-start font-semibold p-3 rounded-md">
           Вашият надежден партньор за уникални огради от WPC. Нашата
@@ -23,15 +31,19 @@ export const About = () => {
         </p>
       </div>
       <div className="max-w-[1400px] w-full gap-4 items-center py-4 justify-between sm:flex-row flex-col flex">
+
         <Card
           img={quality}
           title="Сертификати"
           text="Ние се гордеем с нашите градински огради, изработени от висококачествени материали. Нашето посвещение на качеството гарантира, че всяка ограда воплъщава издръжливост и естетическа привлекателност, като предлага перфектно съчетание от функционалност и елегантност за вашия външен пространство."
         />
         <Card
-          img={service}
+          setExpanded={setExpanded}
+          img={tools}
           title="Инструкции за монтаж"
-          text="Ние отдаваме приоритет на отличната клиентска поддръжка. Вярваме в предоставянето на безпроблемен опит от момента, в който изберете нашите градински огради. Нашия посветен екип е винаги на разположение, за да ви помогне с всякакви въпроси, гарантирайки, че вашите загрижености ще бъдат разгледани бързо и ефективно."
+          text=""
+          link="https://youtu.be/UwAVl_azClQ"
+          btn="инструкции"
         />
         <Card
           img={price}
@@ -39,11 +51,17 @@ export const About = () => {
           text="Ние разбираме стойността на вашата инвестиция. Затова предлагаме градински огради на конкурентни цени, без да компрометираме качеството. Нашата цел е да ви осигурим най-добрата стойност, като ви гарантираме здрави и визуално привлекателни огради за вашата градина, без да натоварваме вашия бюджет."
         />
       </div>
+
     </div>
   );
 };
 
-const Card = ({ img, title, text }) => {
+const downloadImage = () => {
+  saveAs(installation, 'installation.pdf') // Put your image URL here.
+}
+
+
+const Card = ({ img, title, text, link, btn, setExpanded }) => {
   return (
     <div className="backdrop-blur-md sm:w-[30%] w-full flex flex-col justify-between min-h-[580px] rounded-md bg-cardBg2 text-white">
       <div className="h-[30%] max-h-[200px] w-full">
@@ -56,6 +74,8 @@ const Card = ({ img, title, text }) => {
       <div className="flex h-full min-h-[350px] flex-col justify-between gap-5 items-center p-6">
         <h1 className="text-center mb-auto text-3xl font-semibold ">{title}</h1>
         <p className="text-md text-start h-full">{text}</p>
+        {btn && <button onClick={() => downloadImage()} className="rounded-lg w-[98%] py-2 px-6 border-4 self-center text-xl font-bold duration-500 border-white hover:bg-white hover:text-black">Изтеглете инструкции</button>}
+        {link && <a className="text-2xl hover:font-bold" href="https://youtu.be/UwAVl_azClQ">Видео с Инструкции за монтаж</a>}
       </div>
     </div>
   );

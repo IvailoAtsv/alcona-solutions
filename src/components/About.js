@@ -35,7 +35,7 @@ export const About = () => {
         <Card
           img={quality}
           title="Сертификати"
-          text="Ние се гордеем с нашите градински огради, изработени от висококачествени материали. Нашето посвещение на качеството гарантира, че всяка ограда воплъщава издръжливост и естетическа привлекателност, като предлага перфектно съчетание от функционалност и елегантност за вашия външен пространство."
+          text="Гаранция за най-високо качество. Нашите сертификати гарантират високо качество и издръжливост на нашите огради, установявайки стандарта за отличие."
         />
         <Card
           setExpanded={setExpanded}
@@ -48,8 +48,8 @@ export const About = () => {
         <Card
           img={price}
           title="Реализирани проекти"
-          btnGal="gallery"
-          text="Ние разбираме стойността на вашата инвестиция. Затова предлагаме градински огради на конкурентни цени, без да компрометираме качеството. Нашата цел е да ви осигурим най-добрата стойност, като ви гарантираме здрави и визуално привлекателни огради за вашата градина, без да натоварваме вашия бюджет."
+          btn="gallery"
+          text="Разгледайте невероятните резултати на нашите клиенти"
         />
       </div>
 
@@ -62,9 +62,9 @@ const downloadImage = () => {
 }
 
 
-const Card = ({ img, title, text, link, btn, setExpanded }) => {
+const Card = ({ img, title, text, link, btn }) => {
   return (
-    <div className="backdrop-blur-md sm:w-[30%] w-full flex flex-col justify-between min-h-[580px] rounded-md bg-cardBg2 text-white">
+    <div className="backdrop-blur-md sm:w-[30%] shadow-xl w-full flex flex-col justify-between min-h-[380px] rounded-md bg-cardBg2 text-white">
       <div className="h-[30%] max-h-[200px] w-full">
         <img
           loading="lazy"
@@ -72,11 +72,11 @@ const Card = ({ img, title, text, link, btn, setExpanded }) => {
           className="w-full h-[200px] rounded-t-md object-cover object-center"
         />
       </div>
-      <div className="flex h-full min-h-[350px] flex-col justify-between gap-5 items-center p-6">
+      <div className="flex h-full min-h-[230px] flex-col justify-between gap-5 items-center p-6">
         <h1 className="text-center mb-auto text-3xl font-semibold ">{title}</h1>
         <p className="text-md text-start h-full">{text}</p>
         {btn == 'install' && <button onClick={() => downloadImage()} className="rounded-lg w-[98%] py-2 px-6 border-4 self-center text-xl font-bold duration-500 border-white hover:bg-white hover:text-black">Изтеглете инструкции</button>}
-        {btn === 'gallery' && <button>Галерия</button>}
+        {btn === 'gallery' && <button className="rounded-lg w-[98%] py-2 px-6 border-4 self-center text-xl font-bold duration-500 border-white hover:bg-white hover:text-black">Галерия</button>}
         {link && <a className="rounded-lg w-[98%] py-2 px-6 border-4 self-center text-xl font-bold duration-500 border-white hover:bg-white hover:text-black" href="https://youtu.be/UwAVl_azClQ">Видео с Инструкции за монтаж</a>}
       </div>
     </div>

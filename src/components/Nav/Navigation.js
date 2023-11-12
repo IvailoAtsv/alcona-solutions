@@ -82,44 +82,39 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
               className="hover:font-bold"
               onClick={() => handleHeroScroll()}
             >
-              Home
+              Начало
             </button>
             <button
               className="hover:font-bold"
               onClick={() => handleOrderScroll()}
             >
-              Order
+              Панели
             </button>
             <button
               className="hover:font-bold"
               onClick={() => handleProductsScroll()}
             >
-              Products
+              Продукти
             </button>
             <button
               className="hover:font-bold"
               onClick={() => handleTechnicalScroll()}
             >
-              Technical
+              Технически
             </button>
-            <button
-              className="hover:font-bold"
-              onClick={() => handleTechnicalScroll()}
-            >
-              Montage
-            </button>
+
             <button
               className="hover:font-bold"
               onClick={() => handleAboutScroll()}
             >
-              About us
+              Информация
             </button>
 
             <button
               className="hover:font-bold"
               onClick={() => handleFooterScroll()}
             >
-              Contacts
+              Контакти
             </button>
           </nav>
           <button

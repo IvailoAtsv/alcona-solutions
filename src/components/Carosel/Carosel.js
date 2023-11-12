@@ -200,7 +200,7 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
                 Добави в количка
               </button>
             </> :
-            <p className="texl-3xl font-bold ">Цени от 133лв./кв.м.</p>}
+            <h1 className="text-3xl font-bold border-b-4 border-footer px-3">Цени от 133лв./кв.м.</h1>}
         </form>
       </div>
     </>

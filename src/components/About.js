@@ -43,11 +43,12 @@ export const About = () => {
           title="Инструкции за монтаж"
           text=""
           link="https://youtu.be/UwAVl_azClQ"
-          btn="инструкции"
+          btn="install"
         />
         <Card
           img={price}
           title="Реализирани проекти"
+          btnGal="gallery"
           text="Ние разбираме стойността на вашата инвестиция. Затова предлагаме градински огради на конкурентни цени, без да компрометираме качеството. Нашата цел е да ви осигурим най-добрата стойност, като ви гарантираме здрави и визуално привлекателни огради за вашата градина, без да натоварваме вашия бюджет."
         />
       </div>
@@ -74,8 +75,9 @@ const Card = ({ img, title, text, link, btn, setExpanded }) => {
       <div className="flex h-full min-h-[350px] flex-col justify-between gap-5 items-center p-6">
         <h1 className="text-center mb-auto text-3xl font-semibold ">{title}</h1>
         <p className="text-md text-start h-full">{text}</p>
-        {btn && <button onClick={() => downloadImage()} className="rounded-lg w-[98%] py-2 px-6 border-4 self-center text-xl font-bold duration-500 border-white hover:bg-white hover:text-black">Изтеглете инструкции</button>}
-        {link && <a className="text-2xl hover:font-bold" href="https://youtu.be/UwAVl_azClQ">Видео с Инструкции за монтаж</a>}
+        {btn == 'install' && <button onClick={() => downloadImage()} className="rounded-lg w-[98%] py-2 px-6 border-4 self-center text-xl font-bold duration-500 border-white hover:bg-white hover:text-black">Изтеглете инструкции</button>}
+        {btn === 'gallery' && <button>Галерия</button>}
+        {link && <a className="rounded-lg w-[98%] py-2 px-6 border-4 self-center text-xl font-bold duration-500 border-white hover:bg-white hover:text-black" href="https://youtu.be/UwAVl_azClQ">Видео с Инструкции за монтаж</a>}
       </div>
     </div>
   );

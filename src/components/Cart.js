@@ -121,6 +121,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
                         cartItems={cartItems}
                         onRemove={handleDelete}
                         src={item.src}
+                        price={item.price}
                         id={item.id}
                         itemName={item.itemName}
                         count={item.count}
@@ -297,17 +298,20 @@ const CartItem = ({
   );
 };
 
-const CartElement = ({ count, itemName, src, onRemove, id }) => {
+const CartElement = ({ count, itemName, src, onRemove, id, price }) => {
   return (
-    <div className="shadow-md p-4 bg-white w-[90%] h-[100px] rounded-md flex justify-center items-center">
-      <div className="flex justify-center w-full items-center">
-        <img className="w-16" src={src} />
-        <p className="pl-4 w-[60%]"> {itemName}</p>
-        <p className="ml-auto">x {count}</p>
+    <div className="w-[90%] flex flex-col shadow-md min-h-[100px] bg-slate-100 rounded-lg">
+      <div className=" p-4  w-full h-[100px] rounded-md flex justify-between items-center">
+        <div className="flex justify-center w-full items-center">
+          <img className="w-16" src={src} />
+          <p className="pl-4 w-[60%]"> {itemName}</p>
+          <p className="ml-auto">x {count}</p>
+        </div>
+        <button className="self-start pb-4" onClick={() => onRemove(id)}>
+          <FiTrash />
+        </button>
       </div>
-      <button className="self-start" onClick={() => onRemove(id)}>
-        <FiTrash />
-      </button>
+      <p className="self-end p-4">{price} лв.</p>
     </div>
   );
 };

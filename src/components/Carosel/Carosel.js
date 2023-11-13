@@ -54,6 +54,7 @@ const IMAGES = [
 
 export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
   const [imageIndex, setImageIndex] = useState(0);
+  const [kolCount, setKolCount] = useState(36.99);
 
   function showNextImage() {
     setImageIndex((index) => {
@@ -85,13 +86,22 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    let cartPrice;
+
+    if (imageIndex === 2) {
+      cartPrice = Math.ceil(prices[imageIndex] * count * kolCount);
+    } else {
+      cartPrice = Math.ceil(prices[imageIndex] * count);
+    }
+
     const item = {
       itemName: titles[imageIndex],
       count: count,
       itemType: "element",
       src: images[imageIndex],
       id: uniqid(),
-      price: 0,
+      price: cartPrice,
     };
     console.log(cartItems);
     const newList = [...cartItems];
@@ -107,8 +117,6 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
       setInvalid(true);
     }
   }, [count]);
-
-  const [kolCount, setKolCount] = useState(36.99);
 
   return (
     <div className="w-full max-w-[1400px] my-4 flex justify-center flex-col items-center">

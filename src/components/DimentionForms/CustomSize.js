@@ -50,8 +50,32 @@ const colors = {
   reddishBrown: reddishBrown,
 };
 
+const widths = {
+  186: 258,
+  166: 255,
+  146: 250,
+  126: 249,
+  106: 245,
+  96: 230,
+  86: 230,
+  76: 228,
+  66: 226,
+};
+
 let price;
 
+const heights = {
+  62: 0,
+  77.5: 1,
+  93: 2,
+  108.5: 3,
+  124: 4,
+  139.5: 5,
+  155: 6,
+  170.5: 7,
+  186: 8,
+  201.5: 9,
+};
 const premium = ["teak", "lightGrey", "green", "rosewood"];
 
 export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
@@ -73,18 +97,21 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
     } else {
       setIsValid(true);
     }
-    let price;
+    price = Math.floor(
+      Number(widths[width]) +
+        (heights[height] !== 8 ? Number(heights[height]) * 26.9 : 202),
+    );
     if (premium.includes(color)) {
-      price = 660;
+      price = price * 1.44;
     } else {
-      price = 460;
+      price = price;
     }
     const total = price * panelCount;
     updateFields({ price: total });
     updateFields({ panelCount: panelCount });
     updateFields({ height: height });
     updateFields({ width: width });
-  }, [panelCount]);
+  }, [panelCount, height, width]);
 
   return (
     <div className="flex items-center w-full min-h-min flex-col justify-between ">
@@ -99,8 +126,8 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
               <p>{color}</p>
             </div>
             <p className="order-3 text-[12px] sm:self-start self-end text-left mb-5 w-[100%]">
-              Показаният цвят на оградата е с илюстративна цел. За реалният такъв,
-              моля придържайте се към цветната карта
+              Показаният цвят на оградата е с илюстративна цел. За реалният
+              такъв, моля придържайте се към цветната карта
             </p>
           </div>
           <img
@@ -127,8 +154,8 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
               updateFields({ width: e.target.value });
               setWidth(e.target.value);
             }}
-            min="86"
-            step="20"
+            min="66"
+            step={20}
             max="186"
           />
         </div>
@@ -166,7 +193,7 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
             </button>
           </div>
           <p className="text-center text-lg py-2">
-            {premium.includes(color) ? 660 * panelCount : 460 * panelCount} лв.
+            {price * Number(panelCount)} лв.
           </p>
         </div>
         <p className="text-2xl text-center mt-4 text-red-600 font-bold">

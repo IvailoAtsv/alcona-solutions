@@ -44,10 +44,10 @@ export function MainForm({
   function addToCart(e) {
     const newList = cartItems;
     if (data.perimeter !== "") {
-      updateFields({ isProject: true })
+      updateFields({ isProject: true });
     }
     setCartItems([...newList, data]);
-    setData(INITIAL_DATA)
+    setData(INITIAL_DATA);
   }
   const {
     steps,
@@ -93,8 +93,13 @@ export function MainForm({
   }
   return (
     <>
-      <h1 className="mb-12 text-3xl font-semibold border-b-4 border-footer">Направете Поръчка</h1>
-      <div id="order" className="rounded-xl mt-4 text-sm shadow-lg pb-7 pt-12 min-h-min relative max-w-[1400px] w-[90%]">
+      <h1 className="mb-12 text-3xl font-semibold border-b-4 border-footer">
+        Направете Поръчка
+      </h1>
+      <div
+        id="order"
+        className="rounded-xl mt-4 text-sm shadow-lg pb-12 pt-8 min-h-min relative max-w-[1400px] w-[90%]"
+      >
         <form onSubmit={onSubmit}>
           <div className="absolute top-1 text-center font-semibold text-lg right-10">
             {currentStepIndex + 1} / {steps.length}

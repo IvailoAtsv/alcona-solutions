@@ -23,11 +23,12 @@ const titles = [
   "WPC Оградно пано Alcona Standard (180x180cm)",
   "WPC Съставна дъска Alcona (160x1800mm) ",
   "WPC Стълб Alcona (100x100mm)",
-  "сечение на кол",
+  "Meтална основа",
   "WPC Капачка ",
   "Alum Начална Лайсна Alcona ",
   "Alum Завършваща Лайсна Alcona",
 ];
+const prices = [0, 29.99, 1, 49.99, 7.99, 14.99, 17.99];
 
 const images = [pic7, pic5, pic4, pic3, pic1, pic2, pic6];
 
@@ -68,7 +69,7 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
     });
   }
 
-  useEffect(() => { }, [imageIndex]);
+  useEffect(() => {}, [imageIndex]);
 
   const [count, setCount] = useState(1);
   const [invalid, setInvalid] = useState(false);
@@ -90,6 +91,7 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
       itemType: "element",
       src: images[imageIndex],
       id: uniqid(),
+      price: 0,
     };
     console.log(cartItems);
     const newList = [...cartItems];
@@ -106,9 +108,13 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
     }
   }, [count]);
 
+  const [kolCount, setKolCount] = useState(36.99);
+
   return (
     <div className="w-full max-w-[1400px] my-4 flex justify-center flex-col items-center">
-      <h1 className="text-3xl w-min mt-8 text-center font-semibold border-b-4 px-4 border-footer">Отделни продукти</h1>
+      <h1 className="text-3xl w-min mt-8 text-center font-semibold border-b-4 px-4 border-footer">
+        Отделни продукти
+      </h1>
       <div
         id="products"
         className="flex w-[90%] min-h-[70vh] py-4 flex-col md:flex-row justify-between items-center max-w-[1400px]"
@@ -163,7 +169,7 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
         <form className="md:w-[30%] text-center min-h-[70vh] w-[80%] flex flex-col justify-evenly items-center">
           <h1 className="text-2xl font-semibold">{titles[imageIndex]}</h1>
           <p className="text-md">{descriptions[imageIndex]}</p>
-          {imageIndex !== 0 ?
+          {imageIndex !== 0 ? (
             <>
               <div className="flex flex-col justify-center items-center w-11/12 h-11/12">
                 {invalid ? (
@@ -189,9 +195,47 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
                   </button>
                 </div>
               </div>
-
-
-              <h1 className="text-2xl font-semibold">000.00BGN</h1>
+              {imageIndex === 2 && (
+                <div className="flex gap-2">
+                  <button
+                    className="rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
+                    type="button"
+                    onClick={() => setKolCount(36.99)}
+                  >
+                    1.00 м.
+                  </button>
+                  <button
+                    className="rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
+                    type="button"
+                    onClick={() => setKolCount(69.99)}
+                  >
+                    1.90 м.
+                  </button>
+                  <button
+                    className="rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
+                    type="button"
+                    onClick={() => setKolCount(99.99)}
+                  >
+                    2.80 м.
+                  </button>
+                  <button
+                    className="rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
+                    type="button"
+                    onClick={() => setKolCount(102.99)}
+                  >
+                    2.90 м.
+                  </button>
+                </div>
+              )}
+              {imageIndex !== 2 ? (
+                <h1 className="text-2xl font-semibold">
+                  {Math.ceil(prices[imageIndex] * count)} BGN
+                </h1>
+              ) : (
+                <h1 className="text-2xl font-semibold">
+                  {Math.ceil(prices[imageIndex] * count * kolCount)} BGN
+                </h1>
+              )}
               <button
                 disabled={invalid}
                 onClick={handleSubmit}
@@ -199,8 +243,12 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
               >
                 Добави в количка
               </button>
-            </> :
-            <h1 className="text-3xl font-bold border-b-4 border-footer px-3">Цени от 133лв./кв.м.</h1>}
+            </>
+          ) : (
+            <h1 className="text-3xl font-bold border-b-4 border-footer px-3">
+              Цени от 133лв./кв.м.
+            </h1>
+          )}
         </form>
       </div>
     </div>

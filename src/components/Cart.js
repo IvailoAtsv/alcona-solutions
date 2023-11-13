@@ -67,18 +67,20 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
   console.log(cartItems);
 
   const getSum = (cartItems) => {
-    const toSum = cartItems.filter(item => item.price)
-    return toSum.reduce((total, item) => total + item.price, 0)
-  }
+    const toSum = cartItems.filter((item) => item.price);
+    return toSum.reduce((total, item) => total + item.price, 0);
+  };
 
   const addAdditional = (cartItems) => {
-    const viable = cartItems.filter(item => item.perimeter == '' && item.width)
+    const viable = cartItems.filter(
+      (item) => item.perimeter == "" && item.width,
+    );
     if (viable.length !== 0) {
-      return true
+      return true;
     } else {
-      return false
+      return false;
     }
-  }
+  };
 
   return (
     <>
@@ -94,7 +96,6 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
             {/* cart */}
             {orderStatus === "cart" ? (
               <div className="flex flex-col justify-around gap-2 items-center w-full">
-
                 {cartItems?.map((item, i) => {
                   if (item.itemType === "default") {
                     return (
@@ -133,16 +134,20 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
                       Допълнителни елементи
                     </h1>
                     <div className="flex border-b-2 w-full justify-between">
-                      <p>WPC Стълб</p> <p className="text-end">x1</p>
+                      <p>WPC Стълб Alcona</p> <p className="text-end">x1</p>
                     </div>
                     <div className="flex border-b-2 w-full justify-between">
                       <p>Метална основа</p> <p className="text-end">x1</p>
                     </div>
                     <div className="flex border-b-2 w-full justify-between">
-                      <p>WPX капачка</p> <p className="text-end">x1</p>
+                      <p>WPC капачка</p> <p className="text-end">x1</p>
                     </div>
                     <div className="flex border-b-2 w-full justify-between">
-                      <p>Анкерен болт</p> <p className="text-end">x1</p>
+                      <p>Анкерни болтове</p> <p className="text-end">x4</p>
+                    </div>
+                    <div className="flex border-b-2 w-full justify-between">
+                      <p>Крепежни ъгли и планки</p>{" "}
+                      <p className="text-end">x1</p>
                     </div>
                   </div>
                 ) : (
@@ -160,16 +165,13 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
               />
             )}
 
-            {(orderStatus === "cart" && cartItems.length > 1) &&
-              (
-                <div className="mt-6 self-center text-end w-[90%]">
-                  <p className="bg-white self-end rounded-md shadow-lg px-4 py-2">
-                    Oбщо:{" "}
-                    {getSum(cartItems)} лв.
-                  </p>
-                </div>
-
-              )}
+            {orderStatus === "cart" && cartItems.length > 1 && (
+              <div className="mt-6 self-center text-end w-[90%]">
+                <p className="bg-white self-end rounded-md shadow-lg px-4 py-2">
+                  Oбщо: {getSum(cartItems)} лв.
+                </p>
+              </div>
+            )}
             {orderStatus === "cart" ? (
               <div className="w-[90%] flex items-center justify-between">
                 {cartItems.length !== 0 && (
@@ -261,7 +263,7 @@ const CartItem = ({
             </p>
           ) : (
             <p className="text-md self-start">
-              {width} x {height}
+              {width} ш x {height} в
             </p>
           )}
         </div>

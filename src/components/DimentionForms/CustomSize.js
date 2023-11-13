@@ -155,7 +155,7 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
               setWidth(e.target.value);
             }}
             min="66"
-            step={20}
+            step={width < 106 ? 10 : 20}
             max="186"
           />
         </div>

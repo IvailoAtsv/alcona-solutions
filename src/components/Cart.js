@@ -85,7 +85,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
   return (
     <>
       {cartOpen ? (
-        <div className="w-full z-50 overflow-y-scroll h-[100vh] bg-transparent fixed top-0 right-0 flex justify-between flex-col items-end  rounded-xl">
+        <div className="w-full z-50 overflow-y-auto h-[100vh] bg-transparent fixed top-0 right-0 flex justify-between flex-col items-end  rounded-xl">
           <div className="sm:w-[60%] bg-gray-200 w-full h-auto shadow-lg rounded-md flex justify-center flex-col p-4 items-center">
             <button className="self-end" onClick={() => setCartOpen(false)}>
               <AiOutlineClose className="pt-2" size={32} />
@@ -305,6 +305,7 @@ const CartElement = ({ count, itemName, src, onRemove, id, price }) => {
         <div className="flex justify-center w-full items-center">
           <img className="w-16" src={src} />
           <p className="pl-4 w-[60%]"> {itemName}</p>
+
           <p className="ml-auto">x {count}</p>
         </div>
         <button className="self-start pb-4" onClick={() => onRemove(id)}>

@@ -92,9 +92,9 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
     let cartPrice;
 
     if (imageIndex === 2) {
-      cartPrice = Math.ceil(prices[imageIndex] * count * kolCount);
+      cartPrice = (prices[imageIndex] * count * kolCount).toFixed(2);
     } else {
-      cartPrice = Math.ceil(prices[imageIndex] * count);
+      cartPrice = (prices[imageIndex] * count).toFixed(2);
     }
 
     const item = {
@@ -103,10 +103,9 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
       itemType: "element",
       src: images[imageIndex],
       id: uniqid(),
-      price: cartPrice,
+      price: Number(cartPrice),
       color: itemColor,
     };
-    console.log(cartItems);
     const newList = [...cartItems];
     setCartItems([...newList, item]);
     setCount(1);

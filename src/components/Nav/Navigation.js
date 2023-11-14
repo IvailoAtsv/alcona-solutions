@@ -62,8 +62,8 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
         <div className="lg:ml-4 flex w-auto flex-col lg:gap-3 pr-4 lg:flex-row h-auto items-start">
           <div className="flex items-center justify-center gap-1 w-auto">
             <FiPhoneCall size={16} />
-            <a href="tel:0893993129" className="text-sm font-bold">
-              0893993129
+            <a href="tel:0893993141" className="text-sm font-bold">
+              0893993141
             </a>
           </div>
           <div className="flex items-center justify-center gap-1 w-auto">

@@ -67,8 +67,8 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
   console.log(cartItems);
 
   const getSum = (cartItems) => {
-    const toSum = cartItems.filter((item) => item.price);
-    return toSum.reduce((total, item) => total + item.price, 0);
+    const toSum = cartItems.filter((item) => Number(item.price));
+    return toSum.reduce((total, item) => total + Number(item.price), 0);
   };
 
   const addAdditional = (cartItems) => {
@@ -171,7 +171,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
             {orderStatus === "cart" && cartItems.length > 1 && (
               <div className="mt-6 self-center text-end w-[90%]">
                 <p className="bg-white self-end rounded-md shadow-lg px-4 py-2">
-                  Oбщо: {getSum(cartItems)} лв.
+                  Oбщо: {Number(getSum(cartItems)).toFixed(2)} лв.
                 </p>
               </div>
             )}

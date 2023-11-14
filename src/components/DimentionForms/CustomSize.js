@@ -24,6 +24,8 @@ import RosewoodSquare from "../../colors/Rosewood.png";
 import SandyBrownSquare from "../../colors/SandyBrown.png";
 import TeakSquare from "../../colors/Teak.png";
 
+import data from "../data.js";
+
 const colorSquares = {
   black: BlackSquare,
   darkCoffee: DarkCoffeeSquare,
@@ -50,17 +52,17 @@ const colors = {
   reddishBrown: reddishBrown,
 };
 
-const widths = {
-  186: 258,
-  166: 255,
-  146: 250,
-  126: 249,
-  106: 245,
-  96: 230,
-  86: 230,
-  76: 228,
-  66: 226,
-};
+// const widths = {
+//   186: 258,
+//   166: 255,
+//   146: 250,
+//   126: 249,
+//   106: 245,
+//   96: 230,
+//   86: 230,
+//   76: 228,
+//   66: 226,
+// };
 
 let price;
 
@@ -97,12 +99,9 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
     } else {
       setIsValid(true);
     }
-    price = Math.floor(
-      Number(widths[width]) +
-        (heights[height] !== 8 ? Number(heights[height]) * 26.9 : 202),
-    );
+    price = Math.floor(Number(data[width][height]));
     if (premium.includes(color)) {
-      price = price * 1.44;
+      price = Math.floor(price * 1.44);
     } else {
       price = price;
     }

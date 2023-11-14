@@ -1,10 +1,10 @@
-import pic1 from "../../images/plastic.jpg";
-import pic2 from "../../images/bottom.jpg";
-import pic3 from "../../images/kol-slice.jpg";
-import pic4 from "../../images/kol.jpg";
-import pic5 from "../../images/plank.jpg";
-import pic6 from "../../images/top.jpg";
-import pic7 from "../../images/fence2.png";
+import pic1 from "../../images/WPC Cap-1.png";
+import pic2 from "../../images/alumBottom.png";
+import pic3 from "../../images/ironFastner.png";
+import pic4 from "../../images/WPC Post 100x100.png";
+import pic5 from "../../images/WPC Board.png";
+import pic6 from "../../images/alumTopCover.png";
+import pic7 from "../../images/fence.png";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import uniqid from "uniqid";
 
@@ -125,7 +125,7 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
       </h1>
       <div
         id="products"
-        className="flex w-[90%] min-h-[70vh] py-4 flex-col md:flex-row justify-between items-center max-w-[1400px]"
+        className="flex w-[90%] bg-no-repeat bg-center bg-contain bg-carosel min-h-[70vh] py-4 flex-col md:flex-row justify-between items-center max-w-[1400px]"
       >
         <section
           aria-label="Image Slider"
@@ -139,7 +139,7 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
                   src={item.url}
                   alt={item.alt}
                   aria-hidden={imageIndex !== index}
-                  className="img-slider-img rounded-xl"
+                  className="img-slider-img w-full h-full rounded-xl"
                   style={{ translate: `${-100 * imageIndex}%` }}
                 />
               </div>
@@ -151,7 +151,11 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
             style={{ left: 0 }}
             aria-label="View Previous Image"
           >
-            <AiOutlineArrowLeft size={32} aria-hidden />
+            <AiOutlineArrowLeft
+              size={32}
+              aria-hidden
+              className="bg-black rounded-md"
+            />
           </button>
           <button
             onClick={showNextImage}
@@ -159,7 +163,11 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
             style={{ right: 0, color: "white" }}
             aria-label="View Next Image"
           >
-            <AiOutlineArrowRight aria-hidden size={32} />
+            <AiOutlineArrowRight
+              className="bg-black rounded-md"
+              aria-hidden
+              size={32}
+            />
           </button>
           <div
             style={{
@@ -176,7 +184,9 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
 
         <form className="md:w-[30%] text-center min-h-[70vh] w-[80%] flex flex-col justify-evenly items-center">
           <h1 className="text-2xl font-semibold">{titles[imageIndex]}</h1>
-          <p className="text-md">{descriptions[imageIndex]}</p>
+          <p className="text-md bg-cardBg p-4 rounded-md backdrop-blur-md">
+            {descriptions[imageIndex]}
+          </p>
           {imageIndex !== 0 ? (
             <>
               <div className="flex flex-col justify-center items-center w-11/12 h-11/12">
@@ -204,7 +214,7 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
                 </div>
               </div>
               {imageIndex === 2 && (
-                <div className="flex gap-2">
+                <div className="flex gap-2 flex-wrap items-center justify-center p-4">
                   <button
                     className="rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
                     type="button"
@@ -224,14 +234,14 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
                     type="button"
                     onClick={() => setKolCount(99.99)}
                   >
-                    2.80 м.
+                    2.70 м.
                   </button>
                   <button
                     className="rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
                     type="button"
                     onClick={() => setKolCount(102.99)}
                   >
-                    2.90 м.
+                    2.80 м.
                   </button>
                 </div>
               )}

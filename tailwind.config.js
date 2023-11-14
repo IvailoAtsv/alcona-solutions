@@ -26,6 +26,7 @@ module.exports = {
         aboutBg: "url('/src/images/about.jpeg')",
         woodTeak: "url('/src/colors/Teak.png')",
         pen: "url('/src/images/pen.jpg')",
+        carosel: "url('/src/images/fullLogo.png')",
       },
       colors: {
         gold: "#ffda9e",

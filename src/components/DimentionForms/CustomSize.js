@@ -65,19 +65,6 @@ const colors = {
 // };
 
 let price;
-
-const heights = {
-  62: 0,
-  77.5: 1,
-  93: 2,
-  108.5: 3,
-  124: 4,
-  139.5: 5,
-  155: 6,
-  170.5: 7,
-  186: 8,
-  201.5: 9,
-};
 const premium = ["teak", "lightGrey", "green", "rosewood"];
 
 export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
@@ -99,11 +86,12 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
     } else {
       setIsValid(true);
     }
-    price = Math.floor(Number(data[width][height]));
+    console.log(data);
+    console.log(data[width][height]);
+
+    price = Number(data[width][height]).toFixed(2);
     if (premium.includes(color)) {
-      price = Math.floor(price * 1.44);
-    } else {
-      price = price;
+      price = (price * 1.44).toFixed(2);
     }
     const total = price * panelCount;
     updateFields({ price: total });
@@ -146,14 +134,14 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
           <label className="text-lg font-semibold">Ширина: {width} cm</label>
           <input
             className="slider w-[80%]"
-            defaultValue={180}
+            defaultValue={186}
             required
             type="range"
             onChange={(e) => {
               updateFields({ width: e.target.value });
-              setWidth(e.target.value);
+              setWidth(Number(e.target.value));
             }}
-            min="66"
+            min="86"
             step={width < 106 ? 10 : 20}
             max="186"
           />
@@ -164,10 +152,10 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
             className="slider"
             required
             type="range"
-            defaultValue={200}
+            defaultValue={201.5}
             onChange={(e) => {
               updateFields({ height: e.target.value });
-              setHeight(e.target.value);
+              setHeight(Number(e.target.value));
             }}
             min="62"
             step="15.5"

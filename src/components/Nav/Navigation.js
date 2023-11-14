@@ -14,53 +14,53 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
   const handleAboutScroll = () => {
     const element = document.getElementById("about");
     if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: 'center' });
-      setIsOpen(false)
+      element.scrollIntoView({ behavior: "smooth", block: "center" });
+      setIsOpen(false);
     }
   };
   const handleHeroScroll = () => {
     const element = document.getElementById("hero");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-      setIsOpen(false)
+      setIsOpen(false);
     }
   };
   const handleTechnicalScroll = () => {
     const element = document.getElementById("technical");
     if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: 'center' });
-      setIsOpen(false)
+      element.scrollIntoView({ behavior: "smooth", block: "center" });
+      setIsOpen(false);
     }
   };
   const handleFooterScroll = () => {
     const element = document.getElementById("footer");
     if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: 'center' });
-      setIsOpen(false)
+      element.scrollIntoView({ behavior: "smooth", block: "center" });
+      setIsOpen(false);
     }
   };
   const handleProductsScroll = () => {
     const element = document.getElementById("products");
     if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: 'center' });
-      setIsOpen(false)
+      element.scrollIntoView({ behavior: "smooth", block: "center" });
+      setIsOpen(false);
     }
   };
   const handleOrderScroll = () => {
     const element = document.getElementById("order");
     if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: 'center' });
-      setIsOpen(false)
+      element.scrollIntoView({ behavior: "smooth", block: "center" });
+      setIsOpen(false);
     }
   };
 
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <header className="header shadow-lg">
       <div className="flex max-w-[1400px] gap-5 lg:gap-0 w-full items-center">
-        <div className="lg:ml-4 flex w-auto flex-col lg:gap-3 lg:flex-row h-auto items-start">
-          <div className="flex items-center justify-center gap-1  w-auto">
+        <div className="lg:ml-4 flex w-auto flex-col lg:gap-3 pr-4 lg:flex-row h-auto items-start">
+          <div className="flex items-center justify-center gap-1 w-auto">
             <FiPhoneCall size={16} />
             <a href="tel:0893993129" className="text-sm font-bold">
               0893993129
@@ -74,8 +74,16 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
         <div className="flex justify-end ml-auto">
           <input type="checkbox" id="check" checked={isOpen} readOnly />
           <label htmlFor="check" className="icons">
-            <GiHamburgerMenu className="bx bx-menu" id="menu-open" onClick={() => setIsOpen(true)} />
-            <AiOutlineClose className="bx bx-x" id="menu-close" onClick={() => setIsOpen(false)} />
+            <GiHamburgerMenu
+              className="bx bx-menu"
+              id="menu-open"
+              onClick={() => setIsOpen(true)}
+            />
+            <AiOutlineClose
+              className="bx bx-x"
+              id="menu-close"
+              onClick={() => setIsOpen(false)}
+            />
           </label>
           <nav className="navbar ml-auto">
             <button

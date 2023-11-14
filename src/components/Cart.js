@@ -123,8 +123,10 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
                         src={item.src}
                         price={item.price}
                         id={item.id}
+                        key={item.id}
                         itemName={item.itemName}
                         count={item.count}
+                        color={item.color}
                       />
                     );
                   }
@@ -298,13 +300,16 @@ const CartItem = ({
   );
 };
 
-const CartElement = ({ count, itemName, src, onRemove, id, price }) => {
+const CartElement = ({ color, count, itemName, src, onRemove, id, price }) => {
   return (
     <div className="w-[90%] flex flex-col shadow-md min-h-[100px] bg-slate-100 rounded-lg">
       <div className=" p-4  w-full h-[100px] rounded-md flex justify-between items-center">
         <div className="flex justify-center w-full items-center">
           <img className="w-16" src={src} />
-          <p className="pl-4 w-[60%]"> {itemName}</p>
+          <div className="pl-4 w-[60%]">
+            {color && <p>цвят {color}</p>}
+            <p> {itemName}</p>
+          </div>
 
           <p className="ml-auto">x {count}</p>
         </div>

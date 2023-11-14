@@ -60,7 +60,6 @@ function App() {
       <About />
       <Contact />
       <Technical />
-      <Gallery />
       <FooterWithSitemap fancy={fancy} setFancy={setFancy} />
     </div>
   );

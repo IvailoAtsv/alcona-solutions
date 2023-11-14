@@ -1,10 +1,10 @@
-import pic1 from "../../images/WPC Cap-1.png";
+import pic1 from "../../images/WPC Cap.png";
 import pic2 from "../../images/alumBottom.png";
 import pic3 from "../../images/ironFastner.png";
 import pic4 from "../../images/WPC Post 100x100.png";
 import pic5 from "../../images/WPC Board.png";
 import pic6 from "../../images/alumTopCover.png";
-import pic7 from "../../images/fence.png";
+import pic7 from "../../images/WPC Set.png";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import uniqid from "uniqid";
 
@@ -84,6 +84,8 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
     setCount((count) => Number(count) - 1);
   };
 
+  const [itemColor, setItemColor] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -102,11 +104,13 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
       src: images[imageIndex],
       id: uniqid(),
       price: cartPrice,
+      color: itemColor,
     };
     console.log(cartItems);
     const newList = [...cartItems];
     setCartItems([...newList, item]);
     setCount(1);
+    setItemColor("");
     setIsPopupOpen(true);
   };
 
@@ -117,6 +121,23 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
       setInvalid(true);
     }
   }, [count]);
+
+  useEffect(() => {
+    if (imageIndex === 1) {
+      setInvalid(true);
+    }
+  }, [imageIndex]);
+
+  const validateItemColor = (e) => {
+    if (e.target.value === "") {
+      setInvalid(true);
+      return false;
+    } else {
+      setInvalid(false);
+      setItemColor(e.target.value);
+      return true;
+    }
+  };
 
   return (
     <div className="w-full max-w-[1400px] my-4 flex justify-center flex-col items-center">
@@ -139,7 +160,7 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
                   src={item.url}
                   alt={item.alt}
                   aria-hidden={imageIndex !== index}
-                  className="img-slider-img w-full h-full rounded-xl"
+                  className="img-slider-img backdrop-blur-sm shadow-md border w-full h-full rounded-xl"
                   style={{ translate: `${-100 * imageIndex}%` }}
                 />
               </div>
@@ -189,10 +210,28 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
           </p>
           {imageIndex !== 0 ? (
             <>
+              <div className="flex bg-cardBg backdrop-blur-xl p-3 rounded-md">
+                <label className={invalid && "text-red-500 font-bold text-lg"}>
+                  Изберете цвят:{" "}
+                </label>
+                <select required onChange={(e) => validateItemColor(e)}>
+                  <option disabled selected value=""></option>
+                  <option value="Rosewood">Rosewood</option>
+                  <option value="Maple">Maple</option>
+                  <option value="Reddish Brown">Reddish Brown</option>
+                  <option value="Teak">Teak</option>
+                  <option value="Sandy Brown">Sandy Brown</option>
+                  <option value="Dark Coffee">Dark Coffee</option>
+                  <option value="Light Coffee">Light Coffee</option>
+                  <option value="Light Grey">Light Grey</option>
+                  <option value="Black">Black</option>
+                  <option value="Green">Green</option>
+                </select>
+              </div>
               <div className="flex flex-col justify-center items-center w-11/12 h-11/12">
                 {invalid ? (
                   <label className="text-red-500 text-lg font-semibold">
-                    Изберете число по-голямо от 0
+                    {imageIndex !== 1 && "Изберете число по-голямо от 0"}
                   </label>
                 ) : (
                   <label className="text-lg font-semibold">Брой:</label>
@@ -247,11 +286,11 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
               )}
               {imageIndex !== 2 ? (
                 <h1 className="text-2xl font-semibold">
-                  {Math.ceil(prices[imageIndex] * count)} BGN
+                  {(prices[imageIndex] * count).toFixed(2)} BGN
                 </h1>
               ) : (
                 <h1 className="text-2xl font-semibold">
-                  {Math.ceil(prices[imageIndex] * count * kolCount)} BGN
+                  {(prices[imageIndex] * count * kolCount).toFixed(2)} BGN
                 </h1>
               )}
               <button

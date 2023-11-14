@@ -1,62 +1,59 @@
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 0.5rem 0;
-    background: white;
-    height: min-content;
-    color: #202A44;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 4;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.5rem 0;
+  background: white;
+  height: min-content;
+  color: #202a44;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 4;
 }
 
-
 .logo {
-    font-size: 2rem;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 700;
-    align-self: start;
+  font-size: 2rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  align-self: start;
 }
 
 .navbar {
-    display: flex;
-    justify-items: evenly;
-    gap: 1rem;
-    flex-wrap: wrap;
-    align-items: center;
+  display: flex;
+  justify-items: evenly;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 #cart {
-    align-self: flex-end;
-    position: absolute;
-    top: 30%;
-    left: 90%;
+  align-self: flex-end;
+  position: absolute;
+  top: 30%;
+  left: 90%;
 }
 
 .navbar button {
-    cursor: pointer;
-    min-width: 70px;
-    font-size: 16px;
-    color: #202A44;
-    text-decoration: none;
-    font-weight: 400;
-
-
+  cursor: pointer;
+  min-width: 70px;
+  font-size: 16px;
+  color: #202a44;
+  text-decoration: none;
+  font-weight: 400;
 }
 
 #check {
-    display: none;
+  display: none;
 }
 
 .icons {
-    align-self: flex-end;
-    position: absolute;
-    font-size: 2rem;
-    color: #202A44;
-    cursor: pointer;
-    display: none;
+  align-self: flex-end;
+  position: absolute;
+  font-size: 2rem;
+  color: #202a44;
+  cursor: pointer;
+  display: none;
 }

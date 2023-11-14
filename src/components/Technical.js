@@ -2,7 +2,7 @@ export const Technical = () => {
   return (
     <div
       id="technical"
-      className="w-full min-h-[80vh] my-3 flex-col flex gap-3 p-1 justify-evenly bg-left bg-fixed items-center bg-pen bg-no-repeat bg-cover"
+      className="w-full min-h-[80vh] mt-3 flex-col flex gap-3 p-1 justify-evenly bg-left bg-fixed items-center bg-pen bg-no-repeat bg-cover"
     >
       <h1 className="bg-cardBg4 my-3 w-[90%] max-w-[1400px] text-center text-white p-4 backdrop-blur-md rounded-lg font-bold text-3xl">
         Teхнически характеристики

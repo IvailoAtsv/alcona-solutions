@@ -123,7 +123,7 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
 
   useEffect(() => {
     if (imageIndex === 1) {
-      setInvalid(true);
+      setInvalid(false);
     }
   }, [imageIndex]);
 
@@ -145,7 +145,7 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
       </h1>
       <div
         id="products"
-        className="flex w-[90%] bg-no-repeat bg-center bg-contain bg-carosel min-h-[70vh] py-4 flex-col md:flex-row justify-between items-center max-w-[1400px]"
+        className="flex w-[90%] bg-no-repeat bg-center bg-contain min-h-[70vh] py-4 flex-col md:flex-row justify-between items-center max-w-[1400px]"
       >
         <section
           aria-label="Image Slider"
@@ -210,22 +210,29 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
           {imageIndex !== 0 ? (
             <>
               <div className="flex bg-cardBg backdrop-blur-xl p-3 rounded-md">
-                <label className={invalid && "text-red-500 font-bold text-lg"}>
-                  Изберете цвят:{" "}
-                </label>
-                <select required onChange={(e) => validateItemColor(e)}>
-                  <option disabled selected value=""></option>
-                  <option value="Rosewood">Rosewood</option>
-                  <option value="Maple">Maple</option>
-                  <option value="Reddish Brown">Reddish Brown</option>
-                  <option value="Teak">Teak</option>
-                  <option value="Sandy Brown">Sandy Brown</option>
-                  <option value="Dark Coffee">Dark Coffee</option>
-                  <option value="Light Coffee">Light Coffee</option>
-                  <option value="Light Grey">Light Grey</option>
-                  <option value="Black">Black</option>
-                  <option value="Green">Green</option>
-                </select>
+                {imageIndex === 1 && (
+                  <>
+                    {" "}
+                    <label
+                      className={invalid && "text-red-500 font-bold text-lg"}
+                    >
+                      Изберете цвят:{" "}
+                    </label>
+                    <select required onChange={(e) => validateItemColor(e)}>
+                      <option disabled selected value=""></option>
+                      <option value="Rosewood">Rosewood</option>
+                      <option value="Maple">Maple</option>
+                      <option value="Reddish Brown">Reddish Brown</option>
+                      <option value="Teak">Teak</option>
+                      <option value="Sandy Brown">Sandy Brown</option>
+                      <option value="Dark Coffee">Dark Coffee</option>
+                      <option value="Light Coffee">Light Coffee</option>
+                      <option value="Light Grey">Light Grey</option>
+                      <option value="Black">Black</option>
+                      <option value="Green">Green</option>
+                    </select>
+                  </>
+                )}
               </div>
               <div className="flex flex-col justify-center items-center w-11/12 h-11/12">
                 {invalid ? (

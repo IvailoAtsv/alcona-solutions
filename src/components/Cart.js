@@ -86,7 +86,8 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
       finalSum = toSum.reduce((total, item) => total + Number(item.price), 0);
     } else {
       finalSum =
-        toSum.reduce((total, item) => total + Number(item.price), 0) + 138.5;
+        toSum.reduce((total, item) => total + Number(item.price), 0) +
+        heights[cartItems[0].height];
     }
     return finalSum;
   };
@@ -174,12 +175,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
                       <p className="text-end">x1</p>
                     </div>
                     <p className="self-end pt-2">
-                      {(
-                        heights[cartItems[0].height] +
-                        49.99 +
-                        7.99 +
-                        5.99
-                      ).toFixed(2)}
+                      {heights[cartItems[0].height]}
                     </p>
                   </div>
                 )}

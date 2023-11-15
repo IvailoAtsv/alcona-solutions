@@ -39,6 +39,19 @@ const colorNames = {
   reddishBrown: "Reddish Brown",
 };
 
+const heights = {
+  62.0: 98.99,
+  77.5: 103.99,
+  93.0: 107.99,
+  108.5: 111.99,
+  124.0: 129.99,
+  139.5: 129.99,
+  155.0: 129.99,
+  170.5: 129.99,
+  186.0: 129.99,
+  201.5: 153.99,
+};
+
 export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
   const [orderStatus, setOrderStatus] = useState("cart");
   const [userData, setUserData] = useState({});
@@ -68,7 +81,14 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
 
   const getSum = (cartItems) => {
     const toSum = cartItems.filter((item) => Number(item.price));
-    return toSum.reduce((total, item) => total + Number(item.price), 0);
+    let finalSum;
+    if (!addAdditional(cartItems)) {
+      finalSum = toSum.reduce((total, item) => total + Number(item.price), 0);
+    } else {
+      finalSum =
+        toSum.reduce((total, item) => total + Number(item.price), 0) + 138.5;
+    }
+    return finalSum;
   };
 
   const addAdditional = (cartItems) => {
@@ -131,11 +151,12 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
                     );
                   }
                 })}
-                {addAdditional(cartItems) ? (
-                  <div className="bg-white w-[90%] rounded-md p-4">
-                    <h1 className="text-center font-semibold text-lg">
+                {addAdditional(cartItems) && (
+                  <div className="bg-white w-[90%] flex flex-col rounded-md p-4">
+                    <h1 className="text-center pb-4 font-semibold text-lg">
                       Допълнителни елементи
                     </h1>
+
                     <div className="flex border-b-2 w-full justify-between">
                       <p>WPC Стълб Alcona</p> <p className="text-end">x1</p>
                     </div>
@@ -152,8 +173,17 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
                       <p>Крепежни ъгли и планки</p>{" "}
                       <p className="text-end">x1</p>
                     </div>
+                    <p className="self-end pt-2">
+                      {(
+                        heights[cartItems[0].height] +
+                        49.99 +
+                        7.99 +
+                        5.99
+                      ).toFixed(2)}
+                    </p>
                   </div>
-                ) : (
+                )}
+                {cartItems.length == 0 && (
                   <h1 className="py-20">Количката е празна</h1>
                 )}
               </div>
@@ -168,7 +198,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
               />
             )}
 
-            {orderStatus === "cart" && cartItems.length > 1 && (
+            {orderStatus === "cart" && cartItems.length > 0 && (
               <div className="mt-6 self-center text-end w-[90%]">
                 <p className="bg-white self-end rounded-md shadow-lg px-4 py-2">
                   Oбщо: {Number(getSum(cartItems)).toFixed(2)} лв.

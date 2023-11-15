@@ -27,7 +27,7 @@ const colors = {
   reddishBrown: reddishBrown,
 };
 const colorNames = {
-  black: "Black",
+  black: "Black anthracite",
   darkCoffee: "Dark Coffee",
   green: "Green",
   lightCoffee: "Light Coffee",

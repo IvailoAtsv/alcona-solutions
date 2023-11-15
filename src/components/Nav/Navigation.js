@@ -96,7 +96,7 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
               className="hover:font-bold"
               onClick={() => handleOrderScroll()}
             >
-              Панели
+              Пoръчка
             </button>
             <button
               className="hover:font-bold"

@@ -6,7 +6,7 @@ export const Color = ({ name, updateFields, display, pic }) => {
     <div className="flex flex-col justify-center group items-center">
       <p>{display}</p>
       {premium.includes(name) && (
-        <p className="text-lg delay-150 ease-out transition text-white absolute group-hover:opacity-[100] mt-4 opacity-[0] font-bold">
+        <p className="text-lg ease-out duration-150 transition text-white absolute group-hover:opacity-[100] mt-4 opacity-[0] font-bold">
           <BiCrown size={32} />
         </p>
       )}

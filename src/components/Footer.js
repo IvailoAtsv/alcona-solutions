@@ -80,7 +80,7 @@ export function FooterWithSitemap() {
         <div class="sm:flex sm:items-center px-2 sm:justify-between">
           <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
             © 2023{" "}
-            <a href="https://flowbite.com/" class="hover:underline">
+            <a href="#" class="hover:underline">
               Alcon Solution
             </a>
             . All Rights Reserved.

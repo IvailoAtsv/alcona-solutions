@@ -19,7 +19,7 @@ export function FooterWithSitemap() {
   };
 
   return (
-    <footer id="footer" class="bg-white dark:bg-footer w-full">
+    <footer id="footer" class="bg-white dark:bg-footer w-full flex">
       <div class="mx-auto w-full max-w-[1400px] p-4 py-6 lg:py-8">
         <div class="md:flex md:justify-between">
           <div class="mb-6 md:mb-0">
@@ -77,7 +77,7 @@ export function FooterWithSitemap() {
           </div>
         </div>
         <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-        <div class="sm:flex sm:items-center px-2 sm:justify-between">
+        <div class="sm:flex w-full sm:w-[80%] sm:items-center px-2 sm:justify-between">
           <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
             © 2023{" "}
             <a href="#" class="hover:underline">
@@ -90,11 +90,11 @@ export function FooterWithSitemap() {
               className="text-slate-300 hover:text-white"
               href="https://www.facebook.com/people/Luxury-Fences-WPC-%D0%9E%D0%B3%D1%80%D0%B0%D0%B4%D0%B8/61553632407058/"
             >
-              <FaFacebook size={20} />
+              <FaFacebook size={28} />
             </a>
             <a href="https://api.whatsapp.com/message/KCTBNDNXZZN2E1?autoload=1&app_absent=0">
               <FaWhatsapp
-                size={20}
+                size={28}
                 className="text-slate-300 hover:text-white"
               />
             </a>

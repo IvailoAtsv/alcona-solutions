@@ -12,12 +12,7 @@ import { useEffect, useState } from "react";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import "./image-slider.css";
 
-import {
-  BsCircle,
-  BsFillArrowLeftCircleFill,
-  BsFillArrowRightCircleFill,
-} from "react-icons/bs";
-import { FaRegDotCircle } from "react-icons/fa";
+const premium = ["Teak", "Light Grey", "Green", "Rosewood"];
 
 const titles = [
   "WPC Оградно пано Alcona Standard (180x180cm) Цвят Black Antracid",
@@ -106,6 +101,11 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
       price: Number(cartPrice),
       color: itemColor,
     };
+    if (imageIndex == 1) {
+      if (premium.includes(item.color)) {
+        item.price = (cartPrice * 1.44).toFixed(2);
+      }
+    }
     const newList = [...cartItems];
     setCartItems([...newList, item]);
     setCount(1);
@@ -121,22 +121,28 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
     }
   }, [count]);
 
-  useEffect(() => {
-    if (imageIndex === 1) {
-      setInvalid(false);
-    }
-  }, [imageIndex]);
+  const [colorValid, setColorValid] = useState(false);
 
   const validateItemColor = (e) => {
     if (e.target.value === "") {
-      setInvalid(true);
+      setColorValid(false);
       return false;
     } else {
-      setInvalid(false);
+      setColorValid(true);
       setItemColor(e.target.value);
       return true;
     }
   };
+  useEffect(() => {
+    if (imageIndex === 1) {
+      setInvalid(false);
+    }
+    if (imageIndex === 1 && !colorValid) {
+      setColorValid(false);
+    } else {
+      setInvalid(true);
+    }
+  }, [imageIndex]);
 
   return (
     <div className="w-full max-w-[1400px] my-4 flex justify-center flex-col items-center">
@@ -290,14 +296,28 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
                   </button>
                 </div>
               )}
-              {imageIndex !== 2 ? (
+              {imageIndex !== 2 && imageIndex !== 1 && (
                 <h1 className="text-2xl font-semibold">
                   {(prices[imageIndex] * count).toFixed(2)} BGN
                 </h1>
-              ) : (
+              )}
+              {imageIndex === 2 && (
                 <h1 className="text-2xl font-semibold">
                   {(prices[imageIndex] * count * kolCount).toFixed(2)} BGN
                 </h1>
+              )}
+              {imageIndex === 1 && (
+                <>
+                  {premium.includes(itemColor) ? (
+                    <h1 className="text-2xl font-semibold">
+                      {(prices[imageIndex] * count * 1.44).toFixed(2)} BGN
+                    </h1>
+                  ) : (
+                    <h1 className="text-2xl font-semibold">
+                      {(prices[imageIndex] * count).toFixed(2)} BGN
+                    </h1>
+                  )}
+                </>
               )}
               <button
                 disabled={invalid}

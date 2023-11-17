@@ -46,12 +46,12 @@ export const About = () => {
           Неспазването или непослушание на ограниченията, предоставени с продукта или несъответствие с местните строителни кодекси, правила и регламенти на общността с ограничен достъп, ще направи гаранцията невалидна и без допълнително действие. Производителят запазва правото си да проверява материалите, да разследва всички искове, при които е било направено такова иска. Всички строежи, използващи продуктите от WPC, трябва да бъдат в съответствие с всички местни зонингови и/или строителни кодекси. За получаване на възстановяване или замяна, оригиналният собственик трябва да представи искането си с оригиналната фактура за закупуване, посочваща датата на закупуване, снимки на дефектните продукти и подробно описание на събието."
         />
         <Card
-          setExpanded={setExpanded}
           img={tools}
           title="Инструкции за монтаж"
           text=""
           link="https://youtu.be/UwAVl_azClQ"
           btn="install"
+          showVids={true}
         />
         <Card
           img={adv}
@@ -75,6 +75,7 @@ const downloadImage = () => {
 
 const Card = ({ img, title, text, link, btn, more }) => {
   const [readMore, setReadMore] = useState(false);
+  const [showVids, setShowVids] = useState(false);
   return (
     <div className="backdrop-blur-md sm:w-[30%] shadow-xl w-full flex flex-col justify-between min-h-[520px]  rounded-md bg-cardBg2 text-white">
       <div className="h-[30%] max-h-[200px] w-full">
@@ -102,7 +103,7 @@ const Card = ({ img, title, text, link, btn, more }) => {
             onClick={() => downloadImage()}
             className="rounded-lg w-[98%] py-2 px-6 border-4 self-center text-md font-bold duration-500 border-white hover:bg-white hover:text-black"
           >
-            Изтеглете инструкции
+            Изтеглете инструкции (pdf)
           </button>
         )}
         {btn === "gallery" && (
@@ -111,12 +112,47 @@ const Card = ({ img, title, text, link, btn, more }) => {
           </button>
         )}
         {link && (
-          <a
-            className="rounded-lg w-[98%] py-2 px-6 border-4 self-center text-md font-bold duration-500 border-white hover:bg-white text-center hover:text-black"
-            href="https://youtu.be/UwAVl_azClQ"
-          >
-            Видео с Инструкции за монтаж
-          </a>
+          <div className="flex flex-col w-full gap-1">
+            <button
+              className="rounded-lg w-[98%] py-1 px-6 mb-2 border-4 self-center text-md font-bold duration-500 border-white hover:bg-white text-center hover:text-black"
+              onClick={() => setShowVids((prev) => (prev = !prev))}
+            >
+              {showVids ? "Скрий видео инструкции" : "Покажи Видео Инструкции"}
+            </button>
+
+            {showVids && (
+              <>
+                <a
+                  className="rounded-lg w-[98%] py-1 px-6 border-4 self-center text-md font-bold duration-500 border-white hover:bg-white text-center hover:text-black"
+                  href="https://www.youtube.com/watch?v=wgAEbqO4A5Y&ab_channel=AlconaSolutions"
+                >
+                  Инсталиране на WPC DECKING Ограда Alcona Solutions: Подробно
+                  DIY Ръководство
+                </a>
+                <a
+                  className="rounded-lg w-[98%] py-1 px-6 border-4 self-center text-md font-bold duration-500 border-white hover:bg-white text-center hover:text-black"
+                  href="https://youtu.be/UwAVl_azClQ"
+                >
+                  Installing WPC Fence Alcona: A Step-by-Step Guide to Decking
+                  Fence Installation
+                </a>
+                <a
+                  className="rounded-lg w-[98%] py-1 px-6 border-4 self-center text-md font-bold duration-500 border-white hover:bg-white text-center hover:text-black"
+                  href="https://www.youtube.com/watch?v=Skm2ph-VOoE&ab_channel=AlconaSolutions"
+                >
+                  Mastering WPC Fence Alcona Installation: Your Ultimate Guide
+                  to Decking Fence Setup
+                </a>
+                <a
+                  className="rounded-lg w-[98%] py-1 px-6 border-4 self-center text-md font-bold duration-500 border-white hover:bg-white text-center hover:text-black"
+                  href="https://www.youtube.com/watch?v=FJASnkvIaI0&ab_channel=AlconaSolutions"
+                >
+                  A Comprehensive DIY Guide: Step-by-Step Installation of WPC
+                  Decking Fence Alcona Solutions
+                </a>
+              </>
+            )}
+          </div>
         )}
       </div>
     </div>

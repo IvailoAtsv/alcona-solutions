@@ -114,7 +114,7 @@ const Card = ({ img, title, text, link, btn, more }) => {
         {link && (
           <div className="flex flex-col w-full gap-1">
             <button
-              className="rounded-lg w-[98%] py-1 px-6 mb-2 border-4 self-center text-md font-bold duration-500 border-white hover:bg-white text-center hover:text-black"
+              className="rounded-lg w-[98%] py-1 px-6 border-4 mb-2 self-center text-md font-bold duration-500 border-white hover:bg-white text-center hover:text-black"
               onClick={() => setShowVids((prev) => (prev = !prev))}
             >
               {showVids ? "Скрий видео инструкции" : "Покажи Видео Инструкции"}

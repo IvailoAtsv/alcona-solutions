@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 
 export const Contact = () => {
   const [email, setEmail] = useState("");
@@ -61,9 +62,21 @@ export const Contact = () => {
     }
   }, [data]);
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    emailjs.init("F49RmIVFknhwrAdOc");
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(data);
+    const serviceId = "service_o1ry7ph";
+    const templateId = "template_9cs7a4l";
+    try {
+      await emailjs.send(serviceId, templateId, data);
+      alert("email successfully sent check inbox");
+    } catch (error) {
+      console.log(error);
+    } finally {
+    }
   };
   return (
     <div
@@ -75,7 +88,10 @@ export const Contact = () => {
           Имате запитване? Свържете се с нас!
         </h1>
       </div>
-      <form className="w-[100%] border-b-4 border-r-4 border-l-4 border-black bg-white rounded-b-md backdrop-blur-md justify-center items-center flex flex-col h-[60%]">
+      <form
+        id="form"
+        className="w-[100%] border-b-4 border-r-4 border-l-4 border-black bg-white rounded-b-md backdrop-blur-md justify-center items-center flex flex-col h-[60%]"
+      >
         <label className={isNameValid ? labelStyle : labelErrorStyle}>
           * Име и Фамилия:{" "}
         </label>

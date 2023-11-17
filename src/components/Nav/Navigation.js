@@ -106,16 +106,15 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
             </button>
             <button
               className="hover:font-bold"
-              onClick={() => handleTechnicalScroll()}
-            >
-              Технически
-            </button>
-
-            <button
-              className="hover:font-bold"
               onClick={() => handleAboutScroll()}
             >
               Информация
+            </button>
+            <button
+              className="hover:font-bold"
+              onClick={() => handleTechnicalScroll()}
+            >
+              Технически
             </button>
 
             <button

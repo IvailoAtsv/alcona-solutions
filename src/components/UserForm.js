@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FormWrapper } from "./FormWrapper";
+import emailjs from "@emailjs/browser";
+import uniqid from "uniqid";
 
 export const UserForm = ({ cartItems, userData, setUserData }) => {
   const inputStyle =
@@ -31,9 +33,14 @@ export const UserForm = ({ cartItems, userData, setUserData }) => {
 
   const [status, setStatus] = useState("");
 
+  const nameRef = useRef();
+  const phoneRef = useRef();
+  const emailRef = useRef();
+  const cityRef = useRef();
+  const areaRef = useRef();
+
   const buttonStyle =
     " sm:h-[15vw] sm:w-[30%] w-[80%] h-[60px] rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white";
-
 
   function updateFields(fields) {
     setUserData((prev) => {
@@ -41,81 +48,109 @@ export const UserForm = ({ cartItems, userData, setUserData }) => {
     });
   }
 
-  const validatePhone = (e) => {
-    setPhone(e.target.value);
-    if (e.target.value && e.target.value.length < 10) {
+  const validatePhone = () => {
+    setPhone(phoneRef.current.value);
+    if (phoneRef.current.value.length < 10) {
       setIsPhoneValid(false);
     } else {
       setIsPhoneValid(true);
-      updateFields({ phone: e.target.value });
+      updateFields({ phone: phoneRef.current.value });
     }
   };
 
   const regEx = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
-  const validateEmail = (e) => {
-    setEmail(e.target.value);
-    if (regEx.test(e.target.value)) {
+  const validateEmail = () => {
+    setEmail(emailRef.current.value);
+    if (regEx.test(emailRef.current.value)) {
       setIsEmailValid(true);
-      updateFields({ email: e.target.value });
+      updateFields({ email: emailRef.current.value });
     } else {
       setIsEmailValid(false);
     }
   };
 
-  const validateName = (e) => {
-    setName(e.target.value);
-    if (e.target.value.length < 3) {
+  const validateName = () => {
+    setName(nameRef.current.value);
+    if (nameRef.current.value.length < 3) {
       setIsNameValid(false);
     } else {
       setIsNameValid(true);
-      updateFields({ name: e.target.value });
+      updateFields({ name: nameRef.current.value });
     }
   };
-  const validateCity = (e) => {
-    setCity(e.target.value);
-    if (e.target.value.length < 4) {
+  const validateCity = () => {
+    setCity(cityRef.current.value);
+    if (cityRef.current.value.length < 4) {
       setIsCityValid(false);
     } else {
       setIsCityValid(true);
-      updateFields({ city: e.target.value });
+      updateFields({ city: cityRef.current.value });
     }
   };
-  const validateArea = (e) => {
-    setArea(e.target.area);
-    if (e.target.value.length < 4) {
+  const validateArea = () => {
+    setArea(areaRef.current.area);
+    if (areaRef.current.value.length < 4) {
       setIsAreaValid(false);
     } else {
       setIsAreaValid(true);
-      updateFields({ area: e.target.value });
+      updateFields({ area: areaRef.current.value });
     }
   };
 
+  useEffect(() => {
+    emailjs.init("F49RmIVFknhwrAdOc");
+  }, []);
+
+  const handleSend = async (e) => {
+    const serviceId = "service_o1ry7ph";
+    const templateId = "template_9cs7a4l";
+    let data = { cartItems, userData };
+    try {
+      await emailjs.send(serviceId, templateId, data);
+      alert("email successfully sent check inbox");
+    } catch (error) {
+      console.log(error);
+    } finally {
+    }
+  };
+  const validateAll = () => {
+    validateName();
+    validatePhone();
+    validateEmail();
+    validateCity();
+    validateArea();
+  };
+
+  const isAllValid = () => {
+    if (
+      isNameValid &&
+      isEmailValid &&
+      isPhoneValid &&
+      isCityValid &&
+      isAreaValid
+    ) {
+      return true;
+    } else return false;
+  };
+
   const handlePickup = (e) => {
-    if (isNameValid && isPhoneValid && userData.name && userData.phone) {
+    e.preventDefault();
+    validateName();
+    validatePhone();
+    if (isNameValid && isEmailValid) {
+      let id = `O${uniqid()}`;
       updateFields({ pickUp: true });
-    } else {
-      setIsNameValid(false);
-      setIsPhoneValid(false);
+      updateFields({ id: id });
+      // handleSend();
     }
   };
 
   const handleDelivery = () => {
-    if (
-      userData.name &&
-      userData.phone &&
-      userData.email &&
-      userData.city &&
-      userData.area
-    ) {
+    validateAll();
+    if (isAllValid()) {
       updateFields({ pickUp: false });
       console.log(userData);
       console.log(cartItems);
-    } else {
-      setIsNameValid(false);
-      setIsPhoneValid(false);
-      setIsEmailValid(false)
-      setIsCityValid(false)
-      setIsAreaValid(false)
     }
   };
 
@@ -134,25 +169,23 @@ export const UserForm = ({ cartItems, userData, setUserData }) => {
   }, [userData]);
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    setStatus('info')
-  }
+    e.preventDefault();
+    setStatus("info");
+  };
 
-  const [eik, setEik] = useState('')
-  const [mol, setMol] = useState('')
-  const [adress, setAdress] = useState('')
+  const [eik, setEik] = useState("");
+  const [mol, setMol] = useState("");
+  const [adress, setAdress] = useState("");
 
   const validateEik = (e) => {
     if (1 > 0) {
-
     }
-  }
+  };
 
   return (
     <div className="flex flex-col w-full py-0 min-h-[550px] h-11/12 justify-around  items-center">
       <>
-        {status === "" &&
-
+        {status === "" && (
           <div className="flex justify-center flex-col gap-4 sm:flex-row items-center w-full">
             <button onClick={() => setStatus("firm")} className={buttonStyle}>
               Юридическо лице
@@ -161,7 +194,7 @@ export const UserForm = ({ cartItems, userData, setUserData }) => {
               Физическо лице
             </button>
           </div>
-        }
+        )}
       </>
       {status === "info" ? (
         <>
@@ -175,6 +208,7 @@ export const UserForm = ({ cartItems, userData, setUserData }) => {
                 {!isNameValid ? "Въведете валидно име" : "* Име: "}
               </label>
               <input
+                ref={nameRef}
                 value={name}
                 name="name"
                 onChange={(e) => validateName(e)}
@@ -185,6 +219,7 @@ export const UserForm = ({ cartItems, userData, setUserData }) => {
                 {!isPhoneValid ? "Въведете валиден телефон" : "* Телефон: "}
               </label>
               <input
+                ref={phoneRef}
                 name="phone"
                 value={phone}
                 onChange={(e) => validatePhone(e)}
@@ -206,6 +241,7 @@ export const UserForm = ({ cartItems, userData, setUserData }) => {
                 {!isEmailValid ? "Въведете валиден e-mail" : "* e-mail: "}
               </label>
               <input
+                ref={emailRef}
                 value={email}
                 name="email"
                 onChange={(e) => validateEmail(e)}
@@ -216,6 +252,7 @@ export const UserForm = ({ cartItems, userData, setUserData }) => {
                 {!isCityValid ? "Въведете валиден град" : "* Град: "}
               </label>
               <input
+                ref={cityRef}
                 name="city"
                 value={city}
                 onChange={(e) => validateCity(e)}
@@ -226,6 +263,7 @@ export const UserForm = ({ cartItems, userData, setUserData }) => {
                 {!isAreaValid ? "Въведете валиден окръг" : "* Окръг: "}
               </label>
               <input
+                ref={areaRef}
                 value={area}
                 onChange={(e) => validateArea(e)}
                 name="area"
@@ -243,10 +281,10 @@ export const UserForm = ({ cartItems, userData, setUserData }) => {
             </div>
           </div>
         </>
-      ) : (''
+      ) : (
+        ""
       )}
-      {status == 'firm' &&
-
+      {status == "firm" && (
         <form>
           <h1 className="text-3xl font-semibold border-b-4 pb-1 mb-5 px-4 border-background">
             Данни за Юридическо лице
@@ -257,31 +295,39 @@ export const UserForm = ({ cartItems, userData, setUserData }) => {
               ЕИК (ПИК)
             </label>
             <input
-              value={email}
-              name="email"
-              onChange={(e) => validateEmail(e)}
+              name="EIK"
+              onChange={(e) => updateFields({ EIK: e.target.value })}
+              required
               className={inputStyle}
-            /><label className={isEmailValid ? labelStyle : labelErrorStyle}>
+            />
+            <label className={isEmailValid ? labelStyle : labelErrorStyle}>
               МОЛ
             </label>
             <input
-              value={email}
               name="email"
-              onChange={(e) => validateEmail(e)}
+              onChange={(e) => updateFields({ MOL: e.target.value })}
+              required
               className={inputStyle}
-            /><label className={isEmailValid ? labelStyle : labelErrorStyle}>
+            />
+            <label className={isEmailValid ? labelStyle : labelErrorStyle}>
               Адрес
             </label>
             <input
-              value={email}
-              name="email"
-              onChange={(e) => validateEmail(e)}
+              name="adress"
+              onChange={(e) => updateFields({ adress: e.target.value })}
+              required
               className={inputStyle}
             />
-            <button type="submit" className="sm:h-[50px] w-[80%] mt-8 h-[10px] rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white" onClick={(e) => handleSubmit(e)}>Напред</button>
+            <button
+              type="submit"
+              className="sm:h-[50px] w-[80%] mt-8 h-[10px] rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
+              onClick={(e) => handleSubmit(e)}
+            >
+              Напред
+            </button>
           </div>
         </form>
-      }
+      )}
     </div>
   );
 };

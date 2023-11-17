@@ -10,7 +10,6 @@ export const Project = ({ updateFields, isValid, setIsValid }) => {
 
   const handlePerimeter = (e) => {
     setP(e.target.value);
-    console.log(p);
   };
   const handleSubmit = (e) => {
     e.preventDefault()

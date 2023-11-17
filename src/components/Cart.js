@@ -77,7 +77,6 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
   const empty = () => {
     setCartItems([]);
   };
-  console.log(cartItems);
 
   const getSum = (cartItems) => {
     const toSum = cartItems.filter((item) => Number(item.price));

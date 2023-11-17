@@ -195,8 +195,7 @@ export const UserForm = ({
       }, 2000);
       empty();
 
-      console.log(userData);
-      console.log(cartItems);
+     
     }
   };
 

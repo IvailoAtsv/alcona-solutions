@@ -86,8 +86,7 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
     } else {
       setIsValid(true);
     }
-    console.log(data);
-    console.log(data[width][height]);
+ 
 
     price = Number(data[width][height]).toFixed(2);
     if (premium.includes(color)) {

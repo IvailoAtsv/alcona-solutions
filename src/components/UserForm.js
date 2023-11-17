@@ -3,7 +3,14 @@ import { FormWrapper } from "./FormWrapper";
 import emailjs from "@emailjs/browser";
 import uniqid from "uniqid";
 
-export const UserForm = ({ cartItems, userData, setUserData }) => {
+export const UserForm = ({
+  cartItems,
+  userData,
+  setUserData,
+  empty,
+  total,
+  setOrderStatus,
+}) => {
   const inputStyle =
     "border-2 px-9 py-[4px] sm:w-[80%] max-w-[400px] w-[90%] rounded-md text-black foucs:border-background focus:ring-0 focus:outline-background";
 
@@ -30,6 +37,7 @@ export const UserForm = ({ cartItems, userData, setUserData }) => {
   const [isCityValid, setIsCityValid] = useState(true);
   const [isAreaValid, setIsAreaValid] = useState(true);
   const [clickable, setClickable] = useState(false);
+  const [orderId, setOrderId] = useState(`O${uniqid()}`);
 
   const [status, setStatus] = useState("");
 
@@ -103,10 +111,34 @@ export const UserForm = ({ cartItems, userData, setUserData }) => {
 
   const handleSend = async (e) => {
     const serviceId = "service_o1ry7ph";
-    const templateId = "template_9cs7a4l";
-    let data = { cartItems, userData };
+    const templateId = "template_tu0zsgt";
+    let data = { ...cartItems, ...userData };
+
+    let result = cartItems
+      .map((item) =>
+        Object.entries(item)
+          .map(([key, value]) => `${key} - ${value}`)
+          .join(", \n "),
+      )
+      .join("\n \n ");
+
+    result.concat(total);
+
+    let formattedUserData = Object.entries(userData)
+      .map(([key, value]) => `${key} - ${value}`)
+      .join(", \n");
+
+    result = result.concat(
+      `\n \n \n user info: \n ${formattedUserData} \n \n Oбщо: ${total}`,
+    );
+
+    result = {
+      name: userData.name,
+      result: result,
+    };
+
     try {
-      await emailjs.send(serviceId, templateId, data);
+      await emailjs.send(serviceId, templateId, result);
       alert("email successfully sent check inbox");
     } catch (error) {
       console.log(error);
@@ -138,10 +170,15 @@ export const UserForm = ({ cartItems, userData, setUserData }) => {
     validateName();
     validatePhone();
     if (isNameValid && isEmailValid) {
-      let id = `O${uniqid()}`;
       updateFields({ pickUp: true });
-      updateFields({ id: id });
-      // handleSend();
+      updateFields({ id: orderId });
+      handleSend();
+      setStatus("sent");
+      setTimeout(() => {
+        setOrderStatus("cart");
+        setStatus("");
+      }, 2000);
+      empty();
     }
   };
 
@@ -149,6 +186,15 @@ export const UserForm = ({ cartItems, userData, setUserData }) => {
     validateAll();
     if (isAllValid()) {
       updateFields({ pickUp: false });
+      updateFields({ id: orderId });
+      handleSend();
+      setStatus("sent");
+      setTimeout(() => {
+        setOrderStatus("cart");
+        setStatus("");
+      }, 2000);
+      empty();
+
       console.log(userData);
       console.log(cartItems);
     }
@@ -173,15 +219,6 @@ export const UserForm = ({ cartItems, userData, setUserData }) => {
     setStatus("info");
   };
 
-  const [eik, setEik] = useState("");
-  const [mol, setMol] = useState("");
-  const [adress, setAdress] = useState("");
-
-  const validateEik = (e) => {
-    if (1 > 0) {
-    }
-  };
-
   return (
     <div className="flex flex-col w-full py-0 min-h-[550px] h-11/12 justify-around  items-center">
       <>
@@ -196,7 +233,7 @@ export const UserForm = ({ cartItems, userData, setUserData }) => {
           </div>
         )}
       </>
-      {status === "info" ? (
+      {status === "info" && (
         <>
           <h1 className="text-3xl mb-10 font-semibold border-b-4 pb-1 px-4 border-background">
             Данни за Поръчка
@@ -281,8 +318,6 @@ export const UserForm = ({ cartItems, userData, setUserData }) => {
             </div>
           </div>
         </>
-      ) : (
-        ""
       )}
       {status == "firm" && (
         <form>
@@ -327,6 +362,15 @@ export const UserForm = ({ cartItems, userData, setUserData }) => {
             </button>
           </div>
         </form>
+      )}
+      {status === "sent" && (
+        <div className="flex flex-col h-auto w-[90%] gap-4 justify-evenly max-w-[500px] pt-4 pb-6 rounded-md bg-gray-100 items-center">
+          <h1 className="font-semibold text-3xl">Успешно изпратена поръчка</h1>
+          <p className="text-lg">
+            нашият екип ще се свърже с вас за потвърждение
+          </p>
+          <p className="text-lg">номер на поръчка: {orderId}</p>
+        </div>
       )}
     </div>
   );

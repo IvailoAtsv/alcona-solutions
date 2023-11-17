@@ -18,10 +18,6 @@ export const Popup = ({
     setStay((prev) => (prev = false));
     setIsPopupOpen(false);
   };
-  const handleStay = () => {
-    setStay((prev) => (prev = true));
-    setIsPopupOpen(false);
-  };
 
   return trigger ? (
     <div className="w-full h-screen fixed top-0 left-0 z-50 flex justify-center items-center bg-cardBg2">
@@ -36,9 +32,6 @@ export const Popup = ({
           <button className={btnStyle} onClick={handleClick}>
             Количка
           </button>
-          {/* <button className={btnStyle} onClick={handleStay}>
-            Продължете със същия цвят
-          </button> */}
           <button className={btnStyle} onClick={handleClose}>
             Продължете пазаруванто
           </button>

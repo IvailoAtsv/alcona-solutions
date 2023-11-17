@@ -225,8 +225,8 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
                       Изберете цвят:{" "}
                     </label>
                     <select required onChange={(e) => validateItemColor(e)}>
-                      <option disabled selected value=""></option>
-                      <option value="Rosewood">Rosewood</option>
+                      <option disabled value=""></option>
+                      <option defaultValue="Rosewood">Rosewood</option>
                       <option value="Maple">Maple</option>
                       <option value="Reddish Brown">Reddish Brown</option>
                       <option value="Teak">Teak</option>

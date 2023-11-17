@@ -87,7 +87,13 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
     } else {
       finalSum =
         toSum.reduce((total, item) => total + Number(item.price), 0) +
-        heights[cartItems[0].height];
+        heights[
+          cartItems[
+            cartItems.findIndex(
+              (item) => item.color && item.price && !item.perimeter,
+            )
+          ].height
+        ];
     }
     return finalSum;
   };
@@ -185,12 +191,14 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
               </div>
             ) : (
               <UserForm
+                empty={empty}
                 userData={userData}
                 price={getSum(cartItems)}
                 setUserData={setUserData}
                 cartItems={cartItems}
                 orderStatus={orderStatus}
                 setOrderStatus={setOrderStatus}
+                total={Number(getSum(cartItems)).toFixed(2)}
               />
             )}
 

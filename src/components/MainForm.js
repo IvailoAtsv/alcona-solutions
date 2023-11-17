@@ -17,7 +17,6 @@ const INITIAL_DATA = {
   pickUp: false,
   isProject: false,
   perimeter: "",
-  itemType: "default",
   id: uniqid(),
   price: 0,
 };

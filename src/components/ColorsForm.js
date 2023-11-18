@@ -16,7 +16,7 @@ const premium = ["teak", "lightGrey", "green", "rosewood"];
 export function ColorsForm({ updateFields }) {
   return (
     <FormWrapper title="Изберете цвят">
-      <div className="flex flex-wrap justify-around gap-2 items-center">
+      <div className="flex flex-col mt-10 justify-around gap-2 items-center">
         <div className="flex justify-center md:flex-row flex-col items-center gap-2">
           <Color
             premium={true}

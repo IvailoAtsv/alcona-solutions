@@ -81,7 +81,7 @@ export const Contact = () => {
   return (
     <div
       id="contact"
-      className="w-[95%] overflow-hidden h-[90vh] max-w-[1400px]  flex-col flex justify-center items-center"
+      className="w-[90%] overflow-hidden h-[90vh] max-w-[1400px]  flex-col flex justify-center items-center"
     >
       <div className="w-[100%] rounded-t-md h-[15%] p-6 flex justify-center items-center bg-footer">
         <h1 className="text-2xl text-white font-semibold">

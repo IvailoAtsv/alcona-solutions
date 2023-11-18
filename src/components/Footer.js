@@ -8,7 +8,7 @@ export function FooterWithSitemap() {
   const handleHeroScroll = () => {
     const element = document.getElementById("hero");
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
   const handleAboutScroll = () => {

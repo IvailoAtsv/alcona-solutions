@@ -139,13 +139,13 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
     }
     if (imageIndex === 1 && !colorValid) {
       setColorValid(false);
-    } else {
+    } else if (count < 1) {
       setInvalid(true);
     }
   }, [imageIndex]);
 
   return (
-    <div className="w-full max-w-[1400px] my-4 flex justify-center flex-col items-center">
+    <div className="w-[full] max-w-[1400px] my-4 flex justify-center flex-col items-center">
       <h1 className="text-3xl w-min mt-8 text-center font-semibold border-b-4 px-4 border-footer">
         Отделни продукти
       </h1>
@@ -210,7 +210,7 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
 
         <form className="md:w-[30%] text-center min-h-[70vh] w-[80%] flex flex-col justify-evenly items-center">
           <h1 className="text-2xl font-semibold">{titles[imageIndex]}</h1>
-          <p className="text-md bg-cardBg p-4 rounded-md backdrop-blur-md">
+          <p className="text-sm text-left w-full bg-cardBg p-4 rounded-md backdrop-blur-md">
             {descriptions[imageIndex]}
           </p>
           {imageIndex !== 0 ? (
@@ -220,7 +220,9 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
                   <>
                     {" "}
                     <label
-                      className={invalid && "text-red-500 font-bold text-lg"}
+                      className={
+                        invalid ? "text-red-500 font-bold text-lg" : ""
+                      }
                     >
                       Изберете цвят:{" "}
                     </label>
@@ -240,7 +242,7 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
                   </>
                 )}
               </div>
-              <div className="flex flex-col justify-center items-center w-11/12 h-11/12">
+              <div className="flex flex-col justify-center items-center ">
                 {invalid ? (
                   <label className="text-red-500 text-lg font-semibold">
                     {imageIndex !== 1 && "Изберете число по-голямо от 0"}
@@ -265,30 +267,30 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
                 </div>
               </div>
               {imageIndex === 2 && (
-                <div className="flex gap-2 flex-wrap items-center justify-center p-4">
+                <div className="flex gap-2 w-full flex-wrap items-center justify-center p-4">
                   <button
-                    className="rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
+                    className="rounded-lg py-2 px-2 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
                     type="button"
                     onClick={() => setKolCount(36.99)}
                   >
                     1.00 м.
                   </button>
                   <button
-                    className="rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
+                    className="rounded-lg py-2 px-2 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
                     type="button"
                     onClick={() => setKolCount(69.99)}
                   >
                     1.90 м.
                   </button>
                   <button
-                    className="rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
+                    className="rounded-lg py-2 px-2 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
                     type="button"
                     onClick={() => setKolCount(99.99)}
                   >
                     2.70 м.
                   </button>
                   <button
-                    className="rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
+                    className="rounded-lg py-2 px-2 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
                     type="button"
                     onClick={() => setKolCount(102.99)}
                   >

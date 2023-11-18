@@ -14,9 +14,9 @@ export const About = () => {
       id="about"
       className="min-h-[75vh] w-full p-4 bg-no-repeat bg-fixed bg-cover bg-bottom bg-aboutBg flex flex-col justify-evenly items-center group py-4"
     >
-      <div className="flex max-w-[1400px] backdrop-blur-md w-full bg-cardBg3 my-4 text-white gap-3 flex-col justify-evenly rounded-md p-4 items-center">
+      <div className="flex max-w-[1400px] backdrop-blur-md w-[90%] bg-cardBg3 my-4 text-white gap-3 flex-col justify-evenly rounded-md p-4 items-center">
         <h1 className="text-5xl font-bold">За нас</h1>
-        <p className="z-10 text-sm sm:text-lg text-start font-semibold p-3 rounded-md">
+        <p className="z-10 text-sm md:text-lg text-start font-semibold p-3 rounded-md">
           Вашият надежден партньор за уникални огради от WPC. Нашата
           специализирана компания предлага пълни решения, включително
           проектиране, доставка и монтаж на висококачествени оградни системи от
@@ -28,7 +28,7 @@ export const About = () => {
           реалност.
         </p>
       </div>
-      <div className="max-w-[1400px] w-full gap-4 items-start py-4 justify-between sm:flex-row flex-col flex">
+      <div className="max-w-[1400px] w-[90%] items-start py-4 justify-between md:flex-row flex-col flex">
         <Card
           img={quality}
           title="Сертификати"
@@ -77,7 +77,7 @@ const Card = ({ img, title, text, link, btn, more }) => {
   const [readMore, setReadMore] = useState(false);
   const [showVids, setShowVids] = useState(false);
   return (
-    <div className="backdrop-blur-md sm:w-[30%] shadow-xl w-full flex flex-col justify-between min-h-[520px]  rounded-md bg-cardBg2 text-white">
+    <div className="backdrop-blur-md md:w-[32%] shadow-xl w-full flex flex-col justify-between min-h-[520px]  rounded-md bg-cardBg2 text-white">
       <div className="h-[30%] max-h-[200px] w-full">
         <img
           loading="lazy"

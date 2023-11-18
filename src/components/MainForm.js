@@ -11,12 +11,10 @@ const INITIAL_DATA = {
   width: 0,
   height: 0,
   panelCount: 1,
-  // ledCaps: 0,
-  // solarCaps: 0,
-  // plasticCaps: 0,
   pickUp: false,
   isProject: false,
   perimeter: "",
+  itemType: "default",
   id: uniqid(),
   price: 0,
 };

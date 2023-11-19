@@ -141,7 +141,7 @@ export const UserForm = ({
 
     try {
       await emailjs.send(serviceId, templateId, result);
-      alert("email successfully sent check inbox");
+      alert("Успешно изпратена поръчка! Нашият екип ще се свърже с вас!");
     } catch (error) {
       console.log(error);
     } finally {

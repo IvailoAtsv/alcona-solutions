@@ -12,6 +12,7 @@ export const Contact = () => {
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [isNameValid, setIsNameValid] = useState(true);
   const [isQuestionValid, setIsQuestionValid] = useState(true);
+  const [sent, setSent] = useState(false)
 
   const inputStyle =
     "border-2 px-9 py-2 sm:w-[60%] w-[90%] rounded-md text-black foucs:border-black focus:ring-0 focus:outline-black";
@@ -74,11 +75,15 @@ export const Contact = () => {
     const templateId = "template_9cs7a4l";
     try {
       await emailjs.send(serviceId, templateId, data);
-      alert("email successfully sent check inbox");
+      alert("Успешно изпратено запитване! Нашият екип ще се свърже с вас!");
     } catch (error) {
       console.log(error);
     } finally {
     }
+    setSent(true)
+    setName('')
+    setEmail('')
+    setQuestion('')
   };
 
   const componentRef = useRef(null);
@@ -121,10 +126,10 @@ export const Contact = () => {
     >
       <div className="w-[100%] rounded-t-md h-[15%] p-6 flex justify-center items-center bg-footer">
         <h1 className="text-2xl text-white font-semibold">
-          Имате запитване? Свържете се с нас!
+          {sent ? `Благодарим за отделеното време! Запитването беше изпратено` : 'Имате запитване? Свържете се с нас!'}
         </h1>
       </div>
-      <form
+      {!sent ? <form
         id="form"
         className="w-[100%] border-b-4 border-r-4 border-l-4 border-black bg-white rounded-b-md backdrop-blur-md justify-center items-center flex flex-col h-[60%]"
       >
@@ -163,6 +168,8 @@ export const Contact = () => {
           Изпращане
         </button>
       </form>
+        : ''
+      }
     </animated.div>
   );
 };

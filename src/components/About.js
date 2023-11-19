@@ -14,8 +14,8 @@ export const About = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const slideAnimation = useSpring({
-    opacity: isVisible ? 1 : 0,
-    transform: isVisible ? 'translateX(0px)' : 'translateX(10px)',
+    opacity: isVisible ? 1 : 1,
+    transform: isVisible ? 'translateX(0px)' : 'translateX(0px)',
     config: { tension: 0, friction: 20 },
     immediate: !isVisible,
   });

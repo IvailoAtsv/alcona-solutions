@@ -4,14 +4,14 @@ import logoFull from "../images/fullLogo.png";
 
 const Hero = () => {
   const leftAnimation = useSpring({
-    from: { opacity: 0, transform: 'translateX(-10%)' },
+    from: { opacity: 1, transform: 'translateX(-0%)' },
     to: { opacity: 1, transform: 'translateX(0%)' },
     config: { tension: 100, friction: 20 }, // Adjust these values for animation behavior
     delay: 100, // Delay for the left element animation
   });
 
   const rightAnimation = useSpring({
-    from: { opacity: 0, transform: 'translateX(10%)' },
+    from: { opacity: 1, transform: 'translateX(0%)' },
     to: { opacity: 1, transform: 'translateX(0%)' },
     config: { tension: 100, friction: 20 }, // Adjust these values for animation behavior
     delay: 100, // Delay for the right element animation

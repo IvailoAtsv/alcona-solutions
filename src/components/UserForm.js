@@ -79,18 +79,16 @@ export const UserForm = ({
 
   const validateName = () => {
     setName(nameRef.current.value);
-    if (nameRef.current.value.length < 3) {
-      setIsNameValid(false);
-    } else {
-      setIsNameValid(true);
+    setIsNameValid(nameRef.current.value.length < 3);
+    if (isNameValid) {
       updateFields({ name: nameRef.current.value });
     }
   };
   const validateCity = () => {
     setCity(cityRef.current.value);
-    if (cityRef.current.value.length < 4) {
-      setIsCityValid(false);
-    } else {
+
+    setIsCityValid(cityRef.current.value.length < 4);
+    if (isCityValid) {
       setIsCityValid(true);
       updateFields({ city: cityRef.current.value });
     }
@@ -173,7 +171,7 @@ export const UserForm = ({
     if (isNameValid && isEmailValid) {
       updateFields({ pickUp: true });
       updateFields({ id: orderId });
-      handleSend();
+      // handleSend();
       setStatus("sent");
       setTimeout(() => {
         setOrderStatus("cart");
@@ -188,7 +186,7 @@ export const UserForm = ({
     if (isAllValid()) {
       updateFields({ pickUp: false });
       updateFields({ id: orderId });
-      handleSend();
+      // handleSend();
       setStatus("sent");
       setTimeout(() => {
         setOrderStatus("cart");
@@ -199,17 +197,13 @@ export const UserForm = ({
   };
 
   useEffect(() => {
-    if (
-      isEmailValid &&
+
+    setClickable(isEmailValid &&
       isPhoneValid &&
       isNameValid &&
       isCityValid &&
-      isAreaValid
-    ) {
-      setClickable(true);
-    } else {
-      setClickable(false);
-    }
+      isAreaValid);
+
   }, [userData]);
 
   const handleSubmit = (e) => {
@@ -244,6 +238,7 @@ export const UserForm = ({
               </label>
               <input
                 ref={nameRef}
+                required
                 value={name}
                 name="name"
                 onChange={(e) => validateName(e)}
@@ -255,6 +250,7 @@ export const UserForm = ({
               </label>
               <input
                 ref={phoneRef}
+                required
                 name="phone"
                 value={phone}
                 onChange={(e) => validatePhone(e)}

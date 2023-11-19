@@ -178,7 +178,7 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
 
   const slideAnimation = useSpring({
     opacity: isVisible ? 1 : 0,
-    transform: isVisible ? 'translateX(0%)' : 'translateX(-100%)',
+    transform: isVisible ? 'translateX(0%)' : 'translateX(-200px)',
     config: { tension: 100, friction: 20 },
     immediate: !isVisible,
   });

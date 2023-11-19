@@ -1,6 +1,41 @@
+import React, { useState, useEffect, useRef } from "react";
+import { useSpring, animated } from 'react-spring';
+
 export const Technical = () => {
+
+  const componentRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  const slideAnimation = useSpring({
+    opacity: isVisible ? 1 : 0,
+    transform: isVisible ? 'translateX(0px)' : 'translateX(200px)',
+    config: { tension: 100, friction: 20 },
+    immediate: !isVisible,
+  });
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    if (componentRef.current) {
+      observer.observe(componentRef.current);
+    }
+
+    return () => {
+      if (componentRef.current) {
+        observer.unobserve(componentRef.current);
+      }
+    };
+  }, []);
   return (
-    <div
+    <animated.div
+      ref={componentRef}
+      style={slideAnimation}
       id="technical"
       className="w-full min-h-[80vh] mt-3 flex-col flex gap-3 p-1 justify-evenly bg-left bg-fixed items-center bg-pen bg-no-repeat bg-cover"
     >
@@ -41,7 +76,7 @@ export const Technical = () => {
           description="Тиик, Светло сиво, Розово дърво, Зелено"
         />
       </div>
-    </div>
+    </animated.div>
   );
 };
 

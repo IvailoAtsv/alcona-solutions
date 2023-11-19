@@ -2,19 +2,55 @@ import installation from "../files/installation.pdf";
 import adv from "../images/adv.jpeg";
 import quality from "../images/certificate.png";
 import tools from "../images/tools.jpg";
-import { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { useSpring, animated } from 'react-spring';
+import { saveAs } from "file-saver";
 import { AiOutlineClose } from "react-icons/ai";
 
-import { saveAs } from "file-saver";
 
 export const About = () => {
   const [expanded, setExpanded] = useState(false);
+  const componentRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  const slideAnimation = useSpring({
+    opacity: isVisible ? 1 : 0,
+    transform: isVisible ? 'translateX(0px)' : 'translateX(200px)',
+    config: { tension: 0, friction: 20 },
+    immediate: !isVisible,
+  });
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    if (componentRef.current) {
+      observer.observe(componentRef.current);
+    }
+
+    return () => {
+      if (componentRef.current) {
+        observer.unobserve(componentRef.current);
+      }
+    };
+  }, []);
   return (
     <div
       id="about"
       className="min-h-[75vh] w-full p-4 bg-no-repeat bg-fixed bg-cover bg-bottom bg-aboutBg flex flex-col justify-evenly items-center group py-4"
     >
-      <div className="flex max-w-[1400px] backdrop-blur-md w-[90%] bg-cardBg3 my-4 text-white gap-3 flex-col justify-evenly rounded-md p-4 items-center">
+      <animated.div
+        style={{
+          ...slideAnimation,
+          transition: 'opacity 0.5s, transform 0.5s',
+        }}
+        className="flex max-w-[1400px] backdrop-blur-md w-[90%] bg-cardBg3 my-4 text-white gap-3 flex-col justify-evenly rounded-md p-4 items-center"
+      >
         <h1 className="text-5xl font-bold">За нас</h1>
         <p className="z-10 text-sm md:text-lg text-start font-semibold p-3 rounded-md">
           Вашият надежден партньор за уникални огради от WPC. Нашата
@@ -27,8 +63,15 @@ export const About = () => {
           високото качество. Можете да ни вярвате, че ще превърнем вашите идеи в
           реалност.
         </p>
-      </div>
-      <div className="max-w-[1400px] w-[90%] items-start py-4 justify-between md:flex-row flex-col flex">
+      </animated.div>
+      <animated.div
+        ref={componentRef}
+        style={{
+          ...slideAnimation,
+          transition: 'opacity 0.5s, transform 0.5s',
+        }}
+        className="max-w-[1400px] w-[90%] items-start py-4 justify-between md:flex-row flex-col flex"
+      >
         <Card
           img={quality}
           title="Сертификати"
@@ -64,7 +107,7 @@ export const About = () => {
           
           Вашият избор за WPC оградна система е готов да донесе не само изящество и устойчивост, но и сигурност и безопасност във вашия дом или обект."
         />
-      </div>
+      </animated.div>
     </div>
   );
 };

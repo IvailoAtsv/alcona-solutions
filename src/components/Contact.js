@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
+import { useSpring, animated } from "react-spring";
 import emailjs from "@emailjs/browser";
+
 
 export const Contact = () => {
   const [email, setEmail] = useState("");
@@ -78,8 +80,42 @@ export const Contact = () => {
     } finally {
     }
   };
+
+  const componentRef = useRef(null);
+
+  const [isVisible, setIsVisible] = useState(false);
+
+  const slideAnimation = useSpring({
+    opacity: isVisible ? 1 : 0,
+    transform: isVisible ? 'translateX(0px)' : 'translateX(-400px)',
+    config: { tension: 100, friction: 20 },
+    immediate: !isVisible,
+  });
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    if (componentRef.current) {
+      observer.observe(componentRef.current);
+    }
+
+    return () => {
+      if (componentRef.current) {
+        observer.unobserve(componentRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <div
+    <animated.div
+      ref={componentRef}
+      style={slideAnimation}
       id="contact"
       className="w-[90%] overflow-hidden h-[90vh] max-w-[1400px]  flex-col flex justify-center items-center"
     >
@@ -127,6 +163,6 @@ export const Contact = () => {
           Изпращане
         </button>
       </form>
-    </div>
+    </animated.div>
   );
 };

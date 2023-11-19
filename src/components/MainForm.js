@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-// import { CapsForm } from "./CapsForm"
+import React, { useEffect, useState, useRef } from "react";
+import { useSpring, animated } from 'react-spring';
 import { DimentionsForm } from "./DimentionsForm";
 import { useMultistepForm } from "../useMultistepForm";
 import { ColorsForm } from "./ColorsForm";
@@ -34,6 +34,7 @@ export function MainForm({
       return { ...prev, ...fields };
     });
   }
+
   function addToCart(e) {
     const newList = cartItems;
     if (data.perimeter !== "") {
@@ -42,6 +43,7 @@ export function MainForm({
     setCartItems([...newList, data]);
     setData(INITIAL_DATA);
   }
+
   const {
     steps,
     goTo,
@@ -65,15 +67,7 @@ export function MainForm({
       color={data.color}
       updateFields={updateFields}
     />,
-    // <UserForm
-    //   cartItems={cartItems}
-    //   addToCart={addToCart}
-    //   isValid={isValid}
-    //   setIsValid={setIsValid}
-    //   {...data}
-    //   updateFields={updateFields}
-    // />,
-    // <CapsForm isValid={isValid} setIsValid={setIsValid} {...data} updateFields={updateFields} />,
+    // Other form components...
   ]);
 
   function onSubmit(e) {
@@ -84,12 +78,48 @@ export function MainForm({
     updateFields({ isProject: false });
     return goTo(0);
   }
+
+  const componentRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  const slideAnimation = useSpring({
+    opacity: isVisible ? 1 : 0,
+    transform: isVisible ? 'translateX(0px)' : 'translateX(400px)',
+    config: { tension: 0, friction: 20 },
+    immediate: !isVisible,
+  });
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    if (componentRef.current) {
+      observer.observe(componentRef.current);
+    }
+
+    return () => {
+      if (componentRef.current) {
+        observer.unobserve(componentRef.current);
+      }
+    };
+  }, []);
+
   return (
     <>
       <h1 className="mb-12 text-3xl font-semibold border-b-4 border-footer">
         Направете Поръчка
       </h1>
-      <div
+      <animated.div
+        ref={componentRef}
+        style={{
+          ...slideAnimation,
+          transition: 'opacity 0.5s, transform 0.5s',
+        }}
         id="order"
         className="rounded-xl mt-4 text-sm shadow-lg pb-12 pt-8 min-h-min relative max-w-[1400px] w-[90%]"
       >
@@ -131,7 +161,7 @@ export function MainForm({
             )}
           </div>
         </form>
-      </div>
+      </animated.div>
     </>
   );
 }

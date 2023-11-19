@@ -15,7 +15,7 @@ export const About = () => {
 
   const slideAnimation = useSpring({
     opacity: isVisible ? 1 : 0,
-    transform: isVisible ? 'translateX(0px)' : 'translateX(0px)',
+    transform: isVisible ? 'translateX(0px)' : 'translateX(10px)',
     config: { tension: 0, friction: 20 },
     immediate: !isVisible,
   });
@@ -27,7 +27,7 @@ export const About = () => {
           setIsVisible(true);
         }
       });
-    }, { threshold: 0.3 });
+    }, { threshold: 0 });
 
     if (componentRef.current) {
       observer.observe(componentRef.current);

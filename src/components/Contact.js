@@ -87,8 +87,8 @@ export const Contact = () => {
 
   const slideAnimation = useSpring({
     opacity: isVisible ? 1 : 0,
-    transform: isVisible ? 'translateX(0px)' : 'translateX(-100px)',
-    config: { tension: 100, friction: 20 },
+    transform: isVisible ? 'translateX(0px)' : 'translateX(-10px)',
+    config: { tension: 150, friction: 20 },
     immediate: !isVisible,
   });
 

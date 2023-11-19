@@ -8,7 +8,7 @@ export const Technical = () => {
 
   const slideAnimation = useSpring({
     opacity: isVisible ? 1 : 0,
-    transform: isVisible ? 'translateX(0px)' : 'translateX(200px)',
+    transform: isVisible ? 'translateX(0px)' : 'translateX(20px)',
     config: { tension: 100, friction: 20 },
     immediate: !isVisible,
   });

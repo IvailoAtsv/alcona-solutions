@@ -84,7 +84,7 @@ export function MainForm({
 
   const slideAnimation = useSpring({
     opacity: isVisible ? 1 : 0,
-    transform: isVisible ? 'translateX(0px)' : 'translateX(200px)',
+    transform: isVisible ? 'translateX(0px)' : 'translateX(20px)',
     config: { tension: 0, friction: 20 },
     immediate: !isVisible,
   });

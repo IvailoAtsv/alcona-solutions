@@ -125,7 +125,7 @@ export function MainForm({
       >
         <form onSubmit={onSubmit}>
           <div className="absolute top-1 text-center font-semibold text-lg right-10">
-            {currentStepIndex + 1} / {steps.length}
+            стъпка {currentStepIndex + 1} / {steps.length}
           </div>
           {step}
           <div className="flex mt-16 w-11/12 min-h-12 items-center gap-3 px-3 pt-6 justify-end ml-9">

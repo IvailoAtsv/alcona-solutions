@@ -8,7 +8,7 @@ export function DimentionsForm({ color, updateFields, isValid, setIsValid }) {
   const [type, setType] = useState("");
 
   const buttonStyle =
-    " min-h-[20vh] w-[20vh] rounded-lg py-6 px-6 text-xl font-bold border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white";
+    " min-h-[20vh] sm:w-[20vh] w-[80%] rounded-lg py-6 px-6 text-xl font-bold border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white";
 
   useEffect(() => {
     if (type === "") {
@@ -65,7 +65,7 @@ export function DimentionsForm({ color, updateFields, isValid, setIsValid }) {
             >
               Пано по ваш избор{" "}
               <p className="sm:hidden group-hover:block text-sm font-normal text-gray-500">
-                размери вариращи ot 86-186см ширина 62-201.5см височина
+                размери вариращи 86-186см ширина 62-201.5см височина
               </p>
             </button>
             <button

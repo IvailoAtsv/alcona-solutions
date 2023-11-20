@@ -8,7 +8,7 @@ export function DimentionsForm({ color, updateFields, isValid, setIsValid }) {
   const [type, setType] = useState("");
 
   const buttonStyle =
-    " sm:h-[15vw] sm:w-[30%] w-[80%] rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white";
+    " h-[20vh] w-[20vh] rounded-lg py-6 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white";
 
   useEffect(() => {
     if (type === "") {
@@ -49,7 +49,7 @@ export function DimentionsForm({ color, updateFields, isValid, setIsValid }) {
           />
         )}
         {type === "" && (
-          <div className="flex justify-center flex-col sm:flex-row items-center w-full gap-4">
+          <div className="flex justify-center flex-col h-full sm:flex-row items-center w-full gap-4">
             <button onClick={() => setType("default")} className={buttonStyle}>
               Стандартно пано
             </button>

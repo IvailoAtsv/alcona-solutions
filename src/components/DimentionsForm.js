@@ -50,14 +50,30 @@ export function DimentionsForm({ color, updateFields, isValid, setIsValid }) {
         )}
         {type === "" && (
           <div className="flex justify-center flex-col h-full sm:flex-row items-center w-full gap-4">
-            <button onClick={() => setType("default")} className={buttonStyle}>
-              Стандартно пано
+            <button
+              onClick={() => setType("default")}
+              className={`${buttonStyle} group`}
+            >
+              Стандартно пано{" "}
+              <p className="sm:hidden group-hover:block">186cmx186cm</p>
             </button>
-            <button onClick={() => setType("custom")} className={buttonStyle}>
-              Пано по ваш избор
+            <button
+              onClick={() => setType("custom")}
+              className={`${buttonStyle} group`}
+            >
+              Пано по ваш избор{" "}
+              <p className="sm:hidden group-hover:block">
+                c размери вариращи от 86-186см ширина и 62-201.5 височина
+              </p>
             </button>
-            <button onClick={() => setType("project")} className={buttonStyle}>
+            <button
+              onClick={() => setType("project")}
+              className={`${buttonStyle} group`}
+            >
               Проект от нас
+              <p className="sm:hidden group-hover:block">
+                според периметъра на вашия двор
+              </p>
             </button>
           </div>
         )}

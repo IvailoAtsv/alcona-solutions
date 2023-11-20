@@ -8,7 +8,7 @@ export function DimentionsForm({ color, updateFields, isValid, setIsValid }) {
   const [type, setType] = useState("");
 
   const buttonStyle =
-    " min-h-[20vh] sm:w-[20vh] w-[80%] rounded-lg py-6 px-6 text-xl font-bold border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white";
+    " min-h-[20vh] sm:min-w-[20vh] min-w-[80%] rounded-lg py-6 px-6 text-xl font-bold border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white";
 
   useEffect(() => {
     if (type === "") {

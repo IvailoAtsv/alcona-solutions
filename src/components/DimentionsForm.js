@@ -8,7 +8,7 @@ export function DimentionsForm({ color, updateFields, isValid, setIsValid }) {
   const [type, setType] = useState("");
 
   const buttonStyle =
-    " h-[20vh] w-[20vh] rounded-lg py-6 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white";
+    " h-[20vh] w-[20vh] rounded-lg py-6 px-6 text-xl font-bold border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white";
 
   useEffect(() => {
     if (type === "") {
@@ -55,15 +55,17 @@ export function DimentionsForm({ color, updateFields, isValid, setIsValid }) {
               className={`${buttonStyle} group`}
             >
               Стандартно пано{" "}
-              <p className="sm:hidden group-hover:block">186cmx186cm</p>
+              <p className="sm:hidden group-hover:block text-sm font-normal text-gray-700">
+                186cmx186cm
+              </p>
             </button>
             <button
               onClick={() => setType("custom")}
               className={`${buttonStyle} group`}
             >
               Пано по ваш избор{" "}
-              <p className="sm:hidden group-hover:block">
-                c размери вариращи от 86-186см ширина и 62-201.5см височина
+              <p className="sm:hidden group-hover:block text-sm font-normal text-gray-500">
+                размери вариращи ot 86-186см ширина 62-201.5см височина
               </p>
             </button>
             <button
@@ -71,7 +73,7 @@ export function DimentionsForm({ color, updateFields, isValid, setIsValid }) {
               className={`${buttonStyle} group`}
             >
               Проект от нас
-              <p className="sm:hidden group-hover:block">
+              <p className="sm:hidden group-hover:block text-sm font-normal text-gray-500">
                 според периметъра на вашия двор
               </p>
             </button>

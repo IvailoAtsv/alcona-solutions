@@ -63,7 +63,7 @@ export function DimentionsForm({ color, updateFields, isValid, setIsValid }) {
             >
               Пано по ваш избор{" "}
               <p className="sm:hidden group-hover:block">
-                c размери вариращи от 86-186см ширина и 62-201.5 височина
+                c размери вариращи от 86-186см ширина и 62-201.5см височина
               </p>
             </button>
             <button

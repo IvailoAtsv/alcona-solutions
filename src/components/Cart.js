@@ -78,6 +78,50 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
     setCartItems([]);
   };
 
+  const deliverySum = () => {
+    let deliveryPrice = 0
+
+    let obj = cartItems.reduce((accumulator, currentItem) => {
+      if (
+        currentItem.hasOwnProperty('width') &&
+        currentItem.hasOwnProperty('height') &&
+        currentItem.hasOwnProperty('panelCount')
+      ) {
+        accumulator.width += currentItem.width || 0;
+        accumulator.height += currentItem.height || 0;
+        accumulator.panelCount += currentItem.panelCount || 0;
+      } else {
+        accumulator.accessories++;
+      }
+      return accumulator;
+    }, { width: 0, height: 0, panelCount: 0, accessories: 0 });
+    obj = { ...obj, planks: obj.height / 15.5 }
+    // (height / 15.5
+    let weight = Number(15 + Number(obj.planks * 4) + Number((obj.panelCount + 1) * 12) + Number(obj.panelCount * 20))
+    console.log(weight);
+    if (weight >= 60 && weight < 300) {
+      deliveryPrice = 100;
+    } else if (weight >= 300 && weight < 420) {
+      deliveryPrice = 200;
+    } else if (weight >= 420 && weight < 600) {
+      deliveryPrice = 300;
+    } else if (weight >= 600 && weight < 900) {
+      deliveryPrice = 400;
+    } else if (weight >= 900 && weight < 1020) {
+      deliveryPrice = 600;
+    } else if (weight >= 1020 && weight < 1250) {
+      deliveryPrice = 700;
+    } else if (weight >= 1250 && weight < 1500) {
+      deliveryPrice = 800;
+    } else if (weight >= 1500) {
+      deliveryPrice = 1000;
+    }
+    console.log(deliveryPrice);
+    return deliveryPrice
+  }
+
+  deliverySum()
+
   const getSum = (cartItems) => {
     const toSum = cartItems.filter((item) => Number(item.price));
     let finalSum;
@@ -87,11 +131,11 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
       finalSum =
         toSum.reduce((total, item) => total + Number(item.price), 0) +
         heights[
-          cartItems[
-            cartItems.findIndex(
-              (item) => item.color && item.price && !item.perimeter,
-            )
-          ].height
+        cartItems[
+          cartItems.findIndex(
+            (item) => item.color && item.price && !item.perimeter,
+          )
+        ].height
         ];
     }
     return finalSum;
@@ -107,7 +151,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
       return false;
     }
   };
-
+  console.log(cartItems);
   return (
     <>
       {cartOpen ? (
@@ -198,14 +242,19 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
                 orderStatus={orderStatus}
                 setOrderStatus={setOrderStatus}
                 total={Number(getSum(cartItems)).toFixed(2)}
+                delivery={Number(deliverySum()).toFixed(2)}
               />
             )}
 
             {orderStatus === "cart" && cartItems.length > 0 && (
               <div className="mt-6 self-center text-end w-[90%]">
-                <p className="bg-white self-end rounded-md shadow-lg px-4 py-2">
+                <p className="bg-white self-end rounded-md shadow-lg my-1 px-4 py-2">
+                  Доставка: ~{Number(deliverySum()).toFixed(2)} лв.
+                </p>
+                <p className="bg-white self-end rounded-md shadow-lg my-1 px-4 py-2">
                   Oбщо: {Number(getSum(cartItems)).toFixed(2)} лв.
                 </p>
+
               </div>
             )}
             {orderStatus === "cart" ? (

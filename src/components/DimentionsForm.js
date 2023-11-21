@@ -65,7 +65,7 @@ export function DimentionsForm({ color, updateFields, isValid, setIsValid }) {
             >
               Пано по ваш избор{" "}
               <p className="sm:hidden group-hover:block group-hover:text-gray-200  text-sm font-normal text-gray-500">
-                размери вариращи от 86-186см ширина 62-201.5см височина
+                размери вариращи<br /> от 86-186см ширина<br /> 62-201.5см височина
               </p>
             </button>
             <button
@@ -74,7 +74,7 @@ export function DimentionsForm({ color, updateFields, isValid, setIsValid }) {
             >
               Проект от нас
               <p className="sm:hidden group-hover:block group-hover:text-gray-200 text-sm font-normal text-gray-500">
-                според периметъра на вашия двор
+                според периметъра<br /> на вашия двор
               </p>
             </button>
           </div>

@@ -10,6 +10,7 @@ export const UserForm = ({
   empty,
   total,
   setOrderStatus,
+  delivery,
 }) => {
   const inputStyle =
     "border-2 px-9 py-[4px] sm:w-[80%] max-w-[400px] w-[90%] rounded-md text-black foucs:border-background focus:ring-0 focus:outline-background";
@@ -321,7 +322,7 @@ export const UserForm = ({
                 onClick={handleDelivery}
                 className="rounded-lg py-[4px] px-6 my-5 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white w-[90%] max-w-[400px] sm:w-[80%]"
               >
-                Доставка на адрес
+                Доставка на адрес ~{delivery}лв.
               </button>
             </div>
           </div>

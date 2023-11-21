@@ -48,7 +48,7 @@ export const UserForm = ({
   const emailRef = useRef();
 
   const buttonStyle =
-    " sm:h-[15vw] sm:w-[30%] w-[80%] h-[60px] text-3xl rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white";
+    " sm:h-[15vw] sm:w-[30%] w-[80%] min-h-[60px] text-3xl rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white";
 
   function updateFields(fields) {
     setUserData((prev) => {
@@ -296,7 +296,7 @@ export const UserForm = ({
             </h1>
 
             <div className="flex flex-col h-auto w-[90%] justify-evenly max-w-[500px] pt-4 pb-6 rounded-md bg-gray-100 items-center">
-              <label className={isEmailValid ? labelStyle : labelErrorStyle}>
+              <label className={labelStyle}>
                 ЕИК (ПИК)
               </label>
               <input
@@ -305,7 +305,7 @@ export const UserForm = ({
                 required
                 className={inputStyle}
               />
-              <label className={isEmailValid ? labelStyle : labelErrorStyle}>
+              <label className={labelStyle}>
                 МОЛ
               </label>
               <input
@@ -314,7 +314,7 @@ export const UserForm = ({
                 required
                 className={inputStyle}
               />
-              <label className={isEmailValid ? labelStyle : labelErrorStyle}>
+              <label className={labelStyle}>
                 Адрес
               </label>
               <input

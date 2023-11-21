@@ -102,7 +102,7 @@ export const CaroselGallery = () => {
                     <div id="after-image-slider-controls" />
                 </section>
                 <div className="flex flex-col items-center justify-center w-[90%] sm:w-[30%]">
-                    <a className="underline text-[25px] my-12 hover:font-semibold" href="https://www.facebook.com/people/Luxury-Fences-WPC-%D0%9E%D0%B3%D1%80%D0%B0%D0%B4%D0%B8/61553632407058/">Разгледайте още</a>
+                    <a className="rounded-lg py-2 px-2 border-4 self-center font-bold duration-500 mt-6 border-black hover:bg-black hover:text-white" href="https://www.facebook.com/people/Luxury-Fences-WPC-%D0%9E%D0%B3%D1%80%D0%B0%D0%B4%D0%B8/61553632407058/">Разгледайте още</a>
 
 
                 </div>

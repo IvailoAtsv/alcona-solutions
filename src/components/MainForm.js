@@ -110,7 +110,7 @@ export function MainForm({
   }, []);
 
   return (
-    <>
+    <div className="w-full h-full flex justify-center items-center flex-col bg-gray-100 py-12">
       <h1 className="mb-12 text-3xl font-semibold border-b-4 border-footer">
         Направете Поръчка
       </h1>
@@ -121,7 +121,7 @@ export function MainForm({
           transition: 'opacity 0.5s, transform 0.5s',
         }}
         id="order"
-        className="rounded-xl mt-4 text-sm shadow-lg pb-12 pt-8 min-h-min relative max-w-[1400px] w-[90%]"
+        className="rounded-xl mt-4 bg-white text-sm shadow-lg pb-12 pt-8 min-h-min relative max-w-[1400px] w-[90%]"
       >
         <form onSubmit={onSubmit}>
           <div className="absolute top-1 text-center font-semibold text-lg right-10">
@@ -162,7 +162,7 @@ export function MainForm({
           </div>
         </form>
       </animated.div>
-    </>
+    </div>
   );
 }
 

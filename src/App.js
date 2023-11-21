@@ -10,6 +10,7 @@ import { Carosel } from "./components/Carosel/Carosel";
 import { Contact } from "./components/Contact";
 import { Gallery } from "./components/Gallery";
 import { Technical } from "./components/Technical";
+import { CaroselGallery } from "./components/Carosel/CaroselGallery";
 
 function App() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -36,6 +37,7 @@ function App() {
         setCartOpen={setCartOpen}
       />
       <Hero />
+      <CaroselGallery />
       <MainForm
         stay={stay}
         setStay={setStay}

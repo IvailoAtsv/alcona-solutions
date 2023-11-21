@@ -53,6 +53,13 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
       setIsOpen(false);
     }
   };
+  const handleGalleryScroll = () => {
+    const element = document.getElementById("gallery");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "center" });
+      setIsOpen(false);
+    }
+  };
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -91,6 +98,12 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
               onClick={() => handleHeroScroll()}
             >
               Начало
+            </button>
+            <button
+              className="hover:font-bold"
+              onClick={() => handleGalleryScroll()}
+            >
+              Галерия
             </button>
             <button
               className="hover:font-bold"

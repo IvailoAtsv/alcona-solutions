@@ -290,7 +290,7 @@ export const UserForm = ({
       }
       {
         status == "firm" && (
-          <form>
+          <form className="flex flex-col justify-center items-center">
             <h1 className="text-3xl font-semibold border-b-4 pb-1 mb-5 px-4 border-background">
               Данни за Юридическо лице
             </h1>
@@ -325,7 +325,7 @@ export const UserForm = ({
               />
               <button
                 type="submit"
-                className="sm:h-[50px] w-[80%] mt-8 h-[10px] rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
+                className="sm:h-[50px] w-[80%] mt-8 min-h-[10px] rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
                 onClick={(e) => handleSubmit(e)}
               >
                 Напред

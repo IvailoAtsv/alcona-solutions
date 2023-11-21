@@ -134,6 +134,7 @@ export const UserForm = ({
     result = result.concat(
       `\n \n \n user info: \n ${formattedUserData} \n \n Oбщо: ${total}`,
     );
+    result = result.concat(`\n \n delivery: ${delivery}`)
 
     result = {
       name: userData.name,

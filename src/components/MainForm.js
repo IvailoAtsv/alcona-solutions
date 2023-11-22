@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useSpring, animated } from 'react-spring';
+import { useSpring, animated } from "react-spring";
 import { DimentionsForm } from "./DimentionsForm";
 import { useMultistepForm } from "../useMultistepForm";
 import { ColorsForm } from "./ColorsForm";
@@ -84,19 +84,22 @@ export function MainForm({
 
   const slideAnimation = useSpring({
     opacity: isVisible ? 1 : 1,
-    transform: isVisible ? 'translateX(0px)' : 'translateX(0px)',
+    transform: isVisible ? "translateX(0px)" : "translateX(0px)",
     config: { tension: 0, friction: 20 },
     immediate: !isVisible,
   });
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      });
-    }, { threshold: 0.3 });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      { threshold: 0.3 },
+    );
 
     if (componentRef.current) {
       observer.observe(componentRef.current);
@@ -118,7 +121,7 @@ export function MainForm({
         ref={componentRef}
         style={{
           ...slideAnimation,
-          transition: 'opacity 0.5s, transform 0.5s',
+          transition: "opacity 0.5s, transform 0.5s",
         }}
         id="order"
         className="rounded-xl mt-4 bg-white text-sm shadow-lg pb-12 pt-8 min-h-min relative max-w-[1400px] w-[90%]"
@@ -135,7 +138,7 @@ export function MainForm({
                 type="button"
                 onClick={back}
               >
-                Back
+                Назад
               </button>
             )}
             {isLastStep ? (
@@ -144,7 +147,7 @@ export function MainForm({
                 onClick={(e) => addToCart(e)}
                 className="rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
               >
-                Add to Cart
+                Добави в количка
               </button>
             ) : (
               <button
@@ -156,7 +159,7 @@ export function MainForm({
                 }
                 type="submit"
               >
-                Next
+                Напред
               </button>
             )}
           </div>

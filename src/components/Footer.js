@@ -4,7 +4,7 @@ import { AiOutlineMail } from "react-icons/ai";
 import { FaWhatsapp, FaYoutube } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 
-export function FooterWithSitemap() {
+export function FooterWithSitemap({ setShowPrivacy }) {
   const handleHeroScroll = () => {
     const element = document.getElementById("hero");
     if (element) {
@@ -58,10 +58,10 @@ export function FooterWithSitemap() {
               <ul className="text-gray-500 dark:text-gray-400 font-medium">
                 <li className="mb-4">
                   <button
-                    onClick={() => handleHeroScroll()}
+                    onClick={() => setShowPrivacy(true)}
                     className="hover:underline"
                   >
-                    Начало
+                    Сигурност и Политика
                   </button>
                 </li>
                 <li>

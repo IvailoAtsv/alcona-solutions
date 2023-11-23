@@ -8,9 +8,10 @@ import Navigation from "./components/Nav/Navigation";
 import { Popup } from "./components/Popup";
 import { Carosel } from "./components/Carosel/Carosel";
 import { Contact } from "./components/Contact";
-import { Gallery } from "./components/Gallery";
 import { Technical } from "./components/Technical";
 import { CaroselGallery } from "./components/Carosel/CaroselGallery";
+import { Cookies } from "./components/Cookies";
+import { Privacy } from "./components/Privacy";
 
 function App() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -18,6 +19,8 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
   const [stay, setStay] = useState(false);
   const [fancy, setFancy] = useState(false);
+  const [showCookie, setShowCookie] = useState(true);
+  const [showPrivacy, setShowPrivacy] = useState(false);
 
   return (
     <div className="bg-white w-full overflow-x-hidden min-h-screen flex flex-col justify-center items-center">
@@ -26,6 +29,13 @@ function App() {
         setCartOpen={setCartOpen}
         cartItems={cartItems}
         setCartItems={setCartItems}
+      />
+      <Privacy showPrivacy={showPrivacy} setShowPrivacy={setShowPrivacy} />
+      <Cookies
+        showPrivacy={showPrivacy}
+        setShowPrivacy={setShowPrivacy}
+        showCookie={showCookie}
+        setShowCookie={setShowCookie}
       />
       <Popup
         stay={stay}
@@ -62,7 +72,12 @@ function App() {
       <About />
       <Contact />
       <Technical />
-      <FooterWithSitemap fancy={fancy} setFancy={setFancy} />
+      <FooterWithSitemap
+        showPrivacy={showPrivacy}
+        setShowPrivacy={setShowPrivacy}
+        fancy={fancy}
+        setFancy={setFancy}
+      />
     </div>
   );
 }

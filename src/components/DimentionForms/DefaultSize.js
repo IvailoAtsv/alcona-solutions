@@ -12,7 +12,6 @@ import sandyBrown from "../Colors/sandyBrown.png";
 import teak from "../Colors/teak.png";
 import rosewood from "../Colors/rosewood.png";
 import reddishBrown from "../Colors/reddishBrown.png";
-
 import BlackSquare from "../../colors/Black.png";
 import DarkCoffeeSquare from "../../colors/DarkCoffee.png";
 import GreenSquare from "../../colors/Green.png";

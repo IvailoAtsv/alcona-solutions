@@ -160,7 +160,7 @@ const Card = ({ img, title, text, link, btn, more }) => {
               className="rounded-lg w-[98%] py-1 px-6 border-4 mb-2 self-center text-md font-bold duration-500 border-white hover:bg-white text-center hover:text-black"
               onClick={() => setShowVids((prev) => (prev = !prev))}
             >
-              {showVids ? "Скрий видео инструкции" : "Покажи Видео Инструкции"}
+              {showVids ? "Скрий видео инструкции (Youtube)" : "Покажи Видео Инструкции (Youtube)"}
             </button>
 
             {showVids && (

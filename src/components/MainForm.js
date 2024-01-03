@@ -126,12 +126,12 @@ export function MainForm({
         id="order"
         className="rounded-xl mt-4 bg-white text-sm shadow-lg pb-12 pt-8 min-h-min relative max-w-[1400px] w-[90%]"
       >
-        <form onSubmit={onSubmit}>
-          <div className="absolute top-1 text-center font-semibold text-lg right-10">
+        <form className="" onSubmit={onSubmit}>
+          <div className="absolute pt-2 top-1 text-center font-semibold text-lg right-10">
             стъпка {currentStepIndex + 1} / {steps.length}
           </div>
           {step}
-          <div className="flex mt-16 w-11/12 min-h-12 items-center gap-3 px-3 pt-6 justify-end ml-9">
+          <div className="flex mt-16 w-11/12 min-h-12 items-center gap-1 px-3 pt-6 justify-end ml-9">
             {!isFirstStep && (
               <button
                 className="rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"

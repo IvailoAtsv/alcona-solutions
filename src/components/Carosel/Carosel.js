@@ -7,7 +7,7 @@ import pic6 from "../../images/alumTopCover.png";
 import pic7 from "../../images/WPC Set.png";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import uniqid from "uniqid";
-import { useSpring, animated } from 'react-spring';
+import { useSpring, animated } from "react-spring";
 import { useEffect, useState, useRef } from "react";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import "./image-slider.css";
@@ -65,7 +65,7 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
     });
   }
 
-  useEffect(() => { }, [imageIndex]);
+  useEffect(() => {}, [imageIndex]);
 
   const [count, setCount] = useState(1);
   const [invalid, setInvalid] = useState(false);
@@ -148,7 +148,7 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
 
   const options = {
     root: null,
-    rootMargin: '0px',
+    rootMargin: "0px",
     threshold: 0.3,
   };
 
@@ -178,15 +178,19 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
 
   const slideAnimation = useSpring({
     opacity: isVisible ? 1 : 1,
-    transform: isVisible ? 'translateX(0%)' : 'translateX(-0px)',
+    transform: isVisible ? "translateX(0%)" : "translateX(-0px)",
     config: { tension: 100, friction: 20 },
     immediate: !isVisible,
   });
   return (
-    <animated.div ref={caroselRef} style={{
-      opacity: slideAnimation.opacity,
-      transform: slideAnimation.transform,
-    }} className="w-[full] max-w-[1400px] my-4 flex justify-center flex-col items-center">
+    <animated.div
+      ref={caroselRef}
+      style={{
+        opacity: slideAnimation.opacity,
+        transform: slideAnimation.transform,
+      }}
+      className="w-[full] max-w-[1400px] my-4 flex justify-center flex-col items-center"
+    >
       <h1 className="text-3xl w-min mt-8 text-center font-semibold border-b-4 px-4 border-footer">
         Отделни продукти
       </h1>

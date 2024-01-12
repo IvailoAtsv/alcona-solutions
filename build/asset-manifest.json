@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.b23f9eb0.css",
-    "main.js": "/static/js/main.6c85a2d3.js",
+    "main.css": "/static/css/main.2cc41651.css",
+    "main.js": "/static/js/main.73d6b23f.js",
     "static/js/787.e2a15594.chunk.js": "/static/js/787.e2a15594.chunk.js",
     "static/media/5_16x9.png": "/static/media/5_16x9.48f559cc8e3dde5609e8.png",
     "static/media/3_16x9.png": "/static/media/3_16x9.d621b98fa876b11ac111.png",
@@ -9,11 +9,17 @@
     "static/media/2_16x9.png": "/static/media/2_16x9.e5338121ba95b0ec2fb8.png",
     "static/media/4_16x9.png": "/static/media/4_16x9.612350b361896505b30f.png",
     "static/media/about.jpeg": "/static/media/about.d4425526297f17328b2e.jpeg",
+    "static/media/1st.png": "/static/media/1st.229c1d241516e3403ffd.png",
     "static/media/6_16x9.png": "/static/media/6_16x9.7d87b63063a86657d9d9.png",
+    "static/media/3rd.png": "/static/media/3rd.fc9543108d39b17e168e.png",
     "static/media/7_16x9.png": "/static/media/7_16x9.f2875ec8e4017beb17f5.png",
     "static/media/WPC Set.png": "/static/media/WPC Set.ab12afd6656039a35e00.png",
+    "static/media/2nd.png": "/static/media/2nd.f8db108ae3bbc38d5f96.png",
     "static/media/1_16x9.png": "/static/media/1_16x9.39334136008ea0b1ba9c.png",
+    "static/media/any2.png": "/static/media/any2.5690b3a96c68574fabb9.png",
+    "static/media/any1.png": "/static/media/any1.e82b57f8c106ebf87c23.png",
     "static/media/hero3.jpeg": "/static/media/hero3.0b68a337629343908cf3.jpeg",
+    "static/media/any3.png": "/static/media/any3.ce8be4508affed0a97ab.png",
     "static/media/WPC Board.png": "/static/media/WPC Board.7b6a0ee6054ac9571bf4.png",
     "static/media/certificate.png": "/static/media/certificate.0402c1937dc93f63217c.png",
     "static/media/WPC Cap.png": "/static/media/WPC Cap.6e3f76cc481767a671f9.png",
@@ -49,12 +55,12 @@
     "static/media/reddishBrown.png": "/static/media/reddishBrown.a3a2d7632068004b2cfe.png",
     "static/media/logo.png": "/static/media/logo.bac15d42206dae0213e5.png",
     "index.html": "/index.html",
-    "main.b23f9eb0.css.map": "/static/css/main.b23f9eb0.css.map",
-    "main.6c85a2d3.js.map": "/static/js/main.6c85a2d3.js.map",
+    "main.2cc41651.css.map": "/static/css/main.2cc41651.css.map",
+    "main.73d6b23f.js.map": "/static/js/main.73d6b23f.js.map",
     "787.e2a15594.chunk.js.map": "/static/js/787.e2a15594.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b23f9eb0.css",
-    "static/js/main.6c85a2d3.js"
+    "static/css/main.2cc41651.css",
+    "static/js/main.73d6b23f.js"
   ]
 }

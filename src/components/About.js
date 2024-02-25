@@ -3,10 +3,9 @@ import adv from "../images/adv.jpeg";
 import quality from "../images/certificate.png";
 import tools from "../images/tools.jpg";
 import React, { useState, useEffect, useRef } from "react";
-import { useSpring, animated } from 'react-spring';
+import { useSpring, animated } from "react-spring";
 import { saveAs } from "file-saver";
 import { AiOutlineClose } from "react-icons/ai";
-
 
 export const About = () => {
   const [expanded, setExpanded] = useState(false);
@@ -15,19 +14,22 @@ export const About = () => {
 
   const slideAnimation = useSpring({
     opacity: isVisible ? 1 : 1,
-    transform: isVisible ? 'translateX(0px)' : 'translateX(0px)',
+    transform: isVisible ? "translateX(0px)" : "translateX(0px)",
     config: { tension: 0, friction: 20 },
     immediate: !isVisible,
   });
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      });
-    }, { threshold: 0 });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      { threshold: 0 },
+    );
 
     if (componentRef.current) {
       observer.observe(componentRef.current);
@@ -47,7 +49,7 @@ export const About = () => {
       <animated.div
         style={{
           ...slideAnimation,
-          transition: 'opacity 0.5s, transform 0.5s',
+          transition: "opacity 0.5s, transform 0.5s",
         }}
         className="flex max-w-[1400px] backdrop-blur-md w-[90%] bg-cardBg3 my-4 text-white gap-3 flex-col justify-evenly rounded-md p-4 items-center"
       >
@@ -68,7 +70,7 @@ export const About = () => {
         ref={componentRef}
         style={{
           ...slideAnimation,
-          transition: 'opacity 0.5s, transform 0.5s',
+          transition: "opacity 0.5s, transform 0.5s",
         }}
         className="max-w-[1400px] w-[90%] items-start py-4 justify-between md:flex-row flex-col flex"
       >
@@ -160,14 +162,16 @@ const Card = ({ img, title, text, link, btn, more }) => {
               className="rounded-lg w-[98%] py-1 px-6 border-4 mb-2 self-center text-md font-bold duration-500 border-white hover:bg-white text-center hover:text-black"
               onClick={() => setShowVids((prev) => (prev = !prev))}
             >
-              {showVids ? "Скрий видео инструкции (Youtube)" : "Покажи Видео Инструкции (Youtube)"}
+              {showVids
+                ? "Скрий видео инструкции (Youtube)"
+                : "Покажи Видео Инструкции (Youtube)"}
             </button>
 
             {showVids && (
               <>
                 <a
                   className="rounded-lg w-[98%] py-1 px-6 border-4 self-center text-md font-bold duration-500 border-white hover:bg-white text-center hover:text-black"
-                  href="https://www.youtube.com/watch?v=wgAEbqO4A5Y&ab_channel=AlconaSolutions"
+                  href="https://youtu.be/6eXYRpZJEv8?si=cjbCpHoLtroYKkdq"
                 >
                   Инсталиране на WPC DECKING Ограда Alcona Solutions: Подробно
                   DIY Ръководство

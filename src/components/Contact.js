@@ -77,13 +77,13 @@ export const Contact = () => {
   }, [data]);
 
   useEffect(() => {
-    emailjs.init("F49RmIVFknhwrAdOc");
+    emailjs.init(process.env.REACT_APP_KEY1);
   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const serviceId = "service_o1ry7ph";
-    const templateId = "template_9cs7a4l";
+    const serviceId = process.env.REACT_APP_KEY2;
+    const templateId = process.env.REACT_APP_KEY3;
     try {
       await emailjs.send(serviceId, templateId, data);
       alert("Успешно изпратено запитване! Нашият екип ще се свърже с вас!");

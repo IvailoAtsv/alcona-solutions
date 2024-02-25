@@ -77,7 +77,9 @@ export const Contact = () => {
   }, [data]);
 
   useEffect(() => {
-    emailjs.init(process.env.REACT_APP_KEY1);
+    const publicId = process.env.REACT_APP_KEY1;
+    console.log(publicId);
+    emailjs.init(publicId);
   }, []);
 
   const handleSubmit = async (e) => {

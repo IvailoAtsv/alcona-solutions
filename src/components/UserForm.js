@@ -35,10 +35,10 @@ export const UserForm = ({
   const [isEmailValid, setIsEmailValid] = useState(null);
   const [isPhoneValid, setIsPhoneValid] = useState(null);
   const [isNameValid, setIsNameValid] = useState(null);
-  const [adress, setAdress] = useState(null)
-  const [adressValid, setAdressValid] = useState(null)
+  const [adress, setAdress] = useState(null);
+  const [adressValid, setAdressValid] = useState(null);
   const [clickable, setClickable] = useState(false);
-  const [puClickable, setPuClickable] = useState(false)
+  const [puClickable, setPuClickable] = useState(false);
   const [orderId, setOrderId] = useState(`OOOO${uniqid()}`);
 
   const [status, setStatus] = useState("");
@@ -67,10 +67,9 @@ export const UserForm = ({
   };
 
   const handleAdress = (value) => {
-    setAdress(value)
-    setAdressValid(value !== null && value.length > 10)
-
-  }
+    setAdress(value);
+    setAdressValid(value !== null && value.length > 10);
+  };
 
   const regEx = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
   const validateEmail = () => {
@@ -117,7 +116,7 @@ export const UserForm = ({
     result = result.concat(
       `\n \n \n user info: \n ${formattedUserData} \n \n Oбщо: ${total}`,
     );
-    result = result.concat(`\n \n delivery: ${delivery}`)
+    result = result.concat(`\n \n delivery: ${delivery}`);
 
     result = {
       name: userData.name,
@@ -139,15 +138,10 @@ export const UserForm = ({
   };
 
   const isAllValid = () => {
-    if (
-      isNameValid &&
-      isEmailValid &&
-      isPhoneValid
-    ) {
+    if (isNameValid && isEmailValid && isPhoneValid) {
       return true;
     } else return false;
   };
-
 
   const handleDelivery = () => {
     validateAll();
@@ -165,21 +159,16 @@ export const UserForm = ({
   };
 
   useEffect(() => {
-    if ((isEmailValid &&
-      isPhoneValid &&
-      isNameValid)) {
+    if (isEmailValid && isPhoneValid && isNameValid) {
       setClickable(true);
     } else {
-      setClickable(false)
+      setClickable(false);
     }
-    if (isPhoneValid &&
-      isNameValid) {
-
-      setPuClickable(true)
+    if (isPhoneValid && isNameValid) {
+      setPuClickable(true);
     } else {
-      setPuClickable(false)
+      setPuClickable(false);
     }
-    console.log(clickable, puClickable);
   }, [name, phone, email, area, city]);
 
   const handleSubmit = (e) => {
@@ -192,18 +181,22 @@ export const UserForm = ({
       <>
         {status === "" && (
           <div className="flex justify-center flex-col gap-4 sm:flex-row items-center w-full">
-            <button onClick={() => {
-              updateFields({ pickUp: false })
-              setStatus('person')
-            }}
-              className={buttonStyle}>
+            <button
+              onClick={() => {
+                updateFields({ pickUp: false });
+                setStatus("person");
+              }}
+              className={buttonStyle}
+            >
               Доставка до адрес
             </button>
-            <button onClick={() => {
-              updateFields({ pickUp: true })
-              setStatus('person')
-            }}
-              className={buttonStyle}>
+            <button
+              onClick={() => {
+                updateFields({ pickUp: true });
+                setStatus("person");
+              }}
+              className={buttonStyle}
+            >
               Взимане от склад
             </button>
           </div>
@@ -218,7 +211,6 @@ export const UserForm = ({
             </button>
           </div>
         )}
-
       </>
       {status === "info" && (
         <>
@@ -227,8 +219,16 @@ export const UserForm = ({
           </h1>
           <div className="flex flex-col w-full h-full justify-evenly items-center">
             <div className="flex flex-col w-[90%] justify-evenly max-w-[500px] rounded-md bg-gray-100 items-center">
-              <label className={!isNameValid && isNameValid !== null ? labelErrorStyle : labelStyle}>
-                {!isNameValid && isNameValid !== null ? "Въведете валидно име" : "* Име: "}
+              <label
+                className={
+                  !isNameValid && isNameValid !== null
+                    ? labelErrorStyle
+                    : labelStyle
+                }
+              >
+                {!isNameValid && isNameValid !== null
+                  ? "Въведете валидно име"
+                  : "* Име: "}
               </label>
               <input
                 ref={nameRef}
@@ -239,8 +239,16 @@ export const UserForm = ({
                 className={inputStyle}
               />
 
-              <label className={!isPhoneValid && isPhoneValid !== null ? labelErrorStyle : labelStyle}>
-                {!isPhoneValid && isPhoneValid !== null ? "Въведете валиден телефон" : "* Телефон: "}
+              <label
+                className={
+                  !isPhoneValid && isPhoneValid !== null
+                    ? labelErrorStyle
+                    : labelStyle
+                }
+              >
+                {!isPhoneValid && isPhoneValid !== null
+                  ? "Въведете валиден телефон"
+                  : "* Телефон: "}
               </label>
               <input
                 ref={phoneRef}
@@ -250,8 +258,16 @@ export const UserForm = ({
                 onChange={(e) => validatePhone(e)}
                 className={inputStyle}
               />
-              <label className={!isEmailValid && isEmailValid !== null ? labelErrorStyle : labelStyle}>
-                {!isEmailValid && isEmailValid !== null ? "Въведете валиден e-mail" : "* e-mail: "}
+              <label
+                className={
+                  !isEmailValid && isEmailValid !== null
+                    ? labelErrorStyle
+                    : labelStyle
+                }
+              >
+                {!isEmailValid && isEmailValid !== null
+                  ? "Въведете валиден e-mail"
+                  : "* e-mail: "}
               </label>
               <input
                 ref={emailRef}
@@ -260,18 +276,27 @@ export const UserForm = ({
                 onChange={(e) => validateEmail(e)}
                 className={inputStyle}
               />
-              {!userData.pickUp &&
+              {!userData.pickUp && (
                 <>
-                  <label className={!adressValid && adressValid !== null ? labelErrorStyle : labelStyle}>
-                    {!adressValid && adressValid !== null ? "Въведете валиден адрес" : "* Адрес "}
+                  <label
+                    className={
+                      !adressValid && adressValid !== null
+                        ? labelErrorStyle
+                        : labelStyle
+                    }
+                  >
+                    {!adressValid && adressValid !== null
+                      ? "Въведете валиден адрес"
+                      : "* Адрес "}
                   </label>
                   <input
-                    onChange={e => handleAdress(e.target.value)}
+                    onChange={(e) => handleAdress(e.target.value)}
                     name="adress"
                     value={adress}
                     className={inputStyle}
                   />
-                </>}
+                </>
+              )}
 
               <button
                 name="pickUp"
@@ -283,68 +308,56 @@ export const UserForm = ({
                 Завършване на поръчка
               </button>
             </div>
-
           </div>
         </>
-      )
-      }
-      {
-        status == "firm" && (
-          <form className="flex flex-col justify-center items-center">
-            <h1 className="text-3xl font-semibold border-b-4 pb-1 mb-5 px-4 border-background">
-              Данни за Юридическо лице
-            </h1>
+      )}
+      {status == "firm" && (
+        <form className="flex flex-col justify-center items-center">
+          <h1 className="text-3xl font-semibold border-b-4 pb-1 mb-5 px-4 border-background">
+            Данни за Юридическо лице
+          </h1>
 
-            <div className="flex flex-col h-auto w-[90%] justify-evenly max-w-[500px] pt-4 pb-6 rounded-md bg-gray-100 items-center">
-              <label className={labelStyle}>
-                ЕИК (ПИК)
-              </label>
-              <input
-                name="EIK"
-                onChange={(e) => updateFields({ EIK: e.target.value })}
-                required
-                className={inputStyle}
-              />
-              <label className={labelStyle}>
-                МОЛ
-              </label>
-              <input
-                name="email"
-                onChange={(e) => updateFields({ MOL: e.target.value })}
-                required
-                className={inputStyle}
-              />
-              <label className={labelStyle}>
-                Адрес
-              </label>
-              <input
-                name="adress"
-                onChange={(e) => updateFields({ adress: e.target.value })}
-                required
-                className={inputStyle}
-              />
-              <button
-                type="submit"
-                className="sm:h-[50px] w-[80%] mt-8 min-h-[10px] rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
-                onClick={(e) => handleSubmit(e)}
-              >
-                Напред
-              </button>
-            </div>
-          </form>
-        )
-      }
-      {
-        status === "sent" && (
-          <div className="flex flex-col h-auto w-[90%] gap-4 justify-evenly max-w-[500px] pt-4 pb-6 rounded-md bg-gray-100 items-center">
-            <h1 className="font-semibold text-3xl">Успешно изпратена поръчка</h1>
-            <p className="text-lg">
-              нашият екип ще се свърже с вас за потвърждение
-            </p>
-            <p className="text-lg">номер на поръчка: {orderId}</p>
+          <div className="flex flex-col h-auto w-[90%] justify-evenly max-w-[500px] pt-4 pb-6 rounded-md bg-gray-100 items-center">
+            <label className={labelStyle}>ЕИК (ПИК)</label>
+            <input
+              name="EIK"
+              onChange={(e) => updateFields({ EIK: e.target.value })}
+              required
+              className={inputStyle}
+            />
+            <label className={labelStyle}>МОЛ</label>
+            <input
+              name="email"
+              onChange={(e) => updateFields({ MOL: e.target.value })}
+              required
+              className={inputStyle}
+            />
+            <label className={labelStyle}>Адрес</label>
+            <input
+              name="adress"
+              onChange={(e) => updateFields({ adress: e.target.value })}
+              required
+              className={inputStyle}
+            />
+            <button
+              type="submit"
+              className="sm:h-[50px] w-[80%] mt-8 min-h-[10px] rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
+              onClick={(e) => handleSubmit(e)}
+            >
+              Напред
+            </button>
           </div>
-        )
-      }
-    </div >
+        </form>
+      )}
+      {status === "sent" && (
+        <div className="flex flex-col h-auto w-[90%] gap-4 justify-evenly max-w-[500px] pt-4 pb-6 rounded-md bg-gray-100 items-center">
+          <h1 className="font-semibold text-3xl">Успешно изпратена поръчка</h1>
+          <p className="text-lg">
+            нашият екип ще се свърже с вас за потвърждение
+          </p>
+          <p className="text-lg">номер на поръчка: {orderId}</p>
+        </div>
+      )}
+    </div>
   );
 };

@@ -13,7 +13,7 @@ export const UserForm = ({
   delivery,
 }) => {
   const inputStyle =
-    "border-2 px-9 py-[4px] sm:w-[80%] max-w-[400px] w-[90%] rounded-md text-black foucs:border-background focus:ring-0 focus:outline-background";
+    "border-2 px-9 py-[4px] lg:w-[80%] max-w-[400px] w-[90%] rounded-md text-black foucs:border-background focus:ring-0 focus:outline-background";
 
   const labelErrorStyle = "text-md text-center mt-4 text-red-600 font-bold";
   const labelStyle = "text-md text-center mt-4 font-semibold";
@@ -48,7 +48,7 @@ export const UserForm = ({
   const emailRef = useRef();
 
   const buttonStyle =
-    " sm:h-[15vw] sm:w-[30%] w-[80%] min-h-[60px] text-3xl rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white";
+    " lg:h-[15vw] lg:w-[30%] w-[80%] min-h-[60px] text-3xl rounded-lg py-2 px-6 border-2 self-center font-bold duration-500 border-black hover:bg-black hover:text-white";
 
   function updateFields(fields) {
     setUserData((prev) => {
@@ -180,7 +180,7 @@ export const UserForm = ({
     <div className="flex flex-col w-full py-0 min-h-[550px] h-11/12 justify-around  items-center">
       <>
         {status === "" && (
-          <div className="flex justify-center flex-col gap-4 sm:flex-row items-center w-full">
+          <div className="flex justify-center flex-col gap-4 lg:flex-row items-center w-full">
             <button
               onClick={() => {
                 updateFields({ pickUp: false });
@@ -202,7 +202,7 @@ export const UserForm = ({
           </div>
         )}
         {status === "person" && (
-          <div className="flex justify-center flex-col gap-4 sm:flex-row items-center w-full">
+          <div className="flex justify-center flex-col gap-4 lg:flex-row items-center w-full">
             <button onClick={() => setStatus("firm")} className={buttonStyle}>
               Юридическо лице
             </button>
@@ -303,7 +303,7 @@ export const UserForm = ({
                 disabled={!clickable}
                 type="submit"
                 onClick={handleDelivery}
-                className="rounded-lg py-[4px] px-6 my-5 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white w-[90%] max-w-[400px] sm:w-[80%]"
+                className="rounded-lg py-[4px] px-6 my-5 border-2 self-center font-bold duration-500 border-black hover:bg-black hover:text-white w-[90%] max-w-[400px] lg:w-[80%]"
               >
                 Завършване на поръчка
               </button>
@@ -311,7 +311,7 @@ export const UserForm = ({
           </div>
         </>
       )}
-      {status == "firm" && (
+      {status === "firm" && (
         <form className="flex flex-col justify-center items-center">
           <h1 className="text-3xl font-semibold border-b-4 pb-1 mb-5 px-4 border-background">
             Данни за Юридическо лице
@@ -341,7 +341,7 @@ export const UserForm = ({
             />
             <button
               type="submit"
-              className="sm:h-[50px] w-[80%] mt-8 min-h-[10px] rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
+              className="lg:h-[50px] w-[80%] mt-8 min-h-[10px] rounded-lg py-2 px-6 border-2 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
               onClick={(e) => handleSubmit(e)}
             >
               Напред

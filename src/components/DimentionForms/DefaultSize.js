@@ -85,27 +85,26 @@ export const DefaultSize = ({ color, updateFields, isValid, setIsValid }) => {
   }, [panelCount]);
 
   const inputStyle =
-    "border-2 px-9 py-2 sm:w-[40%] w-[90%] rounded-md text-black foucs:border-orange-300 focus:ring-0 focus:outline-orange-300";
+    "border-2 px-9 py-2 lg:w-[40%] w-[90%] rounded-md text-black foucs:border-orange-300 focus:ring-0 focus:outline-orange-300";
 
   return (
     <div className="flex items-center flex-col justify-between w-full">
       <div className="w-full flex flex-col justify-evenly gap-3 items-center">
-        <div className="flex w-full flex-col justify-evenly sm:flex-row h-full items-center sm:justify-center">
-          <div className="flex flex-col w-[20%] mb-5 sm:self-end items-center">
+        <div className="flex w-full flex-col justify-evenly lg:flex-row h-full items-center lg:justify-center">
+          {/* <div className="flex flex-col w-[20%] mb-5 lg:self-end items-center">
             <p className="font-bold">
               {premium.includes(color) ? "Premium" : "Standard"}
             </p>
 
             <img src={colorSquares[color]} className="w-20 h-20  rounded-md" />
             <p>{color}</p>
-          </div>
+          </div> */}
           <img
             src={colors[color]}
             style={{ width: `${width * 2}px`, height: `${height * 1.5}px` }}
           />
-          <p className="text-[12px] sm:self-end text-left mb-5 w-[65%] sm:w-[20%]">
-            Показаният цвят на оградата е с илюстративна цел. За реалният такъв,
-            моля придържайте се към цветната карта
+          <p className="text-[10px] lg:self-end text-center mb-5 w-[95%] lg:w-[20%]">
+            Показаният цвят на оградата е с илюстративна цел.
           </p>
         </div>
 

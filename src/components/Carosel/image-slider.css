@@ -19,18 +19,10 @@
   display: block;
   color: white;
   position: absolute;
-  top: 0;
-  bottom: 0;
+  bottom: -2%;
   padding: 1rem;
   cursor: pointer;
   transition: background-color 100ms ease-in-out;
-}
-
-.img-slider-btn > * {
-  stroke: white;
-  fill: white;
-  width: 2rem;
-  height: 2rem;
 }
 
 @keyframes squish {

@@ -1,6 +1,7 @@
 import { useSpring, animated } from "react-spring";
 import logo from "../images/logo.png";
-import logoFull from "../images/fullLogo.png";
+import hero3 from "../images/hero3.jpeg";
+import line from "../images/llline2.svg";
 
 const Hero = () => {
   const leftAnimation = useSpring({
@@ -23,41 +24,37 @@ const Hero = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
-
+  //
   return (
-    <div
+    <main
       id="hero"
-      className="w-full text-center flex bg-no-repeat bg-right-bottom sm:mt-0 my-10 bg-fixed bg-cover justify-center items-center bg-hero3 h-[80vh]"
+      className="w-full relative min-h-[65vh] md:min-h-[50vh] text-center flex flex-col justify-center items-center"
     >
-      <div className="w-full max-w-[1400px] sm:w-[90%] h-full sm:h-11/12 sm:flex-row flex flex-col-reverse md:justify-between justify-evenly items-center gap-4">
-        <animated.div
-          className="flex backdrop-blur-md min-w-[250px] text-start sm:w-[30%] w-[90%] sm:max-w-[450px] h-auto min-h-[60%] gap-2 rounded-xl items-start p-4 bg-cardBg flex-col justify-evenly"
-          style={leftAnimation}
+      <img
+        src={hero3}
+        className="absolute w-full object-right max-w-[1920px] ml-auto h-full object-cover"
+      />
+      <span className="absolute w-full max-w-[1920px] h-full bg-black opacity-50"></span>
+      <section className="w-[90%] text-left max-w-[1400px] z-10 text-white h-full flex flex-col justify-center items-start gap-3">
+        <h1 className="text-h2clamp font-semibold">
+          Перфектната <span className="text-orange-400">ограда</span> за
+          мечтаната{" "}
+          <span className="relative">
+            <p className="inline">визия</p>
+            <img src={line} className="absolute top-0 left-0 z-10" />
+          </span>
+        </h1>
+        <h2 className="text-labelClamp text-gray-200">
+          Лесно сглобяеми WPC огради
+        </h2>
+        <button
+          onClick={handleContactScroll}
+          className="rounded-lg mt-2 py-3 px-6 self-start font-bold duration-500 hover:text-orange-400 hover:bg-white bg-orange-400 text-white"
         >
-          <img className="w-24" src={logo} alt="Logo" />
-          <h1 className="text-2xl font-bold">
-            Вдъхновяващи решения за вашия дом и градина
-          </h1>
-          <p>
-            Добре дошли в Alcona Solutions, вашата врата към изисканите парапети
-            и огради от луксозен материал. Подобрете вашия екстериор с нашата
-            премиум колекция.
-          </p>
-          <button
-            onClick={handleContactScroll}
-            className="rounded-lg py-2 px-6 border-4 self-start font-bold duration-500 border-black hover:bg-black hover:text-white"
-          >
-            Свържете се с нас
-          </button>
-        </animated.div>
-        <animated.img
-          src={logoFull}
-          className="sm:w-[50%] w-[90%] sm:mb-36 sm:mt-0 sm:pb-0 sm:pr-0 md:max-w-[450px] max-h-[250px]"
-          alt="Full Logo"
-          style={rightAnimation}
-        />
-      </div>
-    </div>
+          Свържете се с нас
+        </button>
+      </section>
+    </main>
   );
 };
 

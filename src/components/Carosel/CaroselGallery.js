@@ -11,117 +11,89 @@ import pic10 from "./gallery/3rd.png";
 import pic11 from "./gallery/any1.png";
 import pic12 from "./gallery/any2.png";
 import pic13 from "./gallery/any3.png";
-
-import "./image-slider.css";
 import uniqid from "uniqid";
-import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
-import { useEffect, useState, useRef } from "react";
+import "react-multi-carousel/lib/styles.css";
+import Carousel from "react-gallery-carousel";
+import "react-gallery-carousel/dist/index.css";
 
 const IMAGES = [
-  { url: pic8, alt: "dyska" },
-  { url: pic9, alt: "dyska" },
-  { url: pic10, alt: "dyska" },
-  { url: pic11, alt: "dyska" },
-  { url: pic12, alt: "dyska" },
-  { url: pic13, alt: "dyska" },
-  { url: pic5, alt: "dyska" },
-  { url: pic4, alt: "kol" },
-  { url: pic3, alt: "osnova" },
-  { url: pic1, alt: "shapka" },
-  { url: pic2, alt: "dolna" },
-  { url: pic7, alt: "Panel" },
-  { url: pic6, alt: "gorna" },
+  { src: pic8, alt: "dyska" },
+  { src: pic9, alt: "dyska" },
+  { src: pic10, alt: "dyska" },
+  { src: pic11, alt: "dyska" },
+  { src: pic12, alt: "dyska" },
+  { src: pic13, alt: "dyska" },
+  { src: pic5, alt: "dyska" },
+  { src: pic4, alt: "kol" },
+  { src: pic3, alt: "osnova" },
+  { src: pic1, alt: "shapka" },
+  { src: pic2, alt: "dolna" },
+  { src: pic7, alt: "Panel" },
+  { src: pic6, alt: "gorna" },
 ];
+const responsive = {
+  desktop: {
+    breakpoint: { max: 11024, min: 1000 },
+    items: 3,
+    partialVisibilityGutter: 100,
+  },
+  mobile: {
+    breakpoint: { max: 1000, min: 0 },
+    items: 1,
+    partialVisibilityGutter: 100,
+  },
+};
 
 export const CaroselGallery = () => {
-  const [imageIndex, setImageIndex] = useState(0);
-
-  function showNextImage() {
-    setImageIndex((index) => {
-      if (index === IMAGES.length - 1) return 0;
-      return index + 1;
-    });
-  }
-
-  function showPrevImage() {
-    setImageIndex((index) => {
-      if (index === 0) return IMAGES.length - 1;
-      return index - 1;
-    });
-  }
-
   return (
     <>
-      <h1 className="text-3xl mt-8 min-w-min text-center font-semibold border-b-4 px-4 border-footer">
+      <h1 className="text-3xl my-8 min-w-min text-center font-semibold border-b-4 px-2 border-footer">
         Готови проекти
       </h1>
 
-      <div className="sm:w-full w-[95%] max-w-[1600px] my-12 flex-col flex justify-between items-center">
-        <section
-          id="gallery"
-          aria-label="Image Slider"
-          className="sm:w-full w-[95%] h-[70vh]  sm:max-w-[80%] relative"
+      <div
+        id="gallery"
+        className="lg:w-full w-[90%] max-w-[1920px] mb-8 flex-col flex justify-between items-center"
+      >
+        {/* <Carousel
+          containerClass="w-full mx-auto overflow-auto"
+          slidesToSlide={1}
+          responsive={responsive}
+          className="w-full"
+          swipeable={true}
         >
-          <div className="w-full h-full flex overflow-hidden">
-            {IMAGES.map((item, index) => (
-              <div
-                key={uniqid()}
-                className="w-full h-full shrink-0 grow-0 transition-transform duration-500"
-              >
-                <img
-                  loading="lazy"
-                  src={item.url}
-                  alt={item.alt}
-                  aria-hidden={imageIndex !== index}
-                  className="img-slider-img bg-white w-full h-full rounded-xl "
-                  style={{ translate: `${-100 * imageIndex}%` }}
-                />
-              </div>
-            ))}
-          </div>
-          <button
-            onClick={showPrevImage}
-            className="img-slider-btn text-white"
-            style={{ left: 0 }}
-            aria-label="View Previous Image"
-          >
-            <AiOutlineArrowLeft
-              size={32}
-              aria-hidden
-              className="bg-black rounded-md"
-            />
-          </button>
-          <button
-            onClick={showNextImage}
-            className="img-slider-btn"
-            style={{ right: 0, color: "white" }}
-            aria-label="View Next Image"
-          >
-            <AiOutlineArrowRight
-              className="bg-black rounded-md"
-              aria-hidden
-              size={32}
-            />
-          </button>
-          <div
-            style={{
-              position: "absolute",
-              bottom: ".5rem",
-              left: "50%",
-              translate: "-50%",
-              display: "flex",
-              gap: ".25rem",
-            }}
-          ></div>
-          <div id="after-image-slider-controls" />
-        </section>
+          {IMAGES.map((img) => {
+            return <ImageElem key={uniqid()} src={img.src} alt={img.alt} />;
+          })}
+        </Carousel> */}
+        <Carousel
+          hasMediaButton={false}
+          hasIndexBoard={false}
+          images={IMAGES}
+          style={{
+            height: "70vh",
+            width: "95%",
+            maxWidth: "1100px",
+          }}
+        />
         <a
-          className="rounded-lg py-2 px-4 border-4 self-center font-bold duration-500 mt-6 border-black hover:bg-black hover:text-white"
+          className="rounded-lg py-2 px-4 border-2 self-center font-bold duration-500 mt-6 border-black hover:bg-black hover:text-white"
+          target="_blank"
           href="https://www.facebook.com/people/Luxury-Fences-WPC-%D0%9E%D0%B3%D1%80%D0%B0%D0%B4%D0%B8/61553632407058/"
         >
           Разгледайте още на нашата facebook страница
         </a>
       </div>
     </>
+  );
+};
+
+const ImageElem = (data) => {
+  return (
+    <img
+      src={data.src}
+      alt={data.alt}
+      className="w-[90%] mx-auto hover:scale-[1.02] duration-300"
+    />
   );
 };

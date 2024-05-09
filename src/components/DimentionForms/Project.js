@@ -12,7 +12,7 @@ export const Project = ({ updateFields, isValid, setIsValid }) => {
     setP(e.target.value);
   };
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     updateFields({ isProject: true, perimeter: p });
   };
 
@@ -34,11 +34,9 @@ export const Project = ({ updateFields, isValid, setIsValid }) => {
   }, [p]);
 
   const inputStyle =
-    "border-2 px-9 py-2 sm:w-[40%] w-[90%] rounded-md text-black foucs:border-orange-300 focus:ring-0 focus:outline-orange-300";
+    "border-2 px-9 py-2 lg:w-[40%] w-[90%] rounded-md text-black foucs:border-orange-300 focus:ring-0 focus:outline-orange-300";
   return (
-    <form
-      className="flex items-center flex-col justify-between w-full"
-    >
+    <form className="flex items-center flex-col justify-between w-full">
       <label className="text-xl text-center mt-4 pb-2 font-bold">
         * Въведете валиден периметър
       </label>

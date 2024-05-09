@@ -1,3 +1,5 @@
+import logo from "../../images/logo.png";
+import { useState } from "react";
 import "./nav.css";
 import "./queries.css";
 import { FiPhoneCall } from "react-icons/fi";
@@ -7,8 +9,6 @@ import {
   AiOutlineClose,
   AiOutlineShoppingCart,
 } from "react-icons/ai";
-import { useSelect } from "@material-tailwind/react";
-import { useState } from "react";
 
 const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
   const handleAboutScroll = () => {
@@ -63,13 +63,20 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
 
   const [isOpen, setIsOpen] = useState(false);
 
+  const navBtnStyles = `hover:underline transition duration-500 px-2`;
+
   return (
-    <header className="header shadow-lg">
-      <div className="flex max-w-[1400px] gap-5 lg:gap-0 w-full items-center">
+    <header className="header shadow-md">
+      <div className="flex max-w-[1400px] lg:gap-0 w-[100%] items-center">
+        <img src={logo} className="h-[20px] pr-[10px]" alt="Logo" />
         <div className="lg:ml-4 flex w-auto flex-col lg:gap-3 pr-4 lg:flex-row h-auto items-start">
           <div className="flex items-center justify-center gap-1 w-auto">
             <FiPhoneCall size={16} />
-            <a href="tel:0893993141" className="text-sm font-bold">
+            <a
+              target="_blank"
+              href="tel:0893993141"
+              className="text-sm font-bold"
+            >
               0893993141
             </a>
           </div>
@@ -82,63 +89,62 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
           <input type="checkbox" id="check" checked={isOpen} readOnly />
           <label htmlFor="check" className="icons">
             <GiHamburgerMenu
+              size={24}
               className="bx bx-menu"
               id="menu-open"
               onClick={() => setIsOpen(true)}
             />
             <AiOutlineClose
               className="bx bx-x"
+              size={24}
               id="menu-close"
               onClick={() => setIsOpen(false)}
             />
           </label>
           <nav className="navbar ml-auto">
-            <button
-              className="hover:font-bold"
-              onClick={() => handleHeroScroll()}
-            >
+            <button className={navBtnStyles} onClick={() => handleHeroScroll()}>
               Начало
             </button>
             <button
-              className="hover:font-bold"
+              className={navBtnStyles}
               onClick={() => handleGalleryScroll()}
             >
               Галерия
             </button>
-            <button
-              className="hover:font-bold"
+            {/* <button
+              className={navBtnStyles}
               onClick={() => handleOrderScroll()}
             >
               Пoръчка
-            </button>
+            </button> */}
             <button
-              className="hover:font-bold"
+              className={navBtnStyles}
               onClick={() => handleProductsScroll()}
             >
-              Продукти
+              Каталог
             </button>
-            <button
-              className="hover:font-bold"
+            {/* <button
+              className={navBtnStyles}
               onClick={() => handleAboutScroll()}
             >
               Информация
-            </button>
+            </button> */}
             <button
-              className="hover:font-bold"
+              className={navBtnStyles}
               onClick={() => handleTechnicalScroll()}
             >
-              Технически
+              Информация
             </button>
 
             <button
-              className="hover:font-bold"
+              className={navBtnStyles}
               onClick={() => handleFooterScroll()}
             >
               Контакти
             </button>
           </nav>
           <button
-            className="hover:font-bold"
+            className={navBtnStyles}
             onClick={() => setCartOpen((prev) => (prev = !prev))}
           >
             <div className="flex w-full px-4">

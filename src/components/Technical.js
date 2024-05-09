@@ -1,26 +1,28 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useSpring, animated } from 'react-spring';
+import { useSpring, animated } from "react-spring";
 
 export const Technical = () => {
-
   const componentRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
   const slideAnimation = useSpring({
     opacity: isVisible ? 1 : 1,
-    transform: isVisible ? 'translateX(0px)' : 'translateX(0px)',
+    transform: isVisible ? "translateX(0px)" : "translateX(0px)",
     config: { tension: 100, friction: 20 },
     immediate: !isVisible,
   });
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      });
-    }, { threshold: 0.3 });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      { threshold: 0.3 },
+    );
 
     if (componentRef.current) {
       observer.observe(componentRef.current);
@@ -82,9 +84,9 @@ export const Technical = () => {
 
 const InfoPair = ({ main, description }) => {
   return (
-    <div className="flex bg-cardBg22 my-3 px-2 py-3 flex-col sm:flex-row rounded-lg text-white font-semibold">
-      <p className="mr-auto sm:max-w-[40%]">{main}</p>
-      <p className="ml-auto sm:max-w-[55%]">{description}</p>
+    <div className="flex bg-cardBg22 my-3 px-2 py-3 flex-col lg:flex-row rounded-lg text-white font-semibold">
+      <p className="mr-auto lg:max-w-[40%]">{main}</p>
+      <p className="ml-auto lg:max-w-[55%]">{description}</p>
     </div>
   );
 };

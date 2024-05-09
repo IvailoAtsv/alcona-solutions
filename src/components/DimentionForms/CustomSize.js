@@ -86,7 +86,6 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
     } else {
       setIsValid(true);
     }
- 
 
     price = Number(data[width][height]).toFixed(2);
     if (premium.includes(color)) {
@@ -100,31 +99,14 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
   }, [panelCount, height, width]);
 
   return (
-    <div className="flex items-center w-full min-h-min flex-col justify-between ">
+    <div className="flex relative items-center w-full min-h-min flex-col justify-between ">
       <div className="flex h-full items-end">
-        <div className="flex w-full flex-col justify-evenly sm:flex-row h-full items-center sm:justify-center">
-          <div className="sm:order-1 order-2 flex sm:flex-col flex-row sm:h-full sm:w-[20%] w-full justify-end sm:self-end gap-3 items-start">
-            <div>
-              <p className="font-bold">
-                {premium.includes(color) ? "Premium" : "Standard"}
-              </p>
-              <img src={colorSquares[color]} className="w-20 h-20 rounded-md" />
-              <p>{color}</p>
-            </div>
-            <p className="order-3 text-[12px] sm:self-start self-end text-left mb-5 w-[100%]">
-              Показаният цвят на оградата е с илюстративна цел. За реалният
-              такъв, моля придържайте се към цветната карта
-            </p>
-          </div>
+        <div className="flex w-full flex-col justify-evenly lg:flex-row h-full items-center lg:justify-center">
           <img
             src={colors[color]}
-            style={{ width: `${width * 2}px`, height: `${height * 1.5}px` }}
-            className="sm:order-2 order-1"
+            style={{ width: `${width * 2}px`, height: 300 }}
+            className="relative"
           />
-          <p className="order-3 hidden sm:block sm:opacity-0 w-[100%] text-[12px] sm:self-end text-left mb-5 sm:w-[20%]">
-            Показаният цвят на оградата е с илюстративна цел. За реалният такъв,
-            моля придържайте се към цветната карта
-          </p>
         </div>
       </div>
 
@@ -162,9 +144,16 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
           />
         </div>
         <div className="flex flex-col justify-center items-center w-11/12 h-11/12">
-          <label className="text-lg font-semibold">Брой:</label>
+          <label
+            className={`text-lg font-semibold ${!isValid && "text-red-600"}`}
+          >
+            {isValid ? "Брой: " : "Броят трябва да бъде по-голям от 0!"}{" "}
+          </label>
           <div className="flex w-full items-center justify-center gap-4">
-            <button onClick={(e) => decrement(e)}>
+            <button
+              className="p-1 rounded-md bg-gray-200"
+              onClick={(e) => decrement(e)}
+            >
               <AiOutlineMinus size={24} />
             </button>
             <input
@@ -172,9 +161,12 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
               value={panelCount}
               onChange={(e) => setPanelCount((prev) => (prev = e.target.value))}
               required
-              className="w-[150px] h-[30px] bg-gray-200 text-xl text-center rounded-md px-2 py-1"
+              className="bg-gray-200 text-xl text-center rounded-md px-2 py-1"
             />
-            <button onClick={(e) => increment(e)}>
+            <button
+              className="p-1 rounded-md bg-gray-200"
+              onClick={(e) => increment(e)}
+            >
               <AiOutlinePlus size={24} />
             </button>
           </div>
@@ -182,9 +174,6 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
             {price * Number(panelCount)} лв.
           </p>
         </div>
-        <p className="text-2xl text-center mt-4 text-red-600 font-bold">
-          {!isValid ? "Броят на панелите трябва да бъде по-голям от 0!" : ""}
-        </p>
       </div>
     </div>
   );

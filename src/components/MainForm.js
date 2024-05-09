@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useSpring, animated } from "react-spring";
-import { DimentionsForm } from "./DimentionsForm";
+import { DimentionsForm } from "./DimentionForms/DimentionsForm";
 import { useMultistepForm } from "../useMultistepForm";
 import { ColorsForm } from "./ColorsForm";
 import { UserForm } from "./UserForm";
@@ -25,6 +25,8 @@ export function MainForm({
   setIsPopupOpen,
   stay,
   setStay,
+  panoOpen,
+  setPanoOpen,
 }) {
   const [data, setData] = useState(INITIAL_DATA);
   const [isValid, setIsValid] = useState(true);
@@ -114,9 +116,6 @@ export function MainForm({
 
   return (
     <div className="w-full h-full flex justify-center items-center flex-col bg-gray-100 py-12">
-      <h1 className="mb-12 text-3xl font-semibold border-b-4 border-footer">
-        Направете Поръчка
-      </h1>
       <animated.div
         ref={componentRef}
         style={{
@@ -126,15 +125,23 @@ export function MainForm({
         id="order"
         className="rounded-xl mt-4 bg-white text-sm shadow-lg pb-12 pt-8 min-h-min relative max-w-[1400px] w-[90%]"
       >
+        {panoOpen && (
+          <button
+            onClick={() => setPanoOpen(false)}
+            className="absolute top-5 left-5 underline"
+          >
+            Назад към Каталог
+          </button>
+        )}
         <form className="" onSubmit={onSubmit}>
-          <div className="absolute pt-2 top-1 text-center font-semibold text-lg right-10">
-            стъпка {currentStepIndex + 1} / {steps.length}
+          <div className="absolute pt-2 top-1 text-center text-lg right-5">
+            {currentStepIndex + 1} / {steps.length}
           </div>
           {step}
-          <div className="flex mt-16 w-11/12 min-h-12 items-center gap-1 px-3 pt-6 justify-end ml-9">
+          <div className="flex absolute bottom-[2%] gap-1 right-[2%] items-center justify-end ">
             {!isFirstStep && (
               <button
-                className="rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
+                className="rounded-lg py-2 px-6 border-2 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
                 type="button"
                 onClick={back}
               >
@@ -145,7 +152,7 @@ export function MainForm({
               <button
                 disabled={!isValid}
                 onClick={(e) => addToCart(e)}
-                className="rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
+                className="rounded-lg py-2 px-6 border-2 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
               >
                 Добави в количка
               </button>
@@ -155,7 +162,7 @@ export function MainForm({
                 className={
                   isFirstStep
                     ? "hidden"
-                    : "rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
+                    : "rounded-lg py-2 px-6 border-2 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
                 }
                 type="submit"
               >

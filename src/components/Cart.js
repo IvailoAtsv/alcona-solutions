@@ -120,8 +120,6 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
   //   return deliveryPrice
   // }
 
-
-
   const getSum = (cartItems) => {
     const toSum = cartItems.filter((item) => Number(item.price));
     let finalSum;
@@ -131,11 +129,11 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
       finalSum =
         toSum.reduce((total, item) => total + Number(item.price), 0) +
         heights[
-        cartItems[
-          cartItems.findIndex(
-            (item) => item.color && item.price && !item.perimeter,
-          )
-        ].height
+          cartItems[
+            cartItems.findIndex(
+              (item) => item.color && item.price && !item.perimeter,
+            )
+          ].height
         ];
     }
     return finalSum;
@@ -143,7 +141,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
 
   const addAdditional = (cartItems) => {
     const viable = cartItems.filter(
-      (item) => item.perimeter == "" && item.width,
+      (item) => item.perimeter === "" && item.width,
     );
     if (viable.length !== 0) {
       return true;
@@ -151,21 +149,34 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
       return false;
     }
   };
-  console.log(cartItems);
+
   return (
     <>
       {cartOpen ? (
-        <div className="w-full z-50 overflow-y-auto h-[100vh] bg-transparent fixed top-0 right-0 flex justify-between flex-col items-end  rounded-xl">
-          <div className="sm:w-[60%] bg-gray-200 w-full h-auto shadow-lg rounded-md flex justify-center flex-col p-4 items-center">
-            <button className="self-end" onClick={() => setCartOpen(false)}>
-              <AiOutlineClose className="pt-2" size={32} />
-            </button>
-            {orderStatus === "cart" && (
-              <h1 className="text-3xl mb-auto font-semibold ">Количка</h1>
-            )}
+        <div
+          id="outside-cart"
+          onClick={(e) => {
+            if (e.target.id === "outside-cart") setCartOpen(false);
+          }}
+          className="w-full z-50 overflow-y-auto h-[100vh] bg-black bg-opacity-50 fixed top-0 right-0 flex justify-between flex-col items-end"
+        >
+          <div className="sm:w-[60%]  bg-gray-200 w-full h-auto shadow-lg rounded-md flex justify-center flex-col p-4 items-center">
+            <div className="w-full flex justify-center">
+              {orderStatus === "cart" && (
+                <h1 className="text-3xl mr-auto mb-auto font-semibold ">
+                  Количка
+                </h1>
+              )}
+              <button className="ml-auto" onClick={() => setCartOpen(false)}>
+                <AiOutlineClose size={32} />
+              </button>
+            </div>
             {/* cart */}
             {orderStatus === "cart" ? (
-              <div className="flex flex-col justify-around gap-2 items-center w-full">
+              <div
+                id="cart-items"
+                className="flex flex-col overflow-y-auto max-h-min h-auto justify-center gap-2 items-center w-full"
+              >
                 {cartItems?.map((item, i) => {
                   if (item.itemType === "default") {
                     return (
@@ -201,6 +212,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
                     );
                   }
                 })}
+
                 {addAdditional(cartItems) && (
                   <div className="bg-white w-[90%] flex flex-col rounded-md p-4">
                     <h1 className="text-center pb-4 font-semibold text-lg">
@@ -228,7 +240,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
                     </p>
                   </div>
                 )}
-                {cartItems.length == 0 && (
+                {cartItems.length === 0 && (
                   <h1 className="py-20">Количката е празна</h1>
                 )}
               </div>
@@ -246,20 +258,19 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
             )}
 
             {orderStatus === "cart" && cartItems.length > 0 && (
-              <div className="mt-6 self-center text-end w-[90%]">
+              <div className="self-center mt-1 text-end w-[90%]">
                 {/* <input className="bg-white self-end text-end rounded-md w-full shadow-lg my-1 px-4 py-2" readOnly value={`Доставка: ${Number(deliverySum()).toFixed(2)} лв`} /> */}
                 <p className="bg-white self-end rounded-md shadow-lg my-1 px-4 py-2">
                   Oбщо: {Number(getSum(cartItems)).toFixed(2)} лв.
                 </p>
-
               </div>
             )}
             {orderStatus === "cart" ? (
-              <div className="w-[90%] flex items-center justify-between">
+              <div className="w-[90%] mt-1 h-auto flex items-center justify-between">
                 {cartItems.length !== 0 && (
                   <button
                     onClick={empty}
-                    className="self-end mt-6 rounded-lg py-1 px-6 border-2 font-bold duration-500 bg-white border-black hover:bg-black hover:text-white"
+                    className="self-end rounded-lg py-1 px-6 border-2 font-bold duration-500 bg-white border-black hover:bg-black hover:text-white"
                   >
                     Изтрий всички
                   </button>
@@ -270,7 +281,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
                 {cartItems.length !== 0 && (
                   <button
                     onClick={() => setOrderStatus("order")}
-                    className="self-end mt-6 rounded-lg py-1 px-6 border-2 font-bold duration-500 bg-white border-black hover:bg-black hover:text-white"
+                    className="self-end rounded-lg py-1 px-6 border-2 font-bold duration-500 bg-white border-black hover:bg-black hover:text-white"
                   >
                     Към Поръчка
                   </button>
@@ -311,8 +322,6 @@ const CartItem = ({
   const cardStyle =
     "shadow-md p-4 bg-white w-[90%] h-auto flex-col rounded-md flex justify-center items-center";
 
-  const premiumStyle =
-    "shadow-md p-4 bg-gold w-[90%] h-auto flex-col rounded-md flex justify-center items-center";
   return (
     <div className={cardStyle}>
       <button className="self-end" onClick={() => onRemove(id)}>
@@ -381,8 +390,8 @@ const CartItem = ({
 
 const CartElement = ({ color, count, itemName, src, onRemove, id, price }) => {
   return (
-    <div className="w-[90%] flex flex-col shadow-md min-h-[100px] bg-slate-100 rounded-lg">
-      <div className=" p-4  w-full h-[100px] rounded-md flex justify-between items-center">
+    <div className="w-[90%] flex flex-col shadow-md bg-slate-100 rounded-lg">
+      <div className=" p-4  w-full h-auto  rounded-md flex justify-between items-center">
         <div className="flex justify-center w-full items-center">
           <img className="w-16" src={src} />
           <div className="pl-4 w-[60%]">

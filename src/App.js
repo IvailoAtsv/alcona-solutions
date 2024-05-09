@@ -1,6 +1,5 @@
-import { forwardRef, useRef, useState } from "react";
+import { useState } from "react";
 import Hero from "./components/Hero";
-import { MainForm } from "./components/MainForm";
 import { About } from "./components/About";
 import { Cart } from "./components/Cart";
 import { FooterWithSitemap } from "./components/Footer";
@@ -12,6 +11,7 @@ import { Technical } from "./components/Technical";
 import { CaroselGallery } from "./components/Carosel/CaroselGallery";
 import { Cookies } from "./components/Cookies";
 import { Privacy } from "./components/Privacy";
+import { Catalog } from "./components/Catalog";
 
 function App() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -23,7 +23,7 @@ function App() {
   const [showPrivacy, setShowPrivacy] = useState(false);
 
   return (
-    <div className="bg-white w-full overflow-x-hidden min-h-screen flex flex-col justify-center items-center">
+    <div className="bg-white w-full pt-10 overflow-x-hidden min-h-screen flex flex-col justify-center items-center">
       <Navigation
         cartOpen={cartOpen}
         setCartOpen={setCartOpen}
@@ -47,31 +47,23 @@ function App() {
         setCartOpen={setCartOpen}
       />
       <Hero />
-      <CaroselGallery />
-      <MainForm
+      <About />
+      <Catalog
         stay={stay}
         setStay={setStay}
         setIsPopupOpen={setIsPopupOpen}
         cartItems={cartItems}
         setCartItems={setCartItems}
       />
+      <CaroselGallery />
       <Cart
         cartOpen={cartOpen}
         setCartOpen={setCartOpen}
         cartItems={cartItems}
         setCartItems={setCartItems}
       />
-      <Carosel
-        cartOpen={cartOpen}
-        setCartOpen={setCartOpen}
-        cartItems={cartItems}
-        setCartItems={setCartItems}
-        setIsPopupOpen={setIsPopupOpen}
-        isPopupOpen={isPopupOpen}
-      />
-      <About />
       <Contact />
-      <Technical />
+      {/* <Technical /> */}
       <FooterWithSitemap
         showPrivacy={showPrivacy}
         setShowPrivacy={setShowPrivacy}

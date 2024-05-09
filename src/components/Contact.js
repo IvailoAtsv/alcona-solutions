@@ -16,7 +16,7 @@ export const Contact = () => {
   const [sent, setSent] = useState(false);
 
   const inputStyle =
-    "border-2 px-9 py-2 sm:w-[60%] w-[90%] rounded-md text-black foucs:border-black focus:ring-0 focus:outline-black";
+    "border-2 px-9 py-2 lg:w-[60%] w-[90%] rounded-md text-black foucs:border-black focus:ring-0 focus:outline-black";
 
   const regEx = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
   const labelErrorStyle = "text-xl text-center mt-4 text-red-600 font-bold";
@@ -78,7 +78,7 @@ export const Contact = () => {
 
   useEffect(() => {
     const publicId = process.env.REACT_APP_KEY1;
-    console.log(publicId);
+
     emailjs.init(publicId);
   }, []);
 
@@ -140,17 +140,15 @@ export const Contact = () => {
       id="contact"
       className="w-[90%] min-h-min overflow-hidden h-[90vh] max-w-[1400px]  flex-col flex justify-center items-center"
     >
-      <div className="w-[100%] mih-h-min rounded-t-md min-h-min h-[15vh] p-6 flex justify-center items-center bg-footer">
-        <h1 className="text-2xl text-white font-semibold">
-          {sent
-            ? `Благодарим за отделеното време! Вашето запитване беше изпратено`
-            : "Имате запитване? Свържете се с нас!"}
-        </h1>
-      </div>
+      <h1 className="text-2xl text-white font-semibold">
+        {sent
+          ? `Благодарим за отделеното време! Вашето запитване беше изпратено`
+          : "Имате запитване? Свържете се с нас!"}
+      </h1>
       {!sent ? (
         <form
           id="form"
-          className="w-[100%] border-b-4 border-r-4 min-h-min border-l-4 border-black bg-white rounded-b-md backdrop-blur-md justify-center items-center flex flex-col h-[60vh]"
+          className="w-[100%] min-h-min border-orange-400 bg-white rounded-b-md backdrop-blur-md justify-center items-center flex flex-col h-[60vh]"
         >
           <label className={isNameValid ? labelStyle : labelErrorStyle}>
             * Име и Фамилия:{" "}
@@ -183,7 +181,7 @@ export const Contact = () => {
             * Въпрос:
           </label>
           <textarea
-            className="border-2 px-9 py-2 h-[30%] sm:w-[60%] w-[90%] rounded-md text-black foucs:border-black focus:ring-0 focus:outline-black"
+            className="border-2 px-9 py-2 h-[30%] lg:w-[60%] w-[90%] rounded-md text-black foucs:border-black focus:ring-0 focus:outline-black"
             required
             name="question"
             onChange={(e) => validateQuesiton(e)}
@@ -191,7 +189,7 @@ export const Contact = () => {
           <button
             onClick={handleSubmit}
             disabled={!isValid}
-            className="w-[60%] rounded-lg py-2 my-4 px-6 border-2 self-center font-bold duration-500 border-black hover:bg-footer hover:text-white"
+            className="w-[60%] rounded-lg py-2 my-4 px-6 border-2 self-center font-bold duration-500 border-orange-400 hover:bg-orange-400 hover:text-white"
           >
             Изпращане
           </button>

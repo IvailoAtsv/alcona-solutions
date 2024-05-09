@@ -5,11 +5,8 @@ import pic4 from "../../images/WPC Post 100x100.png";
 import pic5 from "../../images/WPC Board.png";
 import pic6 from "../../images/alumTopCover.png";
 import pic7 from "../../images/WPC Set.png";
-import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import uniqid from "uniqid";
-import { useSpring, animated } from "react-spring";
-import { useEffect, useState, useRef } from "react";
-import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
+import { useEffect, useState } from "react";
 import "./image-slider.css";
 
 const premium = ["Teak", "Light Grey", "Green", "Rosewood"];
@@ -47,7 +44,13 @@ const IMAGES = [
   { url: pic6, alt: "gorna" },
 ];
 
-export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
+export const Carosel = ({
+  cartItems,
+  setCartItems,
+  setIsPopupOpen,
+  carouselIndex,
+  setCarousel,
+}) => {
   const [imageIndex, setImageIndex] = useState(0);
   const [kolCount, setKolCount] = useState(36.99);
 
@@ -144,63 +147,27 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
     }
   }, [imageIndex]);
 
-  const caroselRef = useRef(null);
-
-  const options = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.3,
-  };
-
-  const [isVisible, setIsVisible] = useState(false);
-
-  const callback = (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        // When the component enters the viewport
-        setIsVisible(true);
-      }
-    });
-  };
-
   useEffect(() => {
-    const observer = new IntersectionObserver(callback, options);
-    if (caroselRef.current) {
-      observer.observe(caroselRef.current);
-    }
+    setImageIndex(carouselIndex);
+    console.log(carouselIndex);
+  }, []);
 
-    return () => {
-      if (caroselRef.current) {
-        observer.unobserve(caroselRef.current);
-      }
-    };
-  }, [caroselRef, options]);
-
-  const slideAnimation = useSpring({
-    opacity: isVisible ? 1 : 1,
-    transform: isVisible ? "translateX(0%)" : "translateX(-0px)",
-    config: { tension: 100, friction: 20 },
-    immediate: !isVisible,
-  });
   return (
-    <animated.div
-      ref={caroselRef}
-      style={{
-        opacity: slideAnimation.opacity,
-        transform: slideAnimation.transform,
-      }}
-      className="w-[full] max-w-[1400px] my-4 flex justify-center flex-col items-center"
-    >
-      <h1 className="text-3xl w-min mt-8 text-center font-semibold border-b-4 px-4 border-footer">
-        Отделни продукти
-      </h1>
+    <div className="w-[full] max-w-[1400px] bg-white rounded-md relative py-4 flex justify-center flex-col items-center">
+      <button
+        onClick={() => setCarousel(null)}
+        className="absolute underline top-[10px] left-[10px]"
+      >
+        Назад към каталог
+      </button>
+
       <div
         id="products"
-        className="flex w-[90%] bg-no-repeat bg-center bg-contain min-h-[70vh] py-4 flex-col md:flex-row justify-evenly items-center max-w-[1400px]"
+        className="flex w-[95%] gap-2 bg-no-repeat bg-center bg-contain min-h-[70vh] md:flex-row justify-evenly items-center max-w-[1400px]"
       >
         <section
           aria-label="Image Slider"
-          className="w-full h-[50vh]  sm:max-w-[50vh] relative"
+          className="w-full h-[50vh] sm:max-w-[50vh] relative"
         >
           <div className="w-full h-full flex overflow-hidden">
             {IMAGES.map((item, index) => (
@@ -210,13 +177,13 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
                   src={item.url}
                   alt={item.alt}
                   aria-hidden={imageIndex !== index}
-                  className="img-slider-img bg-white shadow-md border w-full h-full rounded-xl"
+                  className="img-slider-img bg-white w-full h-full rounded-xl"
                   style={{ translate: `${-100 * imageIndex}%` }}
                 />
               </div>
             ))}
           </div>
-          <button
+          {/* <button
             onClick={showPrevImage}
             className="img-slider-btn text-white"
             style={{ left: 0 }}
@@ -225,21 +192,21 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
             <AiOutlineArrowLeft
               size={32}
               aria-hidden
-              className="bg-black rounded-md"
+              className="text-black rounded-md"
             />
           </button>
           <button
             onClick={showNextImage}
             className="img-slider-btn"
-            style={{ right: 0, color: "white" }}
+            style={{ right: 0 }}
             aria-label="View Next Image"
           >
             <AiOutlineArrowRight
-              className="bg-black rounded-md"
+              className="text-black rounded-md"
               aria-hidden
               size={32}
             />
-          </button>
+          </button> */}
           <div
             style={{
               position: "absolute",
@@ -253,25 +220,27 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
           <div id="after-image-slider-controls" />
         </section>
 
-        <form className="md:w-[30%] text-center min-h-[70vh] w-[80%] flex flex-col justify-evenly items-center">
-          <h1 className="text-2xl font-semibold">{titles[imageIndex]}</h1>
-          <p className="text-sm text-left w-full bg-cardBg p-4 rounded-md backdrop-blur-md">
+        <form className="md:w-[30%] gap-2 text-center min-h-[70vh] w-[80%] flex flex-col justify-center lg:justify-evenly items-center">
+          <h1 className="text-xl w-full font-semibold">{titles[imageIndex]}</h1>
+          <p className="text-sm text-left w-[90%] bg-cardBg rounded-md backdrop-blur-md">
             {descriptions[imageIndex]}
           </p>
           {imageIndex !== 0 ? (
             <>
-              <div className="flex bg-cardBg backdrop-blur-xl p-3 rounded-md">
+              <div className="flex justify-center gap-2 items-center flex-wrap bg-cardBg backdrop-blur-xl p-3 rounded-md">
                 {imageIndex === 1 && (
                   <>
                     {" "}
                     <label
-                      className={
-                        invalid ? "text-red-500 font-bold text-lg" : ""
-                      }
+                      className={invalid ? "text-red-500 text-sm" : "text-sm"}
                     >
                       Изберете цвят:{" "}
                     </label>
-                    <select required onChange={(e) => validateItemColor(e)}>
+                    <select
+                      className="border-2 p-2 rounded-md"
+                      required
+                      onChange={(e) => validateItemColor(e)}
+                    >
                       <option disabled value=""></option>
                       <option defaultValue="Rosewood">Rosewood</option>
                       <option value="Maple">Maple</option>
@@ -287,55 +256,48 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
                   </>
                 )}
               </div>
-              <div className="flex flex-col justify-center items-center ">
+              <div className="flex justify-center gap-2 items-center ">
                 {invalid ? (
                   <label className="text-red-500 text-lg font-semibold">
-                    {imageIndex !== 1 && "Изберете число по-голямо от 0"}
+                    {imageIndex !== 1 ? "Изберете число по-голямо от 0" : ""}
                   </label>
                 ) : (
                   <label className="text-lg font-semibold">Брой:</label>
                 )}
-                <div className="flex w-full items-center justify-center gap-4">
-                  <button onClick={(e) => decrement(e)}>
-                    <AiOutlineMinus size={24} />
-                  </button>
-                  <input
-                    name={titles[imageIndex]}
-                    value={count}
-                    onChange={(e) => setCount(e.target.value)}
-                    required
-                    className="min-w-[50px] w-[60px] h-[30px] bg-gray-200 text-xl text-center rounded-md px-2 py-1"
-                  />
-                  <button onClick={(e) => increment(e)}>
-                    <AiOutlinePlus size={24} />
-                  </button>
-                </div>
+                <input
+                  type="number"
+                  name={titles[imageIndex]}
+                  value={count}
+                  onChange={(e) => setCount(e.target.value)}
+                  required
+                  className="min-w-[50px] w-[60px] h-[30px] bg-gray-200 text-xl text-center rounded-md px-2 py-1"
+                />
               </div>
               {imageIndex === 2 && (
-                <div className="flex gap-2 w-full flex-wrap items-center justify-center p-4">
+                <div className="flex gap-2 w-full flex-wrap items-center justify-center pt-2">
                   <button
-                    className="rounded-lg py-2 px-2 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
+                    className="rounded-lg p-1 border-2 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
                     type="button"
                     onClick={() => setKolCount(36.99)}
                   >
                     1.00 м.
                   </button>
                   <button
-                    className="rounded-lg py-2 px-2 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
+                    className="rounded-lg p-1 border-2 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
                     type="button"
                     onClick={() => setKolCount(69.99)}
                   >
                     1.90 м.
                   </button>
                   <button
-                    className="rounded-lg py-2 px-2 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
+                    className="rounded-lg p-1 border-2 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
                     type="button"
                     onClick={() => setKolCount(99.99)}
                   >
                     2.70 м.
                   </button>
                   <button
-                    className="rounded-lg py-2 px-2 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
+                    className="rounded-lg p-1 border-2 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
                     type="button"
                     onClick={() => setKolCount(102.99)}
                   >
@@ -369,18 +331,18 @@ export const Carosel = ({ cartItems, setCartItems, setIsPopupOpen }) => {
               <button
                 disabled={invalid}
                 onClick={handleSubmit}
-                className="rounded-lg py-2 px-6 border-4 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
+                className="rounded-lg text-sm py-2 px-4 border-2 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
               >
                 Добави в количка
               </button>
             </>
           ) : (
-            <h1 className="text-3xl font-bold border-b-4 border-footer px-3">
+            <h1 className="text-3xl font-bold border-footer p-3">
               Цени от 133лв./кв.м.
             </h1>
           )}
         </form>
       </div>
-    </animated.div>
+    </div>
   );
 };

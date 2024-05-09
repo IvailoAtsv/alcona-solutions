@@ -3,14 +3,13 @@
   top: 0;
   left: 0;
   width: 100%;
-  padding: 0.5rem 0;
+  padding: 15px;
   background: white;
-  height: min-content;
   color: #202a44;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 4;
+  z-index: 400;
 }
 
 .logo {
@@ -23,8 +22,7 @@
 
 .navbar {
   display: flex;
-  justify-items: evenly;
-  gap: 1rem;
+  justify-items: end;
   flex-wrap: wrap;
   align-items: center;
 }
@@ -38,11 +36,10 @@
 
 .navbar button {
   cursor: pointer;
-  min-width: 70px;
   font-size: 16px;
   color: #202a44;
   text-decoration: none;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 #check {

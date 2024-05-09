@@ -12,6 +12,13 @@ module.exports = {
         md: "0 2px 4px",
         lg: "0 8px 16px",
       },
+      fontSize: {
+        h1clamp: "clamp(2.5rem, 5.2vw, 6rem)",
+        h2clamp: "clamp(2rem, 4.5vw, 4rem)",
+        h3clamp: "clamp(1.5rem, 3vw, 3rem)",
+        labelClamp: "clamp(1.3rem, 1.8vw, 2.3rem)",
+        iconClamp: "clamp(4em, 10vw, 13rem)",
+      },
       backgroundImage: {
         hero3: "url('/src/images/hero3.jpeg')",
         woodBlack: "url('/src/colors/Black.png')",
@@ -29,6 +36,7 @@ module.exports = {
         carosel: "url('/src/images/fullLogo.png')",
       },
       colors: {
+        accent: "#e88504",
         gold: "#ffda9e",
         cardBg: "rgba(255,255,255,0.7)",
         cardBg22: "rgba(255,255,255,0.4)",

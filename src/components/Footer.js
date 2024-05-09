@@ -27,7 +27,7 @@ export function FooterWithSitemap({ setShowPrivacy }) {
               <img src={logo} className="h-24 m-3 " alt="Logo" />
             </a>
           </div>
-          <div className="flex justify-start items-center w-[60%] min-h-min gap-6 sm:flex-row flex-col">
+          <div className="flex justify-start items-center w-[60%] min-h-min gap-6 lg:flex-row flex-col">
             <div className="w-full">
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                 Контакти
@@ -36,7 +36,11 @@ export function FooterWithSitemap({ setShowPrivacy }) {
                 <li className="mb-4">
                   <div className="flex items-center justify-start gap-1  w-auto">
                     <FiPhoneCall size={16} />
-                    <a href="tel:0893993129" className="text-sm font-bold">
+                    <a
+                      target="_blank"
+                      href="tel:0893993129"
+                      className="text-sm font-bold"
+                    >
                       0893993129
                     </a>
                   </div>
@@ -76,29 +80,33 @@ export function FooterWithSitemap({ setShowPrivacy }) {
             </div>
           </div>
         </div>
-        <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-        <div className="sm:flex w-full sm:w-[80%] sm:items-center px-2 sm:justify-between">
-          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+        <hr className="my-6 border-gray-200 lg:mx-auto dark:border-gray-700 lg:my-8" />
+        <div className="lg:flex w-full lg:w-[80%] lg:items-center px-2 lg:justify-between">
+          <span className="text-sm text-gray-500 lg:text-center dark:text-gray-400">
             © 2023{" "}
-            <a href="#" className="hover:underline">
+            <a target="_blank" href="#" className="hover:underline">
               Alcon Solution
             </a>
             . All Rights Reserved.
           </span>
-          <div className="flex mt-4 gap-3 sm:justify-center items-center sm:mt-0">
+          <div className="flex mt-4 gap-3 lg:justify-center items-center lg:mt-0">
             <a
               className="text-slate-300 hover:text-white"
+              target="_blank"
               href="https://www.facebook.com/people/Luxury-Fences-WPC-%D0%9E%D0%B3%D1%80%D0%B0%D0%B4%D0%B8/61553632407058/"
             >
               <FaFacebook size={25} />
             </a>
-            <a href="https://api.whatsapp.com/message/KCTBNDNXZZN2E1?autoload=1&app_absent=0">
+            <a
+              target="_blank"
+              href="https://api.whatsapp.com/message/KCTBNDNXZZN2E1?autoload=1&app_absent=0"
+            >
               <FaWhatsapp
                 size={28}
                 className="text-slate-300 hover:text-white"
               />
             </a>
-            <a href="https://www.youtube.com/@AlconaSolutions">
+            <a target="_blank" href="https://www.youtube.com/@AlconaSolutions">
               <FaYoutube
                 size={28}
                 className="text-slate-300 hover:text-white"

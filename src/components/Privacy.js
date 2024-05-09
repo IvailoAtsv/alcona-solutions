@@ -4,10 +4,10 @@ export const Privacy = ({ showPrivacy, setShowPrivacy }) => {
   return (
     showPrivacy && (
       <div className="fixed inset-0 z-50 overflow-y-auto bg-white">
-        <div className="flex flex-col items-center justify-center min-h-screen pt-24 px-4">
+        <div className="flex flex-col items-center justify-center min-h-screen mx-auto max-w-[1400px] relative pt-24 px-4">
           <button
             onClick={() => setShowPrivacy(false)}
-            className="fixed top-5 right-10 rounded-md bg-white"
+            className="absolute z-50 top-[1%] right-10 rounded-md bg-white"
           >
             <IoMdClose size={40} />
           </button>

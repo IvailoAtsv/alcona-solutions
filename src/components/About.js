@@ -13,7 +13,7 @@ export const About = () => {
       className="min-h-[75vh] w-full p-4 flex flex-col justify-evenly items-center group py-4"
     >
       <div className="flex max-w-[1400px] w-[90%] gap-3 flex-col justify-evenly rounded-md p-4 items-center">
-        <h1 className="text-4xl text-gray-600 leading-relaxed underline decoration-orange-400 font-bold">
+        <h1 className="text-4xl text-gray-600 leading-normal text-center underline decoration-orange-400 font-bold">
           Защо Alcona Solutions ?
         </h1>
         <p className="text-md text-gray-500 md:text-lg text-center w-[95%] p-3 rounded-md">

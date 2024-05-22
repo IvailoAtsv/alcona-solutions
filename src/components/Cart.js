@@ -158,12 +158,12 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
           onClick={(e) => {
             if (e.target.id === "outside-cart") setCartOpen(false);
           }}
-          className="w-full z-50 overflow-y-auto h-[100vh] bg-black bg-opacity-50 fixed top-0 right-0 flex justify-between flex-col items-end"
+          className="text-gray-600 w-full z-50 h-[100vh] bg-gray-600 bg-opacity-50 fixed top-0 right-0 flex justify-between flex-col items-end"
         >
-          <div className="sm:w-[60%]  bg-gray-200 w-full h-auto shadow-lg rounded-md flex justify-center flex-col p-4 items-center">
+          <div className="sm:w-[60%] mt-[50px] overflow-y-auto bg-gray-200 w-full h-auto shadow-lg rounded-md flex justify-center flex-col p-4 items-center">
             <div className="w-full flex justify-center">
               {orderStatus === "cart" && (
-                <h1 className="text-3xl mr-auto mb-auto font-semibold ">
+                <h1 className="text-2xl absolute mb-auto font-semibold ">
                   Количка
                 </h1>
               )}
@@ -270,7 +270,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
                 {cartItems.length !== 0 && (
                   <button
                     onClick={empty}
-                    className="self-end rounded-lg py-1 px-6 border-2 font-bold duration-500 bg-white border-black hover:bg-black hover:text-white"
+                    className="self-end whitespace-nowrap rounded-lg py-1 px-6 border-2 font-bold duration-500 bg-white border-gray-600 hover:bg-gray-600 hover:text-white"
                   >
                     Изтрий всички
                   </button>
@@ -281,7 +281,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
                 {cartItems.length !== 0 && (
                   <button
                     onClick={() => setOrderStatus("order")}
-                    className="self-end rounded-lg py-1 px-6 border-2 font-bold duration-500 bg-white border-black hover:bg-black hover:text-white"
+                    className="self-end whitespace-nowrap rounded-lg py-1 px-6 border-2 font-bold duration-500 bg-white border-gray-600 hover:bg-gray-600 hover:text-white"
                   >
                     Към Поръчка
                   </button>
@@ -291,7 +291,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
               <div className="w-[90%] flex">
                 <button
                   onClick={() => setOrderStatus("cart")}
-                  className="self-start mt-6 rounded-lg py-1 px-6 border-2 font-bold duration-500 bg-white border-black hover:bg-black hover:text-white"
+                  className="self-start mt-6 rounded-lg py-1 px-6 border-2 font-bold duration-500 bg-white border-gray-600 hover:bg-gray-600 hover:text-white"
                 >
                   Обратно
                 </button>

@@ -1,26 +1,22 @@
+import { PiCubeTransparent } from "react-icons/pi";
 import { BsTools } from "react-icons/bs";
 import { AiOutlineSafetyCertificate } from "react-icons/ai";
 import { FaHandHoldingHeart, FaYoutube } from "react-icons/fa";
 import installation from "../files/installation.pdf";
-import adv from "../images/adv.jpeg";
-import quality from "../images/certificate.png";
-import tools from "../images/tools.jpg";
 import React, { useState } from "react";
 import { saveAs } from "file-saver";
 
 export const About = () => {
-  const [expanded, setExpanded] = useState(false);
-
   return (
     <div
       id="about"
       className="min-h-[75vh] w-full p-4 flex flex-col justify-evenly items-center group py-4"
     >
-      <div className="flex max-w-[1400px] w-[90%] my-8 gap-3 flex-col justify-evenly rounded-md p-4 items-center">
-        <h1 className="text-4xl leading-relaxed underline decoration-orange-400 font-bold">
+      <div className="flex max-w-[1400px] w-[90%] gap-3 flex-col justify-evenly rounded-md p-4 items-center">
+        <h1 className="text-4xl text-gray-600 leading-relaxed underline decoration-orange-400 font-bold">
           Защо Alcona Solutions ?
         </h1>
-        <p className="text-md md:text-lg text-center w-[95%] p-3 rounded-md">
+        <p className="text-md text-gray-500 md:text-lg text-center w-[95%] p-3 rounded-md">
           Alcona Solutions се занимава с проектирането и монтажа на
           висококачествени оградни системи както доставка и монтаж. ние
           създаваме огради с усъвършенстван дизайн и висока функционалност,
@@ -29,6 +25,17 @@ export const About = () => {
         </p>
       </div>
       <div className="max-w-[1400px] gap-10 md:gap-0 w-[90%] items-start my-4 justify-between md:flex-row flex-col flex">
+        <Card
+          img={
+            <PiCubeTransparent className="mx-auto text-orange-400" size={80} />
+          }
+          title="3D проектиране"
+          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar enim eget placerat aliquam. Nullam at consequat metus, in feugiat."
+          more={
+            " - Ниско поддръжание - повърхността на WPC материалите не изисква боядисване, мазане с масло или лакиране. Дори когато са изложени на влага и UV-лъчение от околната среда, те не изискват специална грижа. - Дълъг живот - WPC материалите могат да издържат до 10 години, осигурявайки здравина и надеждност на вашата оградна система. - Комплектите включват всичко необходимо за лесен монтаж. Предлагаме разнообразие от цветове, за да задоволим вашите вкусове и предпочитания. Вашият избор за WPC оградна система е готов да донесе не само изящество и устойчивост, но и сигурност и безопасност във вашия дом или обект."
+          }
+        />
+
         <Card
           img={
             <AiOutlineSafetyCertificate
@@ -63,35 +70,41 @@ export const About = () => {
           
           Вашият избор за WPC оградна система е готов да донесе не само изящество и устойчивост, но и сигурност и безопасност във вашия дом или обект."
         />
-        <Card
+        {/* <Card
           img={<BsTools className="mx-auto text-orange-400" size={80} />}
           title="Инструкции за монтаж"
           text=""
           link="https://youtu.be/UwAVl_azClQ"
           btn="install"
-        />
+        /> */}
       </div>
     </div>
   );
 };
 
-const downloadImage = () => {
+export const downloadImage = () => {
   saveAs(installation, "installation.pdf");
 };
 
 const Card = ({ img, title, text, link, btn, more }) => {
   const [readMore, setReadMore] = useState(false);
-  const [showVids, setShowVids] = useState(false);
+
   return (
-    <div className="md:w-[30%] pl-4 w-full flex flex-col justify-between min-h-[350px]">
+    <div className="px-4 md:w-[30%] flex flex-col justify-between min-h-[350px]">
       {img}
       <div className="flex h-full min-h-[230px] flex-col justify-between items-center">
-        <h1 className="text-center my-3 text-2xl font-semibold ">{title}</h1>
-        <p className="text-md text-start mt-4 w-[95%] h-full">{text} </p>
-        {readMore && <p className="w-[95%]">{more}</p>}
+        <h1 className="text-gray-600 text-center my-3 text-2xl font-semibold ">
+          {title}
+        </h1>
+        <p className="text-md text-gray-600 font-normal text-start mt-4 w-[95%] h-full">
+          {text}{" "}
+        </p>
+        {readMore && (
+          <p className="w-[95%] font-normal text-gray-600">{more}</p>
+        )}
         {more && (
           <button
-            className="self-end underline decoration-orange-400 text-lg"
+            className="self-end text-gray-500 underline decoration-orange-400 text-lg"
             onClick={() => setReadMore((prev) => (prev = !prev))}
           >
             {!readMore ? "прочетете още" : "Прочетете по-малко"}
@@ -117,6 +130,7 @@ const Card = ({ img, title, text, link, btn, more }) => {
               target="_blank"
               href="https://www.youtube.com/@AlconaSolutions"
               className="rounded-lg mx-auto w-[90%] flex items-center justify-center gap-2 py-3 px-6 border-2 mb-2 self-center text-md font-bold duration-500 border-orange-400 hover:bg-orange-400 text-center hover:text-white"
+              rel="noreferrer"
             >
               Видео Инструкции <FaYoutube size={24} className="inline" />
             </a>

@@ -15,12 +15,12 @@ const titles = [
   "WPC Оградно пано Alcona Standard (180x180cm) Цвят Black Antracid",
   "WPC Съставна дъска Alcona (160x1800mm) ",
   "WPC Стълб Alcona (100x100mm)",
-  "Meтална основа",
+  "Метална основа",
   "WPC Капачка ",
   "Alum Начална Лайсна Alcona ",
   "Alum TOP Завършваща Лайсна Alcona",
 ];
-const prices = [0, 29.99, 1, 49.99, 7.99, 14.99, 17.99];
+const prices = [0, 29.99, 1, 49.99, 7.99, 29.99, 29.99];
 
 const images = [pic7, pic5, pic4, pic3, pic1, pic2, pic6];
 
@@ -54,34 +54,10 @@ export const Carosel = ({
   const [imageIndex, setImageIndex] = useState(0);
   const [kolCount, setKolCount] = useState(36.99);
 
-  function showNextImage() {
-    setImageIndex((index) => {
-      if (index === IMAGES.length - 1) return 0;
-      return index + 1;
-    });
-  }
-
-  function showPrevImage() {
-    setImageIndex((index) => {
-      if (index === 0) return IMAGES.length - 1;
-      return index - 1;
-    });
-  }
-
   useEffect(() => {}, [imageIndex]);
 
   const [count, setCount] = useState(1);
   const [invalid, setInvalid] = useState(false);
-
-  const increment = (e) => {
-    e.preventDefault();
-    setCount((count) => Number(count) + 1);
-  };
-  const decrement = (e) => {
-    e.preventDefault();
-    setCount((count) => Number(count) - 1);
-  };
-
   const [itemColor, setItemColor] = useState("");
 
   const handleSubmit = (e) => {
@@ -104,7 +80,7 @@ export const Carosel = ({
       price: Number(cartPrice),
       color: itemColor,
     };
-    if (imageIndex == 1) {
+    if (imageIndex === 1) {
       if (premium.includes(item.color)) {
         item.price = (cartPrice * 1.44).toFixed(2);
       }
@@ -149,11 +125,10 @@ export const Carosel = ({
 
   useEffect(() => {
     setImageIndex(carouselIndex);
-    console.log(carouselIndex);
   }, []);
 
   return (
-    <div className="w-[full] max-w-[1400px] bg-white rounded-md relative py-4 flex justify-center flex-col items-center">
+    <div className="w-[90%] max-w-[1400px] bg-white rounded-md relative py-4 flex justify-center flex-col items-center">
       <button
         onClick={() => setCarousel(null)}
         className="absolute underline top-[10px] left-[10px]"
@@ -183,30 +158,6 @@ export const Carosel = ({
               </div>
             ))}
           </div>
-          {/* <button
-            onClick={showPrevImage}
-            className="img-slider-btn text-white"
-            style={{ left: 0 }}
-            aria-label="View Previous Image"
-          >
-            <AiOutlineArrowLeft
-              size={32}
-              aria-hidden
-              className="text-black rounded-md"
-            />
-          </button>
-          <button
-            onClick={showNextImage}
-            className="img-slider-btn"
-            style={{ right: 0 }}
-            aria-label="View Next Image"
-          >
-            <AiOutlineArrowRight
-              className="text-black rounded-md"
-              aria-hidden
-              size={32}
-            />
-          </button> */}
           <div
             style={{
               position: "absolute",
@@ -256,7 +207,7 @@ export const Carosel = ({
                   </>
                 )}
               </div>
-              <div className="flex justify-center gap-2 items-center ">
+              <div className="flex flex-col justify-center gap-2 items-center ">
                 {invalid ? (
                   <label className="text-red-500 text-lg font-semibold">
                     {imageIndex !== 1 ? "Изберете число по-голямо от 0" : ""}

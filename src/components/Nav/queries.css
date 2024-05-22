@@ -1,5 +1,7 @@
 @import url(nav.css);
-
+*{
+  color: rgb(75 85 99 1);
+}
 @media (max-width: 992px) {
     .header {
         padding: 0.5rem 5%;

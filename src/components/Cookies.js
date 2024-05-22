@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useSpring, animated } from "react-spring";
-import { FaCookie } from "react-icons/fa";
 import cookie from "../images/cookie.png";
 
 export const Cookies = ({ setShowPrivacy }) => {
@@ -8,7 +7,7 @@ export const Cookies = ({ setShowPrivacy }) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowCookie(true);
+      if (localStorage.getItem("showCookie") !== null) setShowCookie(true);
     }, 1000); // Show cookie component after 1 second
 
     return () => clearTimeout(timer);
@@ -48,7 +47,10 @@ export const Cookies = ({ setShowPrivacy }) => {
               </a>
               <div className="w-full md:w-1/2">
                 <button
-                  onClick={() => setShowCookie(false)}
+                  onClick={() => {
+                    localStorage.setItem("showCookie", false);
+                    setShowCookie(false);
+                  }}
                   type="button"
                   className="py-2 px-4 bg-indigo-600 hover:bg-indigo-700 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md"
                 >

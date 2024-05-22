@@ -76,6 +76,7 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
               target="_blank"
               href="tel:0893993141"
               className="text-sm font-bold"
+              rel="noreferrer"
             >
               0893993141
             </a>

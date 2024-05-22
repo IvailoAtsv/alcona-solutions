@@ -36,6 +36,8 @@ module.exports = {
         carosel: "url('/src/images/fullLogo.png')",
       },
       colors: {
+        black1: "#000",
+        black: "rgb(75 85 99)",
         accent: "#e88504",
         gold: "#ffda9e",
         cardBg: "rgba(255,255,255,0.7)",

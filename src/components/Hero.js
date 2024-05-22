@@ -1,23 +1,8 @@
-import { useSpring, animated } from "react-spring";
-import logo from "../images/logo.png";
+import { downloadImage } from "../components/About";
 import hero3 from "../images/hero3.jpeg";
 import line from "../images/llline2.svg";
 
 const Hero = () => {
-  const leftAnimation = useSpring({
-    from: { opacity: 1, transform: "translateX(-0%)" },
-    to: { opacity: 1, transform: "translateX(0%)" },
-    config: { tension: 100, friction: 20 }, // Adjust these values for animation behavior
-    delay: 100, // Delay for the left element animation
-  });
-
-  const rightAnimation = useSpring({
-    from: { opacity: 1, transform: "translateX(0%)" },
-    to: { opacity: 1, transform: "translateX(0%)" },
-    config: { tension: 100, friction: 20 }, // Adjust these values for animation behavior
-    delay: 100, // Delay for the right element animation
-  });
-
   const handleContactScroll = () => {
     const element = document.getElementById("contact");
     if (element) {
@@ -28,31 +13,47 @@ const Hero = () => {
   return (
     <main
       id="hero"
-      className="w-full relative min-h-[65vh] md:min-h-[50vh] text-center flex flex-col justify-center items-center"
+      className="w-full relative min-h-[80vh] md:min-h-[60vh] text-center flex flex-col justify-center items-center"
     >
       <img
         src={hero3}
+        alt="hero"
         className="absolute w-full object-right max-w-[1920px] ml-auto h-full object-cover"
       />
-      <span className="absolute w-full max-w-[1920px] h-full bg-black opacity-50"></span>
-      <section className="w-[90%] text-left max-w-[1400px] z-10 text-white h-full flex flex-col justify-center items-start gap-3">
-        <h1 className="text-h2clamp font-semibold">
-          Перфектната <span className="text-orange-400">ограда</span> за
-          мечтаната{" "}
-          <span className="relative">
-            <p className="inline">визия</p>
-            <img src={line} className="absolute top-0 left-0 z-10" />
+      <span className="absolute w-full max-w-[1920px] h-full bg-black1 opacity-50"></span>
+      <section className="w-[90%] text-left max-w-[1400px] z-10 text-white h-full flex flex-col justify-center items-start gap-5">
+        <h1 className="text-h2clamp leading-tight font-bold">
+          Вдъхновяващи <span className="text-orange-400">решения</span> за вашия
+          дом и{" "}
+          <span className="relative inline-block">
+            <p className="inline">градина </p>
+            <img
+              src={line}
+              alt="title drawing"
+              className="absolute top-[-5px] left-0 z-10"
+            />
           </span>
         </h1>
-        <h2 className="text-labelClamp text-gray-200">
-          Лесно сглобяеми WPC огради
+        <h2 className="text-labelClamp md:mt-5 md:w-[60%] text-gray-200">
+          Добре дошли в Alcona Solutions, вашата врата към изисканите парапети и
+          огради от луксозен материал. Подобрете вашия екстериор с нашата
+          премиум колекция.
         </h2>
-        <button
-          onClick={handleContactScroll}
-          className="rounded-lg mt-2 py-3 px-6 self-start font-bold duration-500 hover:text-orange-400 hover:bg-white bg-orange-400 text-white"
-        >
-          Свържете се с нас
-        </button>
+        <div className="flex flex-col md:flex-row items-center gap-2">
+          <button
+            onClick={handleContactScroll}
+            className="rounded-lg border-2 border-orange-400 hover:border-orange-500 mt-2 py-2 px-6 self-start font-bold duration-500  hover:bg-orange-500 bg-orange-400 text-white"
+          >
+            Свържете се с нас
+          </button>
+          <button
+            onClick={downloadImage}
+            className="rounded-lg mt-2 py-2 px-6 self-start font-bold duration-500 
+            border-2 border-orange-400 text-white hover:bg-orange-400 bg-transparent "
+          >
+            Изтеглете инструкции за монтаж
+          </button>
+        </div>
       </section>
     </main>
   );

@@ -103,6 +103,7 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
       <div className="flex h-full items-end">
         <div className="flex w-full flex-col justify-evenly lg:flex-row h-full items-center lg:justify-center">
           <img
+            alt="color"
             src={colors[color]}
             style={{ width: `${width * 2}px`, height: 300 }}
             className="relative"

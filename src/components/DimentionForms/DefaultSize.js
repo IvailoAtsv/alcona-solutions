@@ -100,10 +100,15 @@ export const DefaultSize = ({ color, updateFields, isValid, setIsValid }) => {
             <p>{color}</p>
           </div> */}
           <img
+            alt="panel"
             src={colors[color]}
-            style={{ width: `${width * 2}px`, height: `${height * 1.5}px` }}
+            style={{
+              width: `${width * 2}px`,
+              height: `${height * 1.5}px`,
+              position: "relative",
+            }}
           />
-          <p className="text-[10px] lg:self-end text-center mb-5 w-[95%] lg:w-[20%]">
+          <p className="text-[10px] absolute lg:self-end text-center top-[53%] translate-x-[-50%] left-[50%] w-[95%] lg:w-[20%]">
             Показаният цвят на оградата е с илюстративна цел.
           </p>
         </div>

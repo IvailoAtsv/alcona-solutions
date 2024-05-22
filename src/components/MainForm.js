@@ -54,7 +54,6 @@ export function MainForm({
     isFirstStep,
     isLastStep,
     back,
-    reset,
     next,
   } = useMultistepForm([
     <ColorsForm
@@ -81,47 +80,9 @@ export function MainForm({
     return goTo(0);
   }
 
-  const componentRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  const slideAnimation = useSpring({
-    opacity: isVisible ? 1 : 1,
-    transform: isVisible ? "translateX(0px)" : "translateX(0px)",
-    config: { tension: 0, friction: 20 },
-    immediate: !isVisible,
-  });
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
-        });
-      },
-      { threshold: 0.3 },
-    );
-
-    if (componentRef.current) {
-      observer.observe(componentRef.current);
-    }
-
-    return () => {
-      if (componentRef.current) {
-        observer.unobserve(componentRef.current);
-      }
-    };
-  }, []);
-
   return (
     <div className="w-full h-full flex justify-center items-center flex-col bg-gray-100 py-12">
-      <animated.div
-        ref={componentRef}
-        style={{
-          ...slideAnimation,
-          transition: "opacity 0.5s, transform 0.5s",
-        }}
+      <div
         id="order"
         className="rounded-xl mt-4 bg-white text-sm shadow-lg pb-12 pt-8 min-h-min relative max-w-[1400px] w-[90%]"
       >
@@ -171,7 +132,7 @@ export function MainForm({
             )}
           </div>
         </form>
-      </animated.div>
+      </div>
     </div>
   );
 }

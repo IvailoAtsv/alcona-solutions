@@ -27,7 +27,7 @@ export function FooterWithSitemap({ setShowPrivacy }) {
               <img src={logo} className="h-24 m-3 " alt="Logo" />
             </a>
           </div>
-          <div className="flex justify-start items-center w-[60%] min-h-min gap-6 lg:flex-row flex-col">
+          <div className="flex justify-start items-center w-[60%] min-h-min gap-6 md:flex-row flex-col">
             <div className="w-full">
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                 Контакти
@@ -40,8 +40,9 @@ export function FooterWithSitemap({ setShowPrivacy }) {
                       target="_blank"
                       href="tel:0893993129"
                       className="text-sm font-bold"
+                      rel="noreferrer"
                     >
-                      0893993129
+                      0893993141
                     </a>
                   </div>
                 </li>
@@ -85,7 +86,7 @@ export function FooterWithSitemap({ setShowPrivacy }) {
           <span className="text-sm text-gray-500 lg:text-center dark:text-gray-400">
             © 2023{" "}
             <a target="_blank" href="#" className="hover:underline">
-              Alcon Solution
+              Alcona Solutions
             </a>
             . All Rights Reserved.
           </span>

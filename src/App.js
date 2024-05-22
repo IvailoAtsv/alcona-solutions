@@ -10,7 +10,7 @@ import { CaroselGallery } from "./components/Carosel/CaroselGallery";
 import { Cookies } from "./components/Cookies";
 import { Privacy } from "./components/Privacy";
 import { Catalog } from "./components/Catalog";
-import { ToastBar, Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -70,7 +70,6 @@ function App() {
           setCartItems={setCartItems}
         />
         <Contact />
-        {/* <Technical /> */}
         <FooterWithSitemap
           showPrivacy={showPrivacy}
           setShowPrivacy={setShowPrivacy}

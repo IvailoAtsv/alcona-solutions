@@ -16,12 +16,13 @@ export const Contact = () => {
   const [sent, setSent] = useState(false);
 
   const inputStyle =
-    "border-2 mb-2 p-3 w-full rounded-md foucs:border-gray-600 focus:ring-0 focus:outline-gray-600";
+    "border-2 mb-2 max-w-[700px] p-3 w-full rounded-md foucs:border-gray-600 focus:ring-0 focus:outline-gray-600";
 
   const regEx = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
   const labelErrorStyle =
-    " w-full text-lg text-left mt-4 text-red-600 font-bold";
-  const labelStyle = "w-full text-lg text-left mt-4 font-semibold";
+    " w-full  max-w-[700px] text-lg text-left mt-4 text-red-600 font-bold";
+  const labelStyle =
+    "w-full  max-w-[700px] text-lg text-left mt-4 font-semibold";
 
   function updateFields(fields) {
     setData((prev) => {
@@ -103,9 +104,9 @@ export const Contact = () => {
   return (
     <div
       id="contact"
-      className={`w-[90%] my-5 text-gray-600 h-min overflow-hidden ${
-        sent ? "h-auto mb-10" : "min-h-[90vh]"
-      } max-w-[1400px]  flex-col flex justify-center items-center`}
+      className={`w-[100%] pt-5 text-gray-600 ${
+        sent ? "h-auto" : "min-h-[40vh]"
+      } flex-col flex justify-center items-center`}
     >
       {sent ? (
         <h1 className="text-3xl text-gray-600 font-semibold">
@@ -113,12 +114,12 @@ export const Contact = () => {
         </h1>
       ) : (
         <>
-          <span className="w-[100%] p-4 max-w-[700px] rounded-t-lg bg-gray-600 min-h-[100px] text-2xl font-bold flex items-center text-white justify-center">
+          <span className="w-[100%] p-4 bg-footer min-h-[100px] text-2xl font-bold flex items-center text-white justify-center">
             Имате запитване? Свържете се с нас!
           </span>
           <form
             id="form"
-            className=" w-[100%] p-4 sm:px-8 max-w-[700px] border-2 border-gray-600 bg-white rounded-b-md backdrop-blur-md justify-center items-center flex flex-col min-h-[60vh]"
+            className="max-w-[700px] w-[100%] p-4 sm:px-8 bg-white backdrop-blur-md justify-center items-center flex flex-col min-h-[60vh]"
           >
             <label className={isNameValid ? labelStyle : labelErrorStyle}>
               * Име и Фамилия:{" "}
@@ -159,8 +160,8 @@ export const Contact = () => {
             <button
               onClick={handleSubmit}
               disabled={!isValid}
-              className="ml-auto rounded-lg px-6 py-3 self-center
-            font-bold duration-500 cursor-pointer hover:bg-orange-500 bg-orange-400 text-white"
+              className="ml-auto rounded-lg px-6 py-3
+            font-bold duration-500 cursor-pointer hover:opacity-100 opacity-90 bg-footer text-white"
             >
               Изпращане
             </button>

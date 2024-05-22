@@ -75,7 +75,7 @@ export const CaroselGallery = () => {
   return (
     <section
       id="gallery"
-      className="scroll-mt-[180px] bg-gray-50 w-full py-6 h-auto flex flex-col justify-center items-center"
+      className="scroll-mt-[450px] sm:scroll-mt-[180px] bg-gray-50 w-full py-6 h-auto flex flex-col justify-center items-center"
     >
       <div className="lg:w-full w-[90%] max-w-[1920px] mb-8 flex-col flex justify-between items-center">
         <section className="max-w-[1000px] flex flex-col justify-center items-center">

@@ -104,9 +104,7 @@ export const Contact = () => {
   return (
     <div
       id="contact"
-      className={`w-[100%] pt-5 text-gray-600 ${
-        sent ? "h-auto" : "min-h-[40vh]"
-      } flex-col flex justify-center items-center`}
+      className={`w-[100%] text-gray-600 h-auto flex-col flex justify-center items-center`}
     >
       {sent ? (
         <h1 className="text-3xl text-gray-600 font-semibold">
@@ -119,7 +117,7 @@ export const Contact = () => {
           </span>
           <form
             id="form"
-            className="max-w-[700px] w-[100%] p-4 sm:px-8 bg-white backdrop-blur-md justify-center items-center flex flex-col min-h-[60vh]"
+            className="max-w-[700px] w-[100%] p-4 sm:px-8 bg-white backdrop-blur-md justify-center items-center flex flex-col min-h-min"
           >
             <label className={isNameValid ? labelStyle : labelErrorStyle}>
               * Име и Фамилия:{" "}

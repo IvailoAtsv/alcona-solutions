@@ -69,7 +69,7 @@ export const Catalog = ({
 
 const ItemList = ({ setPanoOpen, setCarousel }) => {
   return (
-    <section className="w-[90%] sm:p-16 justify-start items-start grid grid-flow-row my-4 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 grid-rows-auto gap-4 max-w-[1400px] h-full ">
+    <section className="w-[90%] sm:p-16 justify-start items-start grid grid-flow-row my-4 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 grid-rows-auto gap-4 max-w-[1400px] ">
       <Card img={image} title={"Пано"} onClick={() => setPanoOpen(true)} />
       <Card
         img={pic3}

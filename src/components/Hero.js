@@ -13,7 +13,7 @@ const Hero = () => {
   return (
     <main
       id="hero"
-      className="w-full relative min-h-[80vh] md:min-h-[60vh] text-center flex flex-col justify-center items-center"
+      className="w-full scroll-mt-[20px] mt-[15px] relative min-h-[80vh] md:min-h-[60vh] text-center flex flex-col justify-center items-center"
     >
       <img
         src={hero3}

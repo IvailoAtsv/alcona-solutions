@@ -73,17 +73,15 @@ const FINISHED = [
 export const CaroselGallery = () => {
   const [selected, setSelected] = useState("3D");
   return (
-    <section className="w-full py-6 h-auto flex flex-col justify-center items-center">
-      <div
-        id="gallery"
-        className="lg:w-full w-[90%] max-w-[1920px] mb-8 flex-col flex justify-between items-center"
-      >
+    <section
+      id="gallery"
+      className="scroll-mt-[180px] bg-gray-50 w-full py-6 h-auto flex flex-col justify-center items-center"
+    >
+      <div className="lg:w-full w-[90%] max-w-[1920px] mb-8 flex-col flex justify-between items-center">
         <section className="max-w-[1000px] flex flex-col justify-center items-center">
-          <label class="flex border-gray-700 items-center justify-between px-5 py-3 text-gray-600 bg-white peer-checked:text-gray-100 peer-checked:bg-gray-600">
+          <label class="flex border-gray-700 items-center justify-between px-5 py-3 text-gray-600">
             <div class="flex justify-center items-center flex-col text-center">
-              <div class="w-full text-3xl font-semibold peer-checked:text-orange-400">
-                Изберете Галерия
-              </div>
+              <div class="w-full text-3xl font-semibold">Изберете Галерия</div>
               <div class="w-full text-sm">
                 Различните бутони отварят различен подбор от снимки
               </div>

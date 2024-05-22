@@ -14,7 +14,7 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
   const handleAboutScroll = () => {
     const element = document.getElementById("about");
     if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "center" });
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
       setIsOpen(false);
     }
   };
@@ -42,7 +42,11 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
   const handleProductsScroll = () => {
     const element = document.getElementById("products");
     if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "center" });
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      });
       setIsOpen(false);
     }
   };
@@ -122,7 +126,7 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
               className={navBtnStyles}
               onClick={() => handleProductsScroll()}
             >
-              Каталог
+              Продукти
             </button>
             {/* <button
               className={navBtnStyles}
@@ -132,9 +136,9 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
             </button> */}
             <button
               className={navBtnStyles}
-              onClick={() => handleTechnicalScroll()}
+              onClick={() => handleAboutScroll()}
             >
-              Информация
+              За Нас
             </button>
 
             <button

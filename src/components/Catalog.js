@@ -26,7 +26,10 @@ export const Catalog = ({
   }, [panoOpen, carouselIndex]);
 
   return (
-    <main className="w-full bg-gray-100 py-4 min-h-[40vh] flex justify-start items-center flex-col">
+    <main
+      id="products"
+      className="w-full scroll-mt-[55px] bg-gray-100 py-4 min-h-[40vh] flex justify-start items-center flex-col"
+    >
       <h2 className="text-4xl text-gray-600 font-bold mx-auto underline decoration-orange-400">
         Продукти
       </h2>
@@ -66,7 +69,7 @@ export const Catalog = ({
 
 const ItemList = ({ setPanoOpen, setCarousel }) => {
   return (
-    <section className="w-[90%] sm:p-16 justify-center items-center grid grid-flow-row my-4 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 grid-rows-auto gap-4 max-w-[1400px] h-full ">
+    <section className="w-[90%] sm:p-16 justify-start items-start grid grid-flow-row my-4 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 grid-rows-auto gap-4 max-w-[1400px] h-full ">
       <Card img={image} title={"Пано"} onClick={() => setPanoOpen(true)} />
       <Card
         img={pic3}

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { FiPhoneCall } from "react-icons/fi";
 import logo from "../images/fullLogo.png";
 import { AiOutlineMail } from "react-icons/ai";
@@ -5,12 +6,6 @@ import { FaWhatsapp, FaYoutube } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 
 export function FooterWithSitemap({ setShowPrivacy }) {
-  const handleHeroScroll = () => {
-    const element = document.getElementById("hero");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
   const handleAboutScroll = () => {
     const element = document.getElementById("about");
     if (element) {
@@ -95,19 +90,25 @@ export function FooterWithSitemap({ setShowPrivacy }) {
               className="text-slate-300 hover:text-white"
               target="_blank"
               href="https://www.facebook.com/people/Luxury-Fences-WPC-%D0%9E%D0%B3%D1%80%D0%B0%D0%B4%D0%B8/61553632407058/"
+              rel="noreferrer"
             >
               <FaFacebook size={25} />
             </a>
             <a
               target="_blank"
               href="https://api.whatsapp.com/message/KCTBNDNXZZN2E1?autoload=1&app_absent=0"
+              rel="noreferrer"
             >
               <FaWhatsapp
                 size={28}
                 className="text-slate-300 hover:text-white"
               />
             </a>
-            <a target="_blank" href="https://www.youtube.com/@AlconaSolutions">
+            <a
+              target="_blank"
+              href="https://www.youtube.com/@AlconaSolutions"
+              rel="noreferrer"
+            >
               <FaYoutube
                 size={28}
                 className="text-slate-300 hover:text-white"

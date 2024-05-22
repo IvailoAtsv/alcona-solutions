@@ -55,6 +55,7 @@ function App() {
         />
         <Hero />
         <About />
+        <CaroselGallery />
         <Catalog
           stay={stay}
           setStay={setStay}
@@ -62,7 +63,6 @@ function App() {
           cartItems={cartItems}
           setCartItems={setCartItems}
         />
-        <CaroselGallery />
         <Cart
           cartOpen={cartOpen}
           setCartOpen={setCartOpen}

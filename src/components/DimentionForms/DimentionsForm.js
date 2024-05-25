@@ -23,7 +23,9 @@ export function DimentionsForm({ color, updateFields, isValid, setIsValid }) {
 
   return (
     <>
-      <FormWrapper title="Изберете размер и брой">
+      <FormWrapper
+        title={type === "" ? "Изберете вид пано" : "Изберете размер и брой"}
+      >
         {type === "default" && (
           <DefaultSize
             updateFields={updateFields}
@@ -55,7 +57,7 @@ export function DimentionsForm({ color, updateFields, isValid, setIsValid }) {
               className={`${buttonStyle} group`}
             >
               Стандартно пано{" "}
-              <p className="lg:hidden group-hover:block group-hover:text-gray-200 text-sm font-normal text-gray-700">
+              <p className="group-hover:block group-hover:text-gray-200 font-light text-sm text-gray-600">
                 186cmx186cm
               </p>
             </button>
@@ -64,7 +66,7 @@ export function DimentionsForm({ color, updateFields, isValid, setIsValid }) {
               className={`${buttonStyle} group`}
             >
               Пано по ваш избор{" "}
-              <p className="lg:hidden group-hover:block group-hover:text-gray-200  text-sm font-normal text-gray-500">
+              <p className="group-hover:block group-hover:text-gray-200 font-light text-sm text-gray-600">
                 размери вариращи
                 <br /> от 86-186см ширина
                 <br /> 62-201.5см височина
@@ -75,7 +77,7 @@ export function DimentionsForm({ color, updateFields, isValid, setIsValid }) {
               className={`${buttonStyle} group`}
             >
               Проект от нас
-              <p className="lg:hidden group-hover:block group-hover:text-gray-200 text-sm font-normal text-gray-500">
+              <p className="group-hover:block group-hover:text-gray-200 font-light text-sm text-gray-600">
                 според периметъра
                 <br /> на вашия двор
               </p>

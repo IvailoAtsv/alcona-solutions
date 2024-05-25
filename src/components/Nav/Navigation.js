@@ -70,7 +70,7 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
   const navBtnStyles = `hover:underline transition duration-500 px-2`;
 
   return (
-    <header className="header shadow-md">
+    <header className="header text-gray-600 shadow-md">
       <div className="flex max-w-[1400px] lg:gap-0 w-[100%] items-center">
         <img src={logo} className="h-[20px] pr-[10px]" alt="Logo" />
         <div className="lg:ml-4 flex w-auto flex-col lg:gap-3 pr-4 lg:flex-row h-auto items-start">

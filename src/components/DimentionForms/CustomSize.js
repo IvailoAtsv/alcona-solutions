@@ -105,8 +105,8 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
           <img
             alt="color"
             src={colors[color]}
-            style={{ width: `${width * 2}px`, height: 300 }}
-            className="relative"
+            style={{ width: `${width * 2}px` }}
+            className="relative h-[300px]"
           />
         </div>
       </div>
@@ -162,7 +162,7 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
               value={panelCount}
               onChange={(e) => setPanelCount((prev) => (prev = e.target.value))}
               required
-              className="bg-gray-200 text-xl text-center rounded-md px-2 py-1"
+              className="bg-gray-200 w-[85%] max-w-[140px] sm:max-w-[300px] text-xl text-center rounded-md py-1"
             />
             <button
               className="p-1 rounded-md bg-gray-200"
@@ -172,7 +172,7 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
             </button>
           </div>
           <p className="text-center text-lg py-2">
-            {price * Number(panelCount)} лв.
+            {(price * Number(panelCount)).toFixed(2)} лв.
           </p>
         </div>
       </div>

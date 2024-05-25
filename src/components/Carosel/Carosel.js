@@ -128,7 +128,7 @@ export const Carosel = ({
   }, []);
 
   return (
-    <div className="w-[90%] max-w-[1400px] bg-white rounded-md relative py-4 flex justify-center flex-col items-center">
+    <div className="w-[90%] max-w-[1400px] bg-white rounded-md relative py-4 my-4 flex justify-center flex-col items-center">
       <button
         onClick={() => setCarousel(null)}
         className="absolute underline top-[10px] left-[10px]"

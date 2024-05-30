@@ -12,11 +12,11 @@ export const About = () => {
       id="about"
       className="scroll-mt-[50px] min-h-[75vh] w-full p-4 flex flex-col justify-evenly items-center group py-4"
     >
-      <div className="flex max-w-[1400px] w-[90%] gap-3 flex-col justify-evenly rounded-md p-4 items-center">
-        <h2 className="text-4xl text-gray-600 font-bold mx-auto underline decoration-orange-400">
+      <div className="flex max-w-[1400px] w-[90%] gap-3 flex-col justify-evenly rounded-md py-4 items-center">
+        <h2 className="text-4xl text-gray-600 font-bold text-center mx-auto underline decoration-orange-400">
           Защо Alcona Solutions ?
         </h2>
-        <p className="text-md text-gray-500 md:text-lg text-center w-[95%] p-3 rounded-md">
+        <p className="text-md text-gray-500 md:text-lg text-justify w-[100%] md:w-[90%] rounded-md">
           Alcona Solutions се занимава с проектирането и монтажа на
           висококачествени оградни системи както доставка и монтаж. ние
           създаваме огради с усъвършенстван дизайн и висока функционалност,
@@ -24,7 +24,7 @@ export const About = () => {
           вашите идеи в реалност.
         </p>
       </div>
-      <div className="max-w-[1400px] gap-10 md:gap-0 w-[90%] items-start my-4 justify-between md:flex-row flex-col flex">
+      <div className="max-w-[1400px] gap-10 md:gap-0 w-[100%] md:w-[90%]] items-start my-4 justify-between md:flex-row flex-col flex">
         <Card
           img={
             <PiCubeTransparent className="mx-auto text-orange-400" size={80} />
@@ -90,7 +90,7 @@ const Card = ({ img, title, text, link, btn, more }) => {
   const [readMore, setReadMore] = useState(false);
 
   return (
-    <div className="px-4 text-justify md:w-[30%] flex flex-col justify-between min-h-[350px]">
+    <div className="px-1 w-full md:px-4 text-justify md:w-[30%] flex flex-col justify-between min-h-[350px]">
       {img}
       <div className="flex h-full min-h-[230px] flex-col justify-between items-center">
         <h1 className="text-gray-600 text-center my-3 text-2xl font-semibold ">

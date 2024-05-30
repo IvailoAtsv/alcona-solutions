@@ -20,17 +20,17 @@ const Hero = () => {
         alt="hero"
         className="absolute w-full object-right max-w-[2560px] ml-auto h-full object-cover"
       />
-      <span className="absolute w-full max-w-[2560px] h-full bg-black1 opacity-50"></span>
-      <section className="w-[90%] text-left max-w-[1400px] z-10 text-white h-full flex flex-col justify-center items-start gap-5">
+      <span className="absolute w-full max-w-[2560px] h-full bg-black1 opacity-40"></span>
+      <section className="w-[90%] text-left max-w-[1400px] z-40 text-white h-full flex flex-col justify-center items-start gap-5">
         <h1 className="text-h2clamp leading-tight font-bold">
           Вдъхновяващи <span className="text-orange-400">решения</span> за вашия
           дом и{" "}
-          <span className="relative inline-block">
+          <span className="z-30 relative inline-block">
             <p className="inline">градина </p>
             <img
               src={line}
               alt="title drawing"
-              className="absolute top-[-5px] left-0 z-10"
+              className="absolute top-[-5px] md:top-[-20px] left-0 z-0"
             />
           </span>
         </h1>

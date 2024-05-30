@@ -92,10 +92,14 @@ const Card = ({ img, title, onClick }) => {
   return (
     <div
       onClick={onClick}
-      className="bg-white aspect-square flex p-2 border-2 border-gray-100 transition duration-500 cursor-pointer hover:border-black rounded-md justify-center items-center flex-col"
+      className="bg-white hover:translate-y-[-7px] aspect-square flex p-2 group transition duration-500 cursor-pointer hover:shadow-xl rounded-md justify-center items-center flex-col"
     >
-      <img src={img} alt="item" className="h-[70%]" />
-      <h3 className="text-gray-600 text-md md:text-lg font-semibold">
+      <img
+        src={img}
+        alt="item"
+        className="h-[70%] group-hover:scale-105 transition duration-500"
+      />
+      <h3 className="transition duration-500 group-hover:translate-y-[5px] text-gray-600 text-md md:text-lg font-semibold">
         {title}
       </h3>
     </div>

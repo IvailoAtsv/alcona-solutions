@@ -75,19 +75,19 @@ export const CaroselGallery = () => {
   return (
     <section
       id="gallery"
-      className="scroll-mt-[450px] sm:scroll-mt-[180px] bg-gray-50 w-full py-6 h-auto flex flex-col justify-center items-center"
+      className="scroll-mt-[450px] sm:scroll-mt-[180px] bg-gray-50 w-full pt-6 h-auto flex flex-col justify-center items-center"
     >
       <div className="lg:w-full w-[90%] max-w-[1920px] mb-8 flex-col flex justify-between items-center">
         <section className="max-w-[1000px] flex flex-col justify-center items-center">
           <label class="flex border-gray-700 items-center justify-between px-5 py-3 text-gray-600">
             <div class="flex justify-center items-center flex-col text-center">
               <div class="w-full text-3xl font-semibold">Изберете Галерия</div>
-              <div class="w-full text-sm">
+              <div class="w-full text-orange-400 text-sm">
                 Различните бутони отварят различен подбор от снимки
               </div>
             </div>
           </label>
-          <ul class="grid w-[95%] items-center py-4 gap-4 sm:grid-cols-3">
+          <ul class="grid w-[95%] items-center pb-4 gap-4 sm:grid-cols-3">
             <li>
               <input
                 type="checkbox"

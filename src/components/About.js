@@ -90,21 +90,21 @@ const Card = ({ img, title, text, link, btn, more }) => {
   const [readMore, setReadMore] = useState(false);
 
   return (
-    <div className="px-4 md:w-[30%] flex flex-col justify-between min-h-[350px]">
+    <div className="px-4 text-justify md:w-[30%] flex flex-col justify-between min-h-[350px]">
       {img}
       <div className="flex h-full min-h-[230px] flex-col justify-between items-center">
         <h1 className="text-gray-600 text-center my-3 text-2xl font-semibold ">
           {title}
         </h1>
-        <p className="text-md text-gray-600 font-normal text-start mt-4 w-[95%] h-full">
+        <p className="text-md text-gray-600 font-light text-justify px-4 mt-4 w-[95%] h-full">
           {text}{" "}
         </p>
         {readMore && (
-          <p className="w-[95%] font-normal text-gray-600">{more}</p>
+          <p className="px-4 w-[95%] font-light text-gray-600">{more}</p>
         )}
         {more && (
           <button
-            className="self-end text-gray-500 underline decoration-orange-400 text-lg"
+            className="self-end mr-6 mt-2 text-gray-500 underline decoration-orange-400 text-lg"
             onClick={() => setReadMore((prev) => (prev = !prev))}
           >
             {!readMore ? "прочетете още" : "Прочетете по-малко"}

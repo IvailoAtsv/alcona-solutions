@@ -103,11 +103,17 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
       <div className="flex h-full items-end">
         <div className="flex w-full flex-col justify-evenly lg:flex-row h-full items-center lg:justify-center">
           <img
-            alt="color"
+            alt="panel example color"
             src={colors[color]}
-            style={{ width: `${width * 2}px` }}
-            className="relative h-[300px]"
+            style={{
+              width: `${width * 2}px`,
+              height: `${height * 1.5}px`,
+              position: "relative",
+            }}
           />
+          <p className="text-[10px] absolute lg:self-end text-center top-[54%] translate-x-[-50%] left-[50%] w-[95%] lg:w-[20%]">
+            Показаният цвят на оградата е с илюстративна цел.
+          </p>
         </div>
       </div>
 

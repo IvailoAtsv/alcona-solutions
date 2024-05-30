@@ -20,7 +20,15 @@ const titles = [
   "Alum Начална Лайсна Alcona ",
   "Alum TOP Завършваща Лайсна Alcona",
 ];
-const prices = [0, 29.99, 1, 49.99, 7.99, 29.99, 29.99];
+const prices = [
+  0,
+  29.99 / 1.2,
+  1,
+  49.99 / 1.2,
+  7.99 / 1.2,
+  29.99 / 1.2,
+  29.99 / 1.2,
+];
 
 const images = [pic7, pic5, pic4, pic3, pic1, pic2, pic6];
 
@@ -52,7 +60,7 @@ export const Carosel = ({
   setCarousel,
 }) => {
   const [imageIndex, setImageIndex] = useState(0);
-  const [kolCount, setKolCount] = useState(36.99);
+  const [kolCount, setKolCount] = useState(36.99 / 1.2);
 
   useEffect(() => {}, [imageIndex]);
 
@@ -229,28 +237,28 @@ export const Carosel = ({
                   <button
                     className="rounded-lg p-1 border-2 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
                     type="button"
-                    onClick={() => setKolCount(36.99)}
+                    onClick={() => setKolCount(36.99 / 1.2)}
                   >
                     1.00 м.
                   </button>
                   <button
                     className="rounded-lg p-1 border-2 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
                     type="button"
-                    onClick={() => setKolCount(69.99)}
+                    onClick={() => setKolCount(69.99 / 1.2)}
                   >
                     1.90 м.
                   </button>
                   <button
                     className="rounded-lg p-1 border-2 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
                     type="button"
-                    onClick={() => setKolCount(99.99)}
+                    onClick={() => setKolCount(99.99 / 1.2)}
                   >
                     2.70 м.
                   </button>
                   <button
                     className="rounded-lg p-1 border-2 self-center font-bold duration-500 border-black hover:bg-black hover:text-white"
                     type="button"
-                    onClick={() => setKolCount(102.99)}
+                    onClick={() => setKolCount(102.99 / 1.2)}
                   >
                     2.80 м.
                   </button>
@@ -289,7 +297,7 @@ export const Carosel = ({
             </>
           ) : (
             <h1 className="text-3xl font-bold border-footer p-3">
-              Цени от 133лв./кв.м.
+              Цени от {133 / 1.2}лв./кв.м.
             </h1>
           )}
         </form>

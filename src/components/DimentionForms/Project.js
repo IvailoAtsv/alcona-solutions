@@ -34,11 +34,11 @@ export const Project = ({ updateFields, isValid, setIsValid }) => {
   }, [p]);
 
   const inputStyle =
-    "border-2 px-9 py-2 lg:w-[40%] w-[90%] rounded-md text-black foucs:border-orange-300 focus:ring-0 focus:outline-orange-300";
+    "border-2 px-4 py-2 lg:w-[31%] w-[79%] rounded-md text-black foucs:border-orange-300 focus:ring-0 focus:outline-orange-300";
   return (
     <form className="flex items-center flex-col justify-between w-full">
       <label className="text-xl text-center mt-4 pb-2 font-bold">
-        * Въведете валиден периметър
+        * Въведете периметър в кв.м.
       </label>
 
       <input

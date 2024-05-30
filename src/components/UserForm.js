@@ -48,7 +48,7 @@ export const UserForm = ({
   const emailRef = useRef();
 
   const buttonStyle =
-    " lg:h-[15vw] lg:w-[30%] w-[80%] min-h-[60px] text-3xl rounded-lg py-2 px-6 border-2 self-center font-bold duration-500 border-black hover:bg-black hover:text-white";
+    " lg:h-[15vw] lg:w-[30%] w-[80%] min-h-[60px] text-xl rounded-lg py-2 px-6 border-2 self-center font-bold duration-500 border-black hover:bg-black hover:text-white";
 
   function updateFields(fields) {
     setUserData((prev) => {
@@ -145,17 +145,16 @@ export const UserForm = ({
 
   const handleDelivery = () => {
     validateAll();
-    if (isAllValid()) {
-      updateFields({ pickUp: false });
-      updateFields({ id: orderId });
-      handleSend();
-      setStatus("sent");
-      setTimeout(() => {
-        setOrderStatus("cart");
-        setStatus("");
-      }, 2000);
-      empty();
-    }
+    if (!isAllValid()) return;
+    updateFields({ pickUp: false });
+    updateFields({ id: orderId });
+    handleSend();
+    setStatus("sent");
+    setTimeout(() => {
+      setOrderStatus("cart");
+      setStatus("");
+    }, 2000);
+    empty();
   };
 
   useEffect(() => {
@@ -214,14 +213,14 @@ export const UserForm = ({
       </>
       {status === "info" && (
         <>
-          <h1 className="text-3xl mb-10 font-semibold border-b-4 pb-1 px-4 border-background">
+          <h1 className="text-2xl font-semibold underline decoration-orange-400 pb-1 px-4 border-background">
             Данни за Поръчка
           </h1>
           <div className="flex flex-col w-full h-full justify-evenly items-center">
             <div className="flex flex-col w-[90%] justify-evenly max-w-[500px] rounded-md bg-gray-100 items-center">
               <label
                 className={
-                  !isNameValid && isNameValid !== null
+                  isNameValid === false && isNameValid !== null
                     ? labelErrorStyle
                     : labelStyle
                 }

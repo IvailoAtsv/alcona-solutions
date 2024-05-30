@@ -142,7 +142,10 @@ export const DefaultSize = ({ color, updateFields, isValid, setIsValid }) => {
             </button>
           </div>
           <p className="text-center text-lg py-2">
-            {premium.includes(color) ? 660 * panelCount : 460 * panelCount} лв.
+            {premium.includes(color)
+              ? ((660 / 1.2) * panelCount).toFixed(2)
+              : ((460 / 1.2) * panelCount).toFixed(2)}{" "}
+            лв.
           </p>
         </div>
         <p className="text-2xl text-center mt-4 text-red-600 font-bold">

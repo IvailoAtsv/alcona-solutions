@@ -40,16 +40,16 @@ const colorNames = {
 };
 
 const heights = {
-  62.0: 98.99,
-  77.5: 103.99,
-  93.0: 107.99,
-  108.5: 111.99,
-  124.0: 129.99,
-  139.5: 129.99,
-  155.0: 129.99,
-  170.5: 129.99,
-  186.0: 129.99,
-  201.5: 153.99,
+  62.0: 98.99 / 1.2,
+  77.5: 103.99 / 1.2,
+  93.0: 107.99 / 1.2,
+  108.5: 111.99 / 1.2,
+  124.0: 129.99 / 1.2,
+  139.5: 129.99 / 1.2,
+  155.0: 129.99 / 1.2,
+  170.5: 129.99 / 1.2,
+  186.0: 129.99 / 1.2,
+  201.5: 153.99 / 1.2,
 };
 
 export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
@@ -136,7 +136,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
           ].height
         ];
     }
-    return finalSum;
+    return finalSum.toFixed(2);
   };
 
   const addAdditional = (cartItems) => {
@@ -236,7 +236,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
                       <p className="text-end">x1</p>
                     </div>
                     <p className="self-end pt-2">
-                      {heights[cartItems[0].height]}
+                      {heights[cartItems[0].height].toFixed(2)}
                     </p>
                   </div>
                 )}
@@ -266,11 +266,11 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
               </div>
             )}
             {orderStatus === "cart" ? (
-              <div className="w-[90%] mt-1 h-auto flex items-center justify-between">
+              <div className="w-[90%] mt-1 gap-1 h-auto flex items-center justify-between">
                 {cartItems.length !== 0 && (
                   <button
                     onClick={empty}
-                    className="self-end whitespace-nowrap rounded-lg py-1 px-6 border-2 font-bold duration-500 bg-white border-gray-600 hover:bg-gray-600 hover:text-white"
+                    className="flex-1 self-end whitespace-nowrap rounded-lg py-2 px-3 border-2 font-bold duration-500 bg-white border-gray-600 hover:bg-gray-600 hover:text-white"
                   >
                     Изтрий всички
                   </button>
@@ -281,7 +281,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
                 {cartItems.length !== 0 && (
                   <button
                     onClick={() => setOrderStatus("order")}
-                    className="self-end whitespace-nowrap rounded-lg py-1 px-6 border-2 font-bold duration-500 bg-white border-gray-600 hover:bg-gray-600 hover:text-white"
+                    className="flex-1 self-end whitespace-nowrap rounded-lg py-2 px-3 border-2 font-bold duration-500 bg-white border-gray-600 hover:bg-gray-600 hover:text-white"
                   >
                     Към Поръчка
                   </button>
@@ -328,7 +328,7 @@ const CartItem = ({
         <FiTrash />
       </button>
       <div className="flex items-center justify-between w-full">
-        <img className="w-16" src={colors[color]} />
+        <img alt="color of panel" className="w-16" src={colors[color]} />
         <div className="flex pl-4 w-[80%] flex-col items-center">
           {premium.includes(color) && (
             <BiCrown
@@ -393,7 +393,7 @@ const CartElement = ({ color, count, itemName, src, onRemove, id, price }) => {
     <div className="w-[90%] flex flex-col shadow-md bg-slate-100 rounded-lg">
       <div className=" p-4  w-full h-auto  rounded-md flex justify-between items-center">
         <div className="flex justify-center w-full items-center">
-          <img className="w-16" src={src} />
+          <img alt="panel/item" className="w-16" src={src} />
           <div className="pl-4 w-[60%]">
             {color && <p>цвят {color}</p>}
             <p> {itemName}</p>

@@ -67,12 +67,16 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const navBtnStyles = `hover:underline transition duration-500 px-2`;
+  const navBtnStyles = `hover:underline decoration-orange-400 transition duration-500 px-2`;
 
   return (
-    <header className="header text-gray-600 shadow-md">
+    <header className=" header w-full text-gray-600 shadow-md">
       <div className="flex max-w-[1400px] lg:gap-0 w-[100%] items-center">
-        <img src={logo} className="h-[20px] pr-[10px]" alt="Logo" />
+        <img
+          src={logo}
+          className="h-[20px] pr-[10px]"
+          alt="Alcona Solutions Logo"
+        />
         <div className="lg:ml-4 flex w-auto flex-col lg:gap-3 pr-4 lg:flex-row h-auto items-start">
           <div className="flex items-center justify-center gap-1 w-auto">
             <FiPhoneCall size={16} />

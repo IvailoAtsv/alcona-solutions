@@ -82,8 +82,8 @@ const ItemList = ({ setPanoOpen, setCarousel }) => {
         onClick={() => setCarousel(1)}
       />
       <Card img={pic4} title={"WPC Стълб"} onClick={() => setCarousel(2)} />
-      <Card img={pic2} title={"Долна Лайсна"} onClick={() => setCarousel(5)} />
-      <Card img={pic6} title={"Горна Лайсна"} onClick={() => setCarousel(6)} />
+      <Card img={pic2} title={"Долна лайстна"} onClick={() => setCarousel(5)} />
+      <Card img={pic6} title={"Горна лайстна"} onClick={() => setCarousel(6)} />
       <Card img={pic1} title={"WPC Капачка"} onClick={() => setCarousel(4)} />
     </section>
   );

@@ -375,10 +375,10 @@ const CartItem = ({
             <p className="w-full border-b">метална основа {panelCount}</p>
             <p className="w-full border-b">анкерен болт х {panelCount * 4}</p>
             <p className="w-full border-b">
-              долна алуминиева лайсна х {panelCount}
+              долна алуминиева лайстна х {panelCount}
             </p>
             <p className="w-full border-b">
-              горна алуминиева лайсна х {panelCount}
+              горна алуминиева лайстна х {panelCount}
             </p>
           </>
         )}

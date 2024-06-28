@@ -13,14 +13,14 @@ const Hero = () => {
   return (
     <main
       id="hero"
-      className="w-full scroll-mt-[20px] mt-[15px] relative min-h-[80vh] md:min-h-[60vh] text-center flex flex-col justify-center items-center"
+      className="w-full scroll-mt-[20px] mt-[15px] relative min-h-[60vh] text-center flex flex-col justify-center items-center"
     >
       <img
         src={hero3}
         alt="hero"
-        className="absolute w-full object-right max-w-[2560px] ml-auto h-full object-cover"
+        className="absolute blur-sm w-full object-right max-w-[2560px] ml-auto h-full object-cover"
       />
-      <span className="absolute w-full max-w-[2560px] h-full bg-black1 opacity-40"></span>
+      <span className="absolute w-full max-w-[2560px] h-full bg-black1 opacity-50"></span>
       <section className="w-[90%] text-left max-w-[1400px] z-40 text-white h-full flex flex-col justify-center items-start gap-5">
         <h1 className="text-h2clamp leading-tight font-bold">
           Вдъхновяващи <span className="text-orange-400">решения</span> за вашия
@@ -30,7 +30,7 @@ const Hero = () => {
             <img
               src={line}
               alt="title drawing"
-              className="absolute top-[-5px] md:top-[-20px] left-0 z-0"
+              className="absolute top-[-5px] md:top-[-15px] left-0 z-0"
             />
           </span>
         </h1>
@@ -42,16 +42,16 @@ const Hero = () => {
         <div className="flex flex-col md:flex-row items-center gap-2">
           <button
             onClick={handleContactScroll}
-            className="rounded-lg border-2 border-orange-400 hover:border-orange-500 mt-2 py-2 px-6 self-start font-bold duration-500  hover:bg-orange-500 bg-orange-400 text-white"
+            className="flex-1 w-full rounded-lg border-2 border-orange-400 hover:border-orange-500 mt-2 py-2 px-6 self-start font-bold duration-500 text-lg hover:bg-orange-500 bg-orange-400 text-white"
           >
             Свържете се с нас
           </button>
           <button
             onClick={downloadImage}
-            className="rounded-lg mt-2 py-2 px-6 self-start font-bold duration-500 
+            className="flex-1 w-full whitespace-nowrap rounded-lg text-lg mt-2 py-2 px-6 self-start font-bold duration-500 
             border-2 border-orange-400 text-white hover:bg-orange-400 bg-transparent "
           >
-            Изтеглете инструкции за монтаж
+            Инструкции за монтаж
           </button>
         </div>
       </section>

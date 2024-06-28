@@ -158,7 +158,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
           onClick={(e) => {
             if (e.target.id === "outside-cart") setCartOpen(false);
           }}
-          className="text-gray-600 w-full z-50 h-[100vh] bg-gray-600 bg-opacity-50 fixed top-0 right-0 flex justify-between flex-col items-end"
+          className="text-gray-600 w-full z-50 h-[100vh] bg-gray-950 bg-opacity-50 fixed top-0 right-0 flex justify-between flex-col items-end"
         >
           <div className="sm:w-[60%] mt-[50px] overflow-y-auto bg-gray-200 w-full h-auto shadow-lg rounded-md flex justify-center flex-col p-4 items-center">
             <div className="w-full flex justify-center">

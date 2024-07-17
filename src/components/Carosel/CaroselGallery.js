@@ -9,7 +9,6 @@ import pic11 from "./gallery/11.webp";
 import pic13 from "./gallery/13.webp";
 import pic14 from "./gallery/14.webp";
 import pic15 from "./gallery/15.webp";
-import pic16 from "./gallery/16.mp4";
 import pic22 from "./gallery/22.webp";
 import pic24 from "./gallery/24.webp";
 import pic25 from "./gallery/25.webp";
@@ -18,6 +17,17 @@ import pic27 from "./finished/27.webp";
 import pic28 from "./finished/28.webp";
 import pic29 from "./finished/29.webp";
 import pic31 from "./gallery/31.webp";
+import pic21 from "./gallery/21.webp";
+import pic16 from "./gallery/16.webp";
+import pic58 from "./gallery/58.webp";
+import pic57 from "./gallery/57.webp";
+import pic61 from "./gallery/61.webp";
+import pic73 from "./gallery/73.webp";
+import pic60 from "./gallery/60.webp";
+import pic47 from "./gallery/47.webp";
+import pic46 from "./gallery/46.webp";
+import pic302 from "./gallery/302.webp";
+import pic242 from "./gallery/242.webp";
 import pic33 from "./3d/33.webp";
 import pic34 from "./3d/34.webp";
 import pic35 from "./3d/35.webp";
@@ -47,19 +57,32 @@ const IMAGES3D = [
 ];
 
 const IMAGES = [
+  // { src: pic16, alt: "dyska" },
+  { src: pic21, alt: "dyska" },
   { src: pic16, alt: "dyska" },
+  { src: pic242, alt: "dyska" },
+  { src: pic58, alt: "dyska" },
+  { src: pic57, alt: "dyska" },
+  { src: pic61, alt: "dyska" },
+  { src: pic73, alt: "dyska" },
+  { src: pic60, alt: "dyska" },
+  { src: pic27, alt: "dyska" },
+  { src: pic47, alt: "dyska" },
+  { src: pic46, alt: "dyska" },
+  { src: pic302, alt: "dyska" },
   { src: pic8, alt: "dyska" },
+
   { src: pic9, alt: "dyska" },
-  { src: pic10, alt: "dyska" },
+  // { src: pic10, alt: "dyska" },
   { src: pic11, alt: "dyska" },
-  { src: pic13, alt: "dyska" },
+  // { src: pic13, alt: "dyska" },
   { src: pic4, alt: "kol" },
   { src: pic1, alt: "shapka" },
   { src: pic7, alt: "Panel" },
-  { src: pic6, alt: "gorna" },
+  // { src: pic6, alt: "gorna" },
   { src: pic14, alt: "gorna" },
   { src: pic15, alt: "gorna" },
-  { src: pic22, alt: "gorna" },
+  // { src: pic22, alt: "gorna" },
   { src: pic24, alt: "gorna" },
   { src: pic25, alt: "gorna" },
   { src: pic30, alt: "gorna" },
@@ -71,7 +94,7 @@ const FINISHED = [
   { src: pic29, alt: "finished product" },
 ];
 export const CaroselGallery = () => {
-  const [selected, setSelected] = useState("3D");
+  const [selected, setSelected] = useState("galery");
   return (
     <section
       id="gallery"
@@ -91,24 +114,23 @@ export const CaroselGallery = () => {
             <li>
               <input
                 type="checkbox"
-                id="3D"
+                id="galery"
+                checked={selected === "galery"}
                 value=""
-                onClick={() => setSelected("3D")}
-                checked={selected === "3D"}
+                onClick={() => setSelected("galery")}
                 class="hidden peer"
                 required=""
               />
-              <label for="3D" className={liStyles}>
+              <label for="galery" className={liStyles}>
                 <div class="block">
-                  <div class="w-full text-lg font-semibold peer-checked:text-orange-400">
-                    3D визуализация
-                  </div>
-                  <div class="w-full text-sm">
+                  <div class="w-full text-lg font-semibold ">Галерия</div>
+                  <div class="w-full peer-checked:text-gray-100 text-sm">
                     Снимки свързани с нашата дейност.
                   </div>
                 </div>
               </label>
             </li>
+
             <li>
               <input
                 type="checkbox"
@@ -133,17 +155,19 @@ export const CaroselGallery = () => {
             <li>
               <input
                 type="checkbox"
-                id="galery"
-                checked={selected === "galery"}
+                id="3D"
                 value=""
-                onClick={() => setSelected("galery")}
+                onClick={() => setSelected("3D")}
+                checked={selected === "3D"}
                 class="hidden peer"
                 required=""
               />
-              <label for="galery" className={liStyles}>
+              <label for="3D" className={liStyles}>
                 <div class="block">
-                  <div class="w-full text-lg font-semibold ">Галерия</div>
-                  <div class="w-full peer-checked:text-gray-100 text-sm">
+                  <div class="w-full text-lg font-semibold peer-checked:text-orange-400">
+                    3D визуализация
+                  </div>
+                  <div class="w-full text-sm">
                     Снимки свързани с нашата дейност.
                   </div>
                 </div>

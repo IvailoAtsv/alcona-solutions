@@ -30,7 +30,7 @@ export const Catalog = ({
       id="products"
       className="w-full scroll-mt-[55px] bg-gray-100 py-6 min-h-[40vh] flex justify-start items-center flex-col"
     >
-      <h2 className="text-4xl text-gray-600 font-bold mx-auto underline decoration-orange-400">
+      <h2 className="text-3xl text-gray-600 font-bold mx-auto underline decoration-orange-400">
         Продукти
       </h2>
       <button className="absolute top-5 right-5">close</button>

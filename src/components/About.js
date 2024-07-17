@@ -13,10 +13,10 @@ export const About = () => {
       className="scroll-mt-[50px] min-h-[60vh] w-full flex flex-col justify-evenly items-center group py-4"
     >
       <div className="flex max-w-7xl w-[95%] gap-3 flex-col justify-evenly rounded-md py-4 items-center">
-        <h2 className="text-4xl text-gray-600 font-bold text-center mx-auto underline decoration-orange-400">
+        <h2 className="text-3xl text-gray-600 font-bold text-center mx-auto underline decoration-orange-400">
           Защо Alcona Solutions ?
         </h2>
-        <p className="text-md p-1 md:p-5 text-gray-500 md:text-lg text-justify max-w-7xl w-[100%] rounded-md">
+        <p className="text-md p-3 md:p-5 text-gray-500 md:text-lg text-justify max-w-7xl w-[100%] rounded-md">
           Ние сме Вашият надежден партньор за уникални огради от WPC. Нашата
           специализирана компания предлага пълни решения, включително
           проектиране, доставка и монтаж на висококачествени оградни системи от

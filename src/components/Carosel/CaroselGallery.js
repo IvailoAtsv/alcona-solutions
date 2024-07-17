@@ -66,7 +66,6 @@ const IMAGES = [
   { src: pic61, alt: "dyska" },
   { src: pic73, alt: "dyska" },
   { src: pic60, alt: "dyska" },
-  { src: pic27, alt: "dyska" },
   { src: pic47, alt: "dyska" },
   { src: pic46, alt: "dyska" },
   { src: pic302, alt: "dyska" },

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
-
+import img from "../images/hero/8.webp";
 export const Contact = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -104,67 +104,74 @@ export const Contact = () => {
   return (
     <div
       id="contact"
-      className={`w-[100%] text-gray-600 h-auto flex-col flex justify-center items-center`}
+      className={`w-full text-gray-600 h-auto min-h-[650px] flex-col flex justify-center items-center`}
     >
       {sent ? (
         <h1 className="text-3xl text-gray-600 font-semibold">
           Благодарим за отделеното време! Вашето запитване беше изпратено
         </h1>
       ) : (
-        <>
-          <span className="w-[100%] p-4 bg-footer min-h-[100px] text-2xl font-bold flex items-center text-white justify-center">
+        <div className="flex flex-col justify-center items-center min-h-[650px] w-full">
+          <span className="w-full  p-4 bg-footer min-h-[100px] text-2xl font-bold flex items-center text-white justify-center">
             Имате запитване? Свържете се с нас!
           </span>
-          <form
-            id="form"
-            className="max-w-[700px] w-[100%] p-4 sm:px-8 bg-white backdrop-blur-md justify-center items-center flex flex-col min-h-min"
-          >
-            <label className={isNameValid ? labelStyle : labelErrorStyle}>
-              * Име и Фамилия:{" "}
-            </label>
-            <input
-              onChange={(e) => validateName(e)}
-              className={inputStyle}
-              required
-              name="name"
+          <div className="flex  w-full items-center min-h-[600px] flex-col md:flex-row justify-center max-w-7xl">
+            <img
+              src={img}
+              className="flex-1 h-full md:min-h-[450px] rounded-md object-cover max-h-[300px] md:max-h-[700px] w-[95%] my-2 mx-auto md:max-w-[50%]"
+              alt="alcona fences"
             />
-            <label className={isPhoneValid ? labelStyle : labelErrorStyle}>
-              * Телефон:{" "}
-            </label>
-            <input
-              onChange={(e) => validatePhone(e)}
-              className={inputStyle}
-              required
-              name="phone"
-            />
-            <label className={isEmailValid ? labelStyle : labelErrorStyle}>
-              * e-mail за връзка:{" "}
-            </label>
-            <input
-              onChange={(e) => validateEmail(e)}
-              className={inputStyle}
-              required
-              name="email"
-            />
-            <label className={isQuestionValid ? labelStyle : labelErrorStyle}>
-              * Въпрос:
-            </label>
-            <input
-              className={inputStyle}
-              required
-              name="question"
-              onChange={(e) => validateQuesiton(e)}
-            />
-            <button
-              onClick={handleSubmit}
-              disabled={!isValid}
-              className="ml-auto rounded-lg px-6 py-3
-            font-bold duration-500 cursor-pointer hover:opacity-100 opacity-90 bg-footer text-white"
+            <form
+              id="form"
+              className="max-w-[700px] w-full p-4 sm:px-8 bg-white backdrop-blur-md justify-center items-center flex flex-col min-h-min md:min-h-[600px]"
             >
-              Изпращане
-            </button>
-          </form>
-        </>
+              <label className={isNameValid ? labelStyle : labelErrorStyle}>
+                * Име и Фамилия:{" "}
+              </label>
+              <input
+                onChange={(e) => validateName(e)}
+                className={inputStyle}
+                required
+                name="name"
+              />
+              <label className={isPhoneValid ? labelStyle : labelErrorStyle}>
+                * Телефон:{" "}
+              </label>
+              <input
+                onChange={(e) => validatePhone(e)}
+                className={inputStyle}
+                required
+                name="phone"
+              />
+              <label className={isEmailValid ? labelStyle : labelErrorStyle}>
+                * e-mail за връзка:{" "}
+              </label>
+              <input
+                onChange={(e) => validateEmail(e)}
+                className={inputStyle}
+                required
+                name="email"
+              />
+              <label className={isQuestionValid ? labelStyle : labelErrorStyle}>
+                * Въпрос:
+              </label>
+              <input
+                className={inputStyle}
+                required
+                name="question"
+                onChange={(e) => validateQuesiton(e)}
+              />
+              <button
+                onClick={handleSubmit}
+                disabled={!isValid}
+                className="ml-auto rounded-lg px-6 py-3
+            font-bold duration-500 cursor-pointer hover:opacity-100 opacity-90 bg-footer text-white"
+              >
+                Изпращане
+              </button>
+            </form>
+          </div>
+        </div>
       )}
     </div>
   );

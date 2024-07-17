@@ -1,6 +1,22 @@
 import { downloadImage } from "../components/About";
-import hero3 from "../images/hero3.jpeg";
-import line from "../images/llline2.svg";
+import heroImage from "../images/hero/10.webp";
+import heroImage2 from "../images/hero/4.webp";
+import heroImage3 from "../images/hero/8.webp";
+import heroImage4 from "../images/hero/7.webp";
+import heroImage5 from "../images/hero/6.webp";
+import heroImage6 from "../images/hero/5.webp";
+import line from "../images//llline2.svg";
+import Carousel from "react-gallery-carousel";
+import "react-gallery-carousel/dist/index.css";
+
+const images = [
+  { src: heroImage },
+  { src: heroImage2 },
+  { src: heroImage3 },
+  { src: heroImage4 },
+  { src: heroImage5 },
+  { src: heroImage6 },
+];
 
 const Hero = () => {
   const handleContactScroll = () => {
@@ -15,13 +31,30 @@ const Hero = () => {
       id="hero"
       className="w-full scroll-mt-[20px] mt-[15px] relative min-h-[60vh] text-center flex flex-col justify-center items-center"
     >
-      <img
+      {/* <img
         src={hero3}
         alt="hero"
         className="absolute blur-sm w-full object-right max-w-[2560px] ml-auto h-full object-cover"
+      /> */}
+      <Carousel
+        autoPlayInterval={3500}
+        hasIndexBoard={false}
+        hasMediaButton={false}
+        images={images}
+        hasSizeButton={false}
+        isAutoPlaying={true}
+        isLoop={true}
+        hasThumbnails={false}
+        hasLeftButton={false}
+        hasRightButton={false}
+        style={{
+          width: "100%",
+          height: "70vh",
+          position: "relative",
+        }}
       />
-      <span className="absolute w-full max-w-[2560px] h-full bg-black1 opacity-50"></span>
-      <section className="w-[90%] text-left max-w-7xl z-40 text-white h-full flex flex-col justify-center items-start gap-5">
+      <span className="absolute w-full max-w-[2560px] h-full bg-black1 opacity-60"></span>
+      <section className="absolute top-0 left-[50%] translate-x-[-50%] w-[90%] text-left max-w-7xl z-40 text-white h-full flex flex-col justify-center items-start gap-5">
         <h1 className="text-h2clamp leading-tight font-bold">
           Вдъхновяващи <span className="text-orange-400">решения</span> за вашия
           дом и{" "}

@@ -1,5 +1,5 @@
 import about from "../images/about.jpeg";
-import quality from "../images/quality.jpg";
+import quality from "../images/quality.webp";
 import hero3 from "../images/hero3.jpeg";
 
 const images = [about, quality, hero3];

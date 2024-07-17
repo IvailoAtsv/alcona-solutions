@@ -1,4 +1,4 @@
-import logo from "../../images/logo.png";
+import logo from "../../images/logo.webp";
 import { useState } from "react";
 import "./nav.css";
 import "./queries.css";

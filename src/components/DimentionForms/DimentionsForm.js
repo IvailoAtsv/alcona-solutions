@@ -69,7 +69,7 @@ export function DimentionsForm({ color, updateFields, isValid, setIsValid }) {
               <p className="group-hover:block group-hover:text-gray-200 font-light text-sm text-gray-600">
                 размери вариращи
                 <br /> от 86-186см ширина
-                <br /> 62-201.5см височина
+                <br /> 62-186см височина
               </p>
             </button>
             <button

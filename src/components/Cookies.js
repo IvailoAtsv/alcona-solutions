@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSpring, animated } from "react-spring";
-import cookie from "../images/cookie.png";
+import cookie from "../images/cookie.webp";
 
 export const Cookies = ({ setShowPrivacy }) => {
   const [showCookie, setShowCookie] = useState(false);

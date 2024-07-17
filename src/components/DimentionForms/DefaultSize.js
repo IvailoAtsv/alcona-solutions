@@ -1,27 +1,27 @@
 import { useEffect, useState } from "react";
 import "../dimentions.css";
-import fence from "../../images/fence.png";
+import fence from "../../images/fence.webp";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
-import black from "../Colors/black.png";
-import darkCoffee from "../Colors/darkCoffee.png";
-import green from "../Colors/green.png";
-import lightCoffee from "../Colors/lightCoffee.png";
-import lightGrey from "../Colors/lightGrey.png";
-import maple from "../Colors/maple.png";
-import sandyBrown from "../Colors/sandyBrown.png";
-import teak from "../Colors/teak.png";
-import rosewood from "../Colors/rosewood.png";
-import reddishBrown from "../Colors/reddishBrown.png";
-import BlackSquare from "../../colors/Black.png";
-import DarkCoffeeSquare from "../../colors/DarkCoffee.png";
-import GreenSquare from "../../colors/Green.png";
-import LightCoffeeSquare from "../../colors/LightCoffee.png";
-import LightGreySquare from "../../colors/LightGrey.png";
-import MapleSquare from "../../colors/Maple.png";
-import ReddishBrownSquare from "../../colors/ReddishBrown.png";
-import RosewoodSquare from "../../colors/Rosewood.png";
-import SandyBrownSquare from "../../colors/SandyBrown.png";
-import TeakSquare from "../../colors/Teak.png";
+import black from "../Colors/black.webp";
+import darkCoffee from "../Colors/darkCoffee.webp";
+import green from "../Colors/green.webp";
+import lightCoffee from "../Colors/lightCoffee.webp";
+import lightGrey from "../Colors/lightGrey.webp";
+import maple from "../Colors/maple.webp";
+import sandyBrown from "../Colors/sandyBrown.webp";
+import teak from "../Colors/teak.webp";
+import rosewood from "../Colors/rosewood.webp";
+import reddishBrown from "../Colors/reddishBrown.webp";
+import BlackSquare from "../../colors/Black.webp";
+import DarkCoffeeSquare from "../../colors/DarkCoffee.webp";
+import GreenSquare from "../../colors/Green.webp";
+import LightCoffeeSquare from "../../colors/LightCoffee.webp";
+import LightGreySquare from "../../colors/LightGrey.webp";
+import MapleSquare from "../../colors/Maple.webp";
+import ReddishBrownSquare from "../../colors/ReddishBrown.webp";
+import RosewoodSquare from "../../colors/Rosewood.webp";
+import SandyBrownSquare from "../../colors/SandyBrown.webp";
+import TeakSquare from "../../colors/Teak.webp";
 
 const colorSquares = {
   black: BlackSquare,

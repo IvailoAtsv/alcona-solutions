@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { FiPhoneCall } from "react-icons/fi";
-import logo from "../images/fullLogo.png";
+import logo from "../images/fullLogo.webp";
 import { AiOutlineMail } from "react-icons/ai";
 import { FaWhatsapp, FaYoutube } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";

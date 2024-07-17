@@ -1,15 +1,15 @@
 import { Color } from "./Color";
 import { FormWrapper } from "./FormWrapper";
-import Black from "../colors/Black.png";
-import DarkCoffee from "../colors/DarkCoffee.png";
-import Green from "../colors/Green.png";
-import LightCoffee from "../colors/LightCoffee.png";
-import LightGrey from "../colors/LightGrey.png";
-import Maple from "../colors/Maple.png";
-import ReddishBrown from "../colors/ReddishBrown.png";
-import Rosewood from "../colors/Rosewood.png";
-import SandyBrown from "../colors/SandyBrown.png";
-import Teak from "../colors/Teak.png";
+import Black from "../colors/Black.webp";
+import DarkCoffee from "../colors/DarkCoffee.webp";
+import Green from "../colors/Green.webp";
+import LightCoffee from "../colors/LightCoffee.webp";
+import LightGrey from "../colors/LightGrey.webp";
+import Maple from "../colors/Maple.webp";
+import ReddishBrown from "../colors/ReddishBrown.webp";
+import Rosewood from "../colors/Rosewood.webp";
+import SandyBrown from "../colors/SandyBrown.webp";
+import Teak from "../colors/Teak.webp";
 
 const colorData = [
   { name: "rosewood", premium: true, display: "Rosewood", pic: Rosewood },

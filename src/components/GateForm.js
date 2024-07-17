@@ -89,7 +89,7 @@ export function GateForm({
         {panoOpen && (
           <button
             onClick={() => setPanoOpen(false)}
-            className="absolute top-5 left-5 underline"
+            className="absolute top-5 left-5 underline text-orange-400"
           >
             Назад към Каталог
           </button>

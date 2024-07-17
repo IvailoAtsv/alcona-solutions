@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "../dimentions.css";
-import fence from "../../images/fence.png";
+import fence from "../../images/fence.webp";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 
 export const Project = ({ updateFields, isValid, setIsValid }) => {

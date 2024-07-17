@@ -1,9 +1,10 @@
 import { PiCubeTransparent } from "react-icons/pi";
 import { AiOutlineSafetyCertificate } from "react-icons/ai";
-import { FaHandHoldingHeart, FaYoutube } from "react-icons/fa";
+import { FaHandHoldingHeart } from "react-icons/fa";
 import installation from "../files/installation.pdf";
 import React, { useState } from "react";
 import { saveAs } from "file-saver";
+import certificates from "../images/certificate.webp";
 
 export const About = () => {
   return (
@@ -34,6 +35,7 @@ export const About = () => {
           }
           title="3D проектиране"
           text="Ние от Alcona Solutions ще проектираме дизайна на Вашата бъдеща ограда напълно БЕЗПЛАТНО. Свържете се с нас за да научите повече. В замяна ще получите 3D проект спрямо Вашите изисквания за ограда и съществуващият имот."
+          link={"#gallery"}
         />
 
         <Card
@@ -45,17 +47,37 @@ export const About = () => {
           }
           title="Сертификати"
           text="Гаранция за най-високо качество. Нашите сертификати гарантират високо качество и издръжливост до 20 години."
-          more="20 Години Ограничена Гаранция WPC (Дървесно-пластмасов композит) Продукти
-
-          Изключения:
-          Тази гаранция не се отнася до никакви продукти които са :       
-          - повредени от форсмажорни събития, актове на война
-          - повредени поради транспортен инцидент или неизправност
-          - не са инсталирани в съответствие с предоставените инструкции за монтаж, местните строителни кодекси, правила и регламенти на общността с ограничен достъп
-          - са били използвани, модифицирани или обработвани по начин, не предвиден от Производителя
-          - нормално износване и стареене, което не засяга употребата на продуктите, като малка разлика в цвета, избледняване, малки напуквания и кривене, причинени от продължителна употреба
-          
-          Неспазването или непослушание на ограниченията, предоставени с продукта или несъответствие с местните строителни кодекси, правила и регламенти на общността с ограничен достъп, ще направи гаранцията невалидна и без допълнително действие. Производителят запазва правото си да проверява материалите, да разследва всички искове, при които е било направено такова иска. Всички строежи, използващи продуктите от WPC, трябва да бъдат в съответствие с всички местни зонингови и/или строителни кодекси. За получаване на възстановяване или замяна, оригиналният собственик трябва да представи искането си с оригиналната фактура за закупуване, посочваща датата на закупуване, снимки на дефектните продукти и подробно описание на събието."
+          more={
+            <div className="mt-3">
+              <img src={certificates} alt="сертификати на Алкона Солюшънс" />
+              <p>
+                "20 Години Ограничена Гаранция WPC (Дървесно-пластмасов
+                композит) Продукти Изключения: Тази гаранция не се отнася до
+                никакви продукти които са :- повредени от форсмажорни събития,
+                актове на война - повредени поради транспортен инцидент или
+                неизправност - не са инсталирани в съответствие с предоставените
+                инструкции за монтаж, местните строителни кодекси, правила и
+                регламенти на общността с ограничен достъп - са били използвани,
+                модифицирани или обработвани по начин, не предвиден от
+                Производителя - нормално износване и стареене, което не засяга
+                употребата на продуктите, като малка разлика в цвета,
+                избледняване, малки напуквания и кривене, причинени от
+                продължителна употреба. Неспазването или непослушание на
+                ограниченията, предоставени с продукта или несъответствие с
+                местните строителни кодекси, правила и регламенти на общността с
+                ограничен достъп, ще направи гаранцията невалидна и без
+                допълнително действие. Производителят запазва правото си да
+                проверява материалите, да разследва всички искове, при които е
+                било направено такова иска. Всички строежи, използващи
+                продуктите от WPC, трябва да бъдат в съответствие с всички
+                местни зонингови и/или строителни кодекси. За получаване на
+                възстановяване или замяна, оригиналният собственик трябва да
+                представи искането си с оригиналната фактура за закупуване,
+                посочваща датата на закупуване, снимки на дефектните продукти и
+                подробно описание на събието.
+              </p>
+            </div>
+          }
         />
         <Card
           img={
@@ -90,9 +112,9 @@ const Card = ({ img, title, text, link, btn, more }) => {
   const [readMore, setReadMore] = useState(false);
 
   return (
-    <div className="px-1 flex-1 text-justify w-full flex flex-col justify-between min-h-[350px]">
+    <div className="px-1 flex-1 gap-2 text-justify w-full flex flex-col justify-between min-h-[350px]">
       {img}
-      <div className="flex h-full min-h-[230px] flex-col justify-between items-center">
+      <div className="flex h-full min-h-[230px] gap-2 flex-col justify-between items-center">
         <h1 className="text-gray-600 text-center my-3 text-2xl font-semibold ">
           {title}
         </h1>
@@ -104,7 +126,7 @@ const Card = ({ img, title, text, link, btn, more }) => {
         )}
         {more && (
           <button
-            className="self-end mr-6 mt-2 text-gray-500 underline decoration-orange-400 text-lg"
+            className="self-end mr-6 mt-2 hover:text-orange-400 transition duration-500 text-gray-500 underline decoration-orange-400 text-lg"
             onClick={() => setReadMore((prev) => (prev = !prev))}
           >
             {!readMore ? "прочетете още" : "Прочетете по-малко"}
@@ -125,16 +147,12 @@ const Card = ({ img, title, text, link, btn, more }) => {
           </button>
         )} */}
         {link && (
-          <div className="flex flex-col w-full gap-1">
-            <a
-              target="_blank"
-              href="https://www.youtube.com/@AlconaSolutions"
-              className="rounded-lg mx-auto w-[90%] flex items-center justify-center gap-2 py-3 px-6 border-2 mb-2 self-center text-md font-bold duration-500 border-orange-400 hover:bg-orange-400 text-center hover:text-white"
-              rel="noreferrer"
-            >
-              Видео Инструкции <FaYoutube size={24} className="inline" />
-            </a>
-          </div>
+          <a
+            href="#gallery"
+            className="self-end mr-6 mt-2 hover:text-orange-400 transition duration-500 text-gray-500 underline decoration-orange-400 text-lg"
+          >
+            научете повече
+          </a>
         )}
       </div>
     </div>

@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import image from "../images/fence.png";
+import image from "../images/fence.webp";
 import { MainForm } from "./MainForm";
 import { Carosel } from "./Carosel/Carosel";
-import pic1 from "../images/WPC Cap.png";
-import pic2 from "../images/alumBottom.png";
-import pic3 from "../images/ironFastner.png";
-import pic4 from "../images/WPC Post 100x100.png";
-import pic5 from "../images/WPC Board.png";
-import pic6 from "../images/alumTopCover.png";
-import pic7 from "../images/WPC Set.png";
+import pic1 from "../images/WPC Cap.webp";
+import pic2 from "../images/alumBottom.webp";
+import pic3 from "../images/ironFastner.webp";
+import pic4 from "../images/WPC Post 100x100.webp";
+import pic5 from "../images/WPC Board.webp";
+import pic6 from "../images/alumTopCover.webp";
+import pic7 from "../images/WPC Set.webp";
 export const Catalog = ({
   stay,
   setStay,
@@ -28,7 +28,7 @@ export const Catalog = ({
   return (
     <main
       id="products"
-      className="w-full scroll-mt-[55px] bg-gray-100 py-4 min-h-[40vh] flex justify-start items-center flex-col"
+      className="w-full scroll-mt-[55px] bg-gray-100 py-6 min-h-[40vh] flex justify-start items-center flex-col"
     >
       <h2 className="text-4xl text-gray-600 font-bold mx-auto underline decoration-orange-400">
         Продукти
@@ -69,7 +69,7 @@ export const Catalog = ({
 
 const ItemList = ({ setPanoOpen, setCarousel }) => {
   return (
-    <section className="w-full h-[620px] overflow-y-auto sm:p-2 justify-start items-start grid grid-flow-row my-4 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 grid-rows-auto gap-4 max-w-7xl ">
+    <section className="w-full h-[650px] overflow-y-auto sm:p-2 justify-start items-start grid grid-flow-row my-4 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 grid-rows-auto gap-4 max-w-7xl ">
       <Card
         img={image}
         title={"Оградно Пано"}
@@ -153,7 +153,7 @@ const Card = ({ img, title, onClick }) => {
         alt="item"
         className="h-[70%] group-hover:scale-105 transition duration-500"
       />
-      <h3 className="transition duration-500 group-hover:translate-y-[5px] text-gray-600 text-md md:text-lg font-semibold">
+      <h3 className="transition text-center mt-2 duration-500 group-hover:translate-y-[5px] text-gray-600 text-md md:text-lg font-normal">
         {title}
       </h3>
     </div>

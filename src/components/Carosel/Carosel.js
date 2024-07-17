@@ -1,10 +1,10 @@
-import pic1 from "../../images/WPC Cap.png";
-import pic2 from "../../images/alumBottom.png";
-import pic3 from "../../images/ironFastner.png";
-import pic4 from "../../images/WPC Post 100x100.png";
-import pic5 from "../../images/WPC Board.png";
-import pic6 from "../../images/alumTopCover.png";
-import pic7 from "../../images/WPC Set.png";
+import pic1 from "../../images/WPC Cap.webp";
+import pic2 from "../../images/alumBottom.webp";
+import pic3 from "../../images/ironFastner.webp";
+import pic4 from "../../images/WPC Post 100x100.webp";
+import pic5 from "../../images/WPC Board.webp";
+import pic6 from "../../images/alumTopCover.webp";
+import pic7 from "../../images/WPC Set.webp";
 import uniqid from "uniqid";
 import { useEffect, useState } from "react";
 import "./image-slider.css";
@@ -220,7 +220,7 @@ export const Carosel = ({
     <div className="w-[90%] max-w-[1400px] bg-white rounded-md relative py-4 my-4 flex justify-center flex-col items-center">
       <button
         onClick={() => setCarousel(null)}
-        className="absolute underline top-[10px] left-[10px]"
+        className="absolute underline top-[10px] left-[10px] text-orange-400"
       >
         Назад към каталог
       </button>

@@ -156,7 +156,8 @@ export const CaroselGallery = () => {
           <Carousel
             shouldLazyLoad={true}
             hasMediaButton={false}
-            hasIndexBoard={false}
+            // hasIndexBoard={false}
+            hasThumbnails={false}
             images={IMAGES}
             style={{
               height: "75vh",
@@ -170,7 +171,8 @@ export const CaroselGallery = () => {
           <Carousel
             shouldLazyLoad={true}
             hasMediaButton={false}
-            hasIndexBoard={false}
+            // hasIndexBoard={false}
+            hasThumbnails={false}
             images={IMAGES3D}
             style={{
               height: "75vh",
@@ -184,7 +186,8 @@ export const CaroselGallery = () => {
           <Carousel
             shouldLazyLoad={true}
             hasMediaButton={false}
-            hasIndexBoard={false}
+            // hasIndexBoard={false}
+            hasThumbnails={false}
             images={FINISHED}
             style={{
               height: "75vh",

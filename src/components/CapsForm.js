@@ -1,7 +1,7 @@
 import { FormWrapper } from "./FormWrapper";
-import solar from "../images/solar.jpg";
-import led from "../images/led.png";
-import plastic from "../images/plastic.jpg";
+import solar from "../images/solar.webp";
+import led from "../images/led.webp";
+import plastic from "../images/plastic.webp";
 import { useEffect, useState } from "react";
 
 export function CapsForm({

@@ -1,5 +1,4 @@
 import { PiCubeTransparent } from "react-icons/pi";
-import { BsTools } from "react-icons/bs";
 import { AiOutlineSafetyCertificate } from "react-icons/ai";
 import { FaHandHoldingHeart, FaYoutube } from "react-icons/fa";
 import installation from "../files/installation.pdf";
@@ -10,30 +9,31 @@ export const About = () => {
   return (
     <div
       id="about"
-      className="scroll-mt-[50px] min-h-[75vh] w-full p-4 flex flex-col justify-evenly items-center group py-4"
+      className="scroll-mt-[50px] min-h-[60vh] w-full flex flex-col justify-evenly items-center group py-4"
     >
-      <div className="flex max-w-[1100px] w-[90%] gap-3 flex-col justify-evenly rounded-md py-4 items-center">
+      <div className="flex max-w-7xl w-[95%] gap-3 flex-col justify-evenly rounded-md py-4 items-center">
         <h2 className="text-4xl text-gray-600 font-bold text-center mx-auto underline decoration-orange-400">
           Защо Alcona Solutions ?
         </h2>
-        <p className="text-md p-1 md:p-5 text-gray-500 md:text-lg text-justify max-w-[1100px] w-[100%] rounded-md">
-          Alcona Solutions се занимава както с проектирането и монтажа на
-          висококачествени оградни системи така и доставка и монтаж. Hие
-          създаваме огради с усъвършенстван дизайн и висока функционалност,
-          които се вписват перфектно във вашия двор. Нашата мисия е да превърнем
-          вашите идеи в реалност.
+        <p className="text-md p-1 md:p-5 text-gray-500 md:text-lg text-justify max-w-7xl w-[100%] rounded-md">
+          Ние сме Вашият надежден партньор за уникални огради от WPC. Нашата
+          специализирана компания предлага пълни решения, включително
+          проектиране, доставка и монтаж на висококачествени оградни системи от
+          изключително издръжлив композитен материал. С усъвършенстван дизайн и
+          висока функционалност, ние създаваме огради, които перфектно се
+          вписват във вашия простор. Нашият екип от млади, амбициозни и
+          талантливи професионалисти споделя обща страст към съвременния стил и
+          високото качество. Можете да ни вярвате, че ще превърнем вашите идеи в
+          реалност.
         </p>
       </div>
-      <div className="max-w-[1100px] w-[100%] md:w-[90%] items-start my-4 justify-between md:flex-row flex-col flex">
+      <div className="max-w-7xl w-[100%] md:w-[90%] items-start my-4 justify-between md:flex-row flex-col flex">
         <Card
           img={
             <PiCubeTransparent className="mx-auto text-orange-400" size={80} />
           }
           title="3D проектиране"
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar enim eget placerat aliquam. Nullam at consequat metus, in feugiat."
-          more={
-            " - Ниско поддръжание - повърхността на WPC материалите не изисква боядисване, мазане с масло или лакиране. Дори когато са изложени на влага и UV-лъчение от околната среда, те не изискват специална грижа. - Дълъг живот - WPC материалите могат да издържат до 10 години, осигурявайки здравина и надеждност на вашата оградна система. - Комплектите включват всичко необходимо за лесен монтаж. Предлагаме разнообразие от цветове, за да задоволим вашите вкусове и предпочитания. Вашият избор за WPC оградна система е готов да донесе не само изящество и устойчивост, но и сигурност и безопасност във вашия дом или обект."
-          }
+          text="Ние от Alcona Solutions ще проектираме дизайна на Вашата бъдеща ограда напълно БЕЗПЛАТНО. Свържете се с нас за да научите повече. В замяна ще получите 3D проект спрямо Вашите изисквания за ограда и съществуващият имот."
         />
 
         <Card

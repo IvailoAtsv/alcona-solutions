@@ -111,13 +111,13 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
               position: "relative",
             }}
           />
-          <p className="text-[10px] absolute lg:self-end text-center top-[54%] translate-x-[-50%] left-[50%] w-[95%] lg:w-[20%]">
+          <p className="text-[10px] absolute lg:self-end text-center top-[53%] translate-x-[-50%] left-[50%] w-[95%] lg:w-[20%]">
             Показаният цвят на оградата е с илюстративна цел.
           </p>
         </div>
       </div>
 
-      <div className="w-full flex  flex-col justify-center items-center">
+      <div className="w-full flex mt-2 flex-col justify-center items-center">
         <div className="flex flex-col justify-center items-center w-11/12 h-11/12">
           <label className="text-lg font-semibold">Ширина: {width} cm</label>
           <input
@@ -179,6 +179,7 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
           </div>
           <p className="text-center text-lg py-2">
             {(price * Number(panelCount)).toFixed(2)} лв.
+            <p className="text-sm opacity-35 font-extralight">цена без ДДС</p>
           </p>
         </div>
       </div>

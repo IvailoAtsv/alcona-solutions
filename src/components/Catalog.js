@@ -69,11 +69,15 @@ export const Catalog = ({
 
 const ItemList = ({ setPanoOpen, setCarousel }) => {
   return (
-    <section className="w-[90%] sm:p-16 justify-start items-start grid grid-flow-row my-4 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 grid-rows-auto gap-4 max-w-[1400px] ">
-      <Card img={image} title={"Пано"} onClick={() => setPanoOpen(true)} />
+    <section className="w-full h-[620px] overflow-y-auto sm:p-2 justify-start items-start grid grid-flow-row my-4 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 grid-rows-auto gap-4 max-w-7xl ">
+      <Card
+        img={image}
+        title={"Оградно Пано"}
+        onClick={() => setPanoOpen(true)}
+      />
       <Card
         img={pic3}
-        title={"Meтална основа"}
+        title={"Метална основа"}
         onClick={() => setCarousel(3)}
       />
       <Card
@@ -85,6 +89,56 @@ const ItemList = ({ setPanoOpen, setCarousel }) => {
       <Card img={pic2} title={"Долна лайстна"} onClick={() => setCarousel(5)} />
       <Card img={pic6} title={"Горна лайстна"} onClick={() => setCarousel(6)} />
       <Card img={pic1} title={"WPC Капачка"} onClick={() => setCarousel(4)} />
+      <Card
+        img={"path_to_image"}
+        title={"Розетка за WPC стълб"}
+        onClick={() => setCarousel(7)}
+      />
+      <Card
+        img={"path_to_image"}
+        title={"Алуминиев Дистанционер"}
+        onClick={() => setCarousel(8)}
+      />
+      <Card
+        img={"path_to_image"}
+        title={"Premium Decking ТИК"}
+        onClick={() => setCarousel(9)}
+      />
+      <Card
+        img={"path_to_image"}
+        title={"Premium Decking ЧЕРЕН АНТРАЦИД"}
+        onClick={() => setCarousel(10)}
+      />
+      <Card
+        img={"path_to_image"}
+        title={"Завършващи ъгли ТИК"}
+        onClick={() => setCarousel(11)}
+      />
+      <Card
+        img={"path_to_image"}
+        title={"Завършващи ъгли ЧЕРЕН АНТРАЦИД"}
+        onClick={() => setCarousel(12)}
+      />
+      <Card
+        img={"path_to_image"}
+        title={"WPC клипс и винт"}
+        onClick={() => setCarousel(13)}
+      />
+      <Card
+        img={"path_to_image"}
+        title={"Пешеходна дворна врата"}
+        onClick={() => setCarousel(14)}
+      />
+      <Card
+        img={"path_to_image"}
+        title={"Портална плъзгаща врата"}
+        onClick={() => setCarousel(15)}
+      />
+      <Card
+        img={"path_to_image"}
+        title={"Парапет Alcona"}
+        onClick={() => setCarousel(16)}
+      />
     </section>
   );
 };

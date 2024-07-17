@@ -146,6 +146,7 @@ export const DefaultSize = ({ color, updateFields, isValid, setIsValid }) => {
               ? ((660 / 1.2) * panelCount).toFixed(2)
               : ((460 / 1.2) * panelCount).toFixed(2)}{" "}
             лв.
+            <p className="text-sm opacity-35 font-extralight">цена без ДДС</p>
           </p>
         </div>
         <p className="text-2xl text-center mt-4 text-red-600 font-bold">

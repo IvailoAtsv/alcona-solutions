@@ -27,17 +27,17 @@ export function FooterWithSitemap({ setShowPrivacy }) {
           </div>
           <div className="flex justify-start items-center w-[60%] min-h-min gap-6 md:flex-row flex-col">
             <div className="w-full">
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+              <h2 className="mb-6 text-md font-semibold text-gray-900 uppercase dark:text-white">
                 Контакти
               </h2>
               <ul className="text-gray-500 dark:text-gray-400 font-medium">
                 <li className="mb-4">
-                  <div className="flex items-center justify-start gap-1  w-auto">
+                  <div className="flex items-center justify-start gap-1 w-auto">
                     <FiPhoneCall size={16} />
                     <a
                       target="_blank"
                       href="tel:0893993129"
-                      className="text-sm font-bold"
+                      className="text-md font-bold"
                       rel="noreferrer"
                     >
                       0893993141
@@ -47,7 +47,7 @@ export function FooterWithSitemap({ setShowPrivacy }) {
                 <li>
                   <div className="flex items-center justify-start gap-1 w-auto">
                     <AiOutlineMail size={16} />
-                    <p className="text-sm font-bold">
+                    <p className="text-md font-bold">
                       office@alconasolutions.com
                     </p>
                   </div>
@@ -55,7 +55,7 @@ export function FooterWithSitemap({ setShowPrivacy }) {
               </ul>
             </div>
             <div className="w-full">
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+              <h2 className="mb-6 text-md font-semibold text-gray-900 uppercase dark:text-white">
                 Полезни линкове
               </h2>
               <ul className="text-gray-500 dark:text-gray-400 font-medium">
@@ -81,7 +81,7 @@ export function FooterWithSitemap({ setShowPrivacy }) {
         </div>
         <hr className="my-6 border-gray-200 lg:mx-auto dark:border-gray-700 lg:my-8" />
         <div className="lg:flex w-full lg:w-[80%] lg:items-center px-2 lg:justify-between">
-          <span className="text-sm text-gray-500 lg:text-center dark:text-gray-400">
+          <span className="text-md text-gray-500 lg:text-center dark:text-gray-400">
             © 2023{" "}
             <a target="_blank" href="#" className="hover:underline">
               Alcona Solutions

@@ -108,7 +108,7 @@ export const DefaultSize = ({ color, updateFields, isValid, setIsValid }) => {
               position: "relative",
             }}
           />
-          <p className="text-[10px] absolute lg:self-end text-center top-[53%] translate-x-[-50%] left-[50%] w-[95%] lg:w-[20%]">
+          <p className="text-[10px] absolute lg:self-end text-center top-[53%] translate-x-[-50%] left-[50%] w-[95%] lg:w-[30%]">
             Показаният цвят на оградата е с илюстративна цел.
           </p>
         </div>

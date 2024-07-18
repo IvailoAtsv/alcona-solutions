@@ -261,7 +261,7 @@ export const Cart = ({ cartOpen, setCartOpen, cartItems, setCartItems }) => {
               <div className="self-center mt-1 text-end w-[90%]">
                 {/* <input className="bg-white self-end text-end rounded-md w-full shadow-lg my-1 px-4 py-2" readOnly value={`Доставка: ${Number(deliverySum()).toFixed(2)} лв`} /> */}
                 <p className="bg-white self-end rounded-md shadow-lg my-1 px-4 py-2">
-                  Oбщо: {Number(getSum(cartItems)).toFixed(2)} лв.
+                  Oбщо: {Number(getSum(cartItems)).toFixed(2)} лв. без ДДС
                 </p>
               </div>
             )}

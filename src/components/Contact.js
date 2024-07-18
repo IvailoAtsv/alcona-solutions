@@ -104,7 +104,7 @@ export const Contact = () => {
   return (
     <div
       id="contact"
-      className={`w-full text-gray-600 h-auto min-h-[650px] flex-col flex justify-center items-center`}
+      className={`w-full text-gray-600 bg-black bg-opacity-10 h-auto min-h-[650px] flex-col flex justify-center items-center`}
     >
       {sent ? (
         <h1 className="text-3xl text-gray-600 font-semibold">
@@ -118,12 +118,12 @@ export const Contact = () => {
           <div className="flex  w-full items-center min-h-[600px] flex-col md:flex-row justify-center max-w-7xl">
             <img
               src={img}
-              className="flex-1 h-full md:min-h-[450px] rounded-md object-cover max-h-[300px] md:max-h-[700px] w-[95%] my-2 mx-auto md:max-w-[50%]"
+              className="flex-1  h-full md:min-h-[450px] rounded-md object-cover max-h-[300px] md:max-h-[700px] w-[95%] my-2 mx-auto md:max-w-[50%]"
               alt="alcona fences"
             />
             <form
               id="form"
-              className="max-w-[700px] w-full p-4 sm:px-8 bg-white backdrop-blur-md justify-center items-center flex flex-col min-h-min md:min-h-[600px]"
+              className="max-w-[700px] w-full p-4 sm:px-8 backdrop-blur-md justify-center items-center flex flex-col min-h-min md:min-h-[350px]"
             >
               <label className={isNameValid ? labelStyle : labelErrorStyle}>
                 * Име и Фамилия:{" "}

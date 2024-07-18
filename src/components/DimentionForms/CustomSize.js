@@ -68,7 +68,7 @@ let price;
 const premium = ["teak", "lightGrey", "green", "rosewood"];
 
 export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
-  const [height, setHeight] = useState(201.5);
+  const [height, setHeight] = useState(186);
   const [width, setWidth] = useState(186);
   const [panelCount, setPanelCount] = useState(1);
 
@@ -107,11 +107,11 @@ export const CustomSize = ({ color, updateFields, isValid, setIsValid }) => {
             src={colors[color]}
             style={{
               width: `${width * 2}px`,
-              height: `${height * 1.5}px`,
+              height: `${186 * 1.7}px`,
               position: "relative",
             }}
           />
-          <p className="text-[10px] absolute lg:self-end text-center top-[51%] translate-x-[-50%] left-[50%] w-[95%] lg:w-[20%]">
+          <p className="text-red-600 text-[10px] absolute lg:self-end text-center top-[52%] translate-x-[-50%] left-[50%] w-[95%] lg:w-[30%]">
             Показаният цвят на оградата е с илюстративна цел.
           </p>
         </div>

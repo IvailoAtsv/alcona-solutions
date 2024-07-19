@@ -10,6 +10,7 @@ import pic5 from "../images/WPC Board.webp";
 import pic6 from "../images/alumTopCover.webp";
 import pic7 from "../images/WPC Set.webp";
 import { CatalogCard } from "./CatalogCategory";
+import { FaArrowLeft } from "react-icons/fa";
 export const Catalog = ({
   stay,
   setStay,
@@ -84,13 +85,14 @@ const ItemList = ({ setPanoOpen, setCarousel }) => {
           Изберете Категория
         </h3>
       )}
-      <section className="w-full max-h-[600px] overflow-y-auto sm:p-2 justify-center items-center grid grid-flow-row my-4 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 grid-rows-auto gap-2 max-w-7xl ">
+      <section className="w-full min-h-[300px] sm:p-2 justify-center items-center grid grid-flow-row my-4 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 grid-rows-auto gap-2 max-w-7xl ">
         {category !== null && (
           <button
-            className="absolute top-0 left-2 text-orange-400 underline"
+            className="absolute top-0 flex justify-center items-center gap-1 left-2 text-orange-400 underline"
             onClick={() => setCategory(null)}
           >
-            обратно към категории
+            <FaArrowLeft size={12} />
+            обратно
           </button>
         )}
         {category === null && (
@@ -120,7 +122,7 @@ const ItemList = ({ setPanoOpen, setCarousel }) => {
             <Card
               img={image}
               main={true}
-              title={"Конфигурирай Оградно Пано"}
+              title={"Оградно Пано (Конфигурирай) "}
               onClick={() => setPanoOpen(true)}
             />
             <Card
@@ -194,6 +196,7 @@ const ItemList = ({ setPanoOpen, setCarousel }) => {
             />
           </>
         )}
+        {/* stylb, wpc stylb */}
         {category === "parapeti" && (
           <>
             {" "}
@@ -201,6 +204,21 @@ const ItemList = ({ setPanoOpen, setCarousel }) => {
               img={"path_to_image"}
               title={"Парапет Alcona"}
               onClick={() => setCarousel(16)}
+            />
+            <Card
+              img={pic5}
+              title={"Съставна дъска"}
+              onClick={() => setCarousel(1)}
+            />
+            <Card
+              img={pic4}
+              title={"WPC Стълб"}
+              onClick={() => setCarousel(2)}
+            />
+            <Card
+              img={pic3}
+              title={"Метална основа"}
+              onClick={() => setCarousel(3)}
             />
             <Card
               img={pic1}

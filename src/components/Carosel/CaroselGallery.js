@@ -146,7 +146,7 @@ export const CaroselGallery = () => {
                     Готови проекти
                   </div>
                   <div class="w-full text-sm">
-                    Снимки свързани с нашата дейност.
+                    Снимки на завършени проекти от клиенти
                   </div>
                 </div>
               </label>
@@ -167,7 +167,7 @@ export const CaroselGallery = () => {
                     3D визуализация
                   </div>
                   <div class="w-full text-sm">
-                    Снимки свързани с нашата дейност.
+                    Визуализация преди изготвяне на проект.
                   </div>
                 </div>
               </label>

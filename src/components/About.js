@@ -10,7 +10,7 @@ export const About = () => {
   return (
     <div
       id="about"
-      className="scroll-mt-[50px] min-h-[60vh] w-full flex flex-col justify-evenly items-center group py-4"
+      className="scroll-mt-[50px] bg-black bg-opacity-10 min-h-[60vh] w-full flex flex-col justify-evenly items-center group py-4"
     >
       <div className="flex max-w-7xl w-[95%] gap-3 flex-col justify-evenly rounded-md py-4 items-center">
         <h2 className="text-3xl text-gray-600 font-bold text-center mx-auto underline decoration-orange-400">
@@ -114,7 +114,7 @@ const Card = ({ img, title, text, link, btn, more }) => {
   return (
     <div className="px-1 flex-1 gap-2 text-justify w-full flex flex-col justify-between min-h-[350px]">
       {img}
-      <div className="flex h-full min-h-[230px] gap-2 flex-col justify-between items-center">
+      <div className="flex h-full min-h-[240px] gap-2 flex-col justify-between items-center">
         <h1 className="text-gray-600 text-center my-3 text-2xl font-semibold ">
           {title}
         </h1>

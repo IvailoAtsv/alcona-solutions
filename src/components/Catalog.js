@@ -1,5 +1,15 @@
 import { useEffect, useState } from "react";
 import image from "../images/fence.webp";
+import decking from "../images/decking.PNG";
+import vrata from "../images/vrata.JPG";
+import vrata2 from "../images/vrata2.JPG";
+import vrataXl from "../images/vrataXl.JPG";
+import parapet from "../images/parapet.JPG";
+import parapet1 from "../images/parapet1.PNG";
+import cherniYgli from "../images/cherniYgli.PNG";
+import clips from "../images/clips.PNG";
+import teakDeck from "../images/teakDeck.JPG";
+import teakYgli from "../images/teakYgli.PNG";
 import { MainForm } from "./MainForm";
 import { Carosel } from "./Carosel/Carosel";
 import pic1 from "../images/WPC Cap.webp";
@@ -104,14 +114,17 @@ const ItemList = ({ setPanoOpen, setCarousel }) => {
             />
             <CatalogCard
               title="Декинг Подови Настилки"
+              img={decking}
               onClick={() => setCategory("decking")}
             />
             <CatalogCard
               title="Парапетни Системи"
+              img={parapet}
               onClick={() => setCategory("parapeti")}
             />
             <CatalogCard
               title="Врати и Портали"
+              img={vrata}
               onClick={() => setCategory("portali")}
             />
           </>
@@ -170,27 +183,27 @@ const ItemList = ({ setPanoOpen, setCarousel }) => {
         {category === "decking" && (
           <>
             <Card
-              img={"path_to_image"}
+              img={teakDeck}
               title={"Premium Decking ТИК"}
               onClick={() => setCarousel(9)}
             />
             <Card
-              img={"path_to_image"}
+              img={decking}
               title={"Premium Decking ЧЕРЕН АНТРАЦИД"}
               onClick={() => setCarousel(10)}
             />
             <Card
-              img={"path_to_image"}
+              img={teakYgli}
               title={"Завършващи ъгли ТИК"}
               onClick={() => setCarousel(11)}
             />
             <Card
-              img={"path_to_image"}
+              img={cherniYgli}
               title={"Завършващи ъгли ЧЕРЕН АНТРАЦИД"}
               onClick={() => setCarousel(12)}
             />
             <Card
-              img={"path_to_image"}
+              img={clips}
               title={"WPC клипс и винт"}
               onClick={() => setCarousel(13)}
             />
@@ -201,7 +214,7 @@ const ItemList = ({ setPanoOpen, setCarousel }) => {
           <>
             {" "}
             <Card
-              img={"path_to_image"}
+              img={parapet}
               title={"Парапет Alcona"}
               onClick={() => setCarousel(16)}
             />
@@ -236,17 +249,17 @@ const ItemList = ({ setPanoOpen, setCarousel }) => {
           <>
             {" "}
             <Card
-              img={"path_to_image"}
+              img={vrata2}
               title={"Пешеходна дворна врата"}
               onClick={() => setCarousel(14)}
             />
             <Card
-              img={"path_to_image"}
+              img={vrataXl}
               title={"Портална плъзгаща врата"}
               onClick={() => setCarousel(15)}
             />
             <Card
-              img={"path_to_image"}
+              img={parapet1}
               title={"Парапет Alcona"}
               onClick={() => setCarousel(16)}
             />
@@ -267,9 +280,9 @@ const Card = ({ img, title, onClick, main }) => {
       <img
         src={img}
         alt="item"
-        className="h-[70%] group-hover:scale-105 transition duration-500"
+        className="h-[70%] rounded-md group-hover:scale-105 transition duration-500"
       />
-      <h3 className="transition text-center mt-2 duration-500 group-hover:translate-y-[5px] text-gray-600 text-md md:text-lg font-normal">
+      <h3 className="transition text-center mt-4 duration-500 group-hover:translate-y-[5px] text-gray-700 text-sm md:text-md font-normal">
         {title}
       </h3>
     </div>

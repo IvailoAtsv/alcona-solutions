@@ -12,6 +12,7 @@ export const Gallery = () => {
           <img
             src={img}
             className="rounded-md hover:z-50 hover:scale-150 duration-300 w-auto h-[250px] object-contain"
+            alt="Alcona solution projects/ проекти от Алкона солюшънс"
           />
         ))}
       </div>

@@ -1,3 +1,4 @@
+import parapet from "../../images/parapet.JPG";
 import pic1 from "../../images/WPC Cap.webp";
 import pic2 from "../../images/alumBottom.webp";
 import pic3 from "../../images/ironFastner.webp";
@@ -5,6 +6,15 @@ import pic4 from "../../images/WPC Post 100x100.webp";
 import pic5 from "../../images/WPC Board.webp";
 import pic6 from "../../images/alumTopCover.webp";
 import pic7 from "../../images/WPC Set.webp";
+import decking from "../../images/decking.PNG";
+import vrata2 from "../../images/vrata2.JPG";
+import vrataXl from "../../images/vrataXl.JPG";
+import parapet1 from "../../images/parapet1.PNG";
+import vrata from "../../images/vrata.JPG";
+import cherniYgli from "../../images/cherniYgli.PNG";
+import clips from "../../images/clips.PNG";
+import teakDeck from "../../images/teakDeck.JPG";
+import teakYgli from "../../images/teakYgli.PNG";
 import uniqid from "uniqid";
 import { useEffect, useState } from "react";
 import "./image-slider.css";
@@ -79,7 +89,7 @@ const items = [
     title:
       "Цвят ТИК Premium Decking Дъска Дървесна шарка /размери 2900х140х2.5 мм/",
     price: 48.78,
-    image: { url: "path_to_image", alt: "decking_tik" },
+    image: { url: teakDeck, alt: "decking_tik" },
     description:
       "Високо качествена Декинг дъска съставена от композит не WPC Пластмаса и Дърво с 10 години гаранция за качество. Шестте кръгли отвора я отличават от останалите декинг дъски с четири квадратни отвора на пазара, с два пъти по-голямата плътност и издръжливост. Всяка дъска е с размери 2900х140х25 мм като за един квадратен метър настилка са необходими 2.46 броя дъски.",
   },
@@ -87,47 +97,47 @@ const items = [
     title:
       "Цвят ЧЕРЕН АНТРАЦИД Premium Decking Дъска Дървесна шарка /размери 2900х140х2.5 мм/",
     price: 48.78,
-    image: { url: "path_to_image", alt: "decking_antracid" },
+    image: { url: decking, alt: "decking_antracid" },
     description:
       "Високо качествена Декинг дъска съставена от композит не WPC Пластмаса и Дърво с 10 години гаранция за качество. Шестте кръгли отвора я отличават от останалите декинг дъски с четири квадратни отвора на пазара, с два пъти по-голямата плътност и издръжливост. Всяка дъска е с размери 2900х140х25 мм като за един квадратен метър настилка са необходими 2.46 броя дъски.",
   },
   {
     title: "Цвят ТИК Завършващи ъгли за Decking /размери 2900х41х41 мм/",
     price: 9.2,
-    image: { url: "path_to_image", alt: "angle_tik" },
+    image: { url: teakYgli, alt: "angle_tik" },
     description: "Завършващи ъгли за Decking с размери 2900х41х41 мм.",
   },
   {
     title:
       "ЦВЯТ ЧЕРЕН АНТРАЦИД Завършващи ъгли за Decking /размери 2900х41х41 мм/",
     price: 9.2,
-    image: { url: "path_to_image", alt: "angle_antracid" },
+    image: { url: cherniYgli, alt: "angle_antracid" },
     description: "Завършващи ъгли за Decking с размери 2900х41х41 мм.",
   },
   {
     title: "WPC клипс и винт за Decking",
     price: 0.25,
-    image: { url: "path_to_image", alt: "clip" },
+    image: { url: clips, alt: "clip" },
     description: "WPC клипс и винт за Decking. Цена за брой (20 бр в м2).",
   },
   {
     title: "Пешеходна дворна врата с пълнеж от WPC дъски 190х90",
     price: 916.66,
-    image: { url: "path_to_image", alt: "gate" },
+    image: { url: vrata2, alt: "gate" },
     description:
       "С включени два стълба за монтаж, брава, патрон насрещници. Металите са поцинковани и прахово боядисани по RAL.",
   },
   {
     title: "Портална плъзгаща врата",
     price: 2916,
-    image: { url: "path_to_image", alt: "sliding_gate" },
+    image: { url: vrataXl, alt: "sliding_gate" },
     description:
       "Портална врата с пълнеж от WPC дъски на окачен количков механизъм с включени два стълба за монтаж, планки, колички, ролки за монтаж. Металите са поцинковани и прахово боядисани по RAL - Размери Дължина 3200-4200мм / 1900мм Височина.",
   },
   {
     title: "Парапет Alcona - 110 см Височина",
     price: 108.33,
-    image: { url: "path_to_image", alt: "parapet" },
+    image: { url: parapet, alt: "parapet" },
     description:
       "С 4 броя хоризонтални дъски, стълб и метално перило цвят по RAL (поцинкован метал / прахово боядисан) и всички болтове необходими за монтажа.",
   },
@@ -264,7 +274,7 @@ export const Carosel = ({
           <h1 className="text-xl w-full font-semibold">
             {items[imageIndex].title}
           </h1>
-          <p className="text-sm text-left w-[90%] bg-cardBg rounded-md backdrop-blur-md">
+          <p className="text-sm text-justify w-[90%] bg-cardBg rounded-md backdrop-blur-md">
             {items[imageIndex].description}
           </p>
           {imageIndex !== 0 ? (

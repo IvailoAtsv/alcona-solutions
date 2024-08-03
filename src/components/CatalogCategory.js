@@ -7,7 +7,7 @@ export const CatalogCard = ({ img, title, onClick }) => {
       <img
         src={img}
         alt="item"
-        className="h-[70%] group-hover:scale-105 transition duration-500"
+        className="h-[70%] rounded-md group-hover:scale-105 transition duration-500"
       />
       <h3 className="transition text-center mt-2 duration-500 group-hover:translate-y-[5px] text-gray-600 text-md md:text-lg font-normal">
         {title}

@@ -91,7 +91,12 @@ const Navigation = ({ cartOpen, setCartOpen, cartItems }) => {
           </div>
           <div className="flex items-center justify-center gap-1 w-auto">
             <AiOutlineMail size={16} />
-            <p className="text-sm font-bold">office@alconasolutions.com</p>
+            <a
+              href="mailto:office@alconasolutions.com"
+              className="text-sm font-bold"
+            >
+              office@alconasolutions.com
+            </a>
           </div>
         </div>
         <div className="flex justify-end ml-auto">

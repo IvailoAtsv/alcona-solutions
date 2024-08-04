@@ -227,7 +227,7 @@ export const Carosel = ({
   }, []);
 
   return (
-    <div className="w-[90%] max-w-[1400px] bg-white rounded-md relative py-4 my-4 flex justify-center flex-col items-center">
+    <div className="w-[95%] mx-auto max-w-[1400px] bg-white rounded-md relative pt-4 my-4 flex justify-center flex-col items-center">
       <button
         onClick={() => setCarousel(null)}
         className="absolute underline top-[10px] left-[10px] text-orange-400"
@@ -237,21 +237,24 @@ export const Carosel = ({
 
       <div
         id="products"
-        className="flex w-[95%] gap-2 bg-no-repeat bg-center bg-contain min-h-[70vh] md:flex-row justify-evenly items-center max-w-[1400px]"
+        className="flex w-[95%] md:mt-2 mt-10 gap-2 bg-no-repeat bg-center bg-contain min-h-[70vh] flex-col md:flex-row justify-evenly items-center max-w-[1400px]"
       >
         <section
           aria-label="Image Slider"
-          className="w-full h-[50vh] sm:max-w-[50vh] relative"
+          className="w-full md:max-h-none max-h-[400px] h-[40vh] md:h-[50vh] md:max-w-[50vh] relative"
         >
           <div className="w-full h-full flex overflow-hidden">
             {items.map((item, index) => (
-              <div key={uniqid()} className="w-full h-full shrink-0 grow-0">
+              <div
+                key={uniqid()}
+                className="w-full rounded-md h-full shrink-0 grow-0"
+              >
                 <img
                   loading="lazy"
                   src={item.image.url}
                   alt={item.image.alt}
                   aria-hidden={imageIndex !== index}
-                  className="img-slider-img bg-white w-full h-full rounded-xl"
+                  className="img-slider-img rounded-md object-contain bg-white w-full h-full"
                   style={{ translate: `${-100 * imageIndex}%` }}
                 />
               </div>
@@ -270,7 +273,7 @@ export const Carosel = ({
           <div id="after-image-slider-controls" />
         </section>
 
-        <form className="md:w-[30%] gap-2 text-center min-h-[70vh] w-[80%] flex flex-col justify-center lg:justify-evenly items-center">
+        <form className="md:w-[30%] gap-2 text-center min-h-[50vh] w-full flex flex-col justify-center lg:justify-evenly items-center">
           <h1 className="text-xl w-full font-semibold">
             {items[imageIndex].title}
           </h1>

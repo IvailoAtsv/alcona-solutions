@@ -4,8 +4,8 @@ import decking from "../images/decking.PNG";
 import vrata from "../images/vrata.JPG";
 import vrata2 from "../images/vrata2.JPG";
 import vrataXl from "../images/vrataXl.JPG";
-import parapet from "../images/parapet.JPG";
 import parapet1 from "../images/parapet1.PNG";
+import parapet from "../images/parapet.JPG";
 import cherniYgli from "../images/cherniYgli.PNG";
 import clips from "../images/clips.PNG";
 import teakDeck from "../images/teakDeck.JPG";
@@ -258,11 +258,6 @@ const ItemList = ({ setPanoOpen, setCarousel }) => {
               title={"Портална плъзгаща врата"}
               onClick={() => setCarousel(15)}
             />
-            <Card
-              img={parapet1}
-              title={"Парапет Alcona"}
-              onClick={() => setCarousel(16)}
-            />
           </>
         )}
       </section>
@@ -282,7 +277,7 @@ const Card = ({ img, title, onClick, main }) => {
         alt="item"
         className="h-[70%] rounded-md group-hover:scale-105 transition duration-500"
       />
-      <h3 className="transition text-center mt-4 duration-500 group-hover:translate-y-[5px] text-gray-700 text-sm md:text-md font-normal">
+      <h3 className="min-h-[50px] flex items-center transition text-center mt-4 duration-500 group-hover:translate-y-[5px] text-gray-700 text-sm md:text-md font-normal">
         {title}
       </h3>
     </div>
